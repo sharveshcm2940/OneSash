@@ -1,0 +1,62 @@
+import { Link } from "react-router-dom"
+import { SashLogo } from "../ui/SashLogo"
+
+export const Footer = () => {
+  return (
+    <footer className="border-t border-border bg-background py-16 text-foreground">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-border">
+          {/* Left: Brand */}
+          <div className="space-y-4">
+            <Link to="/" className="flex items-center gap-3">
+              <SashLogo className="w-7 h-7" />
+              <span className="font-heading font-bold text-2xl tracking-tight">1Sash</span>
+            </Link>
+            <p className="text-xs font-mono tracking-widest text-muted-foreground uppercase">
+              EST. 2026 • SOFTWARE FREELANCING
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
+              Software freelancing company founded by three engineering students, building practical digital products and systems for real-world problems.
+            </p>
+          </div>
+
+          {/* Center: Founders */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Founders</h4>
+            <ul className="space-y-2 text-sm font-medium">
+              <li className="flex items-center gap-2">
+                <span className="text-foreground">Sarveshvara A</span>
+                <span className="text-xs font-mono text-muted-foreground">— Founder</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-foreground">Sharvesh CM</span>
+                <span className="text-xs font-mono text-muted-foreground">— Founder</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-foreground">Siddharth Santhosh Kumar</span>
+                <span className="text-xs font-mono text-muted-foreground">— Cofounder</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Right: Navigation */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Navigation</h4>
+            <ul className="space-y-2 text-sm font-medium">
+              <li><a href="/#work" className="text-muted-foreground hover:text-foreground transition-colors">Work</a></li>
+              <li><Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
+              <li><Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">Services</Link></li>
+              <li><Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted-foreground">
+          <p>© 2026 1Sash. All rights reserved.</p>
+          <p>Handcrafted by engineering students in India.</p>
+        </div>
+      </div>
+    </footer>
+  )
+}
+

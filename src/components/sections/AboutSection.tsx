@@ -1,0 +1,120 @@
+import { motion } from "framer-motion"
+import { GraduationCap } from "lucide-react"
+
+interface Founder {
+  name: string
+  role: string
+  spec: string
+  bio: string
+}
+
+const founders: Founder[] = [
+  {
+    name: "Sarveshvara A",
+    role: "Founder",
+    spec: "Full-Stack Systems & Architecture",
+    bio: "Focused on building reliable backend pipelines, clean database schemas, and end-to-end web product engineering."
+  },
+  {
+    name: "Sharvesh CM",
+    role: "Founder",
+    spec: "Frontend Engineering & Interactive UI",
+    bio: "Specializing in high-performance client interfaces, responsive web systems, and fluid interactive user experiences."
+  },
+  {
+    name: "Siddharth Santhosh Kumar",
+    role: "Cofounder",
+    spec: "Product Logic & Operations",
+    bio: "Dedicated to converting client workflow requirements into clean software architecture and functional digital solutions."
+  }
+]
+
+export const AboutSection = () => {
+  return (
+    <section className="py-24 md:py-36 bg-background border-b border-border">
+      <div className="container mx-auto px-4 md:px-8">
+        
+        {/* Unconventional Editorial Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 pb-12 border-b border-border">
+          <div className="lg:col-span-8 space-y-4">
+            <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+              FOUNDING STORY • EST. 2026
+            </span>
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-serif leading-[0.98] text-foreground">
+              THREE ENGINEERS.<br />ONE COMPANY.
+            </h2>
+          </div>
+
+          <div className="lg:col-span-4 flex flex-col justify-end space-y-4 text-sm text-muted-foreground leading-relaxed">
+            <p>
+              1Sash was founded in 2026 by three engineering college students who shared a common conviction: software freelancing shouldn’t be built on bloated templates or buzzwords.
+            </p>
+            <p className="font-mono text-xs text-foreground">
+              We write real, maintainable code for real organizations.
+            </p>
+          </div>
+        </div>
+
+        {/* Founders Grid — Architectural & Grounded */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {founders.map((founder, idx) => (
+            <motion.div
+              key={founder.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="p-8 border border-border bg-card/40 rounded-lg space-y-6 flex flex-col justify-between hover:bg-card/80 transition-colors"
+            >
+              <div className="space-y-4">
+                {/* Monogram / Architectural Badge */}
+                <div className="w-12 h-12 rounded border border-border bg-background flex items-center justify-center font-mono text-lg font-bold text-foreground">
+                  0{idx + 1}
+                </div>
+
+                <div>
+                  <div className="text-xs font-mono text-accent uppercase tracking-widest mb-1">
+                    {founder.role}
+                  </div>
+                  <h3 className="text-2xl font-serif text-foreground">
+                    {founder.name}
+                  </h3>
+                  <div className="text-xs font-mono text-muted-foreground mt-1">
+                    {founder.spec}
+                  </div>
+                </div>
+
+                <p className="text-xs text-muted-foreground leading-relaxed border-t border-border/60 pt-4">
+                  {founder.bio}
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-border flex items-center justify-between text-[11px] font-mono text-muted-foreground">
+                <span className="flex items-center gap-1.5">
+                  <GraduationCap className="w-3.5 h-3.5 text-foreground" /> Engineering Student
+                </span>
+                <span>1Sash • 2026</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Story Banner */}
+        <div className="mt-16 p-8 border border-border bg-card/20 rounded-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="space-y-1">
+            <h4 className="text-lg font-serif text-foreground">
+              The Hands-On Engineering Ethos
+            </h4>
+            <p className="text-xs text-muted-foreground leading-relaxed max-w-2xl">
+              Being young engineers means we bring fresh technological practices, rapid adaptability, and total commitment to every line of code we ship. No corporate bureaucracy, no middlemen.
+            </p>
+          </div>
+          <div className="font-mono text-xs px-4 py-2 border border-border bg-background rounded text-foreground whitespace-nowrap">
+            STUDENT ORIGINS • REAL CRAFTSMANSHIP
+          </div>
+        </div>
+
+      </div>
+    </section>
+  )
+}

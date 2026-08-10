@@ -1,0 +1,8 @@
+{
+  "name": "1Sash",
+  "description": "1Sash — Software freelancing company founded in 2026 by three engineering college students. Building practical digital products, web applications, CRMs, and custom software.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

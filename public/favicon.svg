@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <!-- Main Royal Ribbon Gradient -->
+    <linearGradient id="sash-grad-royal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#6366F1" />
+      <stop offset="35%" stopColor="#4F46E5" />
+      <stop offset="70%" stopColor="#3B82F6" />
+      <stop offset="100%" stopColor="#06B6D4" />
+    </linearGradient>
+
+    <!-- Secondary Aurora Gradient -->
+    <linearGradient id="sash-grad-aurora" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stopColor="#10B981" />
+      <stop offset="50%" stopColor="#06B6D4" />
+      <stop offset="100%" stopColor="#3B82F6" />
+    </linearGradient>
+
+    <!-- Accent Neon Flare Gradient -->
+    <linearGradient id="sash-grad-flare" x1="10%" y1="90%" x2="90%" y2="10%">
+      <stop offset="0%" stopColor="#EC4899" />
+      <stop offset="50%" stopColor="#D946EF" />
+      <stop offset="100%" stopColor="#8B5CF6" />
+    </linearGradient>
+
+    <!-- Premium Champagne Gold Accents -->
+    <linearGradient id="sash-grad-gold" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="#D97706" />
+      <stop offset="50%" stopColor="#F59E0B" />
+      <stop offset="100%" stopColor="#FDE047" />
+    </linearGradient>
+
+    <!-- Dark Glass Reflective Gradient -->
+    <linearGradient id="sash-grad-glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.15" />
+      <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.01" />
+    </linearGradient>
+
+    <!-- High-Fi SVG Glow Filter -->
+    <filter id="high-fi-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComponentTransfer in="blur" result="brightBlur">
+        <feFuncA type="linear" slope="1.5" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="brightBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Soft Shadow Filter -->
+    <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" floodColor="#000000" floodOpacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Layer 1: Ambient Background Radar/Grid System (Micro-Tech detailing) -->
+  <g opacity="0.3">
+    <!-- Subtle Outer Target Crosshairs -->
+    <line x1="50" y1="5" x2="50" y2="12" stroke="#6366F1" strokeWidth="1" strokeLinecap="round" />
+    <line x1="50" y1="88" x2="50" y2="95" stroke="#6366F1" strokeWidth="1" strokeLinecap="round" />
+    <line x1="5" y1="50" x2="12" y2="50" stroke="#6366F1" strokeWidth="1" strokeLinecap="round" />
+    <line x1="88" y1="50" x2="95" y2="50" stroke="#6366F1" strokeWidth="1" strokeLinecap="round" />
+
+    <!-- Concentric Calibration Ticks -->
+    <circle
+      cx="50"
+      cy="50"
+      r="44"
+      stroke="#94A3B8"
+      strokeWidth="0.75"
+      strokeDasharray="1, 7"
+    />
+    <circle
+      cx="50"
+      cy="50"
+      r="38"
+      stroke="#6366F1"
+      strokeWidth="0.5"
+      strokeDasharray="12, 6, 2, 6"
+      opacity="0.5"
+    />
+  </g>
+
+  <!-- Layer 2: Hexagonal Outer Boundary Shield (Double-layered) -->
+  <polygon
+    points="50,7 87,28.5 87,71.5 50,93 13,71.5 13,28.5"
+    stroke="url(#sash-grad-royal)"
+    strokeWidth="1.5"
+    strokeLinejoin="round"
+    opacity="0.4"
+  />
+  <polygon
+    points="50,11 83.5,30.5 83.5,69.5 50,89 16.5,69.5 16.5,30.5"
+    stroke="url(#sash-grad-aurora)"
+    strokeWidth="0.75"
+    strokeLinejoin="round"
+    strokeDasharray="10, 5"
+    opacity="0.6"
+  />
+
+  <!-- Layer 3: Main Sculpted 'S' Sash Ribbons with Overlap & Real Depth -->
+  <g filter="url(#soft-shadow)">
+    <!-- Main Backdrop Ribbon Glow -->
+    <path
+      d="M26,35 C25,18 46,12 66,21 C82,28 77,47 55,51 C33,55 23,65 29,81 C35,95 66,94 77,78"
+      stroke="url(#sash-grad-royal)"
+      strokeWidth="12"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      opacity="0.45"
+      filter="url(#high-fi-glow)"
+    />
+
+    <!-- Primary High-Precision Woven Sash Path -->
+    <path
+      d="M26,35 C25,18 46,12 66,21 C82,28 77,47 55,51 C33,55 23,65 29,81 C35,95 66,94 77,78"
+      stroke="url(#sash-grad-royal)"
+      strokeWidth="11"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+
+    <!-- Kinetic Light-Guide Core Line -->
+    <path
+      d="M26,35 C25,18 46,12 66,21 C82,28 77,47 55,51 C33,55 23,65 29,81 C35,95 66,94 77,78"
+      stroke="#FFFFFF"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      opacity="0.75"
+    />
+
+    <!-- Dynamic Layer B: Left Overlapping Flare -->
+    <path
+      d="M74,33 C74,23 64,16 50,16"
+      stroke="url(#sash-grad-flare)"
+      strokeWidth="4.5"
+      strokeLinecap="round"
+      opacity="0.9"
+    />
+
+    <!-- Dynamic Layer C: Right Overlapping Mint/Teal Flare -->
+    <path
+      d="M26,67 C26,77 36,84 50,84"
+      stroke="url(#sash-grad-aurora)"
+      strokeWidth="4.5"
+      strokeLinecap="round"
+      opacity="0.9"
+    />
+
+    <!-- Hyper-Elite Gold Highlight Curve -->
+    <path
+      d="M36,21 C45,16 56,16 64,20"
+      stroke="url(#sash-grad-gold)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      opacity="0.8"
+    />
+    <path
+      d="M64,79 C55,84 44,84 36,80"
+      stroke="url(#sash-grad-gold)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      opacity="0.8"
+    />
+  </g>
+
+  <!-- Layer 4: Glassmorphic Diagonal Flare Shading -->
+  <polygon
+    points="25,25 75,25 50,75"
+    fill="url(#sash-grad-glass)"
+    opacity="0.3"
+  />
+
+  <!-- Layer 5: Glowing Core Quantum Singularity Node -->
+  <g filter="url(#high-fi-glow)">
+    <!-- Outer Core Pulsing Aura -->
+    <circle
+      cx="50"
+      cy="50"
+      r="6.5"
+      fill="url(#sash-grad-flare)"
+      opacity="0.5"
+    />
+
+    <!-- Mid Core Circle -->
+    <circle
+      cx="50"
+      cy="50"
+      r="4"
+      fill="url(#sash-grad-royal)"
+    />
+
+    <!-- Ultra-Bright Center Hotspot -->
+    <circle
+      cx="50"
+      cy="50"
+      r="2"
+      fill="#FFFFFF"
+    />
+  </g>
+</svg>
