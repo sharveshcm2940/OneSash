@@ -16,11 +16,11 @@ export interface SEOProps {
 const DEFAULT_SITE_NAME = "1Sash — Software Development Studio"
 const DEFAULT_TITLE = "1Sash — Full-Stack Software Engineering & Freelance Studio"
 const DEFAULT_DESCRIPTION =
-  "1Sash is a modern software engineering studio based in Chennai, India. Founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, and Vivek A. We craft custom web applications, mobile apps, AI solutions, and cloud architectures."
+  "1Sash Technocrafts is a top-tier software engineering studio in Chennai, India. Founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, and Vivek A. We engineer custom web systems, mobile apps, enterprise AI solutions, and cloud DevOps."
 const DEFAULT_KEYWORDS =
-  "1Sash, software development studio, full stack web development, React Vite TypeScript, Chennai software company, custom software development, mobile app development, AI solutions, cloud devops, software freelancing company, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A"
-const DEFAULT_OG_IMAGE = "https://onesash.com/og-image.png"
-const SITE_URL = "https://onesash.com"
+  "1Sash, 1Sash Technocrafts, software development studio, full stack web development, React Vite TypeScript, Chennai software company, custom software development, mobile app development, AI solutions, cloud devops, software freelancing company, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A"
+const DEFAULT_OG_IMAGE = "https://onesash.co.in/onesash-logo.jpg"
+const DEFAULT_SITE_URL = "https://onesash.co.in"
 
 export const SEO = ({
   title,
@@ -35,11 +35,15 @@ export const SEO = ({
   noindex = false,
 }: SEOProps) => {
   const fullTitle = title
-    ? `${title} | 1Sash`
+    ? `${title} | 1Sash Technocrafts`
     : DEFAULT_TITLE
 
+  const currentOrigin = typeof window !== "undefined" && window.location.origin && !window.location.origin.includes("localhost")
+    ? window.location.origin
+    : DEFAULT_SITE_URL
+
   const path = typeof window !== "undefined" ? window.location.pathname : ""
-  const canonical = canonicalUrl || `${SITE_URL}${path}`
+  const canonical = canonicalUrl || `${currentOrigin}${path}`
 
   // Default Organization JSON-LD Schema
   const defaultOrgSchema = {
@@ -47,9 +51,10 @@ export const SEO = ({
     "@type": "ProfessionalService",
     "name": "1Sash",
     "legalName": "1Sash Technocrafts",
-    "url": SITE_URL,
-    "logo": `${SITE_URL}/favicon.svg`,
-    "image": ogImage,
+    "alternateName": ["1Sash Studio", "1Sash Software Studio"],
+    "url": currentOrigin,
+    "logo": `${currentOrigin}/onesash-logo.jpg`,
+    "image": ogImage.startsWith("http") ? ogImage : `${currentOrigin}${ogImage}`,
     "description": DEFAULT_DESCRIPTION,
     "email": "onesash.contact@gmail.com",
     "telephone": ["+918903467843", "+919980399557"],
@@ -81,7 +86,7 @@ export const SEO = ({
       {
         "@type": "Person",
         "name": "Vivek A",
-        "jobTitle": "Marketing Head",
+        "jobTitle": "Co-founder & Marketing Head",
         "sameAs": "https://www.linkedin.com/in/vivek-arumugam-a01303328/"
       }
     ],
@@ -97,21 +102,53 @@ export const SEO = ({
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "1Sash",
-    "alternateName": "1Sash Technocrafts",
-    "url": SITE_URL,
+    "name": "1Sash Technocrafts",
+    "alternateName": "1Sash",
+    "url": currentOrigin,
     "potentialAction": {
       "@type": "SearchAction",
-      "target": `${SITE_URL}/resources?search={search_term_string}`,
+      "target": `${currentOrigin}/resources?search={search_term_string}`,
       "query-input": "required name=search_term_string"
     }
   }
 
+  // Generate Automatic BreadcrumbList Schema based on route path
+  const pathSegments = path.split("/").filter(Boolean)
+  const breadcrumbElements = [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": currentOrigin
+    }
+  ]
+
+  let accumulatedPath = ""
+  pathSegments.forEach((segment, index) => {
+    accumulatedPath += `/${segment}`
+    const formattedName = segment
+      .replace(/-/g, " ")
+      .replace(/\b\w/g, (char) => char.toUpperCase())
+
+    breadcrumbElements.push({
+      "@type": "ListItem",
+      "position": index + 2,
+      "name": formattedName,
+      "item": `${currentOrigin}${accumulatedPath}`
+    })
+  })
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbElements
+  }
+
   const combinedSchema = schema
     ? Array.isArray(schema)
-      ? [defaultOrgSchema, websiteSchema, ...schema]
-      : [defaultOrgSchema, websiteSchema, schema]
-    : [defaultOrgSchema, websiteSchema]
+      ? [defaultOrgSchema, websiteSchema, breadcrumbSchema, ...schema]
+      : [defaultOrgSchema, websiteSchema, breadcrumbSchema, schema]
+    : [defaultOrgSchema, websiteSchema, breadcrumbSchema]
 
   return (
     <Helmet>
