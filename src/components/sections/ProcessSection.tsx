@@ -36,11 +36,11 @@ const processStages: ProcessStage[] = [
     stepNumber: "STAGE 01",
     title: "Discovery & Architectural Blueprint",
     subtitle: "Deconstructing Requirements & Database Modeling",
-    leadFounder: "Siddharth & Sarveshvara",
+    leadFounder: "Siddharth & Saraveshvaran",
     timeline: "Days 1 – 3",
     icon: FileCode2,
     summary:
-      "We eliminate ambiguity before writing code. Through direct discovery sessions with Sarveshvara, Sharvesh, and Siddharth, we draft system ERDs, choose the tech stack, and finalize the API data contracts.",
+      "We eliminate ambiguity before writing code. Through direct discovery sessions with Saraveshvaran, Sharvesh, and Siddharth, we draft system ERDs, choose the tech stack, and finalize the API data contracts.",
     inputData: "Operational pain points, workflow diagrams, brand guidelines, and core data requirements.",
     deliveredArtifacts: [
       "Normalized PostgreSQL / Firestore database schema ERD",
@@ -86,7 +86,7 @@ export const themeTokens = {
     stepNumber: "STAGE 03",
     title: "Sprint Engineering & Live Staging",
     subtitle: "Strict TypeScript & Modular Code",
-    leadFounder: "Sarveshvara, Sharvesh & Siddharth",
+    leadFounder: "Saraveshvaran, Sharvesh & Siddharth",
     timeline: "Sprint Weeks 1 – 3",
     icon: Code2,
     summary:
@@ -111,7 +111,7 @@ app.post("/api/v1/resource", async (req, res) => {
     stepNumber: "STAGE 04",
     title: "QA Hardening & Security Audit",
     subtitle: "OWASP Compliance & Performance Tuning",
-    leadFounder: "Sarveshvara A (Systems Lead)",
+    leadFounder: "Saraveshvaran A (Systems Lead)",
     timeline: "Pre-Release Week",
     icon: ShieldCheck,
     summary:
@@ -134,7 +134,7 @@ export function sanitizeInput(raw: string): string {
     stepNumber: "STAGE 05",
     title: "Cloud Release & Founder Handoff",
     subtitle: "Zero-Downtime Deployment & Source Control",
-    leadFounder: "Sarveshvara & Siddharth",
+    leadFounder: "Saraveshvaran & Siddharth",
     timeline: "Launch Day",
     icon: Rocket,
     summary:
@@ -157,7 +157,7 @@ gcloud run deploy app-service \\
     stepNumber: "STAGE 06",
     title: "Post-Launch Growth & Active Monitoring",
     subtitle: "Direct Support & Operational Scalability",
-    leadFounder: "Sarveshvara, Sharvesh & Siddharth",
+    leadFounder: "Saraveshvaran, Sharvesh & Siddharth",
     timeline: "Ongoing Partner Support",
     icon: Activity,
     summary:
@@ -169,7 +169,7 @@ gcloud run deploy app-service \\
       "Direct WhatsApp / Slack communication channel with founders",
       "Iterative feature sprint planning for phase 2 expansion"
     ],
-    qualityCheck: "<24h response time SLA directly from Sarveshvara, Sharvesh, and Siddharth.",
+    qualityCheck: "<24h response time SLA directly from Saraveshvaran, Sharvesh, and Siddharth.",
     codeSnippet: `// Health Monitoring Endpoint
 app.get("/api/health", (req, res) => {
   res.json({ status: "healthy", uptime: process.uptime(), timestamp: Date.now() });

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowUpRight, X, ShieldCheck, CheckCircle2, Sparkles, QrCode, Users, Building2, Briefcase } from "lucide-react"
+import { Card3DTilt } from "../ui/Card3DTilt"
 
 export interface Project {
   id: string
@@ -120,75 +121,76 @@ export const SelectedWorkSection = () => {
         </div>
 
         {/* Vertical Project List */}
-        <div className="space-y-24">
+        <div className="space-y-16">
           {projects.map((project, idx) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center p-6 md:p-10 rounded-lg border border-border bg-card/30 hover:bg-card/70 transition-all duration-300"
-            >
-              {/* Left Column: Number + Info (5 cols) */}
-              <div className="lg:col-span-5 space-y-6">
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-4xl md:text-5xl font-light text-muted-foreground/60 group-hover:text-foreground transition-colors">
-                    {project.number}
-                  </span>
-                  <div className="h-px flex-1 bg-border" />
-                  <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
-                    {project.category}
-                  </span>
-                </div>
-
-                <h3 className="text-3xl md:text-4xl font-serif text-foreground group-hover:accent-text transition-colors">
-                  {project.title}
-                </h3>
-
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {project.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs font-mono px-2.5 py-1 rounded-sm border border-border bg-background/80 text-foreground"
-                    >
-                      {tech}
+            <Card3DTilt key={project.id} maxTilt={6}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center p-6 md:p-10 rounded-lg border border-border bg-card/30 hover:bg-card/70 transition-all duration-300 shadow-sm"
+              >
+                {/* Left Column: Number + Info (5 cols) */}
+                <div className="lg:col-span-5 space-y-6">
+                  <div className="flex items-center gap-4">
+                    <span className="font-mono text-4xl md:text-5xl font-light text-muted-foreground/60 group-hover:text-foreground transition-colors">
+                      {project.number}
                     </span>
-                  ))}
-                </div>
-
-                <div className="pt-4">
-                  <button
-                    onClick={() => setActiveProject(project)}
-                    className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-foreground hover:text-accent font-semibold group/btn"
-                  >
-                    <span>LAUNCH INTERACTIVE DEMO</span>
-                    <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Right Column: Visual Mockup Container (7 cols) */}
-              <div className="lg:col-span-7">
-                <div
-                  onClick={() => setActiveProject(project)}
-                  className="relative cursor-pointer aspect-video md:aspect-[16/10] rounded-md border border-border bg-background p-4 md:p-6 overflow-hidden shadow-xs group-hover:border-foreground/30 transition-all"
-                >
-                  <MockupPreview type={project.mockupType} title={project.title} />
-
-                  <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-colors flex items-center justify-center">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity px-4 py-2 bg-foreground text-background text-xs font-mono tracking-wider rounded-sm shadow-md">
-                      CLICK TO TEST INTERACTIVE SYSTEM
+                    <div className="h-px flex-1 bg-border" />
+                    <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
+                      {project.category}
                     </span>
                   </div>
+
+                  <h3 className="text-3xl md:text-4xl font-serif text-foreground group-hover:accent-text transition-colors font-bold">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {project.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs font-mono px-2.5 py-1 rounded-sm border border-border bg-background/80 text-foreground"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="pt-4">
+                    <button
+                      onClick={() => setActiveProject(project)}
+                      className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-foreground hover:text-accent font-semibold group/btn"
+                    >
+                      <span>LAUNCH INTERACTIVE DEMO</span>
+                      <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+
+                {/* Right Column: Visual Mockup Container (7 cols) */}
+                <div className="lg:col-span-7">
+                  <div
+                    onClick={() => setActiveProject(project)}
+                    className="relative cursor-pointer aspect-video md:aspect-[16/10] rounded-md border border-border bg-background p-4 md:p-6 overflow-hidden shadow-xs group-hover:border-foreground/30 transition-all"
+                  >
+                    <MockupPreview type={project.mockupType} title={project.title} />
+
+                    <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-colors flex items-center justify-center">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity px-4 py-2 bg-foreground text-background text-xs font-mono tracking-wider rounded-sm shadow-md">
+                        CLICK TO TEST INTERACTIVE SYSTEM
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </Card3DTilt>
           ))}
         </div>
 

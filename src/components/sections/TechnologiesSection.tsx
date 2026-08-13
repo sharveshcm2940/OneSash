@@ -8,6 +8,7 @@ import {
   SiLangchain
 } from "react-icons/si"
 import { Code2, Server, Database, Cloud, Bot, ArrowRight, ShieldCheck, Terminal, CheckCircle2 } from "lucide-react"
+import { TechConstellation3DCanvas } from "../ui/TechConstellation3DCanvas"
 
 // Inline fallback for OpenAI
 const OpenAIIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
@@ -238,6 +239,11 @@ export const TechnologiesSection = () => {
             We don't pick technologies based on transient trends. Every tool in our stack is chosen for performance, type safety, security, and long-term maintainability.
           </p>
         </motion.div>
+
+        {/* Interactive 3D Tech Constellation Galaxy */}
+        <div className="mb-12">
+          <TechConstellation3DCanvas />
+        </div>
 
         {/* Architecture Tier Selector Bar */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-8">

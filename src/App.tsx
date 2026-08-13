@@ -6,7 +6,6 @@ import { SmoothScrollProvider } from "./components/providers/SmoothScrollProvide
 import { CustomCursor } from "./components/ui/CustomCursor"
 import { MainLayout } from "./layouts/MainLayout"
 import { ScrollProgressBar } from "./components/ui/ScrollProgressBar"
-import { WhatsAppButton } from "./components/ui/WhatsAppButton"
 import { BackToTop } from "./components/ui/BackToTop"
 import { CommandPalette } from "./components/ui/CommandPalette"
 import { CookieBanner } from "./components/ui/CookieBanner"
@@ -49,7 +48,6 @@ function App() {
             <ScrollToTop />
             <CustomCursor />
             <ScrollProgressBar />
-            <WhatsAppButton />
             <BackToTop />
             <CommandPalette />
             <CookieBanner />

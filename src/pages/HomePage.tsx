@@ -18,7 +18,7 @@ export const HomePage = () => {
     <>
       <Helmet>
         <title>1Sash — Software Development Studio Founded in 2026</title>
-        <meta name="description" content="1Sash is a software freelancing company founded by Sarveshvara A, Sharvesh CM, and Siddharth Santhosh Kumar in 2026, building practical digital products and systems for real-world problems." />
+        <meta name="description" content="1Sash is a software freelancing company founded by Saraveshvaran A, Sharvesh CM, and Siddharth Santhosh Kumar in 2026, building practical digital products and systems for real-world problems." />
         <meta property="og:title" content="1Sash — Software Development Studio" />
         <meta property="og:description" content="We build software that gets things done." />
       </Helmet>

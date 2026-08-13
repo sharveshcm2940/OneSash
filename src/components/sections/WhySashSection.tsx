@@ -33,8 +33,8 @@ const comparisonData: ComparisonRow[] = [
     },
     sashWay: {
       title: "100% Direct Founder Engineering",
-      detail: "Sarveshvara, Sharvesh, and Siddharth handle discovery AND write every line of code. No proxy layers or junior handoffs.",
-      founderLead: "Sarveshvara, Sharvesh & Siddharth"
+      detail: "Saraveshvaran, Sharvesh, and Siddharth handle discovery AND write every line of code. No proxy layers or junior handoffs.",
+      founderLead: "Saraveshvaran, Sharvesh & Siddharth"
     }
   },
   {
@@ -46,7 +46,7 @@ const comparisonData: ComparisonRow[] = [
     sashWay: {
       title: "Strict TypeScript & Zero-Bloat Architecture",
       detail: "Custom modular React components, strict interface contracts, normalized database schemas, and lightweight Node/Express routes.",
-      founderLead: "Sarveshvara A (Lead Systems Architect)"
+      founderLead: "Saraveshvaran A (Lead Systems Architect)"
     }
   },
   {
@@ -83,7 +83,7 @@ const comparisonData: ComparisonRow[] = [
     sashWay: {
       title: "Active Cloud Monitoring & Direct SLA Support",
       detail: "We monitor server health, optimize database queries as traffic grows, and maintain direct support channels with the founders.",
-      founderLead: "Sarveshvara & Siddharth"
+      founderLead: "Saraveshvaran & Siddharth"
     }
   }
 ]

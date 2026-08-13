@@ -1,5 +1,7 @@
 import { motion } from "framer-motion"
-import { GraduationCap } from "lucide-react"
+import { GraduationCap, Globe } from "lucide-react"
+import { Card3DTilt } from "../ui/Card3DTilt"
+import { Globe3DCanvas } from "../ui/Globe3DCanvas"
 
 interface Founder {
   name: string
@@ -10,7 +12,7 @@ interface Founder {
 
 const founders: Founder[] = [
   {
-    name: "Sarveshvara A",
+    name: "Saraveshvaran A",
     role: "Founder",
     spec: "Full-Stack Systems & Architecture",
     bio: "Focused on building reliable backend pipelines, clean database schemas, and end-to-end web product engineering."
@@ -34,68 +36,67 @@ export const AboutSection = () => {
     <section className="py-24 md:py-36 bg-background border-b border-border">
       <div className="container mx-auto px-4 md:px-8">
         
-        {/* Unconventional Editorial Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 pb-12 border-b border-border">
-          <div className="lg:col-span-8 space-y-4">
-            <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-              FOUNDING STORY • EST. 2026
+        {/* Unconventional Editorial Header + Globe 3D Canvas */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 pb-12 border-b border-border items-center">
+          <div className="lg:col-span-7 space-y-4">
+            <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+              <Globe className="w-4 h-4 text-accent" /> FOUNDING STORY • EST. 2026
             </span>
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-serif leading-[0.98] text-foreground">
-              THREE ENGINEERS.<br />ONE COMPANY.
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-serif leading-[0.98] text-foreground font-black tracking-tight">
+              THREE ENGINEERS.<br />GLOBAL REACH.
             </h2>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-xl">
+              1Sash was founded in 2026 by three engineering college students who shared a common conviction: software freelancing shouldn’t be built on bloated templates or buzzwords. We write real, maintainable code for real organizations worldwide.
+            </p>
           </div>
 
-          <div className="lg:col-span-4 flex flex-col justify-end space-y-4 text-sm text-muted-foreground leading-relaxed">
-            <p>
-              1Sash was founded in 2026 by three engineering college students who shared a common conviction: software freelancing shouldn’t be built on bloated templates or buzzwords.
-            </p>
-            <p className="font-mono text-xs text-foreground">
-              We write real, maintainable code for real organizations.
-            </p>
+          <div className="lg:col-span-5 border border-border rounded-xl bg-card/30 p-2">
+            <Globe3DCanvas />
           </div>
         </div>
 
-        {/* Founders Grid — Architectural & Grounded */}
+        {/* Founders Grid — 3D Tilt Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {founders.map((founder, idx) => (
-            <motion.div
-              key={founder.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="p-8 border border-border bg-card/40 rounded-lg space-y-6 flex flex-col justify-between hover:bg-card/80 transition-colors"
-            >
-              <div className="space-y-4">
-                {/* Monogram / Architectural Badge */}
-                <div className="w-12 h-12 rounded border border-border bg-background flex items-center justify-center font-mono text-lg font-bold text-foreground">
-                  0{idx + 1}
+            <Card3DTilt key={founder.name} maxTilt={10}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="p-8 border border-border bg-card/40 rounded-lg space-y-6 flex flex-col justify-between hover:bg-card/80 transition-colors h-full shadow-xs"
+              >
+                <div className="space-y-4">
+                  {/* Monogram / Architectural Badge */}
+                  <div className="w-12 h-12 rounded border border-border bg-background flex items-center justify-center font-mono text-lg font-bold text-foreground">
+                    0{idx + 1}
+                  </div>
+
+                  <div>
+                    <div className="text-xs font-mono text-accent uppercase tracking-widest mb-1 font-bold">
+                      {founder.role}
+                    </div>
+                    <h3 className="text-2xl font-serif text-foreground font-bold">
+                      {founder.name}
+                    </h3>
+                    <div className="text-xs font-mono text-muted-foreground mt-1">
+                      {founder.spec}
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-muted-foreground leading-relaxed border-t border-border/60 pt-4">
+                    {founder.bio}
+                  </p>
                 </div>
 
-                <div>
-                  <div className="text-xs font-mono text-accent uppercase tracking-widest mb-1">
-                    {founder.role}
-                  </div>
-                  <h3 className="text-2xl font-serif text-foreground">
-                    {founder.name}
-                  </h3>
-                  <div className="text-xs font-mono text-muted-foreground mt-1">
-                    {founder.spec}
-                  </div>
+                <div className="pt-4 border-t border-border flex items-center justify-between text-[11px] font-mono text-muted-foreground">
+                  <span className="flex items-center gap-1.5">
+                    <GraduationCap className="w-3.5 h-3.5 text-foreground" /> B.Tech IT '28
+                  </span>
+                  <span>1Sash • 2026</span>
                 </div>
-
-                <p className="text-xs text-muted-foreground leading-relaxed border-t border-border/60 pt-4">
-                  {founder.bio}
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-border flex items-center justify-between text-[11px] font-mono text-muted-foreground">
-                <span className="flex items-center gap-1.5">
-                  <GraduationCap className="w-3.5 h-3.5 text-foreground" /> Engineering Student
-                </span>
-                <span>1Sash • 2026</span>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Card3DTilt>
           ))}
         </div>
 

@@ -228,10 +228,10 @@ export const CareersPage = () => {
               <p className="text-xs text-muted-foreground">Send us your CV and portfolio. We review every application personally.</p>
             </div>
             <a
-              href="mailto:careers@saashtechnocrafts.com"
+              href="mailto:onesash.contact@gmail.com"
               className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-sm font-semibold hover:bg-foreground hover:text-background hover:border-foreground transition-all"
             >
-              careers@saashtechnocrafts.com
+              onesash.contact@gmail.com
             </a>
           </motion.div>
         </div>

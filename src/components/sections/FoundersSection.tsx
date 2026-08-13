@@ -1,8 +1,9 @@
 import { motion } from "framer-motion"
+import { Card3DTilt } from "../ui/Card3DTilt"
 
 const founders = [
   {
-    name: "Sarveshvara A",
+    name: "Saraveshvaran A",
     role: "Founder",
     spec: "Full-Stack Systems & Architecture",
     bio: "Focuses on building reliable backend pipelines, clean database models, and end-to-end web software engineering.",
@@ -46,52 +47,53 @@ export const FoundersSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {founders.map((founder, i) => (
-            <motion.div
-              key={founder.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="p-8 border border-border bg-card/40 rounded-lg space-y-6 flex flex-col justify-between hover:bg-card/80 transition-colors"
-            >
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded border border-border bg-background flex items-center justify-center font-mono text-sm font-bold text-foreground">
-                  {founder.avatar}
-                </div>
-
-                <div>
-                  <div className="text-xs font-mono text-accent uppercase tracking-widest mb-1">
-                    {founder.role}
+            <Card3DTilt key={founder.name} maxTilt={10}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="p-8 border border-border bg-card/40 rounded-lg space-y-6 flex flex-col justify-between hover:bg-card/80 transition-colors h-full shadow-xs"
+              >
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded border border-border bg-background flex items-center justify-center font-mono text-sm font-bold text-foreground">
+                    {founder.avatar}
                   </div>
-                  <h3 className="text-2xl font-serif text-foreground">
-                    {founder.name}
-                  </h3>
-                  <div className="text-xs font-mono text-muted-foreground mt-1">
-                    {founder.spec}
+
+                  <div>
+                    <div className="text-xs font-mono text-accent uppercase tracking-widest mb-1 font-bold">
+                      {founder.role}
+                    </div>
+                    <h3 className="text-2xl font-serif text-foreground font-bold">
+                      {founder.name}
+                    </h3>
+                    <div className="text-xs font-mono text-muted-foreground mt-1">
+                      {founder.spec}
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-muted-foreground leading-relaxed pt-2 border-t border-border/60">
+                    {founder.bio}
+                  </p>
+                </div>
+
+                <div className="space-y-2 pt-4 border-t border-border">
+                  <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider block">
+                    Tech Stack:
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {founder.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-0.5 rounded border border-border bg-background text-[10px] font-mono text-foreground"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
-
-                <p className="text-xs text-muted-foreground leading-relaxed pt-2 border-t border-border/60">
-                  {founder.bio}
-                </p>
-              </div>
-
-              <div className="space-y-2 pt-4 border-t border-border">
-                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider block">
-                  Tech Stack:
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {founder.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-0.5 rounded border border-border bg-background text-[10px] font-mono text-foreground"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Card3DTilt>
           ))}
         </div>
 

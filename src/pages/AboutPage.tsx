@@ -9,7 +9,7 @@ export const AboutPage = () => {
     <>
       <Helmet>
         <title>About 1Sash — Software Development Studio Founded in 2026</title>
-        <meta name="description" content="1Sash is a software freelancing company founded by three engineering students in 2026: Sarveshvara A, Sharvesh CM, and Siddharth Santhosh Kumar." />
+        <meta name="description" content="1Sash is a software freelancing company founded by three engineering students in 2026: Saraveshvaran A, Sharvesh CM, and Siddharth Santhosh Kumar." />
       </Helmet>
 
       {/* Hero Header */}

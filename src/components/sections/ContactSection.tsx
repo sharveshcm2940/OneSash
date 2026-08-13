@@ -19,7 +19,7 @@ type FormData = z.infer<typeof schema>
 const budgets = ["< $500", "$500 - $1,500", "$1,500 - $5,000", "$5,000 - $15,000", "$15,000+", "Not sure yet"]
 
 const contactDetails = [
-  { icon: Mail, label: "Email Us", value: "contactsash@gmail.com", href: "mailto:contactsash@gmail.com" },
+  { icon: Mail, label: "Email Us", value: "onesash.contact@gmail.com", href: "mailto:onesash.contact@gmail.com" },
   { icon: Phone, label: "Call Us", value: "+91 99803 99557, +91 75024 03727", href: "tel:+919980399557" },
   { icon: MessageCircle, label: "WhatsApp", value: "Chat on WhatsApp", href: "https://wa.me/919980399557" },
   { icon: MapPin, label: "Location", value: "Chennai, Tamil Nadu, India", href: "#" },

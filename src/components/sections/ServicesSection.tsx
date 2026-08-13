@@ -15,6 +15,8 @@ import {
   FolderGit2
 } from "lucide-react"
 
+import { Services3DCanvas } from "../ui/Services3DCanvas"
+
 export interface ServiceSpec {
   id: string
   code: string
@@ -43,7 +45,7 @@ const serviceCatalog: ServiceSpec[] = [
     headline: "Custom administrative web applications, multi-tenant resident portals, and operational management suites.",
     problemSolved: "Replaces fragmented spreadsheets, manual billing, and paper logbooks with a centralized, secure web dashboard.",
     icon: Building2,
-    leadFounder: "Sarveshvara A (Lead Architect)",
+    leadFounder: "Saraveshvaran A (Lead Architect)",
     deliverables: [
       "Multi-tenant RBAC permissions & resident login suites",
       "Automated PDF bill generation & digital payment receipt logs",
@@ -115,7 +117,7 @@ const serviceCatalog: ServiceSpec[] = [
     headline: "Zero-downtime container deployments, Gemini model API integration, and automated document processing.",
     problemSolved: "Transforms unstructured operational documents and customer tickets into structured, actionable JSON data.",
     icon: Code2,
-    leadFounder: "Sarveshvara & Sharvesh",
+    leadFounder: "Saraveshvaran & Sharvesh",
     deliverables: [
       "Server-side Gemini & OpenAI API proxy routes (private keys)",
       "Automated document OCR & semantic metadata extraction",
@@ -196,6 +198,27 @@ export const ServicesSection = () => {
               </button>
             )
           })}
+        </div>
+
+        {/* Interactive 3D WebGL Service Geometry Canvas */}
+        <div className="mb-10">
+          <Services3DCanvas
+            initialMode={
+              activeSpecId === "web-portals"
+                ? "web"
+                : activeSpecId === "interactive-3d"
+                ? "webgl"
+                : activeSpecId === "crm-automation"
+                ? "custom"
+                : "cloud"
+            }
+            onModeChange={(mode) => {
+              if (mode === "web") setActiveSpecId("web-portals")
+              else if (mode === "webgl") setActiveSpecId("interactive-3d")
+              else if (mode === "custom") setActiveSpecId("crm-automation")
+              else if (mode === "cloud" || mode === "ai") setActiveSpecId("cloud-ai")
+            }}
+          />
         </div>
 
         {/* Detailed Service Specification Stage */}
@@ -320,7 +343,7 @@ export const ServicesSection = () => {
             <div className="pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
                 <UserCheck className="w-4 h-4 text-accent" />
-                <span>Direct Founder Consultation with Sarveshvara, Sharvesh, and Siddharth.</span>
+                <span>Direct Founder Consultation with Saraveshvaran, Sharvesh, and Siddharth.</span>
               </div>
 
               <div className="flex items-center gap-3">

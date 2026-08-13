@@ -25,7 +25,7 @@ export const Footer = () => {
             <h4 className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Founders</h4>
             <ul className="space-y-2 text-sm font-medium">
               <li className="flex items-center gap-2">
-                <span className="text-foreground">Sarveshvara A</span>
+                <span className="text-foreground">Saraveshvaran A</span>
                 <span className="text-xs font-mono text-muted-foreground">— Founder</span>
               </li>
               <li className="flex items-center gap-2">

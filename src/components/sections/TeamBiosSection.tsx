@@ -40,8 +40,8 @@ export interface TeamMember {
 
 export const teamMembers: TeamMember[] = [
   {
-    id: "sarveshvara",
-    name: "Sarveshvara A",
+    id: "saraveshvaran",
+    name: "Saraveshvaran A",
     role: "Founder & Full-Stack Systems Architect",
     tagline: "Building scalable server infrastructure, clean API layers, and production-ready Web platforms.",
     education: "B.Tech. Information Technology",
@@ -50,11 +50,11 @@ export const teamMembers: TeamMember[] = [
     gradYear: "Class of 2028",
     gpaMilestone: "Systems & Backend Architecture Scholar",
     location: "Chennai, Tamil Nadu, India",
-    email: "contactsash@gmail.com",
+    email: "onesash.contact@gmail.com",
     github: "https://github.com",
     linkedin: "https://linkedin.com",
     shortBio: "Focuses on backend pipelines, database normalization, and end-to-end full-stack web software engineering with strict type safety.",
-    fullBio: "Sarveshvara is a co-founder of 1Sash specializing in full-stack web architecture and high-performance server logic. With a deep foundation in information technology fundamentals, he leads the architectural design of database schemas (PostgreSQL, MongoDB), REST API handlers, and cloud backend deployments. He believes that true software quality stems from readable, maintainable code structures that scale gracefully without technical debt.",
+    fullBio: "Saraveshvaran is a co-founder of 1Sash specializing in full-stack web architecture and high-performance server logic. With a deep foundation in information technology fundamentals, he leads the architectural design of database schemas (PostgreSQL, MongoDB), REST API handlers, and cloud backend deployments. He believes that true software quality stems from readable, maintainable code structures that scale gracefully without technical debt.",
     academicHighlight: "Specialized Coursework in Database Management Systems, Distributed Systems, Operating Systems, and Network Protocols.",
     specialties: [
       "Full-Stack Web Architecture & API Engineering",
@@ -82,7 +82,7 @@ export const teamMembers: TeamMember[] = [
     gradYear: "Class of 2028",
     gpaMilestone: "Interactive WebGL & UI Systems Specialist",
     location: "Chennai, Tamil Nadu, India",
-    email: "contactsash@gmail.com",
+    email: "onesash.contact@gmail.com",
     github: "https://github.com",
     linkedin: "https://linkedin.com",
     shortBio: "Specializes in high-performance frontend interfaces, responsive design systems, and interactive 3D WebGL scenes using Three.js.",
@@ -114,7 +114,7 @@ export const teamMembers: TeamMember[] = [
     gradYear: "Class of 2028",
     gpaMilestone: "Product Architecture & Operations Lead",
     location: "Chennai, Tamil Nadu, India",
-    email: "contactsash@gmail.com",
+    email: "onesash.contact@gmail.com",
     github: "https://github.com",
     linkedin: "https://linkedin.com",
     shortBio: "Translates complex client operations into structured software requirements, product roadmaps, and functional digital solutions.",
@@ -142,7 +142,7 @@ const founderMilestones = [
   {
     year: "2024",
     title: "College Labs & Technical Ideation",
-    desc: "Sarveshvara, Sharvesh, and Siddharth began collaborating in college software engineering labs, building custom full-stack tools and experimenting with WebGL graphics."
+    desc: "Saraveshvaran, Sharvesh, and Siddharth began collaborating in college software engineering labs, building custom full-stack tools and experimenting with WebGL graphics."
   },
   {
     year: "2025",
@@ -171,7 +171,7 @@ const engineeringPrinciples = [
   {
     num: "03",
     title: "Direct Founder Engineering",
-    desc: "Clients speak directly with Sarveshvara, Sharvesh, and Siddharth. The people in discovery meetings are the exact same engineers writing the code."
+    desc: "Clients speak directly with Saraveshvaran, Sharvesh, and Siddharth. The people in discovery meetings are the exact same engineers writing the code."
   },
   {
     num: "04",
@@ -379,7 +379,7 @@ export const TeamBiosSection = () => {
             <div className="p-6 border border-border bg-card/30 rounded-lg mb-8">
               <h3 className="text-xl font-serif text-foreground mb-2">The Student-Founder Trajectory</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Starting from engineering classroom assignments to managing high-stakes client software, here is how Sarveshvara, Sharvesh, and Siddharth built 1Sash.
+                Starting from engineering classroom assignments to managing high-stakes client software, here is how Saraveshvaran, Sharvesh, and Siddharth built 1Sash.
               </p>
             </div>
 
@@ -463,7 +463,7 @@ export const TeamBiosSection = () => {
               <span className="text-xs font-mono font-bold uppercase tracking-wider">FOUNDER LED</span>
             </div>
             <div className="text-2xl font-serif text-foreground">3 Engineers</div>
-            <p className="text-[11px] text-muted-foreground">Sarveshvara, Sharvesh, and Siddharth personally code every line.</p>
+            <p className="text-[11px] text-muted-foreground">Saraveshvaran, Sharvesh, and Siddharth personally code every line.</p>
           </div>
         </div>
 
