@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../../components/common/SEO"
 import { motion } from "framer-motion"
 import { ArrowRight, Code2, Layers, Zap, CheckCircle2 } from "lucide-react"
 import { Link } from "react-router-dom"
@@ -21,10 +21,11 @@ const processSteps = [
 export const WebDevPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Web Development Services — Saash Technocrafts</title>
-        <meta name="description" content="Custom web application development, SaaS platforms, and enterprise solutions built with modern tech stacks." />
-      </Helmet>
+      <SEO
+        title="Custom Web Application Development & SaaS Engineering"
+        description="Build high-performance web applications, complex SaaS portals, and enterprise web solutions with 1Sash using React, Vite, TypeScript, and Node.js."
+        keywords="custom web development, React web applications, SaaS platform development, TypeScript web engineering, 1Sash web services"
+      />
 
       {/* Hero */}
       <section className="pt-36 pb-20 px-4 md:px-6 bg-background border-b border-border overflow-hidden relative">

@@ -1,18 +1,18 @@
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../components/common/SEO"
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { cn } from "../utils/cn"
 
 const faqs = [
-  { q: "How much does a website cost?", a: "Our projects range from $499 for a basic business site to custom enterprise quotes for complex applications. Use our Project Calculator for an instant estimate tailored to your requirements." },
+  { q: "How much does a website cost?", a: "Our projects range from custom estimates for basic business sites to enterprise quotes for complex applications. Use our Project Calculator for an instant estimate tailored to your requirements." },
   { q: "How long does development take?", a: "A standard 5-page business website takes 2–4 weeks. Custom web apps and mobile apps typically take 6–16 weeks depending on complexity, integrations, and feature scope." },
   { q: "Do you redesign existing websites?", a: "Absolutely! We specialize in modernizing outdated websites. We'll redesign your site with a fresh, high-converting design while preserving your SEO and brand identity." },
   { q: "Do you provide post-launch maintenance?", a: "Yes. All our packages include a free maintenance period. After that, we offer monthly support plans covering security updates, bug fixes, performance monitoring, and feature additions." },
   { q: "Can you build a SaaS platform?", a: "Yes — SaaS development is one of our specialties. We build multi-tenant SaaS products with subscription billing, user dashboards, admin panels, and scalable cloud infrastructure." },
   { q: "Do you work with startups?", a: "We love working with startups! We offer flexible engagement models — from MVP development to full product builds — with transparent pricing that fits early-stage budgets." },
-  { q: "Which technologies do you use?", a: "We work with a modern, battle-tested stack: React, Next.js, TypeScript, Node.js, Python, Flutter, PostgreSQL, AWS, and many more. We choose technology based on your project's specific needs." },
-  { q: "How do I get started?", a: "Simply fill out our contact form or use the Get a Quote button. We'll schedule a free 30-minute discovery call within 24 hours to understand your goals and propose a tailored plan." },
+  { q: "Which technologies do you use?", a: "We work with a modern, battle-tested stack: React, Vite, TypeScript, Node.js, Python, Flutter, PostgreSQL, AWS, and many more. We choose technology based on your project's specific needs." },
+  { q: "How do I get started?", a: "Simply fill out our contact form or send us a WhatsApp message. We'll schedule a discovery call within 24 hours to understand your goals and propose a tailored plan." },
 ]
 
 const FAQItem = ({ item, index }: { item: typeof faqs[0]; index: number }) => {
@@ -47,12 +47,27 @@ const FAQItem = ({ item, index }: { item: typeof faqs[0]; index: number }) => {
 }
 
 export const FAQPage = () => {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  }
+
   return (
     <>
-      <Helmet>
-        <title>FAQ — Sash Technocrafts</title>
-        <meta name="description" content="Find answers to common questions about our services, pricing, timelines, and development process." />
-      </Helmet>
+      <SEO
+        title="Frequently Asked Questions (FAQ) & Project Timelines"
+        description="Find clear answers to common questions regarding 1Sash's engineering process, web & mobile app timelines, pricing, technologies, and post-launch maintenance."
+        keywords="1Sash FAQ, software development cost, web app development timeline, SaaS build questions, custom software agency FAQ"
+        schema={faqSchema}
+      />
 
       <section className="relative pt-36 pb-10 px-4 md:px-6 text-center overflow-hidden">
         <div className="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/8 rounded-full blur-3xl pointer-events-none" />

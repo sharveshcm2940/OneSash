@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../../components/common/SEO"
 import { motion } from "framer-motion"
 import { ArrowRight, Palette, MousePointerClick, LayoutTemplate, CheckCircle2 } from "lucide-react"
 import { Link } from "react-router-dom"
@@ -21,10 +21,11 @@ const processSteps = [
 export const DesignPage = () => {
   return (
     <>
-      <Helmet>
-        <title>UI/UX Design — Saash Technocrafts</title>
-        <meta name="description" content="Premium UI/UX design services. We craft interfaces that are beautiful, intuitive, and conversion-focused." />
-      </Helmet>
+      <SEO
+        title="UI/UX & Editorial Interface Design Services"
+        description="Craft sleek, conversion-focused user interfaces and design systems with meticulous typography, dark/light theme pairing, and responsive layouts by 1Sash."
+        keywords="UI UX design, design systems, Figma prototypes, web interface design, editorial layout design, 1Sash design"
+      />
 
       <section className="pt-36 pb-20 px-4 md:px-6 bg-background border-b border-border overflow-hidden relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(var(--primary),0.05)_0%,transparent_70%)] pointer-events-none" />

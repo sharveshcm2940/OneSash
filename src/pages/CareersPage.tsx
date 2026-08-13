@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../components/common/SEO"
 import { motion, AnimatePresence } from "framer-motion"
 import { MapPin, ArrowRight, Users, Heart, Zap, Globe } from "lucide-react"
 import { CTABannerSection } from "../components/sections/CTABannerSection"
@@ -89,12 +89,11 @@ export const CareersPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Careers — Sash Technocrafts | Internships, Freelance & Remote Roles</title>
-        <meta name="description" content="Join Sash Technocrafts. Open positions for Full Stack Developers, UI/UX Designers, AI Engineers, and Interns. 100% remote and freelance opportunities." />
-        <meta property="og:title" content="Careers — Sash Technocrafts" />
-        <meta name="keywords" content="software engineering internship, remote developer jobs, freelance web developer, UI designer jobs, AI ML internship" />
-      </Helmet>
+      <SEO
+        title="Careers & Engineering Opportunities — Internships & Roles"
+        description="Join 1Sash Technocrafts. Explore opportunities for Full Stack Developers, UI/UX Designers, AI Engineers, and Software Interns in Chennai and remote."
+        keywords="1Sash careers, software engineering internships, remote React developer jobs, UI designer roles, AI engineering opportunities"
+      />
 
       {/* Hero */}
       <section className="pt-36 pb-16 px-4 md:px-6 bg-background border-b border-border">

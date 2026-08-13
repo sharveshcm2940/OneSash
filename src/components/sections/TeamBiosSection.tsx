@@ -10,8 +10,10 @@ import {
   Award,
   FolderGit2,
   BookOpen,
-  Sparkles
+  Sparkles,
+  ExternalLink
 } from "lucide-react"
+import { Linkedin } from "../ui/Icons"
 
 export interface TeamMember {
   id: string
@@ -52,7 +54,7 @@ export const teamMembers: TeamMember[] = [
     location: "Chennai, Tamil Nadu, India",
     email: "onesash.contact@gmail.com",
     github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/in/sarvesh-arun-8b1904337/",
     shortBio: "Focuses on backend pipelines, database normalization, and end-to-end full-stack web software engineering with strict type safety.",
     fullBio: "Saraveshvaran is a co-founder of 1Sash specializing in full-stack web architecture and high-performance server logic. With a deep foundation in information technology fundamentals, he leads the architectural design of database schemas (PostgreSQL, MongoDB), REST API handlers, and cloud backend deployments. He believes that true software quality stems from readable, maintainable code structures that scale gracefully without technical debt.",
     academicHighlight: "Specialized Coursework in Database Management Systems, Distributed Systems, Operating Systems, and Network Protocols.",
@@ -84,7 +86,7 @@ export const teamMembers: TeamMember[] = [
     location: "Chennai, Tamil Nadu, India",
     email: "onesash.contact@gmail.com",
     github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/in/c-m-sharvesh-847066332/",
     shortBio: "Specializes in high-performance frontend interfaces, responsive design systems, and interactive 3D WebGL scenes using Three.js.",
     fullBio: "Sharvesh leads client-side design and interactive engineering at 1Sash. Combining technical expertise in React and Vite with an acute eye for typography, spatial rhythm, and responsive layouts, he turns complex user workflows into effortless visual experiences. He is particularly focused on WebGL canvas rendering, smooth animations (Framer Motion), and dark/light luxury theme engineering that eliminates AI design clichés.",
     academicHighlight: "Focused Research in Computer Graphics, Human-Computer Interaction (HCI), Frontend Optimization, and Algorithms.",
@@ -100,7 +102,7 @@ export const teamMembers: TeamMember[] = [
     ],
     techStack: ["React", "TypeScript", "Three.js", "WebGL", "Tailwind CSS", "Framer Motion", "Vite", "HTML5/CSS3"],
     quote: "User experience is measured in milliseconds and spatial clarity.",
-    avatarInitials: "SC",
+    avatarInitials: "CM",
     milestoneBadge: "B.Tech. IT • CLASS OF 2028"
   },
   {
@@ -116,7 +118,7 @@ export const teamMembers: TeamMember[] = [
     location: "Chennai, Tamil Nadu, India",
     email: "onesash.contact@gmail.com",
     github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/in/siddharthsanthoshkumar/",
     shortBio: "Translates complex client operations into structured software requirements, product roadmaps, and functional digital solutions.",
     fullBio: "Siddharth bridges real-world business requirements with 1Sash’s engineering roadmap. Drawing from a strong background in analytical problem solving and project management, he works directly with clients to deconstruct operational friction, formulate concise functional specifications, and ensure delivered software aligns precisely with client business goals.",
     academicHighlight: "Coursework & Honors in Software Project Management, Systems Analysis & Design, Quality Assurance, and Operations.",
@@ -133,6 +135,38 @@ export const teamMembers: TeamMember[] = [
     techStack: ["Product Management", "System Blueprinting", "REST Integration", "React", "TypeScript", "Agile", "User Research"],
     quote: "Great software solves the problem without introducing new friction.",
     avatarInitials: "SS",
+    milestoneBadge: "B.Tech. IT • CLASS OF 2028"
+  },
+  {
+    id: "vivek",
+    name: "Vivek A",
+    role: "Marketing Head & Brand Strategist",
+    tagline: "Spearheading brand positioning, B2B client acquisition, and growth marketing campaigns.",
+    education: "B.Tech. Information Technology",
+    degree: "Bachelor of Technology",
+    college: "Engineering College • Chennai, India",
+    gradYear: "Class of 2028",
+    gpaMilestone: "Marketing Strategy & Brand Growth Lead",
+    location: "Chennai, Tamil Nadu, India",
+    email: "onesash.contact@gmail.com",
+    github: "https://github.com",
+    linkedin: "https://www.linkedin.com/in/vivek-arumugam-a01303328/",
+    shortBio: "Leads marketing strategy, digital campaigns, brand positioning, and strategic B2B outreach for 1Sash.",
+    fullBio: "Vivek A serves as the Marketing Head at 1Sash. He is responsible for crafting growth strategies, digital marketing campaigns, and strategic brand positioning. Working closely with the core engineering team, he translates complex software capabilities into clear, compelling market value propositions that drive client trust and business expansion.",
+    academicHighlight: "Specialized Coursework in Digital Marketing, Brand Communication, Market Analytics, and Strategic Outreach.",
+    specialties: [
+      "Digital Marketing Strategy & Campaign Management",
+      "B2B Client Acquisition & Strategic Partnerships",
+      "Brand Positioning & Content Marketing",
+      "Market Intelligence & Growth Analytics"
+    ],
+    keyProjects: [
+      { name: "1SASH BRAND LAUNCH", role: "Marketing Lead", desc: "Spearheaded brand launch and digital marketing campaign across tech channels." },
+      { name: "B2B OUTREACH CAMPAIGN", role: "Growth Lead", desc: "Created targeted client acquisition funnel for commercial engineering contracts." }
+    ],
+    techStack: ["Digital Marketing", "SEO / SEM", "Brand Strategy", "Content Marketing", "B2B Outreach", "Analytics"],
+    quote: "Effective marketing turns engineering breakthroughs into clear, undeniable market value.",
+    avatarInitials: "VA",
     milestoneBadge: "B.Tech. IT • CLASS OF 2028"
   }
 ]
@@ -352,13 +386,26 @@ export const TeamBiosSection = () => {
 
                 </div>
 
-                {/* Bottom CTA to read full bio */}
-                <div className="pt-6 border-t border-border flex items-center justify-between">
+                {/* Bottom CTA to read full bio & LinkedIn */}
+                <div className="pt-6 border-t border-border flex flex-wrap items-center justify-between gap-3">
+                  {member.linkedin && (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#0A66C2]/40 bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 text-[#0A66C2] dark:text-[#3882FF] text-xs font-mono font-bold transition-all hover:scale-105"
+                      title={`Connect with ${member.name} on LinkedIn`}
+                    >
+                      <Linkedin className="w-3.5 h-3.5" />
+                      <span>LinkedIn</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
                   <button
                     onClick={() => setSelectedMember(member)}
                     className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-foreground font-semibold hover:text-accent transition-colors group/btn"
                   >
-                    <span>READ FULL RECORD & BADGES</span>
+                    <span>FULL RECORD</span>
                     <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                   </button>
                 </div>
@@ -603,10 +650,20 @@ const FounderBioModal = ({ member, onClose }: { member: TeamMember; onClose: () 
           <div className="text-xs font-mono text-muted-foreground">
             Direct Email: <a href={`mailto:${member.email}`} className="text-foreground underline">{member.email}</a>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
+            {member.linkedin && (
+              <a
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 text-xs font-mono bg-[#0A66C2] hover:bg-[#004182] text-white rounded flex items-center gap-2 font-semibold transition-colors shadow-xs"
+              >
+                <Linkedin className="w-3.5 h-3.5" /> LinkedIn Profile <ExternalLink className="w-3 h-3" />
+              </a>
+            )}
             <a
               href={`mailto:${member.email}`}
-              className="px-4 py-2 text-xs font-mono bg-primary text-primary-foreground rounded flex items-center gap-2 hover:opacity-90 transition-opacity"
+              className="px-4 py-2 text-xs font-mono bg-primary text-primary-foreground rounded flex items-center gap-2 hover:opacity-90 transition-opacity font-semibold"
             >
               <Mail className="w-3.5 h-3.5" /> Email {member.name.split(" ")[0]}
             </a>

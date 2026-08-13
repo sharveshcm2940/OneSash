@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../../components/common/SEO"
 import { motion } from "framer-motion"
 import { ArrowRight, Settings2, Database, Workflow, CheckCircle2 } from "lucide-react"
 import { Link } from "react-router-dom"
@@ -21,10 +21,11 @@ const processSteps = [
 export const CustomSoftwarePage = () => {
   return (
     <>
-      <Helmet>
-        <title>Custom Software Development — Saash Technocrafts</title>
-        <meta name="description" content="Bespoke software solutions tailored to your unique business logic and workflows." />
-      </Helmet>
+      <SEO
+        title="Custom Software Engineering & Enterprise Automation"
+        description="Bespoke software systems, workflow automation tools, CRM/ERP platforms, and custom database solutions engineered by 1Sash for unique business operations."
+        keywords="custom software engineering, workflow automation, enterprise software development, bespoke database tools, 1Sash custom software"
+      />
 
       <section className="pt-36 pb-20 px-4 md:px-6 bg-background border-b border-border overflow-hidden relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(var(--primary),0.05)_0%,transparent_70%)] pointer-events-none" />

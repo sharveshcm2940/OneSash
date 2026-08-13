@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../components/common/SEO"
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { Calendar as CalendarIcon, Clock, Video, CheckCircle2 } from "lucide-react"
@@ -24,10 +24,11 @@ export const BookingPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Book Consultation — Saash Technocrafts</title>
-        <meta name="description" content="Schedule a free discovery call with our technical experts." />
-      </Helmet>
+      <SEO
+        title="Schedule a Discovery Call with 1Sash Founders"
+        description="Schedule a 1-on-1 technical discovery session with 1Sash engineers. Discuss project architecture, budget, tech stack, and roadmap."
+        keywords="book consultation 1Sash, software discovery call, hire software team, technical architecture consultation"
+      />
 
       <section className="relative pt-36 pb-32 px-4 md:px-6 overflow-hidden">
         <div className="absolute top-20 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />

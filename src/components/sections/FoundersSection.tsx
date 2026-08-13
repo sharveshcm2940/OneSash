@@ -1,4 +1,6 @@
 import { motion } from "framer-motion"
+import { ExternalLink } from "lucide-react"
+import { Linkedin } from "../ui/Icons"
 import { Card3DTilt } from "../ui/Card3DTilt"
 
 const founders = [
@@ -9,6 +11,7 @@ const founders = [
     bio: "Focuses on building reliable backend pipelines, clean database models, and end-to-end web software engineering.",
     techStack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
     avatar: "SA",
+    linkedin: "https://www.linkedin.com/in/sarvesh-arun-8b1904337/",
   },
   {
     name: "Sharvesh CM",
@@ -16,7 +19,8 @@ const founders = [
     spec: "Frontend Engineering & Interactive UI",
     bio: "Specializes in high-performance client interfaces, responsive layouts, and interactive WebGL canvas scenes.",
     techStack: ["React", "TypeScript", "Three.js", "Framer Motion", "Vite"],
-    avatar: "SC",
+    avatar: "CM",
+    linkedin: "https://www.linkedin.com/in/c-m-sharvesh-847066332/",
   },
   {
     name: "Siddharth Santhosh Kumar",
@@ -25,6 +29,7 @@ const founders = [
     bio: "Translates client operational workflows into structured software requirements and clean digital solutions.",
     techStack: ["React", "Node.js", "REST APIs", "System Architecture"],
     avatar: "SS",
+    linkedin: "https://www.linkedin.com/in/siddharthsanthoshkumar/",
   },
 ]
 
@@ -77,10 +82,24 @@ export const FoundersSection = () => {
                   </p>
                 </div>
 
-                <div className="space-y-2 pt-4 border-t border-border">
-                  <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider block">
-                    Tech Stack:
-                  </span>
+                <div className="space-y-3 pt-4 border-t border-border">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider block">
+                      Tech Stack:
+                    </span>
+                    {founder.linkedin && (
+                      <a
+                        href={founder.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-[#0A66C2] dark:text-[#3882FF] hover:underline"
+                      >
+                        <Linkedin className="w-3 h-3" />
+                        <span>LinkedIn</span>
+                        <ExternalLink className="w-2.5 h-2.5" />
+                      </a>
+                    )}
+                  </div>
                   <div className="flex flex-wrap gap-1.5">
                     {founder.techStack.map((tech) => (
                       <span

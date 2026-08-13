@@ -1,73 +1,52 @@
 import { createContext, useContext, useEffect, useState } from "react"
 
-type Theme = "dark" | "light" | "system"
-
-type ThemeProviderProps = {
-  children: React.ReactNode
-  defaultTheme?: Theme
-  storageKey?: string
-}
+export type Theme = "dark" | "light"
 
 type ThemeProviderState = {
-  theme: Theme
-  setTheme: (theme: Theme) => void
+  theme: "dark" | "light"
+  resolvedTheme: "dark" | "light"
+}
+
+const getTimeBasedTheme = (): "dark" | "light" => {
+  const hours = new Date().getHours()
+  // Daytime (6:00 AM to 5:59 PM) -> light theme
+  // Nighttime (6:00 PM to 5:59 AM) -> dark theme
+  return hours >= 6 && hours < 18 ? "light" : "dark"
 }
 
 const initialState: ThemeProviderState = {
-  theme: "system",
-  setTheme: () => null,
+  theme: getTimeBasedTheme(),
+  resolvedTheme: getTimeBasedTheme(),
 }
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 
-export function ThemeProvider({
-  children,
-  defaultTheme = "system",
-  storageKey = "vite-ui-theme",
-  ...props
-}: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  )
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [resolvedTheme, setResolvedTheme] = useState<"dark" | "light">(getTimeBasedTheme)
 
   useEffect(() => {
     const root = window.document.documentElement
 
-    root.classList.remove("light", "dark")
-
-    if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light"
-
-      root.classList.add(systemTheme)
-      return
+    const applyTheme = () => {
+      const activeTheme = getTimeBasedTheme()
+      root.classList.remove("light", "dark")
+      root.classList.add(activeTheme)
+      setResolvedTheme(activeTheme)
     }
 
-    root.classList.add(theme)
-  }, [theme])
+    applyTheme()
+    // Re-evaluate every 5 seconds to automatically react to system time updates
+    const interval = setInterval(applyTheme, 5000)
 
-  const value = {
-    theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme)
-      setTheme(theme)
-    },
-  }
+    return () => clearInterval(interval)
+  }, [])
 
   return (
-    <ThemeProviderContext.Provider {...props} value={value}>
+    <ThemeProviderContext.Provider value={{ theme: resolvedTheme, resolvedTheme }}>
       {children}
     </ThemeProviderContext.Provider>
   )
 }
 
-export const useTheme = () => {
-  const context = useContext(ThemeProviderContext)
+export const useTheme = () => useContext(ThemeProviderContext)
 
-  if (context === undefined)
-    throw new Error("useTheme must be used within a ThemeProvider")
-
-  return context
-}

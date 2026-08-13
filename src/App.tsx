@@ -7,6 +7,7 @@ import { CustomCursor } from "./components/ui/CustomCursor"
 import { MainLayout } from "./layouts/MainLayout"
 import { ScrollProgressBar } from "./components/ui/ScrollProgressBar"
 import { BackToTop } from "./components/ui/BackToTop"
+import { WhatsAppButton } from "./components/ui/WhatsAppButton"
 import { CommandPalette } from "./components/ui/CommandPalette"
 import { CookieBanner } from "./components/ui/CookieBanner"
 import { ScrollToTop } from "./components/layout/ScrollToTop"
@@ -42,13 +43,14 @@ const PageLoader = () => (
 function App() {
   return (
     <HelmetProvider>
-      <ThemeProvider defaultTheme="dark" storageKey="saash-theme">
+      <ThemeProvider>
         <SmoothScrollProvider>
           <BrowserRouter>
             <ScrollToTop />
             <CustomCursor />
             <ScrollProgressBar />
             <BackToTop />
+            <WhatsAppButton />
             <CommandPalette />
             <CookieBanner />
             <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 selection:text-white cursor-none md:cursor-none">

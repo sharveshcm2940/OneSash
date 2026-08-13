@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react"
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../components/common/SEO"
 import { motion, AnimatePresence } from "framer-motion"
 import { Download, CheckSquare, FileText, Layout, BookOpen, Shield, Cpu, Search, Sparkles } from "lucide-react"
 import { CTABannerSection } from "../components/sections/CTABannerSection"
@@ -304,12 +304,11 @@ export const ResourcesPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Free Resources — Sash Technocrafts | Templates, Checklists & Guides</title>
-        <meta name="description" content="Download free templates and checklists from Sash Technocrafts: website planning checklist, software requirement template, SaaS UI wireframes, and startup guides." />
-        <meta property="og:title" content="Free Resources — Sash Technocrafts" />
-        <meta name="keywords" content="free website planning checklist, software requirement template, SaaS wireframe kit, startup launch guide, web security checklist" />
-      </Helmet>
+      <SEO
+        title="Free Engineering Resources — Checklists, Templates & Guides"
+        description="Download free developer resources from 1Sash: website planning checklists, PRD software requirement templates, SaaS wireframe kits, and startup guides."
+        keywords="free website planning checklist, software requirement PRD template, SaaS wireframe kit, startup MVP guide, 1Sash developer resources"
+      />
 
       {/* Hero */}
       <section className="pt-36 pb-16 px-4 md:px-6 bg-background border-b border-border relative overflow-hidden">

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
 import { Github, Linkedin, Twitter } from "../ui/Icons"
-import { Code, Palette, Cpu, Briefcase, TrendingUp, Sparkles } from "lucide-react"
+import { Code, Palette, Cpu, TrendingUp, Sparkles } from "lucide-react"
 
 const team = [
   {
@@ -11,7 +11,7 @@ const team = [
     tier: "L7 PRINCIPAL ARCHITECT",
     initials: "SA",
     bio: "Architect of Sash Technocrafts. Sarveshwaran leads product engineering with deep expertise in React, Node.js, and cloud infrastructure — building systems that scale.",
-    social: { github: "#", linkedin: "#", twitter: "#" },
+    social: { github: "#", linkedin: "https://www.linkedin.com/in/sarvesh-arun-8b1904337/", twitter: "#" },
     skills: ["React", "Node.js", "AWS", "Docker"],
     status: "Live: Syncing Production",
     statusColor: "bg-emerald-500 shadow-[0_0_12px_#10B981]",
@@ -26,9 +26,9 @@ const team = [
     role: "Co-Founder",
     title: "UI/UX Developer",
     tier: "L7 LEAD VISUAL CREATIVE",
-    initials: "SC",
+    initials: "CM",
     bio: "The design mind behind every pixel. Sharvesh blends world-class UI craft with technical frontend precision to create interfaces that users love.",
-    social: { github: "#", linkedin: "#" },
+    social: { github: "#", linkedin: "https://www.linkedin.com/in/c-m-sharvesh-847066332/" },
     skills: ["Figma", "TailwindCSS", "Framer Motion", "WebGL"],
     status: "Live: Polishing Pixels",
     statusColor: "bg-cyan-500 shadow-[0_0_12px_#06B6D4]",
@@ -45,7 +45,7 @@ const team = [
     tier: "L6 GROWTH SCIENTIST",
     initials: "SS",
     bio: "Siddharth bridges the gap between marketing and machine learning — driving growth through data-driven campaigns and intelligent automation systems.",
-    social: { linkedin: "#", twitter: "#" },
+    social: { linkedin: "https://www.linkedin.com/in/siddharthsanthoshkumar/", twitter: "#" },
     skills: ["PyTorch", "OpenAI", "Python", "Data Analytics"],
     status: "Live: Tuning LLM Weights",
     statusColor: "bg-rose-500 shadow-[0_0_12px_#F43F5E]",
@@ -57,20 +57,20 @@ const team = [
   },
   {
     name: "Vivek A",
-    role: "Treasurer",
-    title: "Outreach Manager",
-    tier: "L6 PARTNERSHIP OFFICER",
+    role: "Marketing Head",
+    title: "Head of Marketing",
+    tier: "L6 MARKETING STRATEGIST",
     initials: "VA",
-    bio: "Vivek manages the financial health of Sash and leads external partnerships — connecting the company with clients, investors, and the broader tech community.",
-    social: { linkedin: "#" },
-    skills: ["Capital Flows", "B2B Outreach", "Fintech", "Strategy"],
-    status: "Live: Securing Alliances",
+    bio: "Vivek leads marketing strategy, brand positioning, and B2B growth campaigns — connecting 1Sash with clients, partners, and high-value tech opportunities.",
+    social: { linkedin: "https://www.linkedin.com/in/vivek-arumugam-a01303328/" },
+    skills: ["Digital Marketing", "Brand Strategy", "Campaigns", "B2B Outreach", "Growth Strategy"],
+    status: "Live: Scaling Growth",
     statusColor: "bg-amber-500 shadow-[0_0_12px_#F59E0B]",
-    stat: { label: "Strategic Partners", value: "54" },
+    stat: { label: "Campaign Impressions", value: "250K+" },
     accentColor: "amber",
     gradient: "from-amber-500/10 via-orange-500/5 to-transparent",
     borderGlow: "group-hover:border-amber-500/50",
-    icon: Briefcase,
+    icon: TrendingUp,
   },
   {
     name: "Thaufiq Abdul Kadher",
@@ -223,25 +223,35 @@ const TeamCard = ({ member, index }: { member: typeof team[0]; index: number }) 
 
             {/* Social channels */}
             <div className="flex gap-1.5">
-              {member.social.github && (
+              {member.social.github && member.social.github !== "#" && (
                 <a
                   href={member.social.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub Profile"
                   className="w-7 h-7 rounded-lg border border-slate-800 bg-black/30 flex items-center justify-center hover:bg-slate-800 hover:border-slate-700 transition-all text-slate-400 hover:text-white"
                 >
                   <Github className="w-3 h-3" />
                 </a>
               )}
-              {member.social.linkedin && (
+              {member.social.linkedin && member.social.linkedin !== "#" && (
                 <a
                   href={member.social.linkedin}
-                  className="w-7 h-7 rounded-lg border border-slate-800 bg-black/30 flex items-center justify-center hover:bg-slate-800 hover:border-slate-700 transition-all text-slate-400 hover:text-white"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="LinkedIn Profile"
+                  className="px-2 h-7 rounded-lg border border-sky-500/40 bg-sky-500/10 flex items-center gap-1 hover:bg-sky-500/20 transition-all text-sky-400 font-mono text-[10px] font-bold"
                 >
                   <Linkedin className="w-3 h-3" />
+                  <span>LinkedIn</span>
                 </a>
               )}
-              {member.social.twitter && (
+              {member.social.twitter && member.social.twitter !== "#" && (
                 <a
                   href={member.social.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Twitter / X Profile"
                   className="w-7 h-7 rounded-lg border border-slate-800 bg-black/30 flex items-center justify-center hover:bg-slate-800 hover:border-slate-700 transition-all text-slate-400 hover:text-white"
                 >
                   <Twitter className="w-3 h-3" />

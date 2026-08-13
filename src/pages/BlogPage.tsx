@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../components/common/SEO"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowRight, Clock, User } from "lucide-react"
 import { CTABannerSection } from "../components/sections/CTABannerSection"
@@ -146,13 +146,12 @@ export const BlogPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Blog — Saash Technocrafts | Web Dev, AI, Cloud & More</title>
-        <meta name="description" content="Engineering insights, tutorials, and deep-dives on Web Development, AI, Cloud, React, Node.js, Cyber Security, and Software Tips from the Saash Technocrafts team." />
-        <meta property="og:title" content="Blog — Saash Technocrafts" />
-        <meta property="og:description" content="Tutorials, deep-dives, and engineering insights from the Saash team." />
-        <meta name="keywords" content="web development blog, AI blog, cloud computing, React tutorials, Node.js, cyber security, software tips" />
-      </Helmet>
+      <SEO
+        title="Engineering Blog — Web Dev, AI, Cloud & Software Insights"
+        description="Engineering insights, tutorials, and deep-dives on Web Development, AI, Cloud, React, Node.js, and Software Architecture from the 1Sash engineering team."
+        keywords="web development blog, AI blog, React Vite tutorials, TypeScript insights, cloud infrastructure, software engineering tips, 1Sash blog"
+        ogType="article"
+      />
 
       {/* Hero */}
       <section className="pt-36 pb-16 px-4 md:px-6 bg-background border-b border-border">

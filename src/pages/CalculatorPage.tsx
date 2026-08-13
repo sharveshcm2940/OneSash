@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../components/common/SEO"
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { ArrowRight, Calculator } from "lucide-react"
@@ -79,10 +79,11 @@ export const CalculatorPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Project Calculator — Saash Technocrafts</title>
-        <meta name="description" content="Use our interactive project calculator to get an instant estimate for your web app, mobile app, or software project." />
-      </Helmet>
+      <SEO
+        title="Interactive Software Project Cost Calculator"
+        description="Estimate the scope and timeline for your web application, mobile app, SaaS product, or AI system with 1Sash's interactive cost calculator."
+        keywords="software cost calculator, web app estimation, project cost calculator, hire software developers cost"
+      />
 
       <section className="relative pt-36 pb-10 px-4 md:px-6 text-center overflow-hidden">
         <div className="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/8 rounded-full blur-3xl pointer-events-none" />

@@ -1,18 +1,14 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Link, useLocation } from "react-router-dom"
-import { Menu, X, Moon, Sun } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { cn } from "../../utils/cn"
-import { useTheme } from "../providers/ThemeProvider"
 import { SashLogo } from "../ui/SashLogo"
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const location = useLocation()
-  const { theme, setTheme } = useTheme()
-
-  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark")
 
   useEffect(() => {
     const handleScroll = () => {
@@ -80,16 +76,8 @@ export const Navbar = () => {
               })}
             </nav>
 
-            {/* Right: Theme Toggle + CTA */}
+            {/* Right: CTA */}
             <div className="hidden md:flex items-center gap-4">
-              <button
-                onClick={toggleTheme}
-                className="p-2 text-muted-foreground hover:text-foreground transition-colors rounded-md border border-border/60 hover:border-border"
-                aria-label="Toggle theme"
-              >
-                {theme === "dark" ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-neutral-600" />}
-              </button>
-
               <Link
                 to="/contact"
                 className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary rounded-md hover:opacity-90 transition-opacity tracking-wide shadow-xs"
@@ -100,13 +88,6 @@ export const Navbar = () => {
 
             {/* Mobile menu toggle */}
             <div className="flex items-center gap-3 md:hidden">
-              <button
-                onClick={toggleTheme}
-                className="p-2 text-muted-foreground hover:text-foreground rounded-md border border-border"
-              >
-                {theme === "dark" ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-neutral-600" />}
-              </button>
-
               <button
                 className="p-2 text-foreground border border-border rounded-md"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

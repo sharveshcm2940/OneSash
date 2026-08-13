@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../../components/common/SEO"
 import { motion } from "framer-motion"
 import { ArrowRight, Smartphone, Fingerprint, RefreshCw, CheckCircle2 } from "lucide-react"
 import { Link } from "react-router-dom"
@@ -21,10 +21,11 @@ const processSteps = [
 export const MobileAppPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Mobile App Development — Saash Technocrafts</title>
-        <meta name="description" content="Cross-platform and native mobile applications for iOS and Android that users love." />
-      </Helmet>
+      <SEO
+        title="Mobile App Development for iOS & Android"
+        description="Craft sleek, high-performing cross-platform and native mobile applications for iOS and Android using React Native, Flutter, Swift, and Kotlin."
+        keywords="mobile app development, iOS Android apps, React Native agency, Flutter mobile app, 1Sash mobile development"
+      />
 
       <section className="pt-36 pb-20 px-4 md:px-6 bg-background border-b border-border overflow-hidden relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(var(--primary),0.05)_0%,transparent_70%)] pointer-events-none" />

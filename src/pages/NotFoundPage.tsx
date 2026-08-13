@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../components/common/SEO"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import { ArrowLeft, Home } from "lucide-react"
@@ -6,9 +6,11 @@ import { ArrowLeft, Home } from "lucide-react"
 export const NotFoundPage = () => {
   return (
     <>
-      <Helmet>
-        <title>404 — Page Not Found | Saash Technocrafts</title>
-      </Helmet>
+      <SEO
+        title="404 — Page Not Found"
+        description="The requested page could not be found."
+        noindex={true}
+      />
       <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none animate-blob" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-blob animation-delay-2000" />

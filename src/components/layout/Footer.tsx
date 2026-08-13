@@ -20,21 +20,57 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Center: Founders */}
+          {/* Center: Team & Leadership */}
           <div className="space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Founders</h4>
+            <h4 className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Team & Leadership</h4>
             <ul className="space-y-2 text-sm font-medium">
               <li className="flex items-center gap-2">
-                <span className="text-foreground">Saraveshvaran A</span>
+                <a
+                  href="https://www.linkedin.com/in/sarvesh-arun-8b1904337/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-[#0A66C2] dark:hover:text-[#3882FF] transition-colors font-semibold flex items-center gap-1 group"
+                >
+                  <span>Saraveshvaran A</span>
+                  <span className="text-[10px] font-mono font-normal text-[#0A66C2] dark:text-[#3882FF] opacity-80 group-hover:opacity-100">(LinkedIn)</span>
+                </a>
                 <span className="text-xs font-mono text-muted-foreground">— Founder</span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-foreground">Sharvesh CM</span>
+                <a
+                  href="https://www.linkedin.com/in/c-m-sharvesh-847066332/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-[#0A66C2] dark:hover:text-[#3882FF] transition-colors font-semibold flex items-center gap-1 group"
+                >
+                  <span>Sharvesh CM</span>
+                  <span className="text-[10px] font-mono font-normal text-[#0A66C2] dark:text-[#3882FF] opacity-80 group-hover:opacity-100">(LinkedIn)</span>
+                </a>
                 <span className="text-xs font-mono text-muted-foreground">— Founder</span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-foreground">Siddharth Santhosh Kumar</span>
+                <a
+                  href="https://www.linkedin.com/in/siddharthsanthoshkumar/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-[#0A66C2] dark:hover:text-[#3882FF] transition-colors font-semibold flex items-center gap-1 group"
+                >
+                  <span>Siddharth Santhosh Kumar</span>
+                  <span className="text-[10px] font-mono font-normal text-[#0A66C2] dark:text-[#3882FF] opacity-80 group-hover:opacity-100">(LinkedIn)</span>
+                </a>
                 <span className="text-xs font-mono text-muted-foreground">— Cofounder</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <a
+                  href="https://www.linkedin.com/in/vivek-arumugam-a01303328/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-[#0A66C2] dark:hover:text-[#3882FF] transition-colors font-semibold flex items-center gap-1 group"
+                >
+                  <span>Vivek A</span>
+                  <span className="text-[10px] font-mono font-normal text-[#0A66C2] dark:text-[#3882FF] opacity-80 group-hover:opacity-100">(LinkedIn)</span>
+                </a>
+                <span className="text-xs font-mono text-muted-foreground">— Marketing Head</span>
               </li>
             </ul>
           </div>

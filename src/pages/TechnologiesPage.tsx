@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../components/common/SEO"
 import { motion } from "framer-motion"
 import { TechnologiesSection } from "../components/sections/TechnologiesSection"
 import { CTABannerSection } from "../components/sections/CTABannerSection"
@@ -6,10 +6,11 @@ import { CTABannerSection } from "../components/sections/CTABannerSection"
 export const TechnologiesPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Technologies — Saash Technocrafts</title>
-        <meta name="description" content="Explore the modern tech stack we use to build scalable, high-performance digital solutions." />
-      </Helmet>
+      <SEO
+        title="Modern Engineering Tech Stack & Tools"
+        description="Explore the battle-tested engineering stack behind 1Sash: React, Vite, TypeScript, Node.js, Python, PostgreSQL, Three.js, Docker, AWS, and Gemini AI."
+        keywords="1Sash tech stack, React TypeScript Vite, Node.js PostgreSQL, Gemini AI, Docker cloud architecture"
+      />
 
       <section className="relative pt-36 pb-10 px-4 md:px-6 text-center overflow-hidden">
         <div className="absolute top-20 left-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />

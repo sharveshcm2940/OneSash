@@ -1,16 +1,33 @@
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../components/common/SEO"
 import { motion } from "framer-motion"
 import { ServicesSection } from "../components/sections/ServicesSection"
 import { ProcessSection } from "../components/sections/ProcessSection"
 import { CTABannerSection } from "../components/sections/CTABannerSection"
 
 export const ServicesPage = () => {
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "1Sash Engineering Services",
+    "description": "Custom full-stack web development, mobile applications, cloud devops, AI integration, and UI/UX design.",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Web Application Development", "url": "https://onesash.com/services/web-development" },
+      { "@type": "ListItem", "position": 2, "name": "Mobile Application Engineering", "url": "https://onesash.com/services/mobile-apps" },
+      { "@type": "ListItem", "position": 3, "name": "Cloud Architecture & DevOps", "url": "https://onesash.com/services/cloud-devops" },
+      { "@type": "ListItem", "position": 4, "name": "AI Solutions & Model Integration", "url": "https://onesash.com/services/ai-solutions" },
+      { "@type": "ListItem", "position": 5, "name": "Custom Enterprise Software", "url": "https://onesash.com/services/custom-software" },
+      { "@type": "ListItem", "position": 6, "name": "UI/UX & Editorial Interface Design", "url": "https://onesash.com/services/ui-ux-design" }
+    ]
+  }
+
   return (
     <>
-      <Helmet>
-        <title>Services — Saash Technocrafts</title>
-        <meta name="description" content="Explore our full range of software development services including web apps, mobile apps, UI/UX design, cloud solutions, and AI integration." />
-      </Helmet>
+      <SEO
+        title="Full-Stack Engineering & Development Services"
+        description="Explore 1Sash's core disciplines: Custom Web Development, Mobile Apps (iOS & Android), AI & Gemini Integration, Cloud DevOps, and Interactive Editorial UI Design."
+        keywords="Web development, mobile apps, React Vite, AI solutions, Cloud DevOps, UI UX Design, 1Sash services"
+        schema={servicesSchema}
+      />
 
       {/* Hero */}
       <section className="relative pt-36 pb-16 px-4 md:px-6 text-center overflow-hidden">

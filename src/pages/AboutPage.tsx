@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../components/common/SEO"
 import { motion } from "framer-motion"
 import { AboutSection } from "../components/sections/AboutSection"
 import { TeamBiosSection } from "../components/sections/TeamBiosSection"
@@ -7,10 +7,11 @@ import { PhilosophySection } from "../components/sections/PhilosophySection"
 export const AboutPage = () => {
   return (
     <>
-      <Helmet>
-        <title>About 1Sash — Software Development Studio Founded in 2026</title>
-        <meta name="description" content="1Sash is a software freelancing company founded by three engineering students in 2026: Saraveshvaran A, Sharvesh CM, and Siddharth Santhosh Kumar." />
-      </Helmet>
+      <SEO
+        title="About Our Engineering Team & Founders"
+        description="Learn about 1Sash Technocrafts — a software engineering studio based in Chennai founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, and Vivek A. Discover our story, engineering discipline, and leadership."
+        keywords="About 1Sash, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, Chennai software studio, software engineers, software freelancing team"
+      />
 
       {/* Hero Header */}
       <section className="pt-32 pb-16 bg-background border-b border-border">

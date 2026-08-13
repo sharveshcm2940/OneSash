@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../../components/common/SEO"
 import { motion } from "framer-motion"
 import { ArrowRight, Bot, BrainCircuit, Network, CheckCircle2 } from "lucide-react"
 import { Link } from "react-router-dom"
@@ -21,10 +21,11 @@ const processSteps = [
 export const AIPage = () => {
   return (
     <>
-      <Helmet>
-        <title>AI Integration & Machine Learning — Saash Technocrafts</title>
-        <meta name="description" content="Embed state-of-the-art AI into your products. LLM integration, RAG pipelines, and custom AI agents." />
-      </Helmet>
+      <SEO
+        title="AI Integration & Generative AI Solutions — Gemini & RAG"
+        description="Transform your software with Gemini AI integration, RAG pipelines, autonomous AI agents, and custom fine-tuned machine learning models built by 1Sash."
+        keywords="AI integration, Gemini API developers, RAG pipeline engineering, autonomous AI agents, 1Sash AI services"
+      />
 
       <section className="pt-36 pb-20 px-4 md:px-6 bg-background border-b border-border overflow-hidden relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(var(--primary),0.05)_0%,transparent_70%)] pointer-events-none" />

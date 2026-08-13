@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../components/common/SEO"
 import { motion, AnimatePresence } from "framer-motion"
 import { Search, Brain, Database, Cpu, HelpCircle, ArrowRight, BookOpen, Layers, GitFork, Compass } from "lucide-react"
 import { CTABannerSection } from "../components/sections/CTABannerSection"
@@ -117,10 +117,11 @@ export const AIGlossaryPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>AI & LLM Technology Glossary — Saash Technocrafts</title>
-        <meta name="description" content="An interactive engineering glossary of key AI terminologies, concepts, and architectural models. Learn about RAG, AI Agents, Embeddings, and more." />
-      </Helmet>
+      <SEO
+        title="AI & LLM Technology Glossary — RAG, Agents & Embeddings"
+        description="Interactive engineering glossary explaining LLMs, RAG, AI Agents, Vector Embeddings, Fine-Tuning, and Generative AI concepts in clear plain English."
+        keywords="AI glossary, LLM terms, Retrieval Augmented Generation RAG, AI Agents, Vector Database, 1Sash AI guide"
+      />
 
       {/* Hero */}
       <section className="relative pt-36 pb-16 px-4 md:px-6 overflow-hidden border-b border-border">

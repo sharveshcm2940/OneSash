@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../components/common/SEO"
 import { motion, AnimatePresence } from "framer-motion"
 import { TrendingUp, Target, Wrench, Award } from "lucide-react"
 import { CTABannerSection } from "../components/sections/CTABannerSection"
@@ -67,12 +67,11 @@ export const CaseStudiesPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Case Studies — Sash Technocrafts | Real Projects, Real Results</title>
-        <meta name="description" content="Explore how Sash Technocrafts solved real business problems — from healthcare SaaS to AI platforms. Problem, solution, technologies, and measurable outcomes." />
-        <meta property="og:title" content="Case Studies — Sash Technocrafts" />
-        <meta name="keywords" content="software case studies, web development case study, SaaS development, AI development, mobile app development results" />
-      </Helmet>
+      <SEO
+        title="Engineering Case Studies & Client Success Stories"
+        description="Explore how 1Sash solved real business problems — from healthcare SaaS platforms to AI systems. Read problems, solutions, architecture, and measurable outcomes."
+        keywords="software case studies, web development case study, SaaS engineering, AI deployment results, 1Sash success stories"
+      />
 
       {/* Hero */}
       <section className="pt-36 pb-16 px-4 md:px-6 bg-background border-b border-border">

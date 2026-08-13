@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async"
+import { SEO } from "../components/common/SEO"
 import { motion } from "framer-motion"
 import { PortfolioSection } from "../components/sections/PortfolioSection"
 import { CTABannerSection } from "../components/sections/CTABannerSection"
@@ -6,10 +6,11 @@ import { CTABannerSection } from "../components/sections/CTABannerSection"
 export const PortfolioPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Portfolio — Saash Technocrafts</title>
-        <meta name="description" content="Explore our portfolio of web apps, mobile apps, SaaS platforms, and AI solutions we've built for clients worldwide." />
-      </Helmet>
+      <SEO
+        title="Software Portfolio & Deployed Client Case Studies"
+        description="Browse 1Sash's portfolio of web platforms, SaaS applications, mobile tools, and AI software engineered for startups and enterprise clients."
+        keywords="1Sash portfolio, software case studies, deployed software projects, SaaS engineering examples, web app showcase"
+      />
 
       <section className="relative pt-36 pb-10 px-4 md:px-6 text-center overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black,transparent)] dark:bg-[linear-gradient(to_right,#fff1_1px,transparent_1px),linear-gradient(to_bottom,#fff1_1px,transparent_1px)]" />
