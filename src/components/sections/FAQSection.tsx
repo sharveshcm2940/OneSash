@@ -1,5 +1,6 @@
 import { useRef, useState } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
+import { Link } from "react-router-dom"
 import { Plus, Minus } from "lucide-react"
 
 const faqs = [
@@ -170,12 +171,12 @@ export const FAQSection = () => {
             <h3 className="font-heading font-bold text-xl tracking-tight mb-1">Still have questions?</h3>
             <p className="text-sm text-muted-foreground">We're happy to answer anything — no sales pressure, ever.</p>
           </div>
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="flex-shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-foreground text-background text-sm font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all"
           >
             Talk to Us →
-          </a>
+          </Link>
         </motion.div>
 
       </div>

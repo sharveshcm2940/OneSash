@@ -61,7 +61,8 @@ export const Navbar = () => {
             <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path || (link.path.startsWith('/#') && location.pathname === '/')
-                return (
+                const isAnchor = link.path.startsWith('/#')
+                return isAnchor ? (
                   <a
                     key={link.name}
                     href={link.path}
@@ -72,6 +73,17 @@ export const Navbar = () => {
                   >
                     {link.name}
                   </a>
+                ) : (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className={cn(
+                      "text-sm font-medium transition-colors hover:text-foreground relative tracking-wide",
+                      isActive ? "text-foreground" : "text-muted-foreground"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
                 )
               })}
             </nav>

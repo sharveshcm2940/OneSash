@@ -1,6 +1,7 @@
 import { SEO } from "../components/common/SEO"
 import { motion } from "framer-motion"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import { ArrowRight, Calculator } from "lucide-react"
 import { cn } from "../utils/cn"
 
@@ -186,13 +187,13 @@ export const CalculatorPage = () => {
                     <p className="text-xs text-muted-foreground mt-2">*Estimate is a starting point. Final quote after discovery call.</p>
                   </div>
 
-                  <a
-                    href="/contact"
+                  <Link
+                    to="/contact"
                     className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-primary text-white font-semibold hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(80,70,229,0.3)]"
                   >
                     Get Exact Quote
                     <ArrowRight className="w-5 h-5" />
-                  </a>
+                  </Link>
                 </motion.div>
               </div>
             </div>

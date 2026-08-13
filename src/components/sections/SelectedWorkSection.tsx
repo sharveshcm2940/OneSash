@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { Link } from "react-router-dom"
 import { ArrowUpRight, X, ShieldCheck, CheckCircle2, Sparkles, QrCode, Users, Building2, Briefcase } from "lucide-react"
 import { Card3DTilt } from "../ui/Card3DTilt"
 
@@ -438,12 +439,12 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
           <p className="text-xs font-mono text-muted-foreground">
             Interested in a similar system built for your organization?
           </p>
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="w-full sm:w-auto px-6 py-3 text-sm font-medium bg-primary text-primary-foreground rounded hover:opacity-90 transition-opacity text-center"
           >
             Request System Demo & Quote
-          </a>
+          </Link>
         </div>
 
       </motion.div>
