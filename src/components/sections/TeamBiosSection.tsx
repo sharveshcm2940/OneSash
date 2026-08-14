@@ -168,6 +168,38 @@ export const teamMembers: TeamMember[] = [
     quote: "Effective marketing turns engineering breakthroughs into clear, undeniable market value.",
     avatarInitials: "VA",
     milestoneBadge: "B.Tech. IT • CLASS OF 2028"
+  },
+  {
+    id: "naren",
+    name: "Naren Annamalai",
+    role: "Head of Digital Marketing",
+    tagline: "Driving high-velocity digital acquisition, performance marketing, and global brand visibility.",
+    education: "B.Tech. Information Technology",
+    degree: "Bachelor of Technology",
+    college: "Engineering College • Chennai, India",
+    gradYear: "Class of 2028",
+    gpaMilestone: "Digital Growth & Marketing Operations Lead",
+    location: "Chennai, Tamil Nadu, India",
+    email: "onesash.contact@gmail.com",
+    github: "https://github.com",
+    linkedin: "https://www.linkedin.com/",
+    shortBio: "Architects omni-channel growth campaigns, performance advertising funnels, SEO strategy, and data-driven customer acquisition for 1Sash.",
+    fullBio: "Naren Annamalai serves as the Head of Digital Marketing at 1Sash Technocrafts. With a strong analytical mindset and data-first marketing philosophy, he orchestrates targeted client acquisition funnels, search engine optimization (SEO & GEO), conversion rate optimization (CRO), and omni-channel brand distribution. He ensures 1Sash's engineering solutions reach high-intent technology leaders, founders, and enterprise teams globally.",
+    academicHighlight: "Specialized Coursework in Digital Analytics, Marketing Informatics, Growth Engineering, and Consumer Data Systems.",
+    specialties: [
+      "Performance Marketing & Paid User Acquisition",
+      "Search Engine Optimization & AI Engine Visibility",
+      "Conversion Rate Optimization (CRO) & Funnel Analytics",
+      "Social Media & B2B Content Distribution"
+    ],
+    keyProjects: [
+      { name: "DIGITAL GROWTH FUNNEL", role: "Head of Digital Marketing", desc: "Engineered automated client lead acquisition funnels and analytics dashboards." },
+      { name: "GLOBAL REACH INITIATIVE", role: "Marketing Strategist", desc: "Scaled organic and performance brand visibility across high-intent developer and founder networks." }
+    ],
+    techStack: ["Digital Marketing", "SEO / SEM", "Google Analytics 4", "Meta Ads", "Performance Marketing", "Content Strategy"],
+    quote: "Precision marketing turns engineering excellence into sustainable exponential growth.",
+    avatarInitials: "NA",
+    milestoneBadge: "B.Tech. IT • CLASS OF 2028"
   }
 ]
 
@@ -310,7 +342,7 @@ export const TeamBiosSection = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {teamMembers.map((member, idx) => (
               <motion.div

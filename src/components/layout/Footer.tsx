@@ -72,6 +72,18 @@ export const Footer = () => {
                 </a>
                 <span className="text-xs font-mono text-muted-foreground">— Marketing Head</span>
               </li>
+              <li className="flex items-center gap-2">
+                <a
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-[#0A66C2] dark:hover:text-[#3882FF] transition-colors font-semibold flex items-center gap-1 group"
+                >
+                  <span>Naren Annamalai</span>
+                  <span className="text-[10px] font-mono font-normal text-[#0A66C2] dark:text-[#3882FF] opacity-80 group-hover:opacity-100">(LinkedIn)</span>
+                </a>
+                <span className="text-xs font-mono text-muted-foreground">— Head of Digital Marketing</span>
+              </li>
             </ul>
           </div>
 

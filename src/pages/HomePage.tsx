@@ -29,8 +29,8 @@ export const HomePage = () => {
   return (
     <>
       <SEO
-        description="1Sash is a software development studio founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, and Vivek A in 2026. We build production-ready full-stack applications, AI integrations, mobile apps, and cloud pipelines."
-        keywords="1Sash, software freelancing studio, full stack software development, React Vite TypeScript, custom web app engineering, mobile app development, Chennai software company, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A"
+        description="1Sash is a software development studio founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, and Naren Annamalai in 2026. We build production-ready full-stack applications, AI integrations, mobile apps, and cloud pipelines."
+        keywords="1Sash, software freelancing studio, full stack software development, React Vite TypeScript, custom web app engineering, mobile app development, Chennai software company, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, Naren Annamalai"
         schema={homeSchema}
       />
 

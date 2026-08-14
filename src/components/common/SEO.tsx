@@ -16,9 +16,9 @@ export interface SEOProps {
 const DEFAULT_SITE_NAME = "1Sash — Software Development Studio"
 const DEFAULT_TITLE = "1Sash — Full-Stack Software Engineering & Freelance Studio"
 const DEFAULT_DESCRIPTION =
-  "1Sash Technocrafts is a top-tier software engineering studio in Chennai, India. Founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, and Vivek A. We engineer custom web systems, mobile apps, enterprise AI solutions, and cloud DevOps."
+  "1Sash Technocrafts is a top-tier software engineering studio in Chennai, India. Founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, and Naren Annamalai. We engineer custom web systems, mobile apps, enterprise AI solutions, and cloud DevOps."
 const DEFAULT_KEYWORDS =
-  "1Sash, 1Sash Technocrafts, software development studio, full stack web development, React Vite TypeScript, Chennai software company, custom software development, mobile app development, AI solutions, cloud devops, software freelancing company, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A"
+  "1Sash, 1Sash Technocrafts, software development studio, full stack web development, React Vite TypeScript, Chennai software company, custom software development, mobile app development, AI solutions, cloud devops, software freelancing company, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, Naren Annamalai"
 const DEFAULT_OG_IMAGE = "https://onesash.co.in/onesash-logo.jpg"
 const DEFAULT_SITE_URL = "https://onesash.co.in"
 
@@ -88,6 +88,12 @@ export const SEO = ({
         "name": "Vivek A",
         "jobTitle": "Co-founder & Marketing Head",
         "sameAs": "https://www.linkedin.com/in/vivek-arumugam-a01303328/"
+      },
+      {
+        "@type": "Person",
+        "name": "Naren Annamalai",
+        "jobTitle": "Head of Digital Marketing",
+        "sameAs": "https://www.linkedin.com/"
       }
     ],
     "priceRange": "$$",

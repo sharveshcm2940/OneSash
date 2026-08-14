@@ -9,8 +9,8 @@ export const AboutPage = () => {
     <>
       <SEO
         title="About Our Engineering Team & Founders"
-        description="Learn about 1Sash Technocrafts — a software engineering studio based in Chennai founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, and Vivek A. Discover our story, engineering discipline, and leadership."
-        keywords="About 1Sash, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, Chennai software studio, software engineers, software freelancing team"
+        description="Learn about 1Sash Technocrafts — a software engineering studio based in Chennai founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, and Naren Annamalai. Discover our story, engineering discipline, and leadership."
+        keywords="About 1Sash, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, Naren Annamalai, Chennai software studio, software engineers, software freelancing team"
       />
 
       {/* Hero Header */}
