@@ -6,7 +6,7 @@ import { Card3DTilt } from "../ui/Card3DTilt"
 const founders = [
   {
     name: "Saraveshvaran A",
-    role: "Founder",
+    role: "Co-Founder",
     spec: "Full-Stack Systems & Architecture",
     bio: "Focuses on building reliable backend pipelines, clean database models, and end-to-end web software engineering.",
     techStack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
@@ -15,7 +15,7 @@ const founders = [
   },
   {
     name: "Sharvesh CM",
-    role: "Founder",
+    role: "Co-Founder",
     spec: "Frontend Engineering & Interactive UI",
     bio: "Specializes in high-performance client interfaces, responsive layouts, and interactive WebGL canvas scenes.",
     techStack: ["React", "TypeScript", "Three.js", "Framer Motion", "Vite"],
@@ -24,12 +24,30 @@ const founders = [
   },
   {
     name: "Siddharth Santhosh Kumar",
-    role: "Cofounder",
+    role: "Co-Founder",
     spec: "Product Logic & Operations",
     bio: "Translates client operational workflows into structured software requirements and clean digital solutions.",
     techStack: ["React", "Node.js", "REST APIs", "System Architecture"],
     avatar: "SS",
     linkedin: "https://www.linkedin.com/in/siddharthsanthoshkumar/",
+  },
+  {
+    name: "Vivek A",
+    role: "Marketing Head",
+    spec: "Brand Strategy & B2B Growth",
+    bio: "Spearheads marketing strategy, brand positioning, and B2B growth campaigns to connect onesash with tech opportunities.",
+    techStack: ["Brand Strategy", "B2B Marketing", "Market Positioning", "Growth Ops"],
+    avatar: "VA",
+    linkedin: "https://www.linkedin.com/in/vivek-arumugam-a01303328/",
+  },
+  {
+    name: "Naren Annamalai",
+    role: "Head of Digital Marketing",
+    spec: "Growth Marketing & Performance",
+    bio: "Orchestrates targeted digital acquisition funnels, SEO strategy, performance marketing, and conversion optimization.",
+    techStack: ["Performance Marketing", "SEO / SEM", "GA4", "Funnel Analytics"],
+    avatar: "NA",
+    linkedin: "https://www.linkedin.com/",
   },
 ]
 
@@ -40,17 +58,17 @@ export const FoundersSection = () => {
         
         <div className="max-w-3xl mb-16 space-y-4">
           <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-            THE FOUNDERS • EST. 2026
+            THE LEADERSHIP • EST. 2026
           </span>
           <h2 className="text-4xl md:text-6xl font-serif text-foreground">
-            Three Engineers. One Company.
+            Engineering Craftsmanship. Unified Vision.
           </h2>
           <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
-            Founded in 2026 by three engineering college students with hands-on technical abilities and a human-first approach to software development.
+            Founded in 2026 by engineering students with hands-on technical abilities, dedicated to building high-velocity, resilient software systems for real-world problems.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {founders.map((founder, i) => (
             <Card3DTilt key={founder.name} maxTilt={10}>
               <motion.div

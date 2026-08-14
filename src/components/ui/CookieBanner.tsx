@@ -7,7 +7,7 @@ export const CookieBanner = () => {
 
   useEffect(() => {
     // Check if user has already accepted/declined
-    const consent = localStorage.getItem("saash-cookie-consent")
+    const consent = localStorage.getItem("onesash-cookie-consent")
     if (!consent) {
       // Delay showing the banner slightly for better UX
       const timer = setTimeout(() => setIsVisible(true), 1500)
@@ -16,12 +16,12 @@ export const CookieBanner = () => {
   }, [])
 
   const handleAccept = () => {
-    localStorage.setItem("saash-cookie-consent", "accepted")
+    localStorage.setItem("onesash-cookie-consent", "accepted")
     setIsVisible(false)
   }
 
   const handleDecline = () => {
-    localStorage.setItem("saash-cookie-consent", "declined")
+    localStorage.setItem("onesash-cookie-consent", "declined")
     setIsVisible(false)
   }
 

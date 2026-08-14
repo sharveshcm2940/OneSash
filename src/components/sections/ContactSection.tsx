@@ -91,8 +91,8 @@ export const ContactSection = () => {
         { text: "Microsoft Windows [Version 10.0.22631.3807]", type: "system" },
         { text: "(c) Microsoft Corporation. All rights reserved.", type: "system" },
         { text: "", type: "system" },
-        { text: "C:\\Users\\1Sash> 1sash-contact.exe", type: "input" },
-        { text: "Establishing secure pipeline connection to 1Sash core server...", type: "system" },
+        { text: "C:\\Users\\onesash> onesash-contact.exe", type: "input" },
+        { text: "Establishing secure pipeline connection to onesash core server...", type: "system" },
         { text: "[OK] Connection online. Encryption standard TLS 1.3 active.", type: "success" },
         { text: "Type 'help' for Windows command options, or 'gui' for traditional form.", type: "info" },
         { text: "========================================================================", type: "system" },
@@ -110,8 +110,8 @@ export const ContactSection = () => {
       { text: "Microsoft Windows [Version 10.0.22631.3807]", type: "system" },
       { text: "(c) Microsoft Corporation. All rights reserved.", type: "system" },
       { text: "", type: "system" },
-      { text: "C:\\Users\\1Sash> 1sash-contact.exe --reset", type: "input" },
-      { text: "Establishing secure pipeline connection to 1Sash core server...", type: "system" },
+      { text: "C:\\Users\\onesash> onesash-contact.exe --reset", type: "input" },
+      { text: "Establishing secure pipeline connection to onesash core server...", type: "system" },
       { text: "[OK] Connection online. Encryption standard TLS 1.3 active.", type: "success" },
       { text: "Type 'help' for Windows command options, or 'gui' for traditional form.", type: "info" },
       { text: "========================================================================", type: "system" },
@@ -132,7 +132,7 @@ export const ContactSection = () => {
     }
 
     // Add user typed line to history log
-    setTerminalHistory((prev) => [...prev, { text: `C:\\Users\\1Sash> ${terminalInput}`, type: "input" }])
+    setTerminalHistory((prev) => [...prev, { text: `C:\\Users\\onesash> ${terminalInput}`, type: "input" }])
     setTerminalInput("")
 
     const lowercaseInput = trimmed.toLowerCase()
@@ -366,21 +366,21 @@ export const ContactSection = () => {
     }
     switch (currentStep) {
       case "name":
-        return "C:\\Users\\1Sash> Enter your name: "
+        return "C:\\Users\\onesash> Enter your name: "
       case "email":
-        return "C:\\Users\\1Sash> Enter email address: "
+        return "C:\\Users\\onesash> Enter email address: "
       case "company":
-        return "C:\\Users\\1Sash> Enter company (optional, hit Enter to skip): "
+        return "C:\\Users\\onesash> Enter company (optional, hit Enter to skip): "
       case "budget":
-        return "C:\\Users\\1Sash> Select budget range index [1-6]: "
+        return "C:\\Users\\onesash> Select budget range index [1-6]: "
       case "message":
-        return "C:\\Users\\1Sash> Enter project details (min 20 chars): "
+        return "C:\\Users\\onesash> Enter project details (min 20 chars): "
       case "confirm":
-        return "C:\\Users\\1Sash> Confirm submission? [Y/N]: "
+        return "C:\\Users\\onesash> Confirm submission? [Y/N]: "
       case "completed":
-        return "C:\\Users\\1Sash> session closed. "
+        return "C:\\Users\\onesash> session closed. "
       default:
-        return "C:\\Users\\1Sash> "
+        return "C:\\Users\\onesash> "
     }
   }
 
@@ -660,7 +660,7 @@ export const ContactSection = () => {
                         <label className="block text-sm font-medium mb-2">Company (Optional)</label>
                         <input
                           {...register("company")}
-                          placeholder="Acme Inc."
+                          placeholder="e.g. Nexus Global Technologies"
                           className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
                         />
                       </div>

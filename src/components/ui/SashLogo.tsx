@@ -9,7 +9,7 @@ export const SashLogo = ({ className = "w-7 h-7" }: { className?: string }) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Architectural 1Sash Monogram Icon: Crisp, clean, engineering block */}
+        {/* Architectural onesash Monogram Icon: Crisp, clean, engineering block */}
         <rect x="2" y="2" width="36" height="36" rx="6" fill="currentColor" className="text-foreground fill-current" />
         <path
           d="M14 12H19V28H14"

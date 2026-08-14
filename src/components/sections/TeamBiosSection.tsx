@@ -56,7 +56,7 @@ export const teamMembers: TeamMember[] = [
     github: "https://github.com",
     linkedin: "https://www.linkedin.com/in/sarvesh-arun-8b1904337/",
     shortBio: "Focuses on backend pipelines, database normalization, and end-to-end full-stack web software engineering with strict type safety.",
-    fullBio: "Saraveshvaran is a co-founder of 1Sash specializing in full-stack web architecture and high-performance server logic. With a deep foundation in information technology fundamentals, he leads the architectural design of database schemas (PostgreSQL, MongoDB), REST API handlers, and cloud backend deployments. He believes that true software quality stems from readable, maintainable code structures that scale gracefully without technical debt.",
+    fullBio: "Saraveshvaran is a co-founder of onesash specializing in full-stack web architecture and high-performance server logic. With a deep foundation in information technology fundamentals, he leads the architectural design of database schemas (PostgreSQL, MongoDB), REST API handlers, and cloud backend deployments. He believes that true software quality stems from readable, maintainable code structures that scale gracefully without technical debt.",
     academicHighlight: "Specialized Coursework in Database Management Systems, Distributed Systems, Operating Systems, and Network Protocols.",
     specialties: [
       "Full-Stack Web Architecture & API Engineering",
@@ -88,7 +88,7 @@ export const teamMembers: TeamMember[] = [
     github: "https://github.com",
     linkedin: "https://www.linkedin.com/in/c-m-sharvesh-847066332/",
     shortBio: "Specializes in high-performance frontend interfaces, responsive design systems, and interactive 3D WebGL scenes using Three.js.",
-    fullBio: "Sharvesh leads client-side design and interactive engineering at 1Sash. Combining technical expertise in React and Vite with an acute eye for typography, spatial rhythm, and responsive layouts, he turns complex user workflows into effortless visual experiences. He is particularly focused on WebGL canvas rendering, smooth animations (Framer Motion), and dark/light luxury theme engineering that eliminates AI design clichés.",
+    fullBio: "Sharvesh leads client-side design and interactive engineering at onesash. Combining technical expertise in React and Vite with an acute eye for typography, spatial rhythm, and responsive layouts, he turns complex user workflows into effortless visual experiences. He is particularly focused on WebGL canvas rendering, smooth animations (Framer Motion), and dark/light luxury theme engineering that eliminates AI design clichés.",
     academicHighlight: "Focused Research in Computer Graphics, Human-Computer Interaction (HCI), Frontend Optimization, and Algorithms.",
     specialties: [
       "Interactive 3D WebGL & Canvas Rendering (Three.js)",
@@ -97,7 +97,7 @@ export const teamMembers: TeamMember[] = [
       "Performance Optimization & Bundle Splitting"
     ],
     keyProjects: [
-      { name: "1SASH 3D ENGINE", role: "Lead UI Developer", desc: "Created real-time WebGL interactive canvas rendering architectural node models." },
+      { name: "ONESASH 3D ENGINE", role: "Lead UI Developer", desc: "Created real-time WebGL interactive canvas rendering architectural node models." },
       { name: "AI CONTENT GENERATOR", role: "Frontend Lead", desc: "Designed intuitive multi-platform preview canvas and live slide layout generator." }
     ],
     techStack: ["React", "TypeScript", "Three.js", "WebGL", "Tailwind CSS", "Framer Motion", "Vite", "HTML5/CSS3"],
@@ -120,7 +120,7 @@ export const teamMembers: TeamMember[] = [
     github: "https://github.com",
     linkedin: "https://www.linkedin.com/in/siddharthsanthoshkumar/",
     shortBio: "Translates complex client operations into structured software requirements, product roadmaps, and functional digital solutions.",
-    fullBio: "Siddharth bridges real-world business requirements with 1Sash’s engineering roadmap. Drawing from a strong background in analytical problem solving and project management, he works directly with clients to deconstruct operational friction, formulate concise functional specifications, and ensure delivered software aligns precisely with client business goals.",
+    fullBio: "Siddharth bridges real-world business requirements with onesash’s engineering roadmap. Drawing from a strong background in analytical problem solving and project management, he works directly with clients to deconstruct operational friction, formulate concise functional specifications, and ensure delivered software aligns precisely with client business goals.",
     academicHighlight: "Coursework & Honors in Software Project Management, Systems Analysis & Design, Quality Assurance, and Operations.",
     specialties: [
       "Product Specification & Workflow Deconstruction",
@@ -151,8 +151,8 @@ export const teamMembers: TeamMember[] = [
     email: "onesash.contact@gmail.com",
     github: "https://github.com",
     linkedin: "https://www.linkedin.com/in/vivek-arumugam-a01303328/",
-    shortBio: "Leads marketing strategy, digital campaigns, brand positioning, and strategic B2B outreach for 1Sash.",
-    fullBio: "Vivek A serves as the Marketing Head at 1Sash. He is responsible for crafting growth strategies, digital marketing campaigns, and strategic brand positioning. Working closely with the core engineering team, he translates complex software capabilities into clear, compelling market value propositions that drive client trust and business expansion.",
+    shortBio: "Leads marketing strategy, digital campaigns, brand positioning, and strategic B2B outreach for onesash.",
+    fullBio: "Vivek A serves as the Marketing Head at onesash. He is responsible for crafting growth strategies, digital marketing campaigns, and strategic brand positioning. Working closely with the core engineering team, he translates complex software capabilities into clear, compelling market value propositions that drive client trust and business expansion.",
     academicHighlight: "Specialized Coursework in Digital Marketing, Brand Communication, Market Analytics, and Strategic Outreach.",
     specialties: [
       "Digital Marketing Strategy & Campaign Management",
@@ -161,7 +161,7 @@ export const teamMembers: TeamMember[] = [
       "Market Intelligence & Growth Analytics"
     ],
     keyProjects: [
-      { name: "1SASH BRAND LAUNCH", role: "Marketing Lead", desc: "Spearheaded brand launch and digital marketing campaign across tech channels." },
+      { name: "ONESASH BRAND LAUNCH", role: "Marketing Lead", desc: "Spearheaded brand launch and digital marketing campaign across tech channels." },
       { name: "B2B OUTREACH CAMPAIGN", role: "Growth Lead", desc: "Created targeted client acquisition funnel for commercial engineering contracts." }
     ],
     techStack: ["Digital Marketing", "SEO / SEM", "Brand Strategy", "Content Marketing", "B2B Outreach", "Analytics"],
@@ -183,8 +183,8 @@ export const teamMembers: TeamMember[] = [
     email: "onesash.contact@gmail.com",
     github: "https://github.com",
     linkedin: "https://www.linkedin.com/",
-    shortBio: "Architects omni-channel growth campaigns, performance advertising funnels, SEO strategy, and data-driven customer acquisition for 1Sash.",
-    fullBio: "Naren Annamalai serves as the Head of Digital Marketing at 1Sash Technocrafts. With a strong analytical mindset and data-first marketing philosophy, he orchestrates targeted client acquisition funnels, search engine optimization (SEO & GEO), conversion rate optimization (CRO), and omni-channel brand distribution. He ensures 1Sash's engineering solutions reach high-intent technology leaders, founders, and enterprise teams globally.",
+    shortBio: "Architects omni-channel growth campaigns, performance advertising funnels, SEO strategy, and data-driven customer acquisition for onesash.",
+    fullBio: "Naren Annamalai serves as the Head of Digital Marketing at onesash Technocrafts. With a strong analytical mindset and data-first marketing philosophy, he orchestrates targeted client acquisition funnels, search engine optimization (SEO & GEO), conversion rate optimization (CRO), and omni-channel brand distribution. He ensures onesash's engineering solutions reach high-intent technology leaders, founders, and enterprise teams globally.",
     academicHighlight: "Specialized Coursework in Digital Analytics, Marketing Informatics, Growth Engineering, and Consumer Data Systems.",
     specialties: [
       "Performance Marketing & Paid User Acquisition",
@@ -218,7 +218,7 @@ const founderMilestones = [
   {
     year: "2026",
     title: "Formal Studio Launch & Senior Graduation",
-    desc: "Officially incorporated 1Sash as a software freelancing studio, balancing senior engineering coursework with client software deliveries across real estate, legal, and hospitality."
+    desc: "Officially incorporated onesash as a software freelancing studio, balancing senior engineering coursework with client software deliveries across real estate, legal, and hospitality."
   }
 ]
 
@@ -237,7 +237,7 @@ const engineeringPrinciples = [
   {
     num: "03",
     title: "Direct Founder Engineering",
-    desc: "Clients speak directly with Saraveshvaran, Sharvesh, and Siddharth. The people in discovery meetings are the exact same engineers writing the code."
+    desc: "Clients speak directly with the core engineering leadership. The people in discovery meetings are the exact same engineers writing the code."
   },
   {
     num: "04",
@@ -273,7 +273,7 @@ export const TeamBiosSection = () => {
                 Engineered in College Labs. Delivered to Real Industry.
               </h3>
               <p className="text-xs text-muted-foreground mt-0.5 max-w-2xl">
-                1Sash was founded in 2026 by three engineering students completing their Bachelor of Engineering degrees while engineering software for commercial clients.
+                onesash was founded in 2026 by engineering students completing their Bachelor of Engineering degrees while building high-performance software for commercial clients.
               </p>
             </div>
           </div>
@@ -297,7 +297,7 @@ export const TeamBiosSection = () => {
               FOUNDERS & ENGINEERING DISCIPLINE
             </span>
             <h2 className="text-4xl md:text-6xl font-serif text-foreground">
-              Meet the Engineers behind 1Sash.
+              Meet the Engineers behind onesash.
             </h2>
           </div>
 
@@ -458,7 +458,7 @@ export const TeamBiosSection = () => {
             <div className="p-6 border border-border bg-card/30 rounded-lg mb-8">
               <h3 className="text-xl font-serif text-foreground mb-2">The Student-Founder Trajectory</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Starting from engineering classroom assignments to managing high-stakes client software, here is how Saraveshvaran, Sharvesh, and Siddharth built 1Sash.
+                Starting from engineering classroom assignments to managing high-stakes client software, here is how Saraveshvaran, Sharvesh, and Siddharth built onesash.
               </p>
             </div>
 
@@ -524,7 +524,7 @@ export const TeamBiosSection = () => {
               <span className="text-xs font-mono font-bold uppercase tracking-wider">COMMERCIAL SYSTEMS</span>
             </div>
             <div className="text-2xl font-serif text-foreground">100% Shipped</div>
-            <p className="text-[11px] text-muted-foreground">Every project built by the 3 founders is deployed live.</p>
+            <p className="text-[11px] text-muted-foreground">Every project engineered by onesash is delivered production-ready.</p>
           </div>
 
           <div className="p-6 border border-border rounded-lg bg-card/20 space-y-2">
@@ -646,7 +646,7 @@ const FounderBioModal = ({ member, onClose }: { member: TeamMember; onClose: () 
         {/* Key Delivered Projects */}
         <div className="space-y-3">
           <h3 className="text-xs font-mono uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-            <FolderGit2 className="w-4 h-4 text-foreground" /> KEY SYSTEMS DELIVERED AT 1SASH
+            <FolderGit2 className="w-4 h-4 text-foreground" /> KEY SYSTEMS DELIVERED AT ONESASH
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {member.keyProjects.map((proj) => (

@@ -13,21 +13,33 @@ interface Founder {
 const founders: Founder[] = [
   {
     name: "Saraveshvaran A",
-    role: "Founder",
+    role: "Co-Founder",
     spec: "Full-Stack Systems & Architecture",
     bio: "Focused on building reliable backend pipelines, clean database schemas, and end-to-end web product engineering."
   },
   {
     name: "Sharvesh CM",
-    role: "Founder",
+    role: "Co-Founder",
     spec: "Frontend Engineering & Interactive UI",
     bio: "Specializing in high-performance client interfaces, responsive web systems, and fluid interactive user experiences."
   },
   {
     name: "Siddharth Santhosh Kumar",
-    role: "Cofounder",
-    spec: "Product Logic & Operations",
-    bio: "Dedicated to converting client workflow requirements into clean software architecture and functional digital solutions."
+    role: "Co-Founder",
+    spec: "Product Logic & AI Systems",
+    bio: "Dedicated to converting client workflow requirements into clean software architecture and functional AI automation solutions."
+  },
+  {
+    name: "Vivek A",
+    role: "Marketing Head",
+    spec: "Brand Strategy & B2B Growth",
+    bio: "Leading strategic brand positioning and B2B growth campaigns that connect onesash with forward-thinking enterprises."
+  },
+  {
+    name: "Naren Annamalai",
+    role: "Head of Digital Marketing",
+    spec: "Digital Acquisition & Growth Ops",
+    bio: "Orchestrating high-velocity digital marketing funnels, SEO strategy, and performance-driven customer acquisition."
   }
 ]
 
@@ -43,10 +55,10 @@ export const AboutSection = () => {
               <Globe className="w-4 h-4 text-accent" /> FOUNDING STORY • EST. 2026
             </span>
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-serif leading-[0.98] text-foreground font-black tracking-tight">
-              THREE ENGINEERS.<br />GLOBAL REACH.
+              ENGINEERING TALENT.<br />GLOBAL REACH.
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xl">
-              1Sash was founded in 2026 by three engineering college students who shared a common conviction: software freelancing shouldn’t be built on bloated templates or buzzwords. We write real, maintainable code for real organizations worldwide.
+              onesash was founded in 2026 by engineering students who shared a common conviction: software freelancing shouldn’t be built on bloated templates or buzzwords. We write real, maintainable code for real organizations worldwide.
             </p>
           </div>
 
@@ -56,7 +68,7 @@ export const AboutSection = () => {
         </div>
 
         {/* Founders Grid — 3D Tilt Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {founders.map((founder, idx) => (
             <Card3DTilt key={founder.name} maxTilt={10}>
               <motion.div
@@ -93,7 +105,7 @@ export const AboutSection = () => {
                   <span className="flex items-center gap-1.5">
                     <GraduationCap className="w-3.5 h-3.5 text-foreground" /> B.Tech IT '28
                   </span>
-                  <span>1Sash • 2026</span>
+                  <span>onesash • 2026</span>
                 </div>
               </motion.div>
             </Card3DTilt>

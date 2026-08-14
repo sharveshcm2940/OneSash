@@ -386,7 +386,7 @@ export const TechnologiesSection = () => {
                 {/* Production Engineering Standard */}
                 <div className="p-4 rounded-lg border border-border bg-card/40 space-y-2">
                   <span className="text-[10px] font-mono uppercase tracking-widest text-accent flex items-center gap-1.5 font-bold">
-                    <ShieldCheck className="w-3.5 h-3.5" /> 1SASH PRODUCTION STANDARD
+                    <ShieldCheck className="w-3.5 h-3.5" /> ONESASH PRODUCTION STANDARD
                   </span>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     {selectedTech.productionStandard}

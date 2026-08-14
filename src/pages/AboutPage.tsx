@@ -9,8 +9,8 @@ export const AboutPage = () => {
     <>
       <SEO
         title="About Our Engineering Team & Founders"
-        description="Learn about 1Sash Technocrafts — a software engineering studio based in Chennai founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, and Naren Annamalai. Discover our story, engineering discipline, and leadership."
-        keywords="About 1Sash, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, Naren Annamalai, Chennai software studio, software engineers, software freelancing team"
+        description="Learn about onesash Technocrafts — a software engineering studio based in Chennai founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, and Naren Annamalai. Discover our story, engineering discipline, and leadership."
+        keywords="About onesash, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, Naren Annamalai, Chennai software studio, software engineers, software freelancing team"
       />
 
       {/* Hero Header */}
@@ -21,7 +21,7 @@ export const AboutPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-xs font-mono uppercase tracking-widest text-muted-foreground"
           >
-            ABOUT 1SASH
+            ABOUT ONESASH
           </motion.div>
 
           <motion.h1
@@ -39,7 +39,7 @@ export const AboutPage = () => {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground leading-relaxed pt-2"
           >
-            We are three engineering college students who founded 1Sash in 2026 to build practical digital products and systems for real-world problems.
+            Founded in 2026, onesash Technocrafts brings together passionate software engineers and growth strategists to build high-performance, resilient digital systems for global teams.
           </motion.p>
         </div>
       </section>

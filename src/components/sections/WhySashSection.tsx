@@ -131,13 +131,13 @@ export const WhySashSection = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-border bg-card/80 text-xs font-mono font-medium text-foreground tracking-tight shadow-xs mb-1">
-            Why 1Sash
+            Why onesash
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-foreground font-black tracking-tighter leading-[1.05]">
-            Why Founders Trust 1Sash Over Traditional Options
+            Why Founders Trust onesash Over Traditional Options
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl font-sans">
-            We built 1Sash to give teams what bloated agencies and fragile automated templates fail to deliver: direct founder engineering, strict type safety, and software engineered for real industry operations.
+            We built onesash to give teams what bloated agencies and fragile automated templates fail to deliver: direct founder engineering, strict type safety, and software engineered for real industry operations.
           </p>
         </motion.div>
 
@@ -189,7 +189,7 @@ export const WhySashSection = () => {
                 </span>
               </div>
 
-              {/* Contrast Grid: Conventional vs 1Sash */}
+              {/* Contrast Grid: Conventional vs onesash */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
                 {/* Conventional Way (Negative contrast) */}
@@ -210,11 +210,11 @@ export const WhySashSection = () => {
                   </p>
                 </div>
 
-                {/* 1Sash Engineering Way (Positive contrast) */}
+                {/* onesash Engineering Way (Positive contrast) */}
                 <div className="p-6 border border-emerald-500/30 bg-emerald-500/5 rounded-lg space-y-4 relative overflow-hidden">
                   <div className="flex items-center justify-between">
                     <span className="px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 text-[10px] font-mono font-bold tracking-wider uppercase border border-emerald-500/20">
-                      THE 1SASH ENGINEERING WAY
+                      THE ONESASH ENGINEERING WAY
                     </span>
                     <CheckCircle2 className="w-5 h-5 text-emerald-600" />
                   </div>

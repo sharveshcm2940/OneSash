@@ -1,6 +1,6 @@
 {
-  "name": "1Sash",
-  "description": "1Sash — Software freelancing company founded in 2026 by three engineering college students. Building practical digital products, web applications, CRMs, and custom software.",
+  "name": "onesash",
+  "description": "onesash Technocrafts — Full-stack software engineering, custom web applications, enterprise AI solutions, cross-platform mobile apps, and scalable cloud architectures.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

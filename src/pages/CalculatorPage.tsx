@@ -82,7 +82,7 @@ export const CalculatorPage = () => {
     <>
       <SEO
         title="Interactive Software Project Cost Calculator"
-        description="Estimate the scope and timeline for your web application, mobile app, SaaS product, or AI system with 1Sash's interactive cost calculator."
+        description="Estimate the scope and timeline for your web application, mobile app, SaaS product, or AI system with onesash's interactive cost calculator."
         keywords="software cost calculator, web app estimation, project cost calculator, hire software developers cost"
       />
 

@@ -120,7 +120,7 @@ export const AIGlossaryPage = () => {
       <SEO
         title="AI & LLM Technology Glossary — RAG, Agents & Embeddings"
         description="Interactive engineering glossary explaining LLMs, RAG, AI Agents, Vector Embeddings, Fine-Tuning, and Generative AI concepts in clear plain English."
-        keywords="AI glossary, LLM terms, Retrieval Augmented Generation RAG, AI Agents, Vector Database, 1Sash AI guide"
+        keywords="AI glossary, LLM terms, Retrieval Augmented Generation RAG, AI Agents, Vector Database, onesash AI guide"
       />
 
       {/* Hero */}

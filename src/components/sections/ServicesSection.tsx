@@ -79,7 +79,7 @@ const serviceCatalog: ServiceSpec[] = [
     ],
     techStack: ["React", "TypeScript", "Three.js", "WebGL", "Framer Motion", "Tailwind CSS"],
     caseStudy: {
-      title: "1Sash Interactive 3D Engine",
+      title: "onesash Interactive 3D Engine",
       metric: "60 FPS Render Loop",
       description: "Engineered real-time WebGL node models rendering architectural layouts smoothly across desktop & mobile."
     },

@@ -44,12 +44,12 @@ export const Navbar = () => {
       >
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex items-center justify-between">
-            {/* Left: 1Sash + EST. 2026 */}
+            {/* Left: onesash + EST. 2026 */}
             <Link to="/" className="flex items-center gap-3 group">
               <SashLogo className="w-7 h-7" />
               <div className="flex flex-col">
                 <span className="font-heading text-xl font-bold tracking-tight text-foreground flex items-center gap-1.5">
-                  1Sash
+                  onesash
                 </span>
               </div>
               <span className="text-[10px] font-mono tracking-widest text-muted-foreground border-l border-border pl-2.5 py-0.5 uppercase hidden sm:inline-block">
@@ -130,7 +130,7 @@ export const Navbar = () => {
             </nav>
 
             <div className="mt-auto pb-10 flex flex-col gap-3">
-              <span className="text-xs font-mono uppercase text-muted-foreground tracking-widest">1Sash • EST. 2026</span>
+              <span className="text-xs font-mono uppercase text-muted-foreground tracking-widest">onesash • EST. 2026</span>
               <Link
                 to="/contact"
                 className="w-full py-3 text-center font-medium text-sm text-primary-foreground bg-primary rounded-md"

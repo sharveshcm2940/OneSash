@@ -25,9 +25,9 @@ export const BookingPage = () => {
   return (
     <>
       <SEO
-        title="Schedule a Discovery Call with 1Sash Founders"
-        description="Schedule a 1-on-1 technical discovery session with 1Sash engineers. Discuss project architecture, budget, tech stack, and roadmap."
-        keywords="book consultation 1Sash, software discovery call, hire software team, technical architecture consultation"
+        title="Schedule a Discovery Call with onesash Founders"
+        description="Schedule a 1-on-1 technical discovery session with onesash engineers. Discuss project architecture, budget, tech stack, and roadmap."
+        keywords="book consultation onesash, software discovery call, hire software team, technical architecture consultation"
       />
 
       <section className="relative pt-36 pb-32 px-4 md:px-6 overflow-hidden">

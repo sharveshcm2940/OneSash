@@ -148,8 +148,8 @@ export const BlogPage = () => {
     <>
       <SEO
         title="Engineering Blog — Web Dev, AI, Cloud & Software Insights"
-        description="Engineering insights, tutorials, and deep-dives on Web Development, AI, Cloud, React, Node.js, and Software Architecture from the 1Sash engineering team."
-        keywords="web development blog, AI blog, React Vite tutorials, TypeScript insights, cloud infrastructure, software engineering tips, 1Sash blog"
+        description="Engineering insights, tutorials, and deep-dives on Web Development, AI, Cloud, React, Node.js, and Software Architecture from the onesash engineering team."
+        keywords="web development blog, AI blog, React Vite tutorials, TypeScript insights, cloud infrastructure, software engineering tips, onesash blog"
         ogType="article"
       />
 

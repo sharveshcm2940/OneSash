@@ -13,12 +13,12 @@ export interface SEOProps {
   noindex?: boolean
 }
 
-const DEFAULT_SITE_NAME = "1Sash — Software Development Studio"
-const DEFAULT_TITLE = "1Sash — Full-Stack Software Engineering & Freelance Studio"
+const DEFAULT_SITE_NAME = "onesash — Software Development Studio"
+const DEFAULT_TITLE = "onesash — Full-Stack Software Engineering & Freelance Studio"
 const DEFAULT_DESCRIPTION =
-  "1Sash Technocrafts is a top-tier software engineering studio in Chennai, India. Founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, and Naren Annamalai. We engineer custom web systems, mobile apps, enterprise AI solutions, and cloud DevOps."
+  "onesash Technocrafts is a top-tier software engineering studio in Chennai, India. Founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, and Naren Annamalai. We engineer custom web systems, mobile apps, enterprise AI solutions, and cloud DevOps."
 const DEFAULT_KEYWORDS =
-  "1Sash, 1Sash Technocrafts, software development studio, full stack web development, React Vite TypeScript, Chennai software company, custom software development, mobile app development, AI solutions, cloud devops, software freelancing company, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, Naren Annamalai"
+  "onesash, onesash Technocrafts, software development studio, full stack web development, React Vite TypeScript, Chennai software company, custom software development, mobile app development, AI solutions, cloud devops, software freelancing company, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, Naren Annamalai"
 const DEFAULT_OG_IMAGE = "https://onesash.co.in/onesash-logo.jpg"
 const DEFAULT_SITE_URL = "https://onesash.co.in"
 
@@ -29,13 +29,13 @@ export const SEO = ({
   canonicalUrl,
   ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
-  author = "1Sash Engineering Team",
+  author = "onesash Engineering Team",
   publishedDate,
   schema,
   noindex = false,
 }: SEOProps) => {
   const fullTitle = title
-    ? `${title} | 1Sash Technocrafts`
+    ? `${title} | onesash Technocrafts`
     : DEFAULT_TITLE
 
   const currentOrigin = typeof window !== "undefined" && window.location.origin && !window.location.origin.includes("localhost")
@@ -49,9 +49,9 @@ export const SEO = ({
   const defaultOrgSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "1Sash",
-    "legalName": "1Sash Technocrafts",
-    "alternateName": ["1Sash Studio", "1Sash Software Studio"],
+    "name": "onesash",
+    "legalName": "onesash Technocrafts",
+    "alternateName": ["onesash Studio", "onesash Software Studio"],
     "url": currentOrigin,
     "logo": `${currentOrigin}/onesash-logo.jpg`,
     "image": ogImage.startsWith("http") ? ogImage : `${currentOrigin}${ogImage}`,
@@ -108,8 +108,8 @@ export const SEO = ({
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "1Sash Technocrafts",
-    "alternateName": "1Sash",
+    "name": "onesash Technocrafts",
+    "alternateName": "onesash",
     "url": currentOrigin,
     "potentialAction": {
       "@type": "SearchAction",

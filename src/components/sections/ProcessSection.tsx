@@ -343,7 +343,7 @@ export const ProcessSection = () => {
                 {/* Quality Rule Guarantee */}
                 <div className="p-4 border border-accent/30 bg-accent/5 rounded-lg space-y-1.5">
                   <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5" /> 1SASH QUALITY GUARANTEE
+                    <ShieldCheck className="w-3.5 h-3.5" /> ONESASH QUALITY GUARANTEE
                   </span>
                   <p className="text-xs text-foreground leading-relaxed">
                     {activeStage.qualityCheck}
@@ -358,7 +358,7 @@ export const ProcessSection = () => {
             <div className="pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
                 <Layers className="w-4 h-4 text-accent" />
-                <span>Stage {processStages.indexOf(activeStage) + 1} of 6 in 1Sash Sprint Lifecycle</span>
+                <span>Stage {processStages.indexOf(activeStage) + 1} of 6 in onesash Sprint Lifecycle</span>
               </div>
 
               {processStages.indexOf(activeStage) < processStages.length - 1 ? (

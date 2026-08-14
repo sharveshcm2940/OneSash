@@ -6,7 +6,7 @@ export const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const defaultMessage = encodeURIComponent(
-    "Hi 1Sash team! I'm interested in discussing a software project with you."
+    "Hi onesash team! I'm interested in discussing a software project with you."
   )
 
   const contacts = [
@@ -65,7 +65,7 @@ export const WhatsAppButton = () => {
         transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.5 }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        aria-label="Chat on WhatsApp with 1Sash"
+        aria-label="Chat on WhatsApp with onesash"
         className="whatsapp-button flex items-center gap-2.5 px-4 py-3 rounded-full bg-[#25D366] text-white shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_6px_28px_rgba(37,211,102,0.6)] border border-white/20 transition-all font-sans cursor-pointer"
       >
         <span className="relative flex items-center justify-center">

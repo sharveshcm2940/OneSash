@@ -18,7 +18,7 @@ export const HeroSection = () => {
               className="inline-flex items-center gap-2 text-xs font-mono tracking-tight text-foreground border border-border px-3.5 py-1.5 rounded-full bg-card/80 shadow-xs"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              1Sash • Software Freelancing Studio
+              onesash • Software Freelancing Studio
             </motion.div>
 
             {/* Main Headline */}
@@ -38,7 +38,7 @@ export const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              1Sash is a software freelancing company founded by three engineering students, building practical digital products and systems for real-world problems.
+              onesash is a software engineering studio dedicated to building practical, production-ready digital products and resilient systems for real-world problems.
             </motion.p>
 
             {/* Action Buttons */}

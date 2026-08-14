@@ -117,7 +117,7 @@ export const SelectedWorkSection = () => {
             </h2>
           </div>
           <p className="text-sm font-mono text-muted-foreground max-w-xs leading-relaxed">
-            Case studies of custom systems, Web apps, and platforms built and deployed by 1Sash.
+            Case studies of custom systems, Web apps, and platforms built and deployed by onesash.
           </p>
         </div>
 
@@ -284,8 +284,8 @@ const MockupPreview = ({ type, title: _title }: { type: Project["mockupType"]; t
         <div className="grid grid-cols-3 gap-2 my-auto text-[11px]">
           <div className="p-2 rounded bg-card border border-border space-y-1">
             <div className="text-[10px] font-bold text-muted-foreground uppercase">New Leads</div>
-            <div className="p-1 rounded bg-background border border-border text-[10px]">Acme Tech Ltd</div>
-            <div className="p-1 rounded bg-background border border-border text-[10px]">Apex Retail</div>
+            <div className="p-1 rounded bg-background border border-border text-[10px]">Aura Health Tech</div>
+            <div className="p-1 rounded bg-background border border-border text-[10px]">Apex Retail Systems</div>
           </div>
           <div className="p-2 rounded bg-card border border-border space-y-1">
             <div className="text-[10px] font-bold text-muted-foreground uppercase">Proposal</div>
@@ -308,7 +308,7 @@ const MockupPreview = ({ type, title: _title }: { type: Project["mockupType"]; t
             <Sparkles className="w-4 h-4 text-amber-500" />
             <span className="font-semibold text-foreground">Gemini AI Studio Studio</span>
           </div>
-          <span className="text-[10px] text-amber-600 font-bold">1Sash AI Engine</span>
+          <span className="text-[10px] text-amber-600 font-bold">onesash AI Engine</span>
         </div>
         <div className="p-3 rounded bg-card border border-border space-y-2 my-auto">
           <div className="text-[10px] text-muted-foreground">Prompt Brief: "Explain why engineered software beats no-code tools"</div>

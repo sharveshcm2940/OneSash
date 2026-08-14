@@ -10,13 +10,13 @@ export const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-3">
               <SashLogo className="w-7 h-7" />
-              <span className="font-heading font-bold text-2xl tracking-tight">1Sash</span>
+              <span className="font-heading font-bold text-2xl tracking-tight">onesash</span>
             </Link>
             <p className="text-xs font-mono tracking-widest text-muted-foreground uppercase">
-              EST. 2026 • SOFTWARE FREELANCING
+              EST. 2026 • SOFTWARE ENGINEERING STUDIO
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-              Software freelancing company founded by three engineering students, building practical digital products and systems for real-world problems.
+              Software engineering studio engineering high-performance web applications, enterprise AI systems, and cloud infrastructure for real-world problems.
             </p>
           </div>
 
@@ -100,7 +100,7 @@ export const Footer = () => {
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted-foreground">
-          <p>© 2026 1Sash. All rights reserved.</p>
+          <p>© 2026 onesash. All rights reserved.</p>
           <p>Handcrafted by engineering students in India.</p>
         </div>
       </div>
