@@ -1,110 +1,104 @@
 import { Link } from "react-router-dom"
-import { SashLogo } from "../ui/SashLogo"
+import { ArrowUpRight } from "lucide-react"
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-border bg-background py-16 text-foreground">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-border">
-          {/* Left: Brand */}
-          <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-3">
-              <SashLogo className="w-7 h-7" />
-              <span className="font-heading font-bold text-2xl tracking-tight">onesash</span>
+    <footer className="bg-[#F1F1EE] border-t border-[#E4E4E0] py-16 text-[#171717]">
+      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+        
+        {/* Top Header */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between pb-10 border-b border-[#E4E4E0] gap-4">
+          <div className="space-y-1">
+            <Link to="/" className="font-heading text-xl font-semibold tracking-tight text-[#171717] hover:opacity-80 transition-opacity">
+              OneSash
             </Link>
-            <p className="text-xs font-mono tracking-widest text-muted-foreground uppercase">
-              EST. 2026 • SOFTWARE ENGINEERING STUDIO
-            </p>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-              Software engineering studio engineering high-performance web applications, enterprise AI systems, and cloud infrastructure for real-world problems.
+            <p className="text-xs text-[#646464] font-normal">
+              Independent software development studio based in Chennai & Bangalore.
             </p>
           </div>
 
-          {/* Center: Team & Leadership */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Team & Leadership</h4>
-            <ul className="space-y-2 text-sm font-medium">
-              <li className="flex items-center gap-2">
-                <a
-                  href="https://www.linkedin.com/in/sarvesh-arun-8b1904337/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground hover:text-[#0A66C2] dark:hover:text-[#3882FF] transition-colors font-semibold flex items-center gap-1 group"
-                >
-                  <span>Saraveshvaran A</span>
-                  <span className="text-[10px] font-mono font-normal text-[#0A66C2] dark:text-[#3882FF] opacity-80 group-hover:opacity-100">(LinkedIn)</span>
-                </a>
-                <span className="text-xs font-mono text-muted-foreground">— Founder</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <a
-                  href="https://www.linkedin.com/in/c-m-sharvesh-847066332/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground hover:text-[#0A66C2] dark:hover:text-[#3882FF] transition-colors font-semibold flex items-center gap-1 group"
-                >
-                  <span>Sharvesh CM</span>
-                  <span className="text-[10px] font-mono font-normal text-[#0A66C2] dark:text-[#3882FF] opacity-80 group-hover:opacity-100">(LinkedIn)</span>
-                </a>
-                <span className="text-xs font-mono text-muted-foreground">— Founder</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <a
-                  href="https://www.linkedin.com/in/siddharthsanthoshkumar/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground hover:text-[#0A66C2] dark:hover:text-[#3882FF] transition-colors font-semibold flex items-center gap-1 group"
-                >
-                  <span>Siddharth Santhosh Kumar</span>
-                  <span className="text-[10px] font-mono font-normal text-[#0A66C2] dark:text-[#3882FF] opacity-80 group-hover:opacity-100">(LinkedIn)</span>
-                </a>
-                <span className="text-xs font-mono text-muted-foreground">— Cofounder</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <a
-                  href="https://www.linkedin.com/in/vivek-arumugam-a01303328/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground hover:text-[#0A66C2] dark:hover:text-[#3882FF] transition-colors font-semibold flex items-center gap-1 group"
-                >
-                  <span>Vivek A</span>
-                  <span className="text-[10px] font-mono font-normal text-[#0A66C2] dark:text-[#3882FF] opacity-80 group-hover:opacity-100">(LinkedIn)</span>
-                </a>
-                <span className="text-xs font-mono text-muted-foreground">— Marketing Head</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <a
-                  href="https://www.linkedin.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground hover:text-[#0A66C2] dark:hover:text-[#3882FF] transition-colors font-semibold flex items-center gap-1 group"
-                >
-                  <span>Naren Annamalai</span>
-                  <span className="text-[10px] font-mono font-normal text-[#0A66C2] dark:text-[#3882FF] opacity-80 group-hover:opacity-100">(LinkedIn)</span>
-                </a>
-                <span className="text-xs font-mono text-muted-foreground">— Head of Digital Marketing</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Right: Navigation */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Navigation</h4>
-            <ul className="space-y-2 text-sm font-medium">
-              <li><Link to="/#work" className="text-muted-foreground hover:text-foreground transition-colors">Work</Link></li>
-              <li><Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
-              <li><Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">Services</Link></li>
-              <li><Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
-            </ul>
+          <div className="text-xs text-[#646464] font-mono">
+            <span>Chennai HQ: Anna Salai Corridor</span> • <span>Bangalore: Indiranagar Hub</span>
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted-foreground">
-          <p>© 2026 onesash. All rights reserved.</p>
-          <p>Handcrafted by engineering students in India.</p>
+        {/* Links Navigation */}
+        <div className="py-10 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-8 text-xs">
+          
+          {/* Navigation */}
+          <div className="space-y-3">
+            <span className="font-semibold text-[#171717] block">Studio</span>
+            <ul className="space-y-2 text-[#646464]">
+              <li><Link to="/" className="hover:text-[#1459D9] transition-colors">Home</Link></li>
+              <li><Link to="/about" className="hover:text-[#1459D9] transition-colors">About Us</Link></li>
+              <li><Link to="/portfolio" className="hover:text-[#1459D9] transition-colors">Our Work</Link></li>
+              <li><Link to="/calculator" className="hover:text-[#1459D9] transition-colors">Cost Estimator</Link></li>
+              <li><Link to="/booking" className="hover:text-[#1459D9] transition-colors">Book a Call</Link></li>
+              <li><Link to="/careers" className="hover:text-[#1459D9] transition-colors">Careers</Link></li>
+            </ul>
+          </div>
+
+          {/* Core Services */}
+          <div className="space-y-3">
+            <span className="font-semibold text-[#171717] block">Services</span>
+            <ul className="space-y-2 text-[#646464]">
+              <li><Link to="/services/custom-software" className="hover:text-[#1459D9] transition-colors">Custom Software</Link></li>
+              <li><Link to="/services/web-development" className="hover:text-[#1459D9] transition-colors">Web Applications</Link></li>
+              <li><Link to="/services/mobile-apps" className="hover:text-[#1459D9] transition-colors">Mobile Engineering</Link></li>
+              <li><Link to="/services/ai-integration" className="hover:text-[#1459D9] transition-colors">AI & Automation</Link></li>
+              <li><Link to="/services/process-automation" className="hover:text-[#1459D9] transition-colors">Process Automation</Link></li>
+              <li><Link to="/services/cloud-solutions" className="hover:text-[#1459D9] transition-colors">Cloud & DevOps</Link></li>
+            </ul>
+          </div>
+
+          {/* Selected Projects */}
+          <div className="space-y-3">
+            <span className="font-semibold text-[#171717] block">Selected Work</span>
+            <ul className="space-y-2 text-[#646464]">
+              <li><Link to="/portfolio#apar-crown" className="hover:text-[#1459D9] transition-colors">Apar Crown ERP</Link></li>
+              <li><Link to="/portfolio#law-throne" className="hover:text-[#1459D9] transition-colors">Law Throne CRM</Link></li>
+              <li><Link to="/portfolio#qr-food" className="hover:text-[#1459D9] transition-colors">QR Food KDS</Link></li>
+              <li><Link to="/portfolio#pg-management" className="hover:text-[#1459D9] transition-colors">PG Operations Suite</Link></li>
+            </ul>
+          </div>
+
+          {/* Governance & Policies */}
+          <div className="space-y-3">
+            <span className="font-semibold text-[#171717] block">Legal & Governance</span>
+            <ul className="space-y-2 text-[#646464]">
+              <li><Link to="/privacy" className="hover:text-[#1459D9] transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-[#1459D9] transition-colors">Terms of Service</Link></li>
+              <li><Link to="/security" className="hover:text-[#1459D9] transition-colors">Security Standards</Link></li>
+            </ul>
+          </div>
+
+          {/* Inquiries */}
+          <div className="space-y-3 col-span-2 sm:col-span-1">
+            <span className="font-semibold text-[#171717] block">Direct Inquiries</span>
+            <p className="text-[#646464] text-xs leading-relaxed">
+              Direct developer review without sales middleman overhead.
+            </p>
+            <div className="pt-1">
+              <a href="mailto:onesash.contact@gmail.com" className="text-[#1459D9] hover:underline font-semibold text-xs block">
+                onesash.contact@gmail.com
+              </a>
+            </div>
+            <div className="pt-2">
+              <Link to="/contact" className="text-xs font-semibold text-[#171717] hover:text-[#1459D9]">
+                Start a Project
+              </Link>
+            </div>
+          </div>
+
         </div>
+
+        {/* Bottom Line */}
+        <div className="pt-8 border-t border-[#E4E4E0] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#646464]">
+          <p>© 2026 OneSash Technocrafts. All rights reserved.</p>
+          <p>Chennai, Tamil Nadu & Bangalore, Karnataka, India</p>
+        </div>
+
       </div>
     </footer>
   )
 }
-

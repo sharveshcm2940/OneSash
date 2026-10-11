@@ -1,118 +1,178 @@
-import { SEO } from "../../components/common/SEO"
-import { motion } from "framer-motion"
-import { ArrowRight, Smartphone, Fingerprint, RefreshCw, CheckCircle2 } from "lucide-react"
 import { Link } from "react-router-dom"
+import { SEO } from "../../components/common/SEO"
 import { CTABannerSection } from "../../components/sections/CTABannerSection"
-
-const features = [
-  { icon: Smartphone, title: "Native Feel", desc: "Silky smooth animations, gestures, and transitions that feel native on iOS and Android." },
-  { icon: Fingerprint, title: "Hardware Integration", desc: "Deep integration with biometrics, camera, GPS, and push notifications." },
-  { icon: RefreshCw, title: "Offline Support", desc: "Robust local-first architectures so your app works seamlessly without an internet connection." },
-]
-
-const processSteps = [
-  "Cross-Platform Strategy & Tech Selection",
-  "UI/UX Design for Mobile Constraints",
-  "React Native / Swift / Kotlin Engineering",
-  "TestFlight & Beta Distribution",
-  "App Store & Google Play Launch",
-]
+import { WifiOff, Bell, ShieldCheck } from "lucide-react"
 
 export const MobileAppPage = () => {
   return (
     <>
       <SEO
-        title="Mobile App Development for iOS & Android"
-        description="Craft sleek, high-performing cross-platform and native mobile applications for iOS and Android using React Native, Flutter, Swift, and Kotlin."
-        keywords="mobile app development, iOS Android apps, React Native agency, Flutter mobile app, 1Sash mobile development"
+        title="Mobile Application Development — iOS & Android Engineering | OneSash"
+        description="We build fluid iOS and Android mobile applications with offline-first SQLite synchronization, 60fps performance, and push notifications. Built by OneSash."
+        keywords="mobile app development, iOS developers Chennai, Android developers India, React Native studio, offline-first mobile apps"
       />
 
-      <section className="pt-36 pb-20 px-4 md:px-6 bg-background border-b border-border overflow-hidden relative">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(var(--primary),0.05)_0%,transparent_70%)] pointer-events-none" />
-        <div className="container mx-auto max-w-5xl relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
-            <p className="text-xs font-bold uppercase tracking-widest text-primary mb-4">Service</p>
-            <h1 className="text-5xl md:text-7xl font-heading font-bold tracking-tighter mb-6">Mobile App<br />Development.</h1>
-            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed mb-10">
-              We engineer mobile experiences that captivate users and dominate app store charts. From native to cross-platform, we deliver excellence in your pocket.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/quote" className="px-6 py-3 bg-foreground text-background font-semibold rounded-xl hover:scale-105 transition-transform flex items-center gap-2">
-                Start a Project <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <main className="bg-[#FAFAF8]">
+        
+        {/* Service Hero */}
+        <section className="pt-24 pb-16 md:pt-28 md:pb-20 border-b border-[#E4E4E0]">
+          <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              
+              <div className="lg:col-span-7 space-y-5">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-semibold tracking-tight text-[#171717] leading-[1.1]">
+                  Fluid mobile apps engineered for field and consumer use.
+                </h1>
 
-      <section className="py-24 px-4 md:px-6 bg-muted/30 border-b border-border">
-        <div className="container mx-auto max-w-5xl">
-          <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold tracking-tight mb-4">Apps that perform.</h2>
-            <p className="text-muted-foreground max-w-xl">We don't build clunky web wrappers. We build high-performance mobile applications.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border rounded-2xl overflow-hidden">
-            {features.map((feat, i) => {
-              const Icon = feat.icon
-              return (
-                <motion.div 
-                  key={feat.title} 
-                  className="bg-card p-8 group hover:bg-muted/50 transition-colors"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <Icon className="w-8 h-8 text-primary mb-6" />
-                  <h3 className="font-heading font-bold text-lg mb-2">{feat.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{feat.desc}</p>
-                </motion.div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+                <p className="text-base sm:text-lg text-[#646464] leading-relaxed max-w-2xl">
+                  Whether your staff needs an offline-first inspection app in basements without cell signal or your customers expect an instant 60fps mobile checkout, we build dependable iOS and Android apps with zero bloat.
+                </p>
 
-      <section className="py-24 px-4 md:px-6 bg-background">
-        <div className="container mx-auto max-w-5xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-3xl font-heading font-bold mb-6">Technologies We Master</h2>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {['React Native', 'Expo', 'Flutter', 'Swift', 'Kotlin', 'Firebase', 'SQLite', 'GraphQL'].map(tech => (
-                  <span key={tech} className="px-4 py-2 rounded-lg border border-border bg-muted/30 text-sm font-medium">
-                    {tech}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <Link
+                    to="/contact"
+                    className="px-5 py-2.5 text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] rounded-md transition-colors"
+                  >
+                    Discuss Your Mobile App Scope
+                  </Link>
+                  <Link
+                    to="/portfolio"
+                    className="px-5 py-2.5 text-xs font-semibold text-[#171717] bg-white hover:bg-[#F1F1EE] rounded-md border border-[#E4E4E0] transition-colors"
+                  >
+                    Explore Field & Security Apps
+                  </Link>
+                </div>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Whether you need a rapid cross-platform deployment via React Native or a highly optimized native Swift application, we have the expertise.
+
+              {/* Clean Mobile Screen Surface */}
+              <div className="lg:col-span-5 flex justify-center">
+                <div className="w-[300px] bg-white rounded-xl p-4 shadow-studio-card border border-[#E4E4E0] text-xs space-y-3">
+                  <div className="flex justify-between items-center text-[10px] text-[#646464] pb-2 border-b border-[#E4E4E0]">
+                    <span className="font-semibold text-[#171717]">Security Gate Console</span>
+                    <span className="text-[#137333] font-medium">Online Sync</span>
+                  </div>
+
+                  <div className="space-y-1">
+                    <span className="text-[10px] text-[#1459D9] font-medium">Apar Crown Gateway</span>
+                    <h4 className="font-semibold text-sm text-[#171717]">Visitor Entry Log</h4>
+                  </div>
+
+                  {/* Quick Action Card */}
+                  <div className="p-3 bg-[#EEF3FD] rounded-lg border border-[#C5D8FB] space-y-1">
+                    <span className="text-[10px] text-[#1459D9] font-bold block">INCOMING VISITOR</span>
+                    <div className="font-semibold text-[#171717] text-xs">TN-09-CB-4819 (Amazon Delivery)</div>
+                    <span className="text-[10px] text-[#646464] block">Destination: Tower B - 402</span>
+                  </div>
+
+                  <div className="p-3 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0] space-y-1">
+                    <div className="flex justify-between items-center">
+                      <span className="font-semibold text-[#171717] text-[11px]">Resident Authorization</span>
+                      <span className="px-1.5 py-0.5 bg-[#E6F4EA] text-[#137333] rounded text-[9px] font-bold">Approved</span>
+                    </div>
+                    <p className="text-[10px] text-[#646464]">R. Sundaram verified via resident app notification at 09:39 AM.</p>
+                  </div>
+
+                  <button type="button" className="w-full py-2 bg-[#171717] text-white rounded-md font-semibold text-[11px] text-center">
+                    Print Gate Pass Badge
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* Problems Solved & Capabilities */}
+        <section className="py-16 md:py-20 border-b border-[#E4E4E0] bg-white">
+          <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
+              
+              <div className="space-y-4">
+                <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-[#171717]">
+                  Why low-quality mobile apps get abandoned.
+                </h2>
+                <div className="space-y-3 text-xs sm:text-sm text-[#646464] leading-relaxed">
+                  <p>
+                    <strong className="text-[#171717]">Clunky WebView Wrappers: </strong>
+                    Packaging a slow website in a native shell leads to unresponsive scrolling, delayed taps, and negative App Store ratings.
+                  </p>
+                  <p>
+                    <strong className="text-[#171717]">Crashing in Zero-Signal Zones: </strong>
+                    Field staff in basements, warehouses, or transit lose connection and the app completely freezes, destroying entered data.
+                  </p>
+                  <p>
+                    <strong className="text-[#171717]">Battery Drain & Memory Leaks: </strong>
+                    Unoptimized background polling drains user phones and leads to rapid uninstalls.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-[#171717]">
+                  Engineered for real-world dependability.
+                </h2>
+                <div className="space-y-3 text-xs sm:text-sm text-[#171717]">
+                  <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
+                    <WifiOff className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <div>
+                      <strong>Offline-First SQLite Architecture: </strong>
+                      Local SQLite caching ensures field operations run smoothly offline, synchronizing automatically once signal is restored.
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
+                    <Bell className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <div>
+                      <strong>Native Push Pipelines (APNs & FCM): </strong>
+                      Sub-second transactional notifications for urgent approvals, order updates, and security alerts.
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
+                    <ShieldCheck className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <div>
+                      <strong>Biometric Hardware Integration: </strong>
+                      Face ID, Touch ID, and fingerprint authentication with secure keychain storage for sensitive client credentials.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* Deliverables */}
+        <section className="py-16 md:py-20 border-b border-[#E4E4E0] bg-[#F1F1EE]">
+          <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+            <div className="max-w-2xl mb-10 space-y-2">
+              <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-[#171717]">
+                What our mobile delivery packages include.
+              </h2>
+              <p className="text-sm text-[#646464]">
+                Everything required for store deployment and continuous release cycles.
               </p>
             </div>
-            
-            <div>
-              <h2 className="text-3xl font-heading font-bold mb-6">Our Process</h2>
-              <ul className="space-y-4">
-                {processSteps.map((step, i) => (
-                  <motion.li 
-                    key={step} 
-                    className="flex items-start gap-4 p-4 rounded-xl border border-border bg-card"
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                  >
-                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span className="font-medium text-sm">{step}</span>
-                  </motion.li>
-                ))}
-              </ul>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: "iOS App Store Binary & Build", desc: "Signed IPA build configured for Apple TestFlight testing and production App Store submission." },
+                { title: "Android Google Play Bundle (AAB)", desc: "Optimized Android App Bundle compliant with Google Play target API requirements." },
+                { title: "Offline Sync Engine", desc: "SQLite transactional queue ensuring zero data loss during network dropouts." },
+                { title: "Push Notification Gateway", desc: "Configured Apple Push Notification service (APNs) and Firebase Cloud Messaging (FCM) hooks." },
+                { title: "Complete Source Code", desc: "100% intellectual property ownership with full React Native / Flutter repository transfer." },
+                { title: "Store Submission Support", desc: "We handle privacy policy disclosures, screenshots, and review feedback until your app is live." },
+              ].map((d, i) => (
+                <div key={i} className="p-6 bg-white rounded-xl border border-[#E4E4E0] shadow-studio-card space-y-2">
+                  <h3 className="text-sm font-semibold text-[#171717]">{d.title}</h3>
+                  <p className="text-xs text-[#646464] leading-relaxed">{d.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <CTABannerSection />
+        <CTABannerSection />
+
+      </main>
     </>
   )
 }

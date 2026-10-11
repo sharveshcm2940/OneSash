@@ -13,14 +13,14 @@ export interface SEOProps {
   noindex?: boolean
 }
 
-const DEFAULT_SITE_NAME = "onesash — Software Development Studio"
-const DEFAULT_TITLE = "onesash — Full-Stack Software Engineering & Freelance Studio"
+const DEFAULT_SITE_NAME = "OneSash Technocrafts"
+const DEFAULT_TITLE = "OneSash Technocrafts — Custom Software Engineering & Development Company"
 const DEFAULT_DESCRIPTION =
-  "onesash Technocrafts is a top-tier software engineering studio in Chennai, India. Founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, and Naren Annamalai. We engineer custom web systems, mobile apps, enterprise AI solutions, and cloud DevOps."
+  "OneSash Technocrafts is an independent software development company based in Chennai, India. We design, build, and maintain custom web applications, mobile platforms, and backend systems for businesses."
 const DEFAULT_KEYWORDS =
-  "onesash, onesash Technocrafts, software development studio, full stack web development, React Vite TypeScript, Chennai software company, custom software development, mobile app development, AI solutions, cloud devops, software freelancing company, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, Naren Annamalai"
-const DEFAULT_OG_IMAGE = "https://onesash.co.in/onesash-logo.jpg"
-const DEFAULT_SITE_URL = "https://onesash.co.in"
+  "OneSash, OneSash Technocrafts, software development company, custom software engineering, web application development, mobile app development, backend API engineering, cloud systems, Chennai software company"
+const DEFAULT_OG_IMAGE = "https://onesash.com/og-image.jpg"
+const DEFAULT_SITE_URL = "https://onesash.com"
 
 export const SEO = ({
   title,
@@ -29,13 +29,13 @@ export const SEO = ({
   canonicalUrl,
   ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
-  author = "onesash Engineering Team",
+  author = "OneSash Engineering Team",
   publishedDate,
   schema,
   noindex = false,
 }: SEOProps) => {
   const fullTitle = title
-    ? `${title} | onesash Technocrafts`
+    ? `${title} | OneSash Technocrafts`
     : DEFAULT_TITLE
 
   const currentOrigin = typeof window !== "undefined" && window.location.origin && !window.location.origin.includes("localhost")
@@ -48,113 +48,33 @@ export const SEO = ({
   // Default Organization JSON-LD Schema
   const defaultOrgSchema = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "onesash",
-    "legalName": "onesash Technocrafts",
-    "alternateName": ["onesash Studio", "onesash Software Studio"],
+    "@type": "Organization",
+    "name": "OneSash Technocrafts",
     "url": currentOrigin,
-    "logo": `${currentOrigin}/onesash-logo.jpg`,
-    "image": ogImage.startsWith("http") ? ogImage : `${currentOrigin}${ogImage}`,
     "description": DEFAULT_DESCRIPTION,
     "email": "onesash.contact@gmail.com",
     "telephone": ["+918903467843", "+919980399557"],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Chennai",
-      "addressRegion": "Tamil Nadu",
-      "addressCountry": "IN"
-    },
-    "founders": [
+    "address": [
       {
-        "@type": "Person",
-        "name": "Saraveshvaran A",
-        "jobTitle": "Co-founder & Principal Architect",
-        "sameAs": "https://www.linkedin.com/in/sarvesh-arun-8b1904337/"
+        "@type": "PostalAddress",
+        "addressLocality": "Chennai",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
       },
       {
-        "@type": "Person",
-        "name": "Sharvesh CM",
-        "jobTitle": "Co-founder & Head of Interactive UI Engineering",
-        "sameAs": "https://www.linkedin.com/in/c-m-sharvesh-847066332/"
-      },
-      {
-        "@type": "Person",
-        "name": "Siddharth Santhosh Kumar",
-        "jobTitle": "Co-founder & Chief Product Strategist",
-        "sameAs": "https://www.linkedin.com/in/siddharthsanthoshkumar/"
-      },
-      {
-        "@type": "Person",
-        "name": "Vivek A",
-        "jobTitle": "Co-founder & Marketing Head",
-        "sameAs": "https://www.linkedin.com/in/vivek-arumugam-a01303328/"
-      },
-      {
-        "@type": "Person",
-        "name": "Naren Annamalai",
-        "jobTitle": "Head of Digital Marketing",
-        "sameAs": "https://www.linkedin.com/"
+        "@type": "PostalAddress",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
       }
-    ],
-    "priceRange": "$$",
-    "openingHours": "Mo-Fr 09:00-18:00",
-    "sameAs": [
-      "https://www.linkedin.com/company/onesash",
-      "https://github.com/onesash"
     ]
-  }
-
-  // WebSite Schema for Sitelinks Search
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "onesash Technocrafts",
-    "alternateName": "onesash",
-    "url": currentOrigin,
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": `${currentOrigin}/resources?search={search_term_string}`,
-      "query-input": "required name=search_term_string"
-    }
-  }
-
-  // Generate Automatic BreadcrumbList Schema based on route path
-  const pathSegments = path.split("/").filter(Boolean)
-  const breadcrumbElements = [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": currentOrigin
-    }
-  ]
-
-  let accumulatedPath = ""
-  pathSegments.forEach((segment, index) => {
-    accumulatedPath += `/${segment}`
-    const formattedName = segment
-      .replace(/-/g, " ")
-      .replace(/\b\w/g, (char) => char.toUpperCase())
-
-    breadcrumbElements.push({
-      "@type": "ListItem",
-      "position": index + 2,
-      "name": formattedName,
-      "item": `${currentOrigin}${accumulatedPath}`
-    })
-  })
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": breadcrumbElements
   }
 
   const combinedSchema = schema
     ? Array.isArray(schema)
-      ? [defaultOrgSchema, websiteSchema, breadcrumbSchema, ...schema]
-      : [defaultOrgSchema, websiteSchema, breadcrumbSchema, schema]
-    : [defaultOrgSchema, websiteSchema, breadcrumbSchema]
+      ? [defaultOrgSchema, ...schema]
+      : [defaultOrgSchema, schema]
+    : [defaultOrgSchema]
 
   return (
     <Helmet>
@@ -167,23 +87,19 @@ export const SEO = ({
       {noindex ? (
         <meta name="robots" content="noindex, nofollow" />
       ) : (
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="robots" content="index, follow" />
       )}
 
       {/* Canonical Link */}
       <link rel="canonical" href={canonical} />
 
-      {/* Open Graph / Facebook */}
+      {/* Open Graph */}
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonical} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={fullTitle} />
       <meta property="og:site_name" content={DEFAULT_SITE_NAME} />
-      <meta property="og:locale" content="en_US" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -191,12 +107,10 @@ export const SEO = ({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:image:alt" content={fullTitle} />
 
-      {/* Article Publication Date if available */}
       {publishedDate && <meta property="article:published_time" content={publishedDate} />}
 
-      {/* Structured Data / JSON-LD */}
+      {/* Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify(combinedSchema)}
       </script>

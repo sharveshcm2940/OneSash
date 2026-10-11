@@ -1,59 +1,330 @@
+import { useState, useId } from "react"
+import { useLocation } from "react-router-dom"
 import { SEO } from "../components/common/SEO"
-import { motion } from "framer-motion"
-import { ContactSection } from "../components/sections/ContactSection"
+import { CheckCircle2, ArrowRight, Mail, MapPin, Phone, Clock } from "lucide-react"
 
 export const ContactPage = () => {
-  const contactSchema = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Contact 1Sash Technocrafts",
-    "description": "Get in touch with 1Sash engineers for custom software development, web app engineering, mobile apps, and technical consultation.",
-    "url": "https://onesash.com/contact",
-    "mainEntity": {
-      "@type": "ContactPoint",
-      "telephone": ["+918903467843", "+919980399557"],
-      "email": "onesash.contact@gmail.com",
-      "contactType": "customer service",
-      "areaServed": "IN",
-      "availableLanguage": ["English", "Tamil"]
+  const formId = useId()
+  const location = useLocation()
+  const prefill = (location.state as any)?.estimatedScope
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    projectType: prefill ? prefill.projectType : "Custom Software Development",
+    projectDescription: prefill ? `Estimated Scope: ${prefill.complexity} complexity, ${prefill.timeline} timeline.` : "",
+    budget: "",
+  })
+
+  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [referenceId, setReferenceId] = useState("")
+
+  const projectTypes = [
+    "Custom Software Development",
+    "Web Application Development",
+    "Mobile Application Development",
+    "AI Integration & Automation",
+    "Business Process Automation",
+    "Cloud Deployment & Maintenance",
+    "Technical Discovery & Architectural Audit"
+  ]
+
+  const budgetRanges = [
+    "Under ₹1,00,000 / $1,200",
+    "₹1,00,000 – ₹3,00,000 / $1,200 – $3,500",
+    "₹3,00,000 – ₹8,00,000 / $3,500 – $10,000",
+    "₹8,00,000+ / $10,000+",
+    "Not sure / Let's scope it out"
+  ]
+
+  const validate = () => {
+    const errs: Record<string, string> = {}
+    if (!formData.name.trim()) errs.name = "Please enter your name."
+    if (!formData.email.trim()) {
+      errs.email = "Please enter your email address."
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errs.email = "Please enter a valid email address."
     }
+    if (!formData.projectDescription.trim()) {
+      errs.projectDescription = "Please briefly describe your project or operational problem."
+    }
+    setErrors(errs)
+    return Object.keys(errs).length === 0
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!validate()) return
+
+    setIsSubmitting(true)
+    setTimeout(() => {
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+      setReferenceId(`ONESASH-${Math.floor(100000 + Math.random() * 900000)}`)
+    }, 700)
   }
 
   return (
     <>
       <SEO
-        title="Contact Engineers & Request a Brief"
-        description="Get in touch directly with 1Sash engineers in Chennai. Call +91 89034 67843 or +91 99803 99557, WhatsApp us, or send an inquiry to discuss your software project."
-        keywords="Contact 1Sash, software inquiry, hire React developers, hire full stack engineers Chennai, WhatsApp software consultation"
-        schema={contactSchema}
+        title="Tell Us What You Want to Build — Contact OneSash"
+        description="Connect with OneSash in Chennai and Bangalore. Whether you have a project brief or an early idea, we'd be happy to understand what you're working on."
+        keywords="contact OneSash, software development inquiry, hire software developers Chennai, start software project India"
       />
 
-      <section className="relative pt-36 pb-10 px-4 md:px-6 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black,transparent)] dark:bg-[linear-gradient(to_right,#fff1_1px,transparent_1px),linear-gradient(to_bottom,#fff1_1px,transparent_1px)]" />
-        <div className="absolute top-16 right-1/3 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="container mx-auto relative z-10">
-          <motion.span
-            className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-          >
-            Get In Touch
-          </motion.span>
-          <motion.h1
-            className="text-5xl md:text-7xl font-heading font-bold mb-6"
-            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-          >
-            Let's Build <span className="text-gradient">Together</span>
-          </motion.h1>
-          <motion.p
-            className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-          >
-            Tell us about your project and we'll craft a tailored solution. We respond to all enquiries within 24 hours.
-          </motion.p>
-        </div>
-      </section>
+      <main className="bg-[#FAFAF8] pt-24 pb-16 md:pt-28 md:pb-20 border-b border-[#E4E4E0]">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          
+          {/* Header */}
+          <div className="max-w-3xl mb-12 space-y-3">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-semibold tracking-tight text-[#171717] leading-[1.1]">
+              Tell us what you want to build.
+            </h1>
+            <p className="text-base sm:text-lg text-[#646464] leading-relaxed pt-1">
+              Whether you have a complete project brief or an early-stage idea, we'd be happy to understand what you're working on.
+            </p>
+          </div>
 
-      <ContactSection />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            
+            {/* Left: Contact Form (7 cols) */}
+            <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-2xl border border-[#E4E4E0] shadow-studio-card">
+              {isSubmitted ? (
+                <div className="py-12 text-center space-y-5 animate-in fade-in duration-300">
+                  <div className="w-14 h-14 rounded-full bg-[#E6F4EA] text-[#137333] mx-auto flex items-center justify-center">
+                    <CheckCircle2 className="w-8 h-8" />
+                  </div>
+                  <h2 className="text-2xl font-heading font-semibold text-[#171717]">
+                    Project brief received.
+                  </h2>
+                  <p className="text-xs sm:text-sm text-[#646464] max-w-md mx-auto leading-relaxed">
+                    Thank you, {formData.name}. Our lead engineers will review your requirements and respond within 24 business hours.
+                  </p>
+                  <div className="p-3 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0] max-w-xs mx-auto text-xs text-[#646464]">
+                    <span>Inquiry Reference: </span>
+                    <strong className="text-[#171717] font-mono">{referenceId}</strong>
+                  </div>
+                  <div className="pt-4">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsSubmitted(false)
+                        setFormData({
+                          name: "",
+                          email: "",
+                          phone: "",
+                          projectType: "Custom Software Development",
+                          projectDescription: "",
+                          budget: ""
+                        })
+                      }}
+                      className="text-xs font-semibold text-[#1459D9] hover:underline"
+                    >
+                      Send another message
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  
+                  {/* Name */}
+                  <div className="space-y-1.5">
+                    <label htmlFor={`${formId}-name`} className="text-xs font-semibold text-[#171717] block">
+                      Your Name <span className="text-[#B3261E]">*</span>
+                    </label>
+                    <input
+                      id={`${formId}-name`}
+                      type="text"
+                      placeholder="e.g. Ramesh Kumar"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none transition-colors"
+                    />
+                    {errors.name && <p className="text-[11px] text-[#B3261E]">{errors.name}</p>}
+                  </div>
+
+                  {/* Email & Phone */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <label htmlFor={`${formId}-email`} className="text-xs font-semibold text-[#171717] block">
+                        Email Address <span className="text-[#B3261E]">*</span>
+                      </label>
+                      <input
+                        id={`${formId}-email`}
+                        type="email"
+                        placeholder="you@company.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none transition-colors"
+                      />
+                      {errors.email && <p className="text-[11px] text-[#B3261E]">{errors.email}</p>}
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label htmlFor={`${formId}-phone`} className="text-xs font-semibold text-[#171717] block">
+                        Phone Number <span className="text-[#646464] font-normal">(Optional)</span>
+                      </label>
+                      <input
+                        id={`${formId}-phone`}
+                        type="tel"
+                        placeholder="+91 98765 43210"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Project Type */}
+                  <div className="space-y-1.5">
+                    <label htmlFor={`${formId}-projectType`} className="text-xs font-semibold text-[#171717] block">
+                      Project Type
+                    </label>
+                    <select
+                      id={`${formId}-projectType`}
+                      value={formData.projectType}
+                      onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none transition-colors cursor-pointer"
+                    >
+                      {projectTypes.map((pt) => (
+                        <option key={pt} value={pt}>{pt}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Project Description */}
+                  <div className="space-y-1.5">
+                    <label htmlFor={`${formId}-description`} className="text-xs font-semibold text-[#171717] block">
+                      Project Description <span className="text-[#B3261E]">*</span>
+                    </label>
+                    <textarea
+                      id={`${formId}-description`}
+                      rows={4}
+                      placeholder="Tell us what problem your business is facing, what kind of software you need, or what workflows you want to automate..."
+                      value={formData.projectDescription}
+                      onChange={(e) => setFormData({ ...formData, projectDescription: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none transition-colors resize-y"
+                    />
+                    {errors.projectDescription && <p className="text-[11px] text-[#B3261E]">{errors.projectDescription}</p>}
+                  </div>
+
+                  {/* Budget (Optional) */}
+                  <div className="space-y-1.5">
+                    <label htmlFor={`${formId}-budget`} className="text-xs font-semibold text-[#171717] block">
+                      Estimated Budget <span className="text-[#646464] font-normal">(Optional)</span>
+                    </label>
+                    <select
+                      id={`${formId}-budget`}
+                      value={formData.budget}
+                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none transition-colors cursor-pointer"
+                    >
+                      <option value="">Select a ballpark range...</option>
+                      {budgetRanges.map((br) => (
+                        <option key={br} value={br}>{br}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-2.5 px-6 rounded-md text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] transition-colors disabled:opacity-50 cursor-pointer"
+                    >
+                      {isSubmitting ? "Submitting Brief..." : "Submit Project Brief"}
+                    </button>
+                    <p className="text-[11px] text-[#646464] text-center mt-2.5">
+                      Direct engineering review. No automated marketing spam.
+                    </p>
+                  </div>
+
+                </form>
+              )}
+            </div>
+
+            {/* Right: Direct Studio Contacts & Information (5 cols) */}
+            <div className="lg:col-span-5 space-y-6">
+              
+              {/* Direct Communication Details */}
+              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E4E4E0] shadow-studio-card space-y-5">
+                <span className="text-[11px] font-semibold tracking-wider text-[#1459D9] uppercase block font-mono">
+                  DIRECT CONTACT
+                </span>
+                
+                <div className="space-y-4 text-xs sm:text-sm">
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-[10px] uppercase font-semibold text-[#646464] block">Email Us Directly</span>
+                      <a href="mailto:onesash.contact@gmail.com" className="font-semibold text-[#171717] hover:text-[#1459D9]">
+                        onesash.contact@gmail.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Clock className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-[10px] uppercase font-semibold text-[#646464] block">Response Turnaround</span>
+                      <span className="text-[#171717] font-medium">Within 24 business hours</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Physical Studio Locations */}
+              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E4E4E0] shadow-studio-card space-y-5">
+                <span className="text-[11px] font-semibold tracking-wider text-[#646464] uppercase block">
+                  Studio Locations
+                </span>
+
+                <div className="space-y-4 text-xs">
+                  <div className="pb-3 border-b border-[#E4E4E0]">
+                    <div className="flex items-center gap-1.5 font-semibold text-[#171717]">
+                      <MapPin className="w-3.5 h-3.5 text-[#1459D9]" />
+                      <span>Chennai Studio (HQ)</span>
+                    </div>
+                    <p className="text-[#646464] mt-1">
+                      Anna Salai & Guindy Tech Corridor, Chennai, TN 600032
+                    </p>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center gap-1.5 font-semibold text-[#171717]">
+                      <MapPin className="w-3.5 h-3.5 text-[#1459D9]" />
+                      <span>Bangalore Studio</span>
+                    </div>
+                    <p className="text-[#646464] mt-1">
+                      Indiranagar Tech District, Bangalore, KA 560038
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Software Estimator Card Link */}
+              <div className="p-6 bg-[#F1F1EE] rounded-2xl border border-[#E4E4E0] space-y-2 text-xs">
+                <span className="font-semibold text-[#171717] block">Want a quick cost estimation first?</span>
+                <p className="text-[#646464]">
+                  Use our interactive software project calculator to explore cost drivers and typical delivery timelines.
+                </p>
+                <div className="pt-2">
+                  <a href="/calculator" className="text-[#1459D9] font-semibold hover:underline">
+                    Open Software Cost Calculator
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </main>
     </>
   )
 }

@@ -1,8 +1,6 @@
 {
-  "name": "onesash",
-  "description": "onesash Technocrafts — Full-stack software engineering, custom web applications, enterprise AI solutions, cross-platform mobile apps, and scalable cloud architectures.",
+  "name": "OneSash Technocrafts",
+  "description": "OneSash Technocrafts — Custom software development, web applications, mobile engineering, and backend systems for businesses.",
   "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
+  "majorCapabilities": []
 }

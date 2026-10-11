@@ -1,371 +1,209 @@
-import { useState, useRef } from "react"
-import { motion, useInView, AnimatePresence } from "framer-motion"
 import { Link } from "react-router-dom"
-import {
-  Code2,
-  Building2,
-  ShieldCheck,
-  Cpu,
-  ArrowUpRight,
-  CheckCircle2,
-  Terminal,
-  Clock,
-  UserCheck,
-  Zap,
-  FolderGit2
-} from "lucide-react"
 
-import { Services3DCanvas } from "../ui/Services3DCanvas"
-
-export interface ServiceSpec {
-  id: string
-  code: string
+interface ServiceItem {
   title: string
-  category: string
-  headline: string
+  slug: string
   problemSolved: string
-  icon: any
-  leadFounder: string
+  explanation: string
   deliverables: string[]
-  techStack: string[]
-  caseStudy: {
-    title: string
-    metric: string
+  projectExample: {
+    name: string
     description: string
   }
-  estimatedTime: string
 }
 
-const serviceCatalog: ServiceSpec[] = [
+export const servicesData: ServiceItem[] = [
   {
-    id: "web-portals",
-    code: "DISCIPLINE-01",
-    category: "SYSTEMS & PORTALS",
-    title: "Full-Stack Web & Resident Portals",
-    headline: "Custom administrative web applications, multi-tenant resident portals, and operational management suites.",
-    problemSolved: "Replaces fragmented spreadsheets, manual billing, and paper logbooks with a centralized, secure web dashboard.",
-    icon: Building2,
-    leadFounder: "Saraveshvaran A (Lead Architect)",
+    title: "Custom Software Development",
+    slug: "/services/custom-software",
+    problemSolved: "Off-the-shelf software rarely fits proprietary business operations, forcing teams into fragile spreadsheet workarounds and disconnected SaaS subscriptions.",
+    explanation: "We design and build bespoke business applications tailored strictly to your operational rules, employee hierarchies, and core data structures. You own the code completely.",
     deliverables: [
-      "Multi-tenant RBAC permissions & resident login suites",
-      "Automated PDF bill generation & digital payment receipt logs",
-      "Visitor QR code gate pass logging & guardhouse station views",
-      "Maintenance request dispatch, status tracking & audit logs",
-      "Normalized PostgreSQL database & REST API routing"
+      "Custom operations & admin portals",
+      "Role-based access control (RBAC)",
+      "ACID-compliant relational database architectures",
+      "Internal ticketing & workflow routing engines"
     ],
-    techStack: ["React 18+", "TypeScript", "Node.js", "Express", "PostgreSQL", "Tailwind CSS"],
-    caseStudy: {
-      title: "APAR CROWN Apartment Portal",
-      metric: "216 Apartments • 100% Digital",
-      description: "Deployed a zero-maintenance resident portal automating billing, visitor approvals, and community notices."
-    },
-    estimatedTime: "2 - 4 Weeks Sprint"
+    projectExample: {
+      name: "Apar Crown & Law Throne",
+      description: "Delivered unified residential facility ERP and litigation case management systems."
+    }
   },
   {
-    id: "interactive-3d",
-    category: "INTERACTIVE UI & WEBGL",
-    code: "DISCIPLINE-02",
-    title: "Interactive 3D WebGL & UI Systems",
-    headline: "High-performance client interfaces, responsive editorial design systems, and real-time Three.js canvas rendering.",
-    problemSolved: "Eliminates boring, static web templates by building immersive 3D spatial models and fluid responsive client portals.",
-    icon: Cpu,
-    leadFounder: "Sharvesh CM (Interactive UI Lead)",
+    title: "Web Application Development",
+    slug: "/services/web-development",
+    problemSolved: "Slow page loads, poor mobile responsiveness, and fragile client-side state cause customer drop-offs and operational friction.",
+    explanation: "We engineer fast, accessible web applications using modern TypeScript, React, and modular backend APIs designed for sub-second interactions and predictable state.",
     deliverables: [
-      "Custom Three.js WebGL canvas shaders & 3D object controls",
-      "Responsive mathematical typography & editorial design tokens",
-      "Micro-interaction state machines with Framer Motion physics",
-      "Sub-second initial page load & fluid mobile viewports",
-      "Dark / Light luxury theme engineering without AI clichés"
+      "Single Page Applications (SPAs) & SaaS dashboards",
+      "Secure client self-service portals",
+      "Real-time WebSocket data feeds",
+      "Accessible, responsive UI adhering to WCAG standards"
     ],
-    techStack: ["React", "TypeScript", "Three.js", "WebGL", "Framer Motion", "Tailwind CSS"],
-    caseStudy: {
-      title: "onesash Interactive 3D Engine",
-      metric: "60 FPS Render Loop",
-      description: "Engineered real-time WebGL node models rendering architectural layouts smoothly across desktop & mobile."
-    },
-    estimatedTime: "1 - 3 Weeks Sprint"
+    projectExample: {
+      name: "QR Food Processing KDS",
+      description: "Real-time kitchen display and customer ordering system with sub-second order dispatch."
+    }
   },
   {
-    id: "crm-automation",
-    category: "OPERATIONS & AUTOMATION",
-    code: "DISCIPLINE-03",
-    title: "Legal & Corporate CRM Engines",
-    headline: "Bespoke client management systems, advocate hearing trackers, document vaulting, and pipeline automation.",
-    problemSolved: "Streamlines confidential legal workflows, client case stage tracking, and automated appointment scheduling.",
-    icon: ShieldCheck,
-    leadFounder: "Siddharth Santhosh Kumar (Product Lead)",
+    title: "Mobile Application Development",
+    slug: "/services/mobile-apps",
+    problemSolved: "Maintaining separate native codebases is expensive, while low-quality cross-platform wrappers suffer from sluggish scrolling and poor offline reliability.",
+    explanation: "We build reliable iOS and Android applications with native-like 60fps animations, background synchronization, and robust offline-first caching for field and customer use.",
     deliverables: [
-      "Custom pipeline stage Kanban boards & milestone triggers",
-      "Client case document vaulting with AES-256 encryption",
-      "Hearing date calendar synchronization & SMS alert triggers",
-      "Automated time-tracking, retainer billing & invoice generation",
-      "Role-based access logs for senior partners & legal staff"
+      "Cross-platform iOS and Android apps",
+      "Offline-first SQLite local synchronization",
+      "Native push notification pipelines (APNs & FCM)",
+      "Biometric authentication & secure on-device storage"
     ],
-    techStack: ["React", "TypeScript", "Express", "PostgreSQL", "REST APIs", "Node.js"],
-    caseStudy: {
-      title: "The Law Practice CRM",
-      metric: "100% Paperless Workflows",
-      description: "Mapped advocate hearing schedules and vault security requirements into a zero-bloat web application."
-    },
-    estimatedTime: "3 - 5 Weeks Sprint"
+    projectExample: {
+      name: "Resident & Gatekeeper Mobile Apps",
+      description: "Companion mobile interfaces for visitor verification and resident maintenance payments."
+    }
   },
   {
-    id: "cloud-ai",
-    category: "CLOUD & AI INTEGRATION",
-    code: "DISCIPLINE-04",
-    title: "Cloud Infrastructure & AI Workflows",
-    headline: "Zero-downtime container deployments, Gemini model API integration, and automated document processing.",
-    problemSolved: "Transforms unstructured operational documents and customer tickets into structured, actionable JSON data.",
-    icon: Code2,
-    leadFounder: "Saraveshvaran & Sharvesh",
+    title: "AI Integration & Automation",
+    slug: "/services/ai-integration",
+    problemSolved: "Manual data extraction from physical paper, legal dockets, and invoices consumes hundreds of employee hours and generates transcription errors.",
+    explanation: "We integrate practical, deterministic artificial intelligence and machine learning pipelines into your existing databases—extracting structured information without hallucinations.",
     deliverables: [
-      "Server-side Gemini & OpenAI API proxy routes (private keys)",
-      "Automated document OCR & semantic metadata extraction",
-      "Docker containerization & Cloud Run serverless hosting",
-      "Automated CI/CD git build pipelines & domain SSL binding",
-      "OWASP security audit & SQL injection protection layers"
+      "Document ingestion & OCR extraction pipelines",
+      "Deterministic LLM data parsers with JSON validation",
+      "Private vector search over company documents (RAG)",
+      "Automated classification and anomaly detection"
     ],
-    techStack: ["Gemini API", "Node.js", "Docker", "Google Cloud", "Express", "TypeScript"],
-    caseStudy: {
-      title: "AI Content & Slide Generator",
-      metric: "95% Faster Processing",
-      description: "Integrated server-side Gemini multi-modal reasoning to auto-generate slide layouts from raw documents."
-    },
-    estimatedTime: "1 - 2 Weeks Sprint"
+    projectExample: {
+      name: "Court Docket Parser in Law Throne",
+      description: "Automated extraction and sync of daily High Court causelists and hearing timelines."
+    }
+  },
+  {
+    title: "Business Process Automation",
+    slug: "/services/process-automation",
+    problemSolved: "Manual billing reminders, paper lease agreements, and repetitive clerical handoffs lead to delayed collections and lost records.",
+    explanation: "We build automated system workflows that synchronize your billing, messaging, payments, and document generation so daily operations execute without manual chasing.",
+    deliverables: [
+      "Automated invoice dispatch & WhatsApp payment reminders",
+      "Dynamic PDF generation (receipts, lease agreements, reports)",
+      "Multi-system webhook reconciliations & ERP synchronization",
+      "Automated escalation triggers for overdue tasks"
+    ],
+    projectExample: {
+      name: "PG Management Operations Suite",
+      description: "Automated monthly rent invoice dispatch, bed vacancy tracking, and digital KYC archiving."
+    }
+  },
+  {
+    title: "Cloud Deployment & Maintenance",
+    slug: "/services/cloud-solutions",
+    problemSolved: "Unmonitored servers crash under traffic bursts, lack verified disaster recovery backups, and leave data exposed to security vulnerabilities.",
+    explanation: "We containerize applications using Docker, establish automated CI/CD deployment pipelines, configure managed cloud databases, and enforce continuous security updates.",
+    deliverables: [
+      "Containerized Docker & Linux server deployments",
+      "Zero-downtime CI/CD deployment workflows (GitHub Actions)",
+      "Automated encrypted daily database snapshots",
+      "SSL/TLS security hardening, rate limiting & uptime alerts"
+    ],
+    projectExample: {
+      name: "OneSash Production Infrastructure",
+      description: "High-reliability cloud hosting across AWS and DigitalOcean with active monitoring."
+    }
   }
 ]
 
 export const ServicesSection = () => {
-  const [activeSpecId, setActiveSpecId] = useState(serviceCatalog[0].id)
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true })
-
-  const activeSpec = serviceCatalog.find((s) => s.id === activeSpecId)!
-
   return (
-    <section id="services" className="py-24 md:py-36 bg-background border-b border-border">
-      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+    <section id="services" className="bg-[#FAFAF8] py-16 md:py-20 border-b border-[#E4E4E0]">
+      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
         
-        {/* Header */}
-        <motion.div
-          ref={ref}
-          className="max-w-3xl mx-auto text-center mb-16 space-y-4 flex flex-col items-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-border bg-card/80 text-xs font-mono font-medium text-foreground tracking-tight shadow-xs mb-1">
-            What We Do
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between pb-12 border-b border-[#E4E4E0] gap-6">
+          <div className="space-y-2 max-w-2xl">
+            <h2 className="text-3xl sm:text-4xl font-heading font-semibold tracking-tight text-[#171717]">
+              Services & Capabilities
+            </h2>
+            <p className="text-base text-[#646464] max-w-xl">
+              We design and engineer software to solve specific operational problems. No generic buzzwords—just durable systems that work.
+            </p>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-foreground font-black tracking-tighter leading-[1.05]">
-            Services That Scale With Your Business
-          </h2>
-          <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl font-sans">
-            From pixel-perfect frontend designs to robust backend architectures and scalable cloud deployments — we cover the full stack of software engineering.
-          </p>
-        </motion.div>
-
-        {/* Discipline Navigation Tabs */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
-          {serviceCatalog.map((spec) => {
-            const Icon = spec.icon
-            const isActive = activeSpecId === spec.id
-            return (
-              <button
-                key={spec.id}
-                onClick={() => setActiveSpecId(spec.id)}
-                className={`p-5 rounded-lg border text-left transition-all flex flex-col justify-between space-y-4 ${
-                  isActive
-                    ? "border-accent bg-accent/10 text-foreground shadow-sm"
-                    : "border-border bg-card/30 text-muted-foreground hover:bg-card/70 hover:text-foreground"
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-accent font-bold tracking-widest uppercase">
-                    {spec.code}
-                  </span>
-                  <Icon className={`w-5 h-5 ${isActive ? "text-accent" : "text-muted-foreground"}`} />
-                </div>
-
-                <div>
-                  <div className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider block">
-                    {spec.category}
-                  </div>
-                  <div className="text-base font-serif text-foreground font-semibold line-clamp-1 mt-0.5">
-                    {spec.title}
-                  </div>
-                </div>
-              </button>
-            )
-          })}
+          <div>
+            <Link
+              to="/contact"
+              className="text-xs font-semibold text-[#1459D9] hover:underline"
+            >
+              Discuss your project scope
+            </Link>
+          </div>
         </div>
 
-        {/* Interactive 3D WebGL Service Geometry Canvas */}
-        <div className="mb-10">
-          <Services3DCanvas
-            initialMode={
-              activeSpecId === "web-portals"
-                ? "web"
-                : activeSpecId === "interactive-3d"
-                ? "webgl"
-                : activeSpecId === "crm-automation"
-                ? "custom"
-                : "cloud"
-            }
-            onModeChange={(mode) => {
-              if (mode === "web") setActiveSpecId("web-portals")
-              else if (mode === "webgl") setActiveSpecId("interactive-3d")
-              else if (mode === "custom") setActiveSpecId("crm-automation")
-              else if (mode === "cloud" || mode === "ai") setActiveSpecId("cloud-ai")
-            }}
-          />
-        </div>
-
-        {/* Detailed Service Specification Stage */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeSpecId}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.3 }}
-            className="border border-border rounded-xl bg-card/20 p-6 md:p-10 space-y-8 shadow-sm"
-          >
-            
-            {/* Spec Header Bar */}
-            <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-border">
-              <div className="space-y-2 max-w-2xl">
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="px-2.5 py-0.5 rounded bg-accent/10 border border-accent/20 text-accent font-mono text-[10px] font-bold tracking-wider uppercase">
-                    {activeSpec.code}
-                  </span>
-                  <span className="text-xs font-mono text-muted-foreground">
-                    LEAD: {activeSpec.leadFounder}
-                  </span>
-                </div>
-
-                <h3 className="text-3xl md:text-4xl font-serif text-foreground font-bold">
-                  {activeSpec.title}
+        {/* Clean Capabilities Rows */}
+        <div className="divide-y divide-[#E4E4E0]">
+          {servicesData.map((service) => (
+            <div 
+              key={service.slug}
+              className="py-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+            >
+              {/* Title & Link (4 cols) */}
+              <div className="lg:col-span-4 space-y-2">
+                <h3 className="text-xl sm:text-2xl font-heading font-semibold text-[#171717]">
+                  {service.title}
                 </h3>
+                <div>
+                  <Link
+                    to={service.slug}
+                    className="text-xs font-semibold text-[#1459D9] hover:underline"
+                  >
+                    Learn more about {service.title}
+                  </Link>
+                </div>
+              </div>
 
-                <p className="text-sm text-foreground leading-relaxed">
-                  {activeSpec.headline}
+              {/* Problem & Solution (5 cols) */}
+              <div className="lg:col-span-5 space-y-3">
+                <p className="text-xs sm:text-sm text-[#171717] font-medium leading-relaxed">
+                  {service.problemSolved}
                 </p>
-              </div>
-
-              <div className="p-4 border border-border bg-background rounded-lg shrink-0 space-y-2 max-w-xs">
-                <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest block">
-                  TARGET SPRINT TIMELINE:
-                </span>
-                <div className="flex items-center gap-2 text-sm font-mono font-bold text-foreground">
-                  <Clock className="w-4 h-4 text-accent" />
-                  <span>{activeSpec.estimatedTime}</span>
+                <p className="text-xs sm:text-sm text-[#646464] leading-relaxed">
+                  {service.explanation}
+                </p>
+                <div className="text-xs text-[#646464] pt-1">
+                  <span className="font-semibold text-[#171717]">Example: </span>
+                  <span>{service.projectExample.name} — {service.projectExample.description}</span>
                 </div>
               </div>
-            </div>
 
-            {/* Operational Problem & Key Deliverables Split */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              
-              {/* Left: Key Deliverables List */}
-              <div className="lg:col-span-7 space-y-4">
-                <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                  <Terminal className="w-4 h-4 text-accent" /> VERIFIED SYSTEM DELIVERABLES
+              {/* Key Deliverables (3 cols) */}
+              <div className="lg:col-span-3 space-y-2 bg-[#F1F1EE] p-4 rounded-lg border border-[#E4E4E0]">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#171717] block">
+                  Deliverables
                 </span>
-
-                <div className="space-y-2.5">
-                  {activeSpec.deliverables.map((item) => (
-                    <div
-                      key={item}
-                      className="p-3.5 border border-border bg-background rounded-lg flex items-start gap-3 hover:border-accent/40 transition-colors"
-                    >
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                      <span className="text-xs font-mono text-foreground leading-snug">
-                        {item}
-                      </span>
-                    </div>
+                <ul className="space-y-1.5 text-xs text-[#646464]">
+                  {service.deliverables.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="text-[#1459D9] font-bold">·</span>
+                      <span className="leading-tight">{item}</span>
+                    </li>
                   ))}
-                </div>
-              </div>
-
-              {/* Right: Operational Problem & Real Case Study */}
-              <div className="lg:col-span-5 space-y-6">
-                
-                {/* Problem Solved */}
-                <div className="p-5 border border-border bg-background rounded-lg space-y-2">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold flex items-center gap-1.5">
-                    <Zap className="w-3.5 h-3.5" /> OPERATIONAL FRICTION SOLVED
-                  </span>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {activeSpec.problemSolved}
-                  </p>
-                </div>
-
-                {/* Case Study Proof */}
-                <div className="p-5 border border-border bg-card/50 rounded-lg space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest flex items-center gap-1.5">
-                      <FolderGit2 className="w-3.5 h-3.5 text-foreground" /> PROOF IN PRODUCTION
-                    </span>
-                    <span className="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 font-mono text-[10px] font-bold">
-                      {activeSpec.caseStudy.metric}
-                    </span>
-                  </div>
-
-                  <h4 className="text-lg font-serif text-foreground font-semibold">
-                    {activeSpec.caseStudy.title}
-                  </h4>
-
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {activeSpec.caseStudy.description}
-                  </p>
-                </div>
-
-                {/* Tech Stack Pills */}
-                <div className="space-y-2">
-                  <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider block">
-                    STACK INCLUDED:
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {activeSpec.techStack.map((tech) => (
-                      <span key={tech} className="px-2.5 py-1 rounded border border-border bg-background text-[10px] font-mono text-foreground">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
+                </ul>
               </div>
 
             </div>
+          ))}
+        </div>
 
-            {/* Bottom Call to Action */}
-            <div className="pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
-                <UserCheck className="w-4 h-4 text-accent" />
-                <span>Direct Founder Consultation with Saraveshvaran, Sharvesh, and Siddharth.</span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <Link
-                  to="/services"
-                  className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-foreground font-semibold hover:text-accent transition-colors"
-                >
-                  <span>FULL SERVICES DIRECTORY</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
-
-                <Link
-                  to="/contact"
-                  className="px-5 py-2.5 text-xs font-mono bg-primary text-primary-foreground rounded hover:opacity-90 transition-opacity font-medium"
-                >
-                  Request Service Brief
-                </Link>
-              </div>
-            </div>
-
-          </motion.div>
-        </AnimatePresence>
+        {/* Section Footer */}
+        <div className="pt-12 border-t border-[#E4E4E0] flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <h4 className="text-sm font-semibold text-[#171717]">Have a requirement spanning multiple capabilities?</h4>
+            <p className="text-xs text-[#646464] mt-0.5">Most engagements combine custom software with automated workflows and cloud deployment.</p>
+          </div>
+          <Link
+            to="/contact"
+            className="px-5 py-2.5 text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] rounded-md transition-colors whitespace-nowrap"
+          >
+            Discuss Scope with an Engineer
+          </Link>
+        </div>
 
       </div>
     </section>

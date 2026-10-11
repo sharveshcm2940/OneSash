@@ -1,53 +1,59 @@
 import { SEO } from "../components/common/SEO"
 import { HeroSection } from "../components/sections/HeroSection"
-import { TrustIdentityStrip } from "../components/sections/TrustIdentityStrip"
+import { WorkSection } from "../components/sections/WorkSection"
 import { ServicesSection } from "../components/sections/ServicesSection"
-import { SelectedWorkSection } from "../components/sections/SelectedWorkSection"
-import { TechnologiesSection } from "../components/sections/TechnologiesSection"
-import { WhySashSection } from "../components/sections/WhySashSection"
 import { ProcessSection } from "../components/sections/ProcessSection"
-import { WhatWeBuildSection } from "../components/sections/WhatWeBuildSection"
-import { ThreeDEngineeringSection } from "../components/sections/ThreeDEngineeringSection"
-import { AboutSection } from "../components/sections/AboutSection"
-import { TeamBiosSection } from "../components/sections/TeamBiosSection"
-import { PhilosophySection } from "../components/sections/PhilosophySection"
-import { ContactSection } from "../components/sections/ContactSection"
+import { CTABannerSection } from "../components/sections/CTABannerSection"
 
 export const HomePage = () => {
   const homeSchema = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "1Sash",
+    "@type": "SoftwareApplication",
+    "name": "OneSash",
     "url": "https://onesash.com",
-    "description": "1Sash is a software development studio engineering custom web systems, mobile applications, AI platforms, and cloud solutions.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "1Sash Technocrafts"
-    }
+    "description": "OneSash designs and develops custom software, web applications and digital products that help businesses work better.",
+    "email": "onesash.contact@gmail.com",
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "Chennai",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      },
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      }
+    ]
   }
 
   return (
     <>
       <SEO
-        description="1Sash is a software development studio founded by Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, and Naren Annamalai in 2026. We build production-ready full-stack applications, AI integrations, mobile apps, and cloud pipelines."
-        keywords="1Sash, software freelancing studio, full stack software development, React Vite TypeScript, custom web app engineering, mobile app development, Chennai software company, Saraveshvaran A, Sharvesh CM, Siddharth Santhosh Kumar, Vivek A, Naren Annamalai"
+        title="OneSash — Independent Software Development Studio | Chennai"
+        description="OneSash designs and develops custom software, web applications and digital products that help businesses work better. Chennai & Bangalore."
+        keywords="OneSash, software development studio Chennai, custom software development, web application engineering, Apar Crown, Law Throne, software company Chennai"
         schema={homeSchema}
       />
 
-      {/* 1Sash Complete Page Flow */}
-      <HeroSection />
-      <TrustIdentityStrip />
-      <ServicesSection />
-      <SelectedWorkSection />
-      <TechnologiesSection />
-      <WhySashSection />
-      <ProcessSection />
-      <WhatWeBuildSection />
-      <ThreeDEngineeringSection />
-      <AboutSection />
-      <TeamBiosSection />
-      <PhilosophySection />
-      <ContactSection />
+      <main>
+        {/* 1. Hero: Direct Value Proposition & Product Mockup */}
+        <HeroSection />
+
+        {/* 2. Selected Work (Centerpiece: Real Delivered Systems) */}
+        <WorkSection />
+
+        {/* 3. Core Capabilities */}
+        <ServicesSection />
+
+        {/* 4. Structured Engineering Process */}
+        <ProcessSection />
+
+        {/* 5. Direct Studio Contact */}
+        <CTABannerSection />
+      </main>
     </>
   )
 }

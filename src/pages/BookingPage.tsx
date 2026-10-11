@@ -1,143 +1,207 @@
-import { SEO } from "../components/common/SEO"
-import { motion } from "framer-motion"
 import { useState } from "react"
-import { Calendar as CalendarIcon, Clock, Video, CheckCircle2 } from "lucide-react"
-import { cn } from "../utils/cn"
+import { SEO } from "../components/common/SEO"
+import { CTABannerSection } from "../components/sections/CTABannerSection"
+import { Calendar as CalendarIcon, Clock, Video, CheckCircle2, ArrowRight } from "lucide-react"
 
-const availableTimes = ["09:00 AM", "10:30 AM", "01:00 PM", "03:30 PM", "05:00 PM"]
+const availableTimes = ["10:00 AM IST", "11:30 AM IST", "02:00 PM IST", "04:00 PM IST", "05:30 PM IST"]
 
 export const BookingPage = () => {
   const [selectedDate, setSelectedDate] = useState<number | null>(null)
   const [selectedTime, setSelectedTime] = useState<string | null>(null)
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [notes, setNotes] = useState("")
   const [isBooked, setIsBooked] = useState(false)
+
+  const today = new Date().getDate()
+  const dates = Array.from({ length: 12 }).map((_, i) => today + i).filter(d => d <= 31)
 
   const handleBooking = (e: React.FormEvent) => {
     e.preventDefault()
-    if (selectedDate && selectedTime) {
+    if (selectedDate && selectedTime && name && email) {
       setIsBooked(true)
     }
   }
 
-  // Generate some dummy dates for the current month
-  const today = new Date().getDate()
-  const dates = Array.from({ length: 14 }).map((_, i) => today + i).filter(d => d <= 31)
-
   return (
     <>
       <SEO
-        title="Schedule a Discovery Call with onesash Founders"
-        description="Schedule a 1-on-1 technical discovery session with onesash engineers. Discuss project architecture, budget, tech stack, and roadmap."
-        keywords="book consultation onesash, software discovery call, hire software team, technical architecture consultation"
+        title="Schedule a Technical Discovery Call with OneSash"
+        description="Schedule a 1-on-1 technical discovery session with OneSash senior engineers in Chennai or Bangalore. Discuss project architecture, budget, and roadmap."
+        keywords="book consultation OneSash, software discovery call, schedule meeting OneSash, technical consultation Chennai"
       />
 
-      <section className="relative pt-36 pb-32 px-4 md:px-6 overflow-hidden">
-        <div className="absolute top-20 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-        
-        <div className="container mx-auto max-w-5xl">
-          <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4 border border-primary/20">Free Consultation</span>
-            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Book a <span className="text-gradient">Discovery Call</span></h1>
-            <p className="text-muted-foreground text-lg">Choose a time that works for you. Let's discuss your vision.</p>
-          </motion.div>
+      <main className="bg-[#FAFAF8] pt-24 pb-16 md:pt-28 md:pb-20 border-b border-[#E4E4E0]">
+        <div className="container mx-auto px-4 md:px-8 max-w-5xl">
+          
+          {/* Header */}
+          <div className="max-w-3xl mb-12 space-y-3">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-semibold tracking-tight text-[#171717] leading-[1.1]">
+              Book a 30-Minute Discovery Call.
+            </h1>
+            <p className="text-base sm:text-lg text-[#646464] leading-relaxed pt-1">
+              Speak directly with our senior software architects. We'll discuss your operational problems, explore potential technical architectures, and provide a fixed-budget outline.
+            </p>
+          </div>
 
           {isBooked ? (
-            <motion.div 
-              className="max-w-xl mx-auto text-center p-12 rounded-3xl border border-emerald-500/30 bg-emerald-500/5"
-              initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-            >
-              <CheckCircle2 className="w-16 h-16 text-emerald-500 mx-auto mb-6" />
-              <h2 className="text-3xl font-heading font-bold mb-4">Booking Confirmed!</h2>
-              <p className="text-muted-foreground mb-6">A calendar invitation with the Google Meet link has been sent to your email.</p>
-              <div className="inline-flex items-center gap-4 text-sm font-medium bg-card p-4 rounded-xl border border-border">
-                <div className="flex items-center gap-2"><CalendarIcon className="w-4 h-4 text-primary" /> {selectedDate}th</div>
-                <div className="w-px h-4 bg-border" />
-                <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-primary" /> {selectedTime}</div>
+            <div className="bg-white p-10 sm:p-14 rounded-2xl border border-[#E4E4E0] shadow-studio-card text-center space-y-5 max-w-2xl mx-auto">
+              <div className="w-14 h-14 rounded-full bg-[#E6F4EA] text-[#137333] mx-auto flex items-center justify-center">
+                <CheckCircle2 className="w-8 h-8" />
               </div>
-            </motion.div>
+              <h2 className="text-2xl font-heading font-semibold text-[#171717]">
+                Discovery Session Confirmed.
+              </h2>
+              <p className="text-xs sm:text-sm text-[#646464] max-w-md mx-auto leading-relaxed">
+                Thank you, {name}. A Google Meet invitation for Date: {selectedDate}th at {selectedTime} has been scheduled. Our lead engineer will connect with you directly.
+              </p>
+              <div className="p-4 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] max-w-sm mx-auto text-xs text-[#171717] flex justify-between">
+                <span>Google Meet Video Link</span>
+                <span className="font-mono text-[#1459D9]">meet.google.com/onesash-sync</span>
+              </div>
+              <div className="pt-4">
+                <button
+                  type="button"
+                  onClick={() => setIsBooked(false)}
+                  className="text-xs font-semibold text-[#1459D9] hover:underline"
+                >
+                  Schedule another slot
+                </button>
+              </div>
+            </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Calendar Sidebar */}
-              <motion.div className="p-8 rounded-3xl border border-border bg-card" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <Video className="w-6 h-6 text-primary" />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              
+              {/* Calendar & Times (7 cols) */}
+              <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-[#E4E4E0] shadow-studio-card space-y-6">
+                <div className="flex items-center gap-3 pb-4 border-b border-[#E4E4E0]">
+                  <div className="w-10 h-10 rounded-xl bg-[#EEF3FD] text-[#1459D9] flex items-center justify-center">
+                    <Video className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-heading font-bold text-lg">Discovery Call</h3>
-                    <p className="text-muted-foreground text-sm flex items-center gap-1"><Clock className="w-3 h-3" /> 30 min | Google Meet</p>
+                    <h3 className="font-semibold text-sm text-[#171717]">Technical Discovery Call</h3>
+                    <span className="text-xs text-[#646464]">30 mins • Video Conference via Google Meet</span>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground mb-8">During this call, we will discuss your project requirements, technical challenges, and outline a high-level execution plan.</p>
 
-                <h4 className="font-semibold mb-4 flex items-center gap-2"><CalendarIcon className="w-4 h-4" /> Select a Date (This Month)</h4>
-                <div className="grid grid-cols-5 gap-2 mb-8">
-                  {dates.map((date) => (
-                    <button
-                      key={date}
-                      onClick={() => setSelectedDate(date)}
-                      className={cn(
-                        "p-3 rounded-xl text-center text-sm font-medium transition-all",
-                        selectedDate === date ? "bg-primary text-white shadow-md" : "bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary"
-                      )}
-                    >
-                      {date}
-                    </button>
-                  ))}
+                {/* Date Selection */}
+                <div className="space-y-3">
+                  <span className="text-xs font-semibold text-[#171717] flex items-center gap-2">
+                    <CalendarIcon className="w-4 h-4 text-[#1459D9]" />
+                    Select a Date (Current Month)
+                  </span>
+                  <div className="grid grid-cols-4 sm:grid-cols-6 gap-2">
+                    {dates.map((d) => (
+                      <button
+                        key={d}
+                        type="button"
+                        onClick={() => setSelectedDate(d)}
+                        className={`p-3 rounded-xl text-center text-xs font-semibold transition-all cursor-pointer ${
+                          selectedDate === d
+                            ? "bg-[#1459D9] text-white shadow-studio-subtle"
+                            : "bg-[#FAFAF8] border border-[#E4E4E0] text-[#171717] hover:border-[#1459D9]"
+                        }`}
+                      >
+                        {d}th
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
+                {/* Time Selection */}
                 {selectedDate && (
-                  <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}>
-                    <h4 className="font-semibold mb-4 flex items-center gap-2"><Clock className="w-4 h-4" /> Select a Time</h4>
-                    <div className="grid grid-cols-2 gap-3">
-                      {availableTimes.map((time) => (
+                  <div className="space-y-3 pt-4 border-t border-[#E4E4E0]">
+                    <span className="text-xs font-semibold text-[#171717] flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-[#1459D9]" />
+                      Select a Time Slot
+                    </span>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                      {availableTimes.map((t) => (
                         <button
-                          key={time}
-                          onClick={() => setSelectedTime(time)}
-                          className={cn(
-                            "py-2.5 rounded-lg text-sm font-medium transition-all border",
-                            selectedTime === time ? "border-primary bg-primary/10 text-primary" : "border-border hover:border-primary/50 text-muted-foreground"
-                          )}
+                          key={t}
+                          type="button"
+                          onClick={() => setSelectedTime(t)}
+                          className={`p-2.5 rounded-lg text-xs font-semibold transition-all border cursor-pointer ${
+                            selectedTime === t
+                              ? "bg-[#1459D9] text-white border-[#1459D9]"
+                              : "bg-[#FAFAF8] border-[#E4E4E0] text-[#171717] hover:border-[#1459D9]"
+                          }`}
                         >
-                          {time}
+                          {t}
                         </button>
                       ))}
                     </div>
-                  </motion.div>
+                  </div>
                 )}
-              </motion.div>
+              </div>
 
-              {/* Booking Form */}
-              <motion.div className="p-8 rounded-3xl border border-border bg-card flex flex-col justify-center" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}>
+              {/* Form (5 cols) */}
+              <div className="lg:col-span-5 bg-white p-6 sm:p-8 rounded-2xl border border-[#E4E4E0] shadow-studio-card space-y-5">
+                <h3 className="font-heading font-semibold text-base text-[#171717]">Your Information</h3>
+                
                 {selectedDate && selectedTime ? (
-                  <form onSubmit={handleBooking} className="space-y-5">
-                    <h3 className="font-heading font-bold text-xl mb-6">Your Details</h3>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Name *</label>
-                      <input required className="w-full px-4 py-3 rounded-xl border border-border bg-background outline-none focus:border-primary" />
+                  <form onSubmit={handleBooking} className="space-y-4">
+                    <div className="p-3 bg-[#EEF3FD] rounded-lg border border-[#C5D8FB] text-xs text-[#171717]">
+                      Scheduled for: <strong>{selectedDate}th at {selectedTime}</strong>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Email *</label>
-                      <input required type="email" className="w-full px-4 py-3 rounded-xl border border-border bg-background outline-none focus:border-primary" />
+
+                    <div className="space-y-1">
+                      <label className="text-xs font-semibold text-[#171717] block">Your Name</label>
+                      <input
+                        required
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="e.g. Ananya Sundaram"
+                        className="w-full px-3.5 py-2 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none"
+                      />
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Project Brief</label>
-                      <textarea rows={3} className="w-full px-4 py-3 rounded-xl border border-border bg-background outline-none focus:border-primary resize-none" />
+
+                    <div className="space-y-1">
+                      <label className="text-xs font-semibold text-[#171717] block">Work Email</label>
+                      <input
+                        required
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="you@company.com"
+                        className="w-full px-3.5 py-2 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none"
+                      />
                     </div>
-                    <button type="submit" className="w-full py-4 rounded-xl bg-primary text-white font-semibold hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(80,70,229,0.3)]">
-                      Confirm Booking
+
+                    <div className="space-y-1">
+                      <label className="text-xs font-semibold text-[#171717] block">Project Brief / Questions</label>
+                      <textarea
+                        rows={3}
+                        value={notes}
+                        onChange={(e) => setNotes(e.target.value)}
+                        placeholder="Brief summary of what you'd like to discuss..."
+                        className="w-full px-3.5 py-2 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none resize-none"
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full py-2.5 px-4 rounded-md text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] transition-colors cursor-pointer"
+                    >
+                      Confirm 30-Minute Call
                     </button>
                   </form>
                 ) : (
-                  <div className="text-center text-muted-foreground flex flex-col items-center">
-                    <CalendarIcon className="w-12 h-12 opacity-20 mb-4" />
-                    <p>Please select a date and time<br/>from the calendar to proceed.</p>
+                  <div className="py-12 text-center text-xs text-[#646464] space-y-2">
+                    <CalendarIcon className="w-8 h-8 text-[#A0A0A0] mx-auto" />
+                    <p>Please select a date and time slot from the calendar to confirm your appointment.</p>
                   </div>
                 )}
-              </motion.div>
+              </div>
+
             </div>
           )}
+
         </div>
-      </section>
+      </main>
+
+      <CTABannerSection />
     </>
   )
 }

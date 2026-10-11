@@ -1,205 +1,264 @@
-import { SEO } from "../components/common/SEO"
-import { motion } from "framer-motion"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { ArrowRight, Calculator } from "lucide-react"
-import { cn } from "../utils/cn"
+import { SEO } from "../components/common/SEO"
+import { CTABannerSection } from "../components/sections/CTABannerSection"
+import { Calculator, ArrowRight, Check, AlertCircle, Info } from "lucide-react"
 
-const featureGroups = [
+interface OptionItem {
+  id: string
+  label: string
+  priceINR: number
+  priceUSD: number
+  desc: string
+}
+
+interface FeatureGroup {
+  key: string
+  title: string
+  subtitle: string
+  multi: boolean
+  options: OptionItem[]
+}
+
+const featureGroups: FeatureGroup[] = [
   {
-    label: "Project Type",
-    key: "type",
-    options: [
-      { label: "Business Website", price: 500 },
-      { label: "Portfolio / Landing Page", price: 300 },
-      { label: "E-Commerce Store", price: 1500 },
-      { label: "Web Application (SaaS)", price: 3000 },
-      { label: "Mobile App (Flutter)", price: 2500 },
-      { label: "Custom Enterprise Software", price: 8000 },
-    ],
+    key: "platformType",
+    title: "1. Core Platform Discipline",
+    subtitle: "Select the primary architecture of your system.",
     multi: false,
+    options: [
+      { id: "custom-web", label: "Custom Software / Web Platform", priceINR: 120000, priceUSD: 1500, desc: "Bespoke operations portal, database architecture & role-based dashboard." },
+      { id: "saas-app", label: "Multi-Tenant SaaS Application", priceINR: 180000, priceUSD: 2200, desc: "Customer self-service, tenant isolation & billing subscription engine." },
+      { id: "mobile-app", label: "Cross-Platform Mobile App (iOS & Android)", priceINR: 160000, priceUSD: 2000, desc: "React Native / Flutter app with offline SQLite sync & push notifications." },
+      { id: "automation-ai", label: "AI Integration & Automation Suite", priceINR: 140000, priceUSD: 1750, desc: "OCR document parsing, deterministic LLM pipelines & ERP webhooks." },
+    ]
   },
   {
-    label: "Number of Pages / Screens",
-    key: "pages",
-    options: [
-      { label: "1–5 pages", price: 0 },
-      { label: "6–10 pages", price: 300 },
-      { label: "11–20 pages", price: 700 },
-      { label: "20+ pages", price: 1500 },
-    ],
-    multi: false,
-  },
-  {
-    label: "Features (select all that apply)",
     key: "features",
-    options: [
-      { label: "User Authentication & Accounts", price: 400 },
-      { label: "Payment Gateway (Stripe/Razorpay)", price: 500 },
-      { label: "Admin Dashboard", price: 600 },
-      { label: "CMS / Blog System", price: 350 },
-      { label: "Third-party API Integration", price: 400 },
-      { label: "AI / ML Integration", price: 1200 },
-      { label: "Real-time Features (Chat/Notifications)", price: 700 },
-      { label: "Multi-language Support", price: 300 },
-      { label: "Analytics Dashboard", price: 500 },
-    ],
+    title: "2. Architectural Modules & Capabilities",
+    subtitle: "Select all relevant capabilities your platform requires.",
     multi: true,
+    options: [
+      { id: "auth-rbac", label: "Role-Based Access Control (RBAC)", priceINR: 25000, priceUSD: 300, desc: "Multi-tier permissions (Admin, Manager, Staff, Customer)." },
+      { id: "payment-upi", label: "Payment Gateway (UPI / Razorpay / Stripe)", priceINR: 30000, priceUSD: 380, desc: "Instant checkout, automated receipt generation & webhooks." },
+      { id: "pdf-engine", label: "Dynamic PDF Invoice & Report Engine", priceINR: 25000, priceUSD: 300, desc: "Serverless PDF rendering for contracts, invoices & receipts." },
+      { id: "realtime-ws", label: "Real-Time WebSocket Sync", priceINR: 35000, priceUSD: 450, desc: "Sub-second live queues, kitchen display units & status feeds." },
+      { id: "offline-sync", label: "Offline-First SQLite Cache", priceINR: 35000, priceUSD: 450, desc: "Zero-data loss in low connectivity areas with background sync." },
+      { id: "ai-extraction", label: "Deterministic AI / OCR Parser", priceINR: 60000, priceUSD: 750, desc: "Zod-validated schema gate extracting data from scanned docs." },
+      { id: "cron-messaging", label: "WhatsApp / Email Automated Reminders", priceINR: 25000, priceUSD: 300, desc: "Scheduled billing runs & transactional message alerts." },
+    ]
   },
   {
-    label: "Timeline",
     key: "timeline",
-    options: [
-      { label: "Standard (8–12 weeks)", price: 0 },
-      { label: "Accelerated (4–8 weeks)", price: 500 },
-      { label: "Rush (2–4 weeks)", price: 1200 },
-    ],
+    title: "3. Delivery Window",
+    subtitle: "Select your target timeline for the live cloud release.",
     multi: false,
-  },
+    options: [
+      { id: "standard", label: "Standard Delivery (8–10 Weeks)", priceINR: 0, priceUSD: 0, desc: "Paced bi-weekly sprints with scheduled milestone reviews." },
+      { id: "accelerated", label: "Accelerated Delivery (4–6 Weeks)", priceINR: 40000, priceUSD: 500, desc: "Dedicated dual-engineer pair programming sprints." },
+      { id: "expedited", label: "Expedited Sprint (3–4 Weeks)", priceINR: 80000, priceUSD: 1000, desc: "Priority delivery with daily staging synchronization." },
+    ]
+  }
 ]
 
 export const CalculatorPage = () => {
-  const [selections, setSelections] = useState<Record<string, string[]>>({})
+  const [selections, setSelections] = useState<Record<string, string[]>>({
+    platformType: ["custom-web"],
+    features: ["auth-rbac", "payment-upi"],
+    timeline: ["standard"]
+  })
 
-  const toggle = (groupKey: string, label: string, multi: boolean) => {
+  const [currency, setCurrency] = useState<"INR" | "USD">("INR")
+
+  const toggle = (groupKey: string, optionId: string, multi: boolean) => {
     setSelections(prev => {
       const cur = prev[groupKey] || []
       if (multi) {
-        return { ...prev, [groupKey]: cur.includes(label) ? cur.filter(x => x !== label) : [...cur, label] }
+        return {
+          ...prev,
+          [groupKey]: cur.includes(optionId) ? cur.filter(x => x !== optionId) : [...cur, optionId]
+        }
       }
-      return { ...prev, [groupKey]: [label] }
+      return { ...prev, [groupKey]: [optionId] }
     })
   }
 
+  // Calculate totals
   const total = featureGroups.reduce((acc, group) => {
     const sel = selections[group.key] || []
-    return acc + group.options.filter(o => sel.includes(o.label)).reduce((s, o) => s + o.price, 0)
+    return acc + group.options
+      .filter(o => sel.includes(o.id))
+      .reduce((s, o) => s + (currency === "INR" ? o.priceINR : o.priceUSD), 0)
   }, 0)
-
-  const hasSelections = Object.values(selections).some(v => v.length > 0)
 
   return (
     <>
       <SEO
-        title="Interactive Software Project Cost Calculator"
-        description="Estimate the scope and timeline for your web application, mobile app, SaaS product, or AI system with onesash's interactive cost calculator."
-        keywords="software cost calculator, web app estimation, project cost calculator, hire software developers cost"
+        title="Interactive Software Cost Estimator & Scope Calculator | OneSash"
+        description="Estimate realistic costs and delivery windows for your custom software, web app, or mobile platform with OneSash's transparent scope calculator."
+        keywords="software cost calculator, web development pricing India, hire software developers Chennai cost, custom software budget"
       />
 
-      <section className="relative pt-36 pb-10 px-4 md:px-6 text-center overflow-hidden">
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/8 rounded-full blur-3xl pointer-events-none" />
-        <div className="container mx-auto relative z-10">
-          <motion.span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <Calculator className="inline w-4 h-4 mr-1" /> Project Estimator
-          </motion.span>
-          <motion.h1 className="text-5xl md:text-6xl font-heading font-bold mb-6" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            Instant <span className="text-gradient">Cost Estimate</span>
-          </motion.h1>
-          <motion.p className="text-muted-foreground text-lg max-w-2xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-            Select your project requirements below to get a ballpark budget estimate. No sign-up needed.
-          </motion.p>
-        </div>
-      </section>
+      <main className="bg-[#FAFAF8] pt-24 pb-16 md:pt-28 md:pb-20 border-b border-[#E4E4E0]">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+          
+          {/* Header */}
+          <div className="max-w-3xl mb-12 space-y-3">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-semibold tracking-tight text-[#171717] leading-[1.1]">
+              Software Project Cost Estimator.
+            </h1>
+            <p className="text-base sm:text-lg text-[#646464] leading-relaxed pt-1">
+              Select your required technical modules to get an immediate, realistic ballpark estimate. We believe in transparent pricing without hidden surprises.
+            </p>
 
-      <section className="pb-32 px-4 md:px-6">
-        <div className="container mx-auto max-w-4xl">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Options */}
-            <div className="lg:col-span-2 space-y-8">
-              {featureGroups.map((group, gi) => (
-                <motion.div
-                  key={group.key}
-                  className="rounded-2xl border border-border bg-card p-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: gi * 0.1 }}
+            <div className="pt-2 flex items-center gap-3">
+              <span className="text-xs font-semibold text-[#171717]">Display Currency:</span>
+              <div className="inline-flex rounded-lg border border-[#E4E4E0] bg-[#F1F1EE] p-0.5 text-xs font-semibold">
+                <button
+                  type="button"
+                  onClick={() => setCurrency("INR")}
+                  className={`px-3 py-1 rounded-md transition-all ${
+                    currency === "INR" ? "bg-white text-[#171717] shadow-xs" : "text-[#646464]"
+                  }`}
                 >
-                  <h3 className="font-heading font-bold text-lg mb-4">{group.label}</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {group.options.map(opt => {
-                      const selected = (selections[group.key] || []).includes(opt.label)
+                  INR (₹)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCurrency("USD")}
+                  className={`px-3 py-1 rounded-md transition-all ${
+                    currency === "USD" ? "bg-white text-[#171717] shadow-xs" : "text-[#646464]"
+                  }`}
+                >
+                  USD ($)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            
+            {/* Left: Options Chooser (8 cols) */}
+            <div className="lg:col-span-8 space-y-10">
+              {featureGroups.map((group) => (
+                <div key={group.key} className="bg-white rounded-2xl border border-[#E4E4E0] p-6 sm:p-8 shadow-studio-card space-y-4">
+                  <div>
+                    <h2 className="text-lg font-heading font-semibold text-[#171717]">{group.title}</h2>
+                    <p className="text-xs text-[#646464]">{group.subtitle}</p>
+                  </div>
+
+                  <div className="space-y-2.5">
+                    {group.options.map((opt) => {
+                      const isSelected = (selections[group.key] || []).includes(opt.id)
+                      const price = currency === "INR" ? `₹${opt.priceINR.toLocaleString()}` : `$${opt.priceUSD.toLocaleString()}`
+
                       return (
                         <button
-                          key={opt.label}
-                          onClick={() => toggle(group.key, opt.label, group.multi)}
-                          className={cn(
-                            "flex items-center justify-between gap-2 p-4 rounded-xl border text-left text-sm transition-all",
-                            selected
-                              ? "border-primary bg-primary/10 text-primary font-semibold shadow-[0_0_15px_rgba(80,70,229,0.15)]"
-                              : "border-border hover:border-primary/30 hover:bg-primary/5 text-foreground"
-                          )}
+                          key={opt.id}
+                          type="button"
+                          onClick={() => toggle(group.key, opt.id, group.multi)}
+                          className={`w-full text-left p-4 rounded-xl border transition-all flex items-start justify-between gap-4 cursor-pointer ${
+                            isSelected
+                              ? "bg-[#EEF3FD] border-[#1459D9] text-[#171717]"
+                              : "bg-[#FAFAF8] border-[#E4E4E0] hover:border-[#D5D5CF] text-[#646464]"
+                          }`}
                         >
-                          <span>{opt.label}</span>
-                          <span className="text-xs font-mono shrink-0 opacity-70">+${opt.price.toLocaleString()}</span>
+                          <div className="space-y-1">
+                            <div className="flex items-center gap-2">
+                              <div className={`w-4 h-4 rounded flex items-center justify-center shrink-0 border ${
+                                isSelected ? "bg-[#1459D9] border-[#1459D9] text-white" : "border-[#E4E4E0] bg-white"
+                              }`}>
+                                {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
+                              </div>
+                              <span className={`text-xs sm:text-sm font-semibold ${isSelected ? "text-[#171717]" : "text-[#171717]"}`}>
+                                {opt.label}
+                              </span>
+                            </div>
+                            <p className="text-[11px] text-[#646464] pl-6 leading-relaxed">
+                              {opt.desc}
+                            </p>
+                          </div>
+
+                          <div className="text-right shrink-0">
+                            <span className={`font-mono text-xs font-semibold ${isSelected ? "text-[#1459D9]" : "text-[#646464]"}`}>
+                              {opt.priceINR === 0 ? "Included" : `+${price}`}
+                            </span>
+                          </div>
                         </button>
                       )
                     })}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            {/* Sticky Estimate Panel */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-24">
-                <motion.div
-                  className="rounded-2xl border border-primary/20 bg-card p-6 shadow-[0_0_40px_rgba(80,70,229,0.08)]"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <h3 className="font-heading font-bold text-xl mb-6">Your Estimate</h3>
-
-                  <div className="space-y-2 mb-6 min-h-[80px]">
-                    {!hasSelections ? (
-                      <p className="text-muted-foreground text-sm">Select options to see your estimate.</p>
-                    ) : (
-                      featureGroups.map(group => {
-                        const sel = selections[group.key] || []
-                        return sel.map(label => {
-                          const opt = group.options.find(o => o.label === label)
-                          if (!opt) return null
-                          return (
-                            <div key={label} className="flex justify-between text-sm">
-                              <span className="text-muted-foreground truncate mr-2">{label}</span>
-                              <span className="font-semibold shrink-0">${opt.price.toLocaleString()}</span>
-                            </div>
-                          )
-                        })
-                      })
-                    )}
+            {/* Right: Sticky Summary Box (4 cols) */}
+            <div className="lg:col-span-4 sticky top-28 space-y-4">
+              <div className="bg-white rounded-2xl border border-[#E4E4E0] p-6 shadow-studio-card space-y-6">
+                <div className="pb-4 border-b border-[#E4E4E0]">
+                  <span className="text-[10px] font-semibold tracking-wider text-[#646464] uppercase block">
+                    ESTIMATED BUDGET
+                  </span>
+                  <div className="text-3xl font-heading font-bold text-[#171717] mt-1">
+                    {currency === "INR" ? `₹${total.toLocaleString()}` : `$${total.toLocaleString()}`}
                   </div>
+                  <p className="text-[11px] text-[#646464] mt-1">
+                    Full IP ownership, source code repository & deployment setup included.
+                  </p>
+                </div>
 
-                  <div className="border-t border-border pt-4 mb-6">
-                    <div className="flex justify-between items-end">
-                      <span className="text-sm text-muted-foreground">Estimated Total</span>
-                      <motion.span
-                        key={total}
-                        className="text-3xl font-heading font-black text-gradient"
-                        initial={{ scale: 0.8, opacity: 0.5 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                      >
-                        ${total.toLocaleString()}
-                      </motion.span>
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-2">*Estimate is a starting point. Final quote after discovery call.</p>
-                  </div>
+                {/* Selected Modules Breakdown */}
+                <div className="space-y-2 text-xs">
+                  <span className="text-[10px] uppercase font-semibold text-[#646464] block">Included Items:</span>
+                  {featureGroups.map(group => {
+                    const sel = selections[group.key] || []
+                    return sel.map(optId => {
+                      const opt = group.options.find(o => o.id === optId)
+                      if (!opt) return null
+                      const price = currency === "INR" ? `₹${opt.priceINR.toLocaleString()}` : `$${opt.priceUSD.toLocaleString()}`
+                      return (
+                        <div key={optId} className="flex justify-between items-center text-[11px] text-[#646464]">
+                          <span className="truncate pr-2">• {opt.label}</span>
+                          <span className="font-mono shrink-0">{opt.priceINR === 0 ? "Base" : price}</span>
+                        </div>
+                      )
+                    })
+                  })}
+                </div>
 
+                <div className="pt-2">
                   <Link
                     to="/contact"
-                    className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-primary text-white font-semibold hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(80,70,229,0.3)]"
+                    state={{
+                      estimatedScope: {
+                        projectType: featureGroups[0].options.find(o => (selections.platformType || []).includes(o.id))?.label,
+                        complexity: `${(selections.features || []).length} modules selected`,
+                        timeline: featureGroups[2].options.find(o => (selections.timeline || []).includes(o.id))?.label,
+                        budgetEstimate: currency === "INR" ? `₹${total.toLocaleString()}` : `$${total.toLocaleString()}`
+                      }
+                    }}
+                    className="w-full py-2.5 px-4 rounded-md text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] transition-colors flex items-center justify-center cursor-pointer"
                   >
-                    Get Exact Quote
-                    <ArrowRight className="w-5 h-5" />
+                    Proceed with this Scope
                   </Link>
-                </motion.div>
+                </div>
+
+                {/* Honest Limitation Notice */}
+                <div className="p-3 bg-[#F1F1EE] rounded-xl border border-[#E4E4E0] text-[11px] text-[#646464] flex items-start gap-2">
+                  <Info className="w-3.5 h-3.5 text-[#1459D9] shrink-0 mt-0.5" />
+                  <span>
+                    *This estimate provides an honest starting benchmark. Final fixed-budget proposals are locked after a 30-minute discovery call with our engineers.
+                  </span>
+                </div>
               </div>
             </div>
+
           </div>
+
         </div>
-      </section>
+      </main>
+
+      <CTABannerSection />
     </>
   )
 }

@@ -1,121 +1,195 @@
-import { SEO } from "../../components/common/SEO"
-import { motion } from "framer-motion"
-import { ArrowRight, Code2, Layers, Zap, CheckCircle2 } from "lucide-react"
 import { Link } from "react-router-dom"
+import { SEO } from "../../components/common/SEO"
 import { CTABannerSection } from "../../components/sections/CTABannerSection"
-
-const features = [
-  { icon: Zap, title: "High-Performance", desc: "Optimized for speed, Core Web Vitals, and lightning-fast interactions." },
-  { icon: Layers, title: "Scalable Architecture", desc: "Built on modern frameworks like React, Next.js, and Node.js to handle growth." },
-  { icon: Code2, title: "Clean Codebase", desc: "Maintainable, well-documented, and strictly typed with TypeScript." },
-]
-
-const processSteps = [
-  "Requirements Gathering & Architecture Planning",
-  "UI/UX Design & Prototyping",
-  "Frontend & Backend Engineering",
-  "QA, Security, & Performance Testing",
-  "Deployment & Continuous Monitoring",
-]
+import { ProductInterfaceMockup } from "../../components/ui/ProductInterfaceMockup"
+import { CheckCircle2 } from "lucide-react"
 
 export const WebDevPage = () => {
   return (
     <>
       <SEO
-        title="Custom Web Application Development & SaaS Engineering"
-        description="Build high-performance web applications, complex SaaS portals, and enterprise web solutions with 1Sash using React, Vite, TypeScript, and Node.js."
-        keywords="custom web development, React web applications, SaaS platform development, TypeScript web engineering, 1Sash web services"
+        title="Web Application Development — Fast, Scalable Web Systems | OneSash"
+        description="We engineer fast, accessible web applications and SaaS platforms using TypeScript, React, and modular APIs. Built by OneSash Technocrafts."
+        keywords="web application development, React developers Chennai, SaaS development, full-stack web engineering, TypeScript web apps"
       />
 
-      {/* Hero */}
-      <section className="pt-36 pb-20 px-4 md:px-6 bg-background border-b border-border overflow-hidden relative">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(var(--primary),0.05)_0%,transparent_70%)] pointer-events-none" />
-        <div className="container mx-auto max-w-5xl relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
-            <p className="text-xs font-bold uppercase tracking-widest text-primary mb-4">Service</p>
-            <h1 className="text-5xl md:text-7xl font-heading font-bold tracking-tighter mb-6">Web Application<br />Development.</h1>
-            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed mb-10">
-              We build complex, high-performance web applications and SaaS platforms that scale effortlessly. No templates. No shortcuts. Just robust engineering.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/quote" className="px-6 py-3 bg-foreground text-background font-semibold rounded-xl hover:scale-105 transition-transform flex items-center gap-2">
-                Start a Project <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <main className="bg-[#FAFAF8]">
+        
+        {/* Service Hero */}
+        <section className="pt-24 pb-16 md:pt-28 md:pb-20 border-b border-[#E4E4E0]">
+          <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              
+              <div className="lg:col-span-7 space-y-5">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-semibold tracking-tight text-[#171717] leading-[1.1]">
+                  Fast, accessible web applications built to scale.
+                </h1>
 
-      {/* Core Features */}
-      <section className="py-24 px-4 md:px-6 bg-muted/30 border-b border-border">
-        <div className="container mx-auto max-w-5xl">
-          <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold tracking-tight mb-4">Why our web apps win.</h2>
-            <p className="text-muted-foreground max-w-xl">We don't just build websites; we engineer web applications that become the core engine of your business.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border rounded-2xl overflow-hidden">
-            {features.map((feat, i) => {
-              const Icon = feat.icon
-              return (
-                <motion.div 
-                  key={feat.title} 
-                  className="bg-card p-8 group hover:bg-muted/50 transition-colors"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <Icon className="w-8 h-8 text-primary mb-6" />
-                  <h3 className="font-heading font-bold text-lg mb-2">{feat.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{feat.desc}</p>
-                </motion.div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+                <p className="text-base sm:text-lg text-[#646464] leading-relaxed max-w-2xl">
+                  We don't build generic marketing brochures that crumble under traffic. We engineer mission-critical web applications, customer self-service portals, and high-concurrency SaaS dashboards with sub-second page responses and predictable state.
+                </p>
 
-      {/* Tech Stack & Process */}
-      <section className="py-24 px-4 md:px-6 bg-background">
-        <div className="container mx-auto max-w-5xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-3xl font-heading font-bold mb-6">Technologies We Master</h2>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {['React', 'Next.js', 'Vue', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'Redis'].map(tech => (
-                  <span key={tech} className="px-4 py-2 rounded-lg border border-border bg-muted/30 text-sm font-medium">
-                    {tech}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <Link
+                    to="/contact"
+                    className="px-5 py-2.5 text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] rounded-md transition-colors"
+                  >
+                    Discuss Your Web Application
+                  </Link>
+                  <Link
+                    to="/portfolio"
+                    className="px-5 py-2.5 text-xs font-semibold text-[#171717] bg-white hover:bg-[#F1F1EE] rounded-md border border-[#E4E4E0] transition-colors"
+                  >
+                    Inspect QR Food KDS & Portals
+                  </Link>
+                </div>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                We select the right tech stack for your specific requirements, balancing development speed, maintainability, and pure performance.
+
+              {/* Real Web Interface Preview */}
+              <div className="lg:col-span-5 space-y-2">
+                <div className="border border-[#E4E4E0] rounded-xl overflow-hidden bg-white shadow-studio-card">
+                  <ProductInterfaceMockup type="qr-food" className="w-full border-0 rounded-none shadow-none" />
+                </div>
+                <p className="text-[11px] text-[#646464] text-center">
+                  QR Food Processing — Sub-second WebSocket order dispatch and KDS display
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* Problems Solved & Capabilities */}
+        <section className="py-16 md:py-20 border-b border-[#E4E4E0] bg-white">
+          <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
+              
+              <div className="space-y-4">
+                <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-[#171717]">
+                  What happens when web development is rushed.
+                </h2>
+                <div className="space-y-3 text-xs sm:text-sm text-[#646464] leading-relaxed">
+                  <p>
+                    <strong className="text-[#171717]">Heavy WordPress & Template Bloat: </strong>
+                    Pre-made themes stuffed with dozens of unmaintained plugins result in 5+ second page load times, security holes, and broken customer checkouts.
+                  </p>
+                  <p>
+                    <strong className="text-[#171717]">Fragile Frontend State: </strong>
+                    Web apps that crash or desynchronize when users click back, refresh the browser, or lose internet connectivity for two seconds.
+                  </p>
+                  <p>
+                    <strong className="text-[#171717]">Poor Responsive Behavior: </strong>
+                    Desktop interfaces that are simply shrunk down for phones, forcing users to pinch and zoom on tiny buttons and broken tables.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-[#171717]">
+                  How OneSash builds web platforms.
+                </h2>
+                <div className="space-y-3 text-xs sm:text-sm text-[#171717]">
+                  <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
+                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <div>
+                      <strong>Sub-Second First Contentful Paint: </strong>
+                      Optimized asset bundles, code-splitting with Vite, and server-side edge caching ensure instant load speeds.
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
+                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <div>
+                      <strong>Strict TypeScript Typing: </strong>
+                      End-to-end type safety between backend API responses and frontend components prevents runtime crashes.
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
+                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <div>
+                      <strong>Real-Time Data Feeds: </strong>
+                      WebSocket channels and server-sent events for sub-second live order queues, chat, and status updates.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* Deliverables */}
+        <section className="py-16 md:py-20 border-b border-[#E4E4E0] bg-[#F1F1EE]">
+          <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+            <div className="max-w-2xl mb-10 space-y-2">
+              <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-[#171717]">
+                What our web application packages include.
+              </h2>
+              <p className="text-sm text-[#646464]">
+                Complete deliverable packages ready for production scale.
               </p>
             </div>
-            
-            <div>
-              <h2 className="text-3xl font-heading font-bold mb-6">Our Process</h2>
-              <ul className="space-y-4">
-                {processSteps.map((step, i) => (
-                  <motion.li 
-                    key={step} 
-                    className="flex items-start gap-4 p-4 rounded-xl border border-border bg-card"
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                  >
-                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span className="font-medium text-sm">{step}</span>
-                  </motion.li>
-                ))}
-              </ul>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: "Single Page Application (SPA)", desc: "Fluid, client-side routing with React and Vite for zero-refresh page transitions." },
+                { title: "RESTful & GraphQL API Endpoints", desc: "Strictly typed Node.js backend controllers with JWT session authentication and rate limiting." },
+                { title: "Custom UI Component System", desc: "Bespoke design system with tailored tokens, accessible inputs, and zero third-party UI framework bloat." },
+                { title: "Payment & Webhook Integrations", desc: "Secure Razorpay and Stripe checkouts with automated webhook event verification." },
+                { title: "Automated Error Telemetry", desc: "Sentry and structured log integration to capture and diagnose exceptions in real time." },
+                { title: "Production CDN Hardening", desc: "Global asset distribution, DNS security, and SSL certificates configured on Cloudflare or AWS CloudFront." },
+              ].map((d, i) => (
+                <div key={i} className="p-6 bg-white rounded-xl border border-[#E4E4E0] shadow-studio-card space-y-2">
+                  <h3 className="text-sm font-semibold text-[#171717]">{d.title}</h3>
+                  <p className="text-xs text-[#646464] leading-relaxed">{d.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <CTABannerSection />
+        {/* Approach to Delivery */}
+        <section className="py-16 md:py-20 border-b border-[#E4E4E0] bg-white">
+          <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+            <div className="max-w-2xl mb-10 space-y-2">
+              <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-[#171717]">
+                Structured delivery with weekly cloud previews.
+              </h2>
+              <p className="text-sm text-[#646464]">
+                Predictable milestones and transparent engineering.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
+              <div className="p-6 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] space-y-2">
+                <span className="font-semibold text-xs text-[#1459D9]">Step 1</span>
+                <h3 className="text-sm font-semibold text-[#171717]">UX Architecture & Wireframes</h3>
+                <p className="text-[#646464]">Mapping user personas, primary navigation hierarchies, and responsive wireframes in Figma.</p>
+              </div>
+
+              <div className="p-6 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] space-y-2">
+                <span className="font-semibold text-xs text-[#1459D9]">Step 2</span>
+                <h3 className="text-sm font-semibold text-[#171717]">API Contracts & Database Modeling</h3>
+                <p className="text-[#646464]">Defining OpenAPI specifications and normalized database tables before connecting frontend components.</p>
+              </div>
+
+              <div className="p-6 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] space-y-2">
+                <span className="font-semibold text-xs text-[#1459D9]">Step 3</span>
+                <h3 className="text-sm font-semibold text-[#171717]">Sprint Slices & Staging Demos</h3>
+                <p className="text-[#646464]">Full-stack implementation in 2-week sprints with working cloud staging demos for stakeholder sign-off.</p>
+              </div>
+
+              <div className="p-6 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] space-y-2">
+                <span className="font-semibold text-xs text-[#1459D9]">Step 4</span>
+                <h3 className="text-sm font-semibold text-[#171717]">QA, Security Hardening & Launch</h3>
+                <p className="text-[#646464]">Cross-browser testing, penetration audit, production DNS switch, and 100% repository handover.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <CTABannerSection />
+
+      </main>
     </>
   )
 }

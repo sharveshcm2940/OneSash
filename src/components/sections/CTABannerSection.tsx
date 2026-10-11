@@ -1,95 +1,41 @@
-import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
 import { Link } from "react-router-dom"
 
 export const CTABannerSection = () => {
   return (
-    <section className="py-20 px-4 md:px-6">
-      <div className="container mx-auto">
-        <motion.div
-          className="relative rounded-3xl overflow-hidden p-12 md:p-20 text-center bg-gradient-to-br from-indigo-600 via-purple-600 to-cyan-500"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7 }}
-        >
-          {/* Animated blobs inside the banner */}
-          <motion.div
-            className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl pointer-events-none"
-            animate={{
-              x: ["-50%", "-30%", "-50%"],
-              y: ["-50%", "-70%", "-50%"],
-            }}
-            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"
-            animate={{
-              x: ["50%", "30%", "50%"],
-              y: ["50%", "70%", "50%"],
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          />
+    <section className="bg-[#FAFAF8] text-[#171717] py-16 md:py-20 border-t border-[#E4E4E0]">
+      <div className="container mx-auto px-4 md:px-8 max-w-4xl text-left sm:text-center space-y-6">
+        
+        {/* Direct Headline */}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-semibold tracking-tight text-[#171717] leading-[1.12]">
+          Have a problem worth solving with software?
+        </h2>
 
-          {/* Grid lines overlay */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:3rem_3rem]" />
+        {/* Supporting Text */}
+        <p className="text-base sm:text-lg text-[#646464] font-normal leading-relaxed max-w-2xl sm:mx-auto">
+          Whether you need a custom operations portal, a reliable mobile app, or a practical automated workflow, we'd be glad to discuss your project.
+        </p>
 
-          <div className="relative z-10">
-            <motion.span
-              className="inline-block px-4 py-1.5 rounded-full bg-white/20 text-white text-sm font-medium mb-6 border border-white/30 backdrop-blur-sm"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              ✦ Founded June 12, 2026
-            </motion.span>
+        {/* Primary CTAs */}
+        <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-start sm:justify-center gap-3">
+          <Link
+            to="/contact"
+            className="px-6 py-2.5 text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] rounded-md transition-colors text-center"
+          >
+            Discuss a Project
+          </Link>
 
-            <motion.h2
-              className="text-4xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
-              Have a Project in Mind?
-              <br />
-              <span className="text-white/80">Let's Make It Real.</span>
-            </motion.h2>
+          <Link
+            to="/portfolio"
+            className="px-6 py-2.5 text-xs font-semibold text-[#171717] bg-white hover:bg-[#F1F1EE] rounded-md transition-colors border border-[#E4E4E0] text-center"
+          >
+            Explore Verified Work
+          </Link>
+        </div>
 
-            <motion.p
-              className="text-white/70 text-lg max-w-2xl mx-auto mb-10"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-            >
-              Whether you're a startup with a bold idea or an enterprise looking to modernize — Sash Technocrafts is your trusted engineering partner.
-            </motion.p>
+        <p className="text-xs text-[#646464] pt-2">
+          Or write to us directly at <a href="mailto:onesash.contact@gmail.com" className="font-semibold text-[#171717] underline">onesash.contact@gmail.com</a>
+        </p>
 
-            <motion.div
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-            >
-              <Link
-                to="/contact"
-                className="group flex items-center gap-2 px-8 py-4 bg-white text-indigo-700 rounded-full font-bold text-base hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] transition-all"
-              >
-                Start Your Project
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                to="/portfolio"
-                className="flex items-center gap-2 px-8 py-4 bg-white/10 border border-white/30 text-white rounded-full font-semibold text-base hover:bg-white/20 backdrop-blur-sm transition-all"
-              >
-                See Our Work
-              </Link>
-            </motion.div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

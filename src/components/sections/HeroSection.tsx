@@ -1,82 +1,115 @@
-import { motion } from "framer-motion"
-import { ArrowRight, ChevronDown } from "lucide-react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
-import { Hero3DCanvas } from "../ui/Hero3DCanvas"
+import { ProductInterfaceMockup } from "../ui/ProductInterfaceMockup"
 
 export const HeroSection = () => {
+  const [activeProduct, setActiveProduct] = useState<"apar-crown" | "law-throne" | "qr-food">("apar-crown")
+
+  const products = [
+    {
+      id: "apar-crown" as const,
+      name: "Apar Crown",
+      type: "apartment-management" as const,
+      tag: "Apartment Management Platform",
+    },
+    {
+      id: "law-throne" as const,
+      name: "Law Throne",
+      type: "legal-crm" as const,
+      tag: "Legal Practice CRM",
+    },
+    {
+      id: "qr-food" as const,
+      name: "QR Food Processing",
+      type: "qr-food" as const,
+      tag: "Kitchen Display & Table Ordering",
+    }
+  ]
+
+  const activeProductData = products.find(p => p.id === activeProduct) || products[0]
+
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-background pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden border-b border-border">
-      <div className="container mx-auto px-4 md:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <section className="relative bg-[#FAFAF8] pt-24 pb-16 md:pt-28 md:pb-20 border-b border-[#E4E4E0]">
+      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
-          {/* Left: Headline & Actions (7 columns) */}
-          <div className="lg:col-span-7 space-y-8 text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 text-xs font-mono tracking-tight text-foreground border border-border px-3.5 py-1.5 rounded-full bg-card/80 shadow-xs"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              onesash • Software Freelancing Studio
-            </motion.div>
+          {/* Left Column: Direct Headline, Plain Speaking, Standard Buttons */}
+          <div className="lg:col-span-6 space-y-6 text-left">
+            <h1 className="text-4xl sm:text-5xl font-heading font-semibold tracking-tight text-[#171717] leading-[1.12]">
+              We design and build custom software for businesses.
+            </h1>
 
-            {/* Main Headline */}
-            <motion.h1
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-black leading-[0.98] tracking-tighter text-foreground"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              We build software that gets things done.
-            </motion.h1>
+            <p className="text-base sm:text-lg font-normal text-[#646464] max-w-xl leading-relaxed">
+              OneSash is an independent software development team based in Chennai. We build operations platforms, web applications, and internal tools that help companies run better.
+            </p>
 
-            {/* Supporting Text */}
-            <motion.p
-              className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              onesash is a software engineering studio dedicated to building practical, production-ready digital products and resilient systems for real-world problems.
-            </motion.p>
-
-            {/* Action Buttons */}
-            <motion.div
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <a
-                href="#work"
-                className="px-6 py-3.5 text-sm font-medium text-primary-foreground bg-primary rounded-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-xs"
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+              <Link
+                to="/portfolio"
+                className="px-5 py-2.5 text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] rounded-md transition-colors text-center"
               >
-                View Our Work <ChevronDown className="w-4 h-4" />
-              </a>
+                Explore Our Work
+              </Link>
 
               <Link
                 to="/contact"
-                className="px-6 py-3.5 text-sm font-medium text-foreground bg-card border border-border rounded-md flex items-center justify-center gap-2 hover:bg-muted transition-colors"
+                className="px-5 py-2.5 text-xs font-semibold text-[#171717] bg-white hover:bg-[#F1F1EE] rounded-md transition-colors border border-[#E4E4E0] text-center"
               >
-                Start a Project <ArrowRight className="w-4 h-4" />
+                Discuss a Project
               </Link>
-            </motion.div>
+            </div>
+
+            <p className="text-xs text-[#646464] pt-2">
+              Engineering studio based in Chennai and Bangalore. Direct communication with the developers writing your software.
+            </p>
           </div>
 
-          {/* Right: Interactive 3D Canvas (5 columns) */}
-          <motion.div
-            className="lg:col-span-5 w-full flex items-center justify-center"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <Hero3DCanvas />
-          </motion.div>
+          {/* Right Column: Clean Product Mockup */}
+          <div className="lg:col-span-6 space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-1 bg-[#F1F1EE] p-1 rounded-md border border-[#E4E4E0]">
+                {products.map((prod) => (
+                  <button
+                    key={prod.id}
+                    type="button"
+                    onClick={() => setActiveProduct(prod.id)}
+                    className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
+                      activeProduct === prod.id
+                        ? "bg-white text-[#171717] font-semibold shadow-xs"
+                        : "text-[#646464] hover:text-[#171717]"
+                    }`}
+                  >
+                    {prod.name}
+                  </button>
+                ))}
+              </div>
+
+              <span className="text-[11px] text-[#646464] hidden sm:inline">
+                Live Software
+              </span>
+            </div>
+
+            <div className="border border-[#E4E4E0] rounded-xl overflow-hidden bg-white shadow-studio-card">
+              <ProductInterfaceMockup 
+                type={activeProductData.type} 
+                interactive={true}
+                className="w-full border-0 rounded-none shadow-none"
+              />
+            </div>
+
+            <div className="flex items-center justify-between text-[11px] text-[#646464] px-1">
+              <span>{activeProductData.name} — {activeProductData.tag}</span>
+              <Link 
+                to="/portfolio" 
+                className="text-[#1459D9] hover:underline font-medium"
+              >
+                View project details
+              </Link>
+            </div>
+          </div>
 
         </div>
       </div>
     </section>
   )
 }
-

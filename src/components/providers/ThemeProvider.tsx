@@ -1,52 +1,31 @@
-import { createContext, useContext, useEffect, useState } from "react"
+import React, { createContext, useContext } from "react"
 
-export type Theme = "dark" | "light"
+export type Theme = "light"
 
 type ThemeProviderState = {
-  theme: "dark" | "light"
-  resolvedTheme: "dark" | "light"
-}
-
-const getTimeBasedTheme = (): "dark" | "light" => {
-  const hours = new Date().getHours()
-  // Daytime (6:00 AM to 5:59 PM) -> light theme
-  // Nighttime (6:00 PM to 5:59 AM) -> dark theme
-  return hours >= 6 && hours < 18 ? "light" : "dark"
+  theme: "light"
+  resolvedTheme: "light"
 }
 
 const initialState: ThemeProviderState = {
-  theme: getTimeBasedTheme(),
-  resolvedTheme: getTimeBasedTheme(),
+  theme: "light",
+  resolvedTheme: "light",
 }
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [resolvedTheme, setResolvedTheme] = useState<"dark" | "light">(getTimeBasedTheme)
-
-  useEffect(() => {
+  React.useEffect(() => {
     const root = window.document.documentElement
-
-    const applyTheme = () => {
-      const activeTheme = getTimeBasedTheme()
-      root.classList.remove("light", "dark")
-      root.classList.add(activeTheme)
-      setResolvedTheme(activeTheme)
-    }
-
-    applyTheme()
-    // Re-evaluate every 5 seconds to automatically react to system time updates
-    const interval = setInterval(applyTheme, 5000)
-
-    return () => clearInterval(interval)
+    root.classList.remove("dark")
+    root.classList.add("light")
   }, [])
 
   return (
-    <ThemeProviderContext.Provider value={{ theme: resolvedTheme, resolvedTheme }}>
+    <ThemeProviderContext.Provider value={{ theme: "light", resolvedTheme: "light" }}>
       {children}
     </ThemeProviderContext.Provider>
   )
 }
 
 export const useTheme = () => useContext(ThemeProviderContext)
-
