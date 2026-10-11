@@ -98,7 +98,7 @@ export const realProducts: ProductProject[] = [
     clientType: "Hostel Operators & Student Accommodation Providers",
     status: "In Active Development",
     year: "2025",
-    summary: "A purpose-built occupancy, rent collection, and resident onboarding platform designed for multi-branch paying guest accommodations and student hostels across Chennai and Bangalore.",
+    summary: "A purpose-built occupancy, rent collection, and resident onboarding platform designed for multi-branch paying guest accommodations and student hostels across Chennai, India and Bangalore, India.",
     businessProblem: "Hostel operators manage hundreds of beds across multiple buildings using messy paper registers, resulting in uncollected monthly rent, vacant bed oversights, and chaotic deposit refunds.",
     solution: "A centralized cloud operations suite tracking room bed inventories in real-time, sending automated WhatsApp payment links, and managing tenant KYC documentation.",
     keyFeatures: [

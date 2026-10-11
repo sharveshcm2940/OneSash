@@ -15,7 +15,7 @@ export const CareersPage = () => {
     {
       title: "Senior Full-Stack Software Engineer",
       domain: "Systems Engineering",
-      location: "Chennai / Hybrid",
+      location: "Chennai, India & Bangalore, India (Hybrid)",
       stack: "React • TypeScript • Node.js • PostgreSQL",
       desc: "Architect and develop production web platforms, design relational database schemas, and build secure, typed REST & GraphQL APIs.",
       subject: "Application: Senior Full-Stack Engineer"
@@ -23,7 +23,7 @@ export const CareersPage = () => {
     {
       title: "AI Systems & Automation Engineer",
       domain: "Intelligent Workflows",
-      location: "Bangalore / Hybrid",
+      location: "Chennai, India & Bangalore, India (Hybrid)",
       stack: "Python • FastAPI • Gemini / OpenAI • pgvector",
       desc: "Build deterministic document parsing pipelines, contextual RAG systems, and automated ERP event integrations with strict schema validation.",
       subject: "Application: AI Systems Engineer"
@@ -31,7 +31,7 @@ export const CareersPage = () => {
     {
       title: "Software Engineering Intern",
       domain: "Early Career",
-      location: "Chennai / Hybrid",
+      location: "Chennai, India & Bangalore, India (Hybrid)",
       stack: "TypeScript • React • Tailwind CSS • SQL",
       desc: "Hands-on immersion working directly alongside senior engineers on production client systems, test suites, and interface design.",
       subject: "Application: Software Engineering Intern"
@@ -42,8 +42,8 @@ export const CareersPage = () => {
     <>
       <SEO
         title="Careers & Engineering Culture | OneSash"
-        description="Join OneSash. We are looking for talented full-stack engineers and interns passionate about building clean, production-grade software in Chennai and Bangalore."
-        keywords="careers OneSash, software engineer jobs Chennai, tech internships Chennai, hiring full stack developers India"
+        description="Join OneSash. We are looking for talented full-stack engineers and interns passionate about building clean, production-grade software in Chennai, India and Bangalore, India."
+        keywords="careers OneSash, software engineer jobs Chennai, software engineer jobs Bangalore, tech internships Chennai, tech internships Bangalore, hiring full stack developers Chennai India"
       />
 
       <main className="bg-[#FAFAF8]">
@@ -62,7 +62,7 @@ export const CareersPage = () => {
               </h1>
 
               <p className="text-base sm:text-lg text-[#646464] leading-relaxed max-w-2xl">
-                We're a small, independent software development studio based in Chennai with engineering collaborators in Bangalore. We don't hire code-monkeys for ticket grinding—we work as peer software engineers who care about clean code, reliable delivery, and sound systems design.
+                We're a small, independent software development studio based in Chennai, India and Bangalore, India. We don't hire code-monkeys for ticket grinding—we work as peer software engineers who care about clean code, reliable delivery, and sound systems design.
               </p>
 
             </div>
@@ -108,7 +108,7 @@ export const CareersPage = () => {
                 Open Positions
               </span>
               <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-[#171717]">
-                Current openings in Chennai & Bangalore.
+                Current openings in Chennai, India and Bangalore, India.
               </h2>
             </div>
 

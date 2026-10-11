@@ -8,7 +8,7 @@ export const AIPage = () => {
     <>
       <SEO
         title="AI Integration & Automation — Practical Machine Intelligence | OneSash"
-        description="We engineer deterministic AI pipelines, document parsing, and database automation without hallucinations or buzzwords. Built by OneSash Technocrafts."
+        description="We engineer deterministic AI pipelines, document parsing, and database automation without hallucinations or buzzwords. Built by OneSash."
         keywords="AI integration, LLM pipelines Chennai, document OCR automation, business process AI India, practical machine learning"
       />
 

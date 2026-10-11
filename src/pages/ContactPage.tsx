@@ -1,7 +1,7 @@
 import { useState, useId } from "react"
 import { useLocation } from "react-router-dom"
 import { SEO } from "../components/common/SEO"
-import { CheckCircle2, ArrowRight, Mail, MapPin, Phone, Clock } from "lucide-react"
+import { CheckCircle2, ArrowRight, Mail, MapPin, Phone, Clock, MessageCircle } from "lucide-react"
 
 export const ContactPage = () => {
   const formId = useId()
@@ -71,8 +71,8 @@ export const ContactPage = () => {
     <>
       <SEO
         title="Tell Us What You Want to Build — Contact OneSash"
-        description="Connect with OneSash in Chennai and Bangalore. Whether you have a project brief or an early idea, we'd be happy to understand what you're working on."
-        keywords="contact OneSash, software development inquiry, hire software developers Chennai, start software project India"
+        description="Connect with OneSash in Chennai, India and Bangalore, India. Whether you have a project brief or an early idea, we'd be happy to understand what you're working on."
+        keywords="contact OneSash, software development inquiry, hire software developers Chennai, hire software developers Bangalore, start software project India"
       />
 
       <main className="bg-[#FAFAF8] pt-24 pb-16 md:pt-28 md:pb-20 border-b border-[#E4E4E0]">
@@ -257,6 +257,34 @@ export const ContactPage = () => {
                 </span>
                 
                 <div className="space-y-4 text-xs sm:text-sm">
+                  {/* Phone Call */}
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-[10px] uppercase font-semibold text-[#646464] block">Call Us Directly</span>
+                      <a href="tel:+919980399557" className="font-semibold text-[#171717] hover:text-[#1459D9]">
+                        +91 99803 99557
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* WhatsApp */}
+                  <div className="flex items-start gap-3">
+                    <MessageCircle className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-[10px] uppercase font-semibold text-[#646464] block">WhatsApp Message</span>
+                      <a
+                        href="https://wa.me/918903467843"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-[#171717] hover:text-[#10B981]"
+                      >
+                        +91 89034 67843
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Email */}
                   <div className="flex items-start gap-3">
                     <Mail className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
                     <div>
@@ -267,6 +295,7 @@ export const ContactPage = () => {
                     </div>
                   </div>
 
+                  {/* Response Turnaround */}
                   <div className="flex items-start gap-3">
                     <Clock className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
                     <div>
@@ -278,7 +307,7 @@ export const ContactPage = () => {
               </div>
 
               {/* Physical Studio Locations */}
-              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E4E4E0] shadow-studio-card space-y-5">
+              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E4E4E0] shadow-studio-card space-y-4">
                 <span className="text-[11px] font-semibold tracking-wider text-[#646464] uppercase block">
                   Studio Locations
                 </span>
@@ -287,35 +316,22 @@ export const ContactPage = () => {
                   <div className="pb-3 border-b border-[#E4E4E0]">
                     <div className="flex items-center gap-1.5 font-semibold text-[#171717]">
                       <MapPin className="w-3.5 h-3.5 text-[#1459D9]" />
-                      <span>Chennai Studio (HQ)</span>
+                      <span>Chennai, India</span>
                     </div>
-                    <p className="text-[#646464] mt-1">
-                      Anna Salai & Guindy Tech Corridor, Chennai, TN 600032
+                    <p className="text-[#646464] mt-0.5 leading-relaxed">
+                      Engineering & Architecture Studio
                     </p>
                   </div>
 
                   <div>
                     <div className="flex items-center gap-1.5 font-semibold text-[#171717]">
                       <MapPin className="w-3.5 h-3.5 text-[#1459D9]" />
-                      <span>Bangalore Studio</span>
+                      <span>Bangalore, India</span>
                     </div>
-                    <p className="text-[#646464] mt-1">
-                      Indiranagar Tech District, Bangalore, KA 560038
+                    <p className="text-[#646464] mt-0.5 leading-relaxed">
+                      Product Systems & Automation Studio
                     </p>
                   </div>
-                </div>
-              </div>
-
-              {/* Software Estimator Card Link */}
-              <div className="p-6 bg-[#F1F1EE] rounded-2xl border border-[#E4E4E0] space-y-2 text-xs">
-                <span className="font-semibold text-[#171717] block">Want a quick cost estimation first?</span>
-                <p className="text-[#646464]">
-                  Use our interactive software project calculator to explore cost drivers and typical delivery timelines.
-                </p>
-                <div className="pt-2">
-                  <a href="/calculator" className="text-[#1459D9] font-semibold hover:underline">
-                    Open Software Cost Calculator
-                  </a>
                 </div>
               </div>
 

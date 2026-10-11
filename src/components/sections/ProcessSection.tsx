@@ -1,163 +1,327 @@
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
+import { motion, AnimatePresence } from "framer-motion"
+import { 
+  Search, 
+  PenTool, 
+  Code2, 
+  Rocket, 
+  CheckCircle2, 
+  ArrowRight, 
+  ShieldCheck, 
+  Clock, 
+  Sparkles,
+  Layers,
+  GitBranch
+} from "lucide-react"
 
-interface TimelinePhase {
+interface ProcessMilestone {
+  id: string
   number: string
-  name: string
-  timeline: string
+  phase: string
+  title: string
+  timeframe: string
   summary: string
-  activities: string[]
-  deliverables: string[]
-  signoff: string
+  deliverable: string
+  icon: React.ElementType
+  accentColor: string
 }
 
-const PHASES: TimelinePhase[] = [
+const MILESTONES: ProcessMilestone[] = [
   {
-    number: "1",
-    name: "Discovery & Architecture Blueprint",
-    timeline: "Weeks 1 – 2",
-    summary: "We audit your business requirements, normalize relational database schemas, model system architecture, and eliminate scope ambiguity before writing code.",
-    activities: [
-      "Stakeholder workflow interviews & systems audit",
-      "Normalized relational database modeling (PostgreSQL schemas & foreign keys)",
-      "Strict API contract definitions & OpenAPI specifications",
-      "Fixed-milestone roadmap with transparent deliverable criteria"
-    ],
-    deliverables: [
-      "Technical Architecture Document",
-      "Fixed-Milestone Sprint Roadmap & Budget"
-    ],
-    signoff: "Architecture sign-off and fixed-budget confirmation prior to development."
+    id: "discover",
+    number: "01",
+    phase: "Discover",
+    title: "Architecture & Spec",
+    timeframe: "Weeks 1–2",
+    summary: "System blueprint, data schemas, API contracts, and fixed-milestone budget.",
+    deliverable: "Architecture Spec & Budget",
+    icon: Search,
+    accentColor: "#1459D9"
   },
   {
-    number: "2",
-    name: "System Design & Interactive Prototype",
-    timeline: "Weeks 3 – 4",
-    summary: "We design every screen state and clickable user journey in Figma. We validate workflows with your stakeholders to ensure intuitive operation before frontend engineering begins.",
-    activities: [
-      "Production design token system (typography, semantic colors, spacing)",
-      "High-fidelity UI screens designed for desktop, tablet, and mobile",
-      "Clickable interactive prototypes testing edge cases and errors",
-      "Component specification mapping directly to backend API contracts"
-    ],
-    deliverables: [
-      "Figma Component Design System",
-      "Clickable User Journey Prototype"
-    ],
-    signoff: "Complete prototype walkthrough and design sign-off."
+    id: "design",
+    number: "02",
+    phase: "Design",
+    title: "Interactive Prototype",
+    timeframe: "Weeks 3–4",
+    summary: "High-fidelity Figma screen states, responsive layouts, and clickable prototypes.",
+    deliverable: "Clickable Figma Prototype",
+    icon: PenTool,
+    accentColor: "#7C3AED"
   },
   {
-    number: "3",
-    name: "Sprint Engineering & Live Staging",
-    timeline: "Weeks 5 – 9",
-    summary: "We build your software in transparent two-week sprints. Every commit passes automated test gates, and you test working software on isolated cloud staging environments regularly.",
-    activities: [
-      "Strict TypeScript full-stack development across UI, APIs, and background queues",
-      "Automated unit, integration, and end-to-end testing with CI/CD validation",
-      "Regular staging deployments to isolated cloud environments for hands-on review",
-      "Query optimization and database index profiling for sub-50ms latency"
-    ],
-    deliverables: [
-      "Production-Grade Codebase in Git",
-      "Dedicated Staging Deployment"
-    ],
-    signoff: "Regular milestone live demos with direct senior developer Q&A."
+    id: "build",
+    number: "03",
+    phase: "Build",
+    title: "Sprint Engineering",
+    timeframe: "Weeks 5–9",
+    summary: "Agile 2-week sprints with strict TypeScript gates and weekly staging demos.",
+    deliverable: "Verified Staging Codebase",
+    icon: Code2,
+    accentColor: "#0284C7"
   },
   {
-    number: "4",
-    name: "Production Launch & 100% IP Handover",
-    timeline: "Week 10+ & Ongoing",
-    summary: "We orchestrate production cloud deployment, configure domain routing and telemetry alerts, and transfer 100% intellectual property, git repositories, and cloud credentials to your company.",
-    activities: [
-      "Hardened cloud infrastructure provisioning on AWS or DigitalOcean",
-      "Domain DNS routing, TLS 1.3 certificates, CDN caching, and automated error telemetry",
-      "Complete git repository ownership and cloud credential transfer",
-      "Team walkthrough sessions and ongoing SLA maintenance support"
-    ],
-    deliverables: [
-      "100% Repository & IP Handover (Zero vendor lock-in)",
-      "Deployment Runbook & Documentation"
-    ],
-    signoff: "Production verification sign-off and complete ownership handover."
+    id: "launch",
+    number: "04",
+    phase: "Launch",
+    title: "Cloud Deploy & IP",
+    timeframe: "Week 10+",
+    summary: "Hardened cloud infrastructure, automated CI/CD, and 100% IP code handover.",
+    deliverable: "100% IP & Repository Handover",
+    icon: Rocket,
+    accentColor: "#0D7A5F"
   }
 ]
 
-export const ProcessSection = () => {
+export const ProcessSection: React.FC = () => {
+  const [activeStep, setActiveStep] = useState<number>(0)
+
   return (
-    <section id="process" className="bg-[#F1F1EE] py-16 md:py-20 border-b border-[#E4E4E0]">
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+    <section id="process" className="bg-[#FAFAF8] py-14 sm:py-16 md:py-20 border-b border-[#E4E4E0] relative overflow-hidden">
+      {/* Subtle micro background pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(#171717 1px, transparent 1px)",
+          backgroundSize: "24px 24px"
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
         
-        {/* Section Header */}
-        <div className="max-w-3xl mb-12 space-y-2">
-          <h2 className="text-3xl sm:text-4xl font-heading font-semibold tracking-tight text-[#171717]">
-            How We Work
-          </h2>
-          <p className="text-base text-[#646464] leading-relaxed">
-            A structured, 4-stage engineering lifecycle designed for transparency, predictable budgets, staging demos, and complete code ownership.
-          </p>
-        </div>
-
-        {/* Static, Readable 4-Stage Process Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {PHASES.map((phase) => (
-            <div
-              key={phase.number}
-              className="bg-white rounded-xl border border-[#E4E4E0] p-6 sm:p-8 shadow-studio-card flex flex-col justify-between space-y-5"
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-[#E4E4E0]">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-6 h-6 rounded-full bg-[#171717] text-white text-xs font-semibold flex items-center justify-center">
-                      {phase.number}
-                    </span>
-                    <h3 className="text-base sm:text-lg font-heading font-semibold text-[#171717]">
-                      {phase.name}
-                    </h3>
-                  </div>
-                  <span className="text-xs font-medium text-[#1459D9] bg-[#EEF3FD] px-2.5 py-0.5 rounded">
-                    {phase.timeline}
-                  </span>
-                </div>
-
-                <p className="text-xs sm:text-sm text-[#646464] leading-relaxed">
-                  {phase.summary}
-                </p>
-
-                <div className="space-y-2">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#171717] block">
-                    Key Activities
-                  </span>
-                  <ul className="space-y-1.5 text-xs text-[#646464]">
-                    {phase.activities.map((act, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-[#1459D9] font-bold">·</span>
-                        <span className="leading-snug">{act}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-[#E4E4E0] space-y-2 text-xs">
-                <div className="flex flex-wrap items-center gap-2 text-[#171717]">
-                  <span className="font-semibold text-[11px] uppercase tracking-wider text-[#646464]">Deliverables:</span>
-                  <span className="font-medium">{phase.deliverables.join(" · ")}</span>
-                </div>
-                <div className="text-[11px] text-[#0D7A5F] bg-[#E6F4EA] px-2.5 py-1 rounded">
-                  <span className="font-semibold">Sign-off: </span>{phase.signoff}
-                </div>
-              </div>
+        {/* Compact Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-12 pb-6 border-b border-[#E4E4E0]">
+          <div className="space-y-1.5">
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-white rounded-full border border-[#E4E4E0] shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1459D9] animate-pulse" />
+              <span className="text-[10px] font-mono font-semibold tracking-wider text-[#646464] uppercase">
+                Development Lifecycle
+              </span>
             </div>
-          ))}
-        </div>
+            
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-semibold tracking-tight text-[#171717]">
+              From concept to live deployment.
+            </h2>
+            
+            <p className="text-xs sm:text-sm text-[#646464] max-w-xl">
+              A predictable, sprint-by-sprint engineering timeline with verified weekly staging demos.
+            </p>
+          </div>
 
-        {/* Section Footer */}
-        <div className="mt-12 pt-8 border-t border-[#E4E4E0] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#646464]">
-          <p>Direct communication with the engineers building your product throughout every phase.</p>
           <Link
             to="/contact"
-            className="font-semibold text-[#1459D9] hover:underline"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1459D9] hover:text-[#0C3E9C] transition-colors shrink-0 group self-start sm:self-end"
           >
-            Start your discovery phase
+            <span>Start your project</span>
+            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </div>
+
+        {/* ==================== DESKTOP MINI TIMELINE ==================== */}
+        <div className="hidden md:block">
+          {/* Timeline Track with Milestones */}
+          <div className="relative mb-8">
+            {/* Background Track Line */}
+            <div className="absolute top-6 left-12 right-12 h-[2px] bg-[#E4E4E0] z-0" />
+            
+            {/* Animated Active Progress Line */}
+            <motion.div 
+              className="absolute top-6 left-12 h-[2px] bg-gradient-to-r from-[#1459D9] via-[#7C3AED] to-[#0D7A5F] z-0"
+              initial={false}
+              animate={{ 
+                width: `${(activeStep / (MILESTONES.length - 1)) * (100 - (24 / 6))}%` 
+              }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+            />
+
+            {/* 4 Milestone Stepper Nodes */}
+            <div className="grid grid-cols-4 gap-4 relative z-10">
+              {MILESTONES.map((step, idx) => {
+                const isActive = activeStep === idx
+                const isPassed = activeStep > idx
+                const IconComponent = step.icon
+
+                return (
+                  <button
+                    key={step.id}
+                    type="button"
+                    onClick={() => setActiveStep(idx)}
+                    onMouseEnter={() => setActiveStep(idx)}
+                    className="flex flex-col items-center text-center group focus:outline-none cursor-pointer"
+                  >
+                    {/* Node Circle */}
+                    <div className="relative mb-3">
+                      <motion.div
+                        className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 border-2 ${
+                          isActive
+                            ? "bg-[#171717] text-white border-[#171717] shadow-md ring-4 ring-[#1459D9]/15 scale-110"
+                            : isPassed
+                            ? "bg-[#1459D9] text-white border-[#1459D9]"
+                            : "bg-white text-[#646464] border-[#E4E4E0] group-hover:border-[#171717] group-hover:text-[#171717]"
+                        }`}
+                        whileHover={{ scale: 1.08 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <IconComponent className="w-5 h-5" />
+                      </motion.div>
+
+                      {/* Active Status Pulse Dot */}
+                      {isActive && (
+                        <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#10B981] border-2 border-white animate-pulse" />
+                      )}
+                    </div>
+
+                    {/* Step Number & Phase Name */}
+                    <div className="space-y-0.5">
+                      <span className={`text-[10px] font-mono font-bold tracking-wider uppercase block transition-colors ${
+                        isActive ? "text-[#1459D9]" : "text-[#888888]"
+                      }`}>
+                        Step {step.number} • {step.timeframe}
+                      </span>
+                      <span className={`text-sm font-semibold transition-colors ${
+                        isActive ? "text-[#171717]" : "text-[#646464] group-hover:text-[#171717]"
+                      }`}>
+                        {step.phase}
+                      </span>
+                    </div>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Mini Interactive Cards Row */}
+          <div className="grid grid-cols-4 gap-4">
+            {MILESTONES.map((step, idx) => {
+              const isActive = activeStep === idx
+
+              return (
+                <motion.div
+                  key={step.id}
+                  onClick={() => setActiveStep(idx)}
+                  onMouseEnter={() => setActiveStep(idx)}
+                  className={`p-5 rounded-xl border transition-all duration-200 flex flex-col justify-between cursor-pointer ${
+                    isActive
+                      ? "bg-white border-[#171717] shadow-studio-card ring-1 ring-[#171717] -translate-y-1"
+                      : "bg-white/70 hover:bg-white border-[#E4E4E0] hover:border-[#C8C8C4] shadow-xs"
+                  }`}
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono font-semibold text-[#646464] bg-[#F1F1EE] px-2 py-0.5 rounded">
+                        {step.number}
+                      </span>
+                      <span className={`text-[10px] font-semibold px-2 py-0.5 rounded ${
+                        isActive ? "bg-[#EEF3FD] text-[#1459D9]" : "text-[#646464] bg-[#F1F1EE]"
+                      }`}>
+                        {step.timeframe}
+                      </span>
+                    </div>
+
+                    <h3 className="text-sm font-heading font-semibold text-[#171717] leading-snug">
+                      {step.title}
+                    </h3>
+
+                    <p className="text-xs text-[#646464] leading-relaxed line-clamp-3">
+                      {step.summary}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 mt-3 border-t border-[#E4E4E0]">
+                    <div className="flex items-center gap-1.5 text-[11px] font-medium text-[#171717]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0D7A5F] shrink-0" />
+                      <span className="truncate">{step.deliverable}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* ==================== MOBILE MINI TIMELINE ==================== */}
+        <div className="block md:hidden">
+          <div className="relative pl-8 space-y-6 before:absolute before:left-3.5 before:top-3 before:bottom-3 before:w-[2px] before:bg-[#E4E4E0]">
+            {MILESTONES.map((step, idx) => {
+              const IconComponent = step.icon
+              const isActive = activeStep === idx
+
+              return (
+                <div 
+                  key={step.id} 
+                  onClick={() => setActiveStep(idx)}
+                  className="relative group cursor-pointer"
+                >
+                  {/* Vertical Node Indicator */}
+                  <div className={`absolute -left-8 top-1 w-7 h-7 rounded-full flex items-center justify-center border-2 transition-all ${
+                    isActive
+                      ? "bg-[#171717] text-white border-[#171717] shadow-sm"
+                      : "bg-white text-[#646464] border-[#E4E4E0]"
+                  }`}>
+                    <IconComponent className="w-3.5 h-3.5" />
+                  </div>
+
+                  {/* Compact Step Card */}
+                  <div className={`p-4 rounded-xl border transition-all ${
+                    isActive
+                      ? "bg-white border-[#171717] shadow-studio-card ring-1 ring-[#171717]"
+                      : "bg-white/80 border-[#E4E4E0]"
+                  }`}>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-[10px] font-mono font-bold text-[#1459D9] uppercase">
+                        Step {step.number} • {step.phase}
+                      </span>
+                      <span className="text-[10px] font-medium text-[#646464] bg-[#F1F1EE] px-2 py-0.5 rounded">
+                        {step.timeframe}
+                      </span>
+                    </div>
+
+                    <h3 className="text-sm font-heading font-semibold text-[#171717]">
+                      {step.title}
+                    </h3>
+
+                    <p className="text-xs text-[#646464] mt-1 leading-relaxed">
+                      {step.summary}
+                    </p>
+
+                    <div className="pt-2.5 mt-2.5 border-t border-[#E4E4E0] flex items-center gap-1.5 text-[11px] font-medium text-[#171717]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0D7A5F] shrink-0" />
+                      <span>{step.deliverable}</span>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Mini Reassurance Banner */}
+        <div className="mt-8 sm:mt-10 pt-6 border-t border-[#E4E4E0] flex flex-wrap items-center justify-between gap-4 text-xs text-[#646464]">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <span className="flex items-center gap-1.5 font-medium text-[#171717]">
+              <Sparkles className="w-3.5 h-3.5 text-[#1459D9]" />
+              Weekly Staging Demos
+            </span>
+            <span className="text-[#D4D4D0] hidden sm:inline">•</span>
+            <span className="flex items-center gap-1.5 font-medium text-[#171717]">
+              <Clock className="w-3.5 h-3.5 text-[#1459D9]" />
+              Direct WhatsApp / Call Access
+            </span>
+            <span className="text-[#D4D4D0] hidden sm:inline">•</span>
+            <span className="flex items-center gap-1.5 font-medium text-[#171717]">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#0D7A5F]" />
+              100% IP Code Handover
+            </span>
+          </div>
+
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-[#1459D9] hover:underline"
+          >
+            <span>Have a project to discuss? Contact us</span>
+            <ArrowRight className="w-3 h-3" />
           </Link>
         </div>
 

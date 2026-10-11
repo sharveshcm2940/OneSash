@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { Menu, X } from "lucide-react"
 import { cn } from "../../utils/cn"
+import { SashLogo } from "../ui/SashLogo"
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -40,15 +41,13 @@ export const Navbar = () => {
       <div className="container mx-auto px-4 md:px-8 max-w-6xl">
         <div className="flex items-center justify-between">
           
-          {/* Typographic Wordmark */}
+          {/* Rich Handcrafted Studio Brand Mark */}
           <Link
             to="/"
-            className="flex items-center focus-visible:outline-none"
+            className="flex items-center focus-visible:outline-none group"
             aria-label="OneSash — Home"
           >
-            <span className="font-heading text-lg font-bold tracking-tight text-[#171717]">
-              OneSash
-            </span>
+            <SashLogo className="w-9 h-9 transition-transform group-hover:scale-105" showWordmark={true} />
           </Link>
 
           {/* Desktop Navigation */}

@@ -144,7 +144,7 @@ export const ServicesPage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
               <div className="p-5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0] space-y-1.5">
                 <span className="font-semibold text-[#171717] block">100% In-House Developers</span>
-                <p className="text-[#646464]">Direct access to senior engineers in Chennai & Bangalore. Zero outsourcing.</p>
+                <p className="text-[#646464]">Direct access to senior engineers in Chennai, India and Bangalore, India. Zero outsourcing.</p>
               </div>
               <div className="p-5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0] space-y-1.5">
                 <span className="font-semibold text-[#171717] block">Complete IP Ownership</span>

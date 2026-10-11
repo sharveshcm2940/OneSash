@@ -5,7 +5,7 @@ export const WhyOneSashSection = () => {
     {
       icon: Users,
       title: "Direct Senior Developer Collaboration",
-      description: "You work directly with the senior software engineers and architects building your product in Chennai and Bangalore. Technical decisions are evaluated and executed quickly without layers of non-technical middlemen.",
+      description: "You work directly with the senior software engineers and architects building your product in Chennai, India and Bangalore, India. Technical decisions are evaluated and executed quickly without layers of non-technical middlemen.",
       highlight: "Direct Engineering Access",
     },
     {

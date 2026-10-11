@@ -1,39 +1,96 @@
+import React from "react"
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
+import { ArrowUpRight, Mail, MessageCircle } from "lucide-react"
 
-export const CTABannerSection = () => {
+export const CTABannerSection: React.FC = () => {
   return (
-    <section className="bg-[#FAFAF8] text-[#171717] py-16 md:py-20 border-t border-[#E4E4E0]">
-      <div className="container mx-auto px-4 md:px-8 max-w-4xl text-left sm:text-center space-y-6">
+    <section id="contact" className="bg-[#171717] text-white py-24 md:py-32 relative overflow-hidden">
+      {/* Subtle background ambient grid */}
+      <div 
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(#FFFFFF 1px, transparent 1px)",
+          backgroundSize: "32px 32px"
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="container mx-auto px-4 md:px-8 max-w-4xl text-center relative z-10 space-y-8">
         
-        {/* Direct Headline */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-semibold tracking-tight text-[#171717] leading-[1.12]">
-          Have a problem worth solving with software?
-        </h2>
-
-        {/* Supporting Text */}
-        <p className="text-base sm:text-lg text-[#646464] font-normal leading-relaxed max-w-2xl sm:mx-auto">
-          Whether you need a custom operations portal, a reliable mobile app, or a practical automated workflow, we'd be glad to discuss your project.
-        </p>
-
-        {/* Primary CTAs */}
-        <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-start sm:justify-center gap-3">
-          <Link
-            to="/contact"
-            className="px-6 py-2.5 text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] rounded-md transition-colors text-center"
-          >
-            Discuss a Project
-          </Link>
-
-          <Link
-            to="/portfolio"
-            className="px-6 py-2.5 text-xs font-semibold text-[#171717] bg-white hover:bg-[#F1F1EE] rounded-md transition-colors border border-[#E4E4E0] text-center"
-          >
-            Explore Verified Work
-          </Link>
+        {/* Studio Status Badge */}
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-medium text-white/90">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+          <span>Currently Accepting New Projects for Q4</span>
         </div>
 
-        <p className="text-xs text-[#646464] pt-2">
-          Or write to us directly at <a href="mailto:onesash.contact@gmail.com" className="font-semibold text-[#171717] underline">onesash.contact@gmail.com</a>
+        {/* Exact Heading: 4 words */}
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading font-semibold tracking-tight text-white leading-[1.1]">
+          Have something in mind?
+        </h2>
+
+        {/* Exact Supporting Text: 13 words */}
+        <p className="text-base sm:text-xl text-[#A0A0A0] font-normal leading-relaxed max-w-xl mx-auto">
+          Tell us what you're planning. We'll help you figure out the next step.
+        </p>
+
+        {/* Primary CTA: "Start a Project" & WhatsApp */}
+        <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              to="/contact"
+              className="px-8 py-3.5 rounded-md bg-white hover:bg-[#F1F1EE] text-[#171717] text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-lg"
+            >
+              <span>Start a Project</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
+
+          <a
+            href="https://wa.me/918903467843"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-3.5 rounded-md bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-semibold transition-all inline-flex items-center gap-2"
+          >
+            <MessageCircle className="w-4 h-4 text-[#10B981]" />
+            <span>Chat on WhatsApp</span>
+          </a>
+        </div>
+
+        {/* Secondary Contact Options: Email, Phone & WhatsApp */}
+        <div className="pt-8 border-t border-white/15 flex flex-wrap items-center justify-center gap-6 text-xs text-[#A0A0A0]">
+          <a
+            href="mailto:onesash.contact@gmail.com"
+            className="inline-flex items-center gap-2 text-white hover:text-[#81A1C1] transition-colors"
+          >
+            <Mail className="w-4 h-4 text-[#81A1C1]" />
+            <span className="font-medium">onesash.contact@gmail.com</span>
+          </a>
+
+          <span className="text-white/20 hidden sm:inline">|</span>
+
+          <a
+            href="tel:+919980399557"
+            className="inline-flex items-center gap-2 text-white hover:text-[#81A1C1] transition-colors"
+          >
+            <span className="font-medium">Call: +91 99803 99557</span>
+          </a>
+
+          <span className="text-white/20 hidden sm:inline">|</span>
+
+          <a
+            href="https://wa.me/918903467843"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-white hover:text-[#10B981] transition-colors"
+          >
+            <MessageCircle className="w-4 h-4 text-[#10B981]" />
+            <span className="font-medium">WhatsApp: +91 89034 67843</span>
+          </a>
+        </div>
+
+        <p className="text-[11px] text-white/40 pt-2">
+          Chennai, India & Bangalore, India · Response guaranteed within 24 business hours
         </p>
 
       </div>

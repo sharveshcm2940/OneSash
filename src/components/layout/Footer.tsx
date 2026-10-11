@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { ArrowUpRight } from "lucide-react"
+import { SashLogo } from "../ui/SashLogo"
 
 export const Footer = () => {
   return (
@@ -9,16 +10,16 @@ export const Footer = () => {
         {/* Top Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between pb-10 border-b border-[#E4E4E0] gap-4">
           <div className="space-y-1">
-            <Link to="/" className="font-heading text-xl font-semibold tracking-tight text-[#171717] hover:opacity-80 transition-opacity">
-              OneSash
+            <Link to="/" className="inline-flex items-center hover:opacity-85 transition-opacity">
+              <SashLogo className="w-9 h-9" showWordmark={true} />
             </Link>
-            <p className="text-xs text-[#646464] font-normal">
-              Independent software development studio based in Chennai & Bangalore.
+            <p className="text-xs text-[#646464] font-normal pt-1">
+              Independent software development studio based in Chennai, India and Bangalore, India.
             </p>
           </div>
 
           <div className="text-xs text-[#646464] font-mono">
-            <span>Chennai HQ: Anna Salai Corridor</span> • <span>Bangalore: Indiranagar Hub</span>
+            <span>Chennai, India</span> • <span>Bangalore, India</span>
           </div>
         </div>
 
@@ -32,9 +33,7 @@ export const Footer = () => {
               <li><Link to="/" className="hover:text-[#1459D9] transition-colors">Home</Link></li>
               <li><Link to="/about" className="hover:text-[#1459D9] transition-colors">About Us</Link></li>
               <li><Link to="/portfolio" className="hover:text-[#1459D9] transition-colors">Our Work</Link></li>
-              <li><Link to="/calculator" className="hover:text-[#1459D9] transition-colors">Cost Estimator</Link></li>
-              <li><Link to="/booking" className="hover:text-[#1459D9] transition-colors">Book a Call</Link></li>
-              <li><Link to="/careers" className="hover:text-[#1459D9] transition-colors">Careers</Link></li>
+              <li><Link to="/contact" className="hover:text-[#1459D9] transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -73,19 +72,36 @@ export const Footer = () => {
           </div>
 
           {/* Inquiries */}
-          <div className="space-y-3 col-span-2 sm:col-span-1">
-            <span className="font-semibold text-[#171717] block">Direct Inquiries</span>
+          <div className="space-y-2.5 col-span-2 sm:col-span-1">
+            <span className="font-semibold text-[#171717] block">Direct Contact</span>
             <p className="text-[#646464] text-xs leading-relaxed">
-              Direct developer review without sales middleman overhead.
+              Direct developer consultation with zero middleman overhead.
             </p>
-            <div className="pt-1">
-              <a href="mailto:onesash.contact@gmail.com" className="text-[#1459D9] hover:underline font-semibold text-xs block">
-                onesash.contact@gmail.com
-              </a>
+            <div className="space-y-1.5 pt-1 text-xs">
+              <div>
+                <a href="tel:+919980399557" className="text-[#171717] hover:text-[#1459D9] font-medium block">
+                  Call: +91 99803 99557
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://wa.me/918903467843"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#10B981] hover:underline font-medium block"
+                >
+                  WhatsApp: +91 89034 67843
+                </a>
+              </div>
+              <div>
+                <a href="mailto:onesash.contact@gmail.com" className="text-[#1459D9] hover:underline font-medium block">
+                  onesash.contact@gmail.com
+                </a>
+              </div>
             </div>
             <div className="pt-2">
               <Link to="/contact" className="text-xs font-semibold text-[#171717] hover:text-[#1459D9]">
-                Start a Project
+                Start a Project →
               </Link>
             </div>
           </div>
@@ -94,8 +110,8 @@ export const Footer = () => {
 
         {/* Bottom Line */}
         <div className="pt-8 border-t border-[#E4E4E0] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#646464]">
-          <p>© 2026 OneSash Technocrafts. All rights reserved.</p>
-          <p>Chennai, Tamil Nadu & Bangalore, Karnataka, India</p>
+          <p>© 2026 OneSash. All rights reserved.</p>
+          <p>Chennai, India and Bangalore, India</p>
         </div>
 
       </div>

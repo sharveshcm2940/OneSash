@@ -9,7 +9,7 @@ export const ProcessAutomationPage = () => {
     <>
       <SEO
         title="Business Process Automation — Workflow Synchronization | OneSash"
-        description="We build automated system workflows that synchronize billing, messaging, and database operations. Built by OneSash Technocrafts."
+        description="We build automated system workflows that synchronize billing, messaging, and database operations. Built by OneSash."
         keywords="process automation, business workflows, WhatsApp automation Chennai, webhook integration India, automated billing engines"
       />
 

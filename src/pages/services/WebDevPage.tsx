@@ -9,7 +9,7 @@ export const WebDevPage = () => {
     <>
       <SEO
         title="Web Application Development — Fast, Scalable Web Systems | OneSash"
-        description="We engineer fast, accessible web applications and SaaS platforms using TypeScript, React, and modular APIs. Built by OneSash Technocrafts."
+        description="We engineer fast, accessible web applications and SaaS platforms using TypeScript, React, and modular APIs. Built by OneSash."
         keywords="web application development, React developers Chennai, SaaS development, full-stack web engineering, TypeScript web apps"
       />
 

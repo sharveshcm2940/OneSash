@@ -27,8 +27,8 @@ export const BookingPage = () => {
     <>
       <SEO
         title="Schedule a Technical Discovery Call with OneSash"
-        description="Schedule a 1-on-1 technical discovery session with OneSash senior engineers in Chennai or Bangalore. Discuss project architecture, budget, and roadmap."
-        keywords="book consultation OneSash, software discovery call, schedule meeting OneSash, technical consultation Chennai"
+        description="Schedule a 1-on-1 technical discovery session with OneSash senior engineers in Chennai, India and Bangalore, India. Discuss project architecture, budget, and roadmap."
+        keywords="book consultation OneSash, software discovery call, schedule meeting OneSash, technical consultation Chennai, technical consultation Bangalore"
       />
 
       <main className="bg-[#FAFAF8] pt-24 pb-16 md:pt-28 md:pb-20 border-b border-[#E4E4E0]">

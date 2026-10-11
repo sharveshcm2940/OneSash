@@ -18,8 +18,8 @@ export const PortfolioPage = () => {
     <>
       <SEO
         title="Our Work & Delivered Software Systems | OneSash"
-        description="Explore verified software systems, web platforms, and operational tools engineered by OneSash Technocrafts for real businesses."
-        keywords="OneSash portfolio, custom software projects, Apar Crown apartment management, Law Throne legal CRM, QR Food Processing, Chennai software studio work"
+        description="Explore verified software systems, web platforms, and operational tools engineered by OneSash for real businesses."
+        keywords="OneSash portfolio, custom software projects, Apar Crown apartment management, Law Throne legal CRM, QR Food Processing, Chennai software studio work, Bangalore software studio work"
       />
 
       <main className="bg-[#FAFAF8]">

@@ -1,4 +1,4 @@
-import { MapPin, Mail, Clock } from "lucide-react"
+import { MapPin, Mail, Clock, Phone, MessageCircle } from "lucide-react"
 
 export const LocationsSection = () => {
   return (
@@ -15,28 +15,28 @@ export const LocationsSection = () => {
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-semibold tracking-tight text-[#171717] leading-[1.1]">
-            Rooted in India. Built for ambitious businesses.
+            Rooted in Chennai & Bangalore. Built for ambitious businesses.
           </h2>
 
           <p className="text-base sm:text-lg text-[#646464] font-normal leading-relaxed pt-1">
-            Dual technology studios in India's leading software and innovation hubs, delivering dependable systems for enterprises and growing businesses.
+            Technology studios in Chennai, India and Bangalore, India, delivering dependable custom software, web platforms, and automated operations.
           </p>
         </div>
 
-        {/* Two Concrete Engineering Studios */}
+        {/* Dual Concrete Engineering Studios */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           
           {/* Chennai Studio */}
           <div className="p-8 sm:p-10 bg-[#FAFAF8] rounded-2xl border border-[#E4E4E0] space-y-6 shadow-studio-card">
             <div className="space-y-1">
               <span className="text-[10px] font-semibold tracking-wider text-[#1459D9] uppercase block font-mono">
-                ENGINEERING HQ • CHENNAI, TAMIL NADU
+                ENGINEERING STUDIO • CHENNAI, INDIA
               </span>
               <h3 className="text-2xl sm:text-3xl font-heading font-semibold text-[#171717]">
                 Chennai Studio
               </h3>
               <p className="text-xs text-[#646464]">
-                Software Engineering & Cloud Operations Hub
+                Software Engineering, Architecture & Cloud Operations Hub
               </p>
             </div>
 
@@ -47,20 +47,38 @@ export const LocationsSection = () => {
             <div className="space-y-2.5 pt-2 text-xs text-[#171717]">
               <div className="flex items-center gap-2.5 text-[#646464]">
                 <MapPin className="w-4 h-4 text-[#1459D9] shrink-0" />
-                <span>Anna Salai & Guindy Tech Corridor, Chennai, TN 600032</span>
+                <span>Chennai, India</span>
               </div>
+              
               <div className="flex items-center gap-2.5 text-[#646464]">
-                <Clock className="w-4 h-4 text-[#1459D9] shrink-0" />
-                <span>IST (UTC+05:30) • Mon–Fri, 9:00 AM – 7:00 PM</span>
+                <Phone className="w-4 h-4 text-[#1459D9] shrink-0" />
+                <a href="tel:+919980399557" className="font-semibold text-[#171717] hover:text-[#1459D9]">
+                  Call: +91 99803 99557
+                </a>
               </div>
+
+              <div className="flex items-center gap-2.5 text-[#646464]">
+                <MessageCircle className="w-4 h-4 text-[#10B981] shrink-0" />
+                <a
+                  href="https://wa.me/918903467843"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-[#10B981] hover:underline"
+                >
+                  WhatsApp: +91 89034 67843
+                </a>
+              </div>
+
               <div className="flex items-center gap-2.5 text-[#646464]">
                 <Mail className="w-4 h-4 text-[#1459D9] shrink-0" />
-                <span className="font-semibold text-[#171717]">onesash.contact@gmail.com</span>
+                <a href="mailto:onesash.contact@gmail.com" className="font-semibold text-[#171717] hover:text-[#1459D9]">
+                  onesash.contact@gmail.com
+                </a>
               </div>
             </div>
 
             <div className="pt-4 border-t border-[#E4E4E0] flex items-center justify-between text-xs text-[#646464]">
-              <span>Cloud & Engineering Hub</span>
+              <span>Cloud & Engineering Hub · Chennai, India</span>
               <span className="text-[#1459D9] font-medium">Direct Developer Access</span>
             </div>
           </div>
@@ -69,37 +87,55 @@ export const LocationsSection = () => {
           <div className="p-8 sm:p-10 bg-[#FAFAF8] rounded-2xl border border-[#E4E4E0] space-y-6 shadow-studio-card">
             <div className="space-y-1">
               <span className="text-[10px] font-semibold tracking-wider text-[#1459D9] uppercase block font-mono">
-                INNOVATION HUB • BANGALORE, KARNATAKA
+                PRODUCT STUDIO • BANGALORE, INDIA
               </span>
               <h3 className="text-2xl sm:text-3xl font-heading font-semibold text-[#171717]">
                 Bangalore Studio
               </h3>
               <p className="text-xs text-[#646464]">
-                Product Architecture & Intelligent Systems
+                Product Architecture & Intelligent Automation Studio
               </p>
             </div>
 
             <p className="text-xs sm:text-sm text-[#646464] leading-relaxed">
-              Our digital product design and intelligent automation studio. Focused on interactive web platforms, document automation, business integrations, and modern client experiences.
+              Our digital product design and intelligent automation studio. Focused on interactive web applications, business process workflows, integrations, and modern client experiences.
             </p>
 
             <div className="space-y-2.5 pt-2 text-xs text-[#171717]">
               <div className="flex items-center gap-2.5 text-[#646464]">
                 <MapPin className="w-4 h-4 text-[#1459D9] shrink-0" />
-                <span>Indiranagar Tech District, Bangalore, KA 560038</span>
+                <span>Bangalore, India</span>
               </div>
+              
               <div className="flex items-center gap-2.5 text-[#646464]">
-                <Clock className="w-4 h-4 text-[#1459D9] shrink-0" />
-                <span>IST (UTC+05:30) • Mon–Fri, 9:00 AM – 7:00 PM</span>
+                <Phone className="w-4 h-4 text-[#1459D9] shrink-0" />
+                <a href="tel:+919980399557" className="font-semibold text-[#171717] hover:text-[#1459D9]">
+                  Call: +91 99803 99557
+                </a>
               </div>
+
+              <div className="flex items-center gap-2.5 text-[#646464]">
+                <MessageCircle className="w-4 h-4 text-[#10B981] shrink-0" />
+                <a
+                  href="https://wa.me/918903467843"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-[#10B981] hover:underline"
+                >
+                  WhatsApp: +91 89034 67843
+                </a>
+              </div>
+
               <div className="flex items-center gap-2.5 text-[#646464]">
                 <Mail className="w-4 h-4 text-[#1459D9] shrink-0" />
-                <span className="font-semibold text-[#171717]">onesash.contact@gmail.com</span>
+                <a href="mailto:onesash.contact@gmail.com" className="font-semibold text-[#171717] hover:text-[#1459D9]">
+                  onesash.contact@gmail.com
+                </a>
               </div>
             </div>
 
             <div className="pt-4 border-t border-[#E4E4E0] flex items-center justify-between text-xs text-[#646464]">
-              <span>Intelligent Systems Hub</span>
+              <span>Product Studio · Bangalore, India</span>
               <span className="text-[#1459D9] font-medium">Direct Developer Access</span>
             </div>
           </div>

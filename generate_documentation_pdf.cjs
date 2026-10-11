@@ -459,7 +459,7 @@ async function generatePdf() {
   <div class="cover-page">
     <div>
       <div class="cover-badge">SYSTEM ARCHITECTURE & PRODUCT DOCUMENTATION</div>
-      <div class="cover-title">OneSash Technocrafts</div>
+      <div class="cover-title">OneSash</div>
       <div class="cover-subtitle">
         Official Website Documentation, UI Interface Specifications, Interactive Engine Catalog & Modernization Blueprint.
       </div>
@@ -468,7 +468,7 @@ async function generatePdf() {
     <div class="cover-meta-grid">
       <div class="meta-item">
         <span class="meta-label">Client / Entity</span>
-        <span class="meta-value">OneSash Technocrafts (Chennai, India)</span>
+        <span class="meta-value">OneSash (Chennai, India)</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Primary Framework</span>
@@ -504,7 +504,7 @@ async function generatePdf() {
   <h1 class="section-title">1. Executive Summary & Tech Architecture</h1>
 
   <p>
-    <strong>OneSash</strong> (also referred to as <em>onesash Technocrafts</em>) is a high-performance digital product and software engineering web application. Engineered on top of modern frontend and graphics paradigms, the web platform serves as the central digital touchpoint for prospective enterprise clients, startup founders, and technical partners seeking custom web engineering, AI integrations, mobile application development, and cloud systems.
+    <strong>OneSash</strong> is a high-performance digital product and software engineering studio. Engineered on top of modern frontend and graphics paradigms, the web platform serves as the central digital touchpoint for prospective enterprise clients, startup founders, and technical partners seeking custom web engineering, AI integrations, mobile application development, and cloud systems.
   </p>
 
   <h2 class="subsection-title">1.1 Core Technology Stack</h2>
@@ -912,7 +912,7 @@ async function generatePdf() {
   </div>
 
   <div class="footer-note">
-    Document Generated Automatically by Antigravity AI Engine • Confidential • © 2026 OneSash Technocrafts
+    Document Generated Automatically by Antigravity AI Engine • Confidential • © 2026 OneSash
   </div>
 
 </body>
@@ -945,7 +945,7 @@ async function generatePdf() {
       right: '12mm'
     },
     displayHeaderFooter: true,
-    headerTemplate: '<div style="font-size: 8px; font-family: monospace; color: #94a3b8; width: 100%; text-align: right; padding-right: 20px;">OneSash Technocrafts • Website & Architecture Documentation</div>',
+    headerTemplate: '<div style="font-size: 8px; font-family: monospace; color: #94a3b8; width: 100%; text-align: right; padding-right: 20px;">OneSash • Website & Architecture Documentation</div>',
     footerTemplate: '<div style="font-size: 8px; font-family: monospace; color: #94a3b8; width: 100%; text-align: center;">Page <span class="pageNumber"></span> of <span class="totalPages"></span></div>'
   });
 

@@ -7,7 +7,7 @@ export const CompanyIntroSection = () => {
       icon: Users,
       value: "100%",
       label: "In-House Engineering",
-      sublabel: "Senior developers exclusively in Chennai & Bangalore. Zero subcontracting.",
+      sublabel: "Senior developers exclusively in Chennai, India & Bangalore, India. Zero subcontracting.",
     },
     {
       icon: ShieldCheck,

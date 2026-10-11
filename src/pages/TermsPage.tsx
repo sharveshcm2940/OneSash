@@ -68,7 +68,8 @@ export const TermsPage = () => {
               <div className="p-4 bg-[#F5F5F7] rounded-xl border border-[#E5E5EA] text-xs space-y-1">
                 <p className="font-semibold text-[#1D1D1F]">OneSash</p>
                 <p>Email: <a href="mailto:onesash.contact@gmail.com" className="text-[#0071E3] hover:underline font-medium">onesash.contact@gmail.com</a></p>
-                <p className="text-[#6E6E73]">Locations: Chennai, Tamil Nadu & Bangalore, Karnataka, India</p>
+                <p>Phone: <a href="tel:+919980399557" className="text-[#1D1D1F] hover:underline font-medium">+91 99803 99557</a> • WhatsApp: <a href="https://wa.me/918903467843" className="text-[#10B981] hover:underline font-medium">+91 89034 67843</a></p>
+                <p className="text-[#6E6E73]">Locations: Chennai, India and Bangalore, India</p>
               </div>
             </section>
 

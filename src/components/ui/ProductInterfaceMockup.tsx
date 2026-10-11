@@ -78,7 +78,7 @@ export const ProductInterfaceMockup: React.FC<ProductInterfaceMockupProps> = ({
         {/* Interface Content */}
         <div className="p-5 space-y-4">
           {/* Key Metric Blocks */}
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="p-3 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
               <span className="text-[10px] text-[#646464] uppercase tracking-wider block font-medium">October Collections</span>
               <div className="flex items-baseline gap-1 mt-1">
@@ -105,37 +105,39 @@ export const ProductInterfaceMockup: React.FC<ProductInterfaceMockupProps> = ({
             </div>
           </div>
 
-          {/* Data Table */}
+          {/* Data Table with Horizontal Scroll on Mobile */}
           {activeTab === "overview" ? (
-            <div className="border border-[#E4E4E0] rounded-lg overflow-hidden">
-              <div className="bg-[#F1F1EE] px-3 py-2 text-[10px] font-semibold text-[#646464] uppercase tracking-wider grid grid-cols-5">
-                <span>Unit ID & Owner</span>
-                <span>Category</span>
-                <span>Amount</span>
-                <span>Payment Mode</span>
-                <span className="text-right">Ledger Status</span>
-              </div>
-              <div className="divide-y divide-[#E4E4E0] bg-white text-[11px]">
-                <div className="px-3 py-2 grid grid-cols-5 items-center">
-                  <span className="font-medium text-[#171717]">Tower B - 402 (R. Sundaram)</span>
-                  <span className="text-[#646464]">Regular Monthly Dues</span>
-                  <span className="font-medium">₹4,200</span>
-                  <span className="text-[#646464]">UPI Auto-reconciled</span>
-                  <span className="text-right"><span className="px-1.5 py-0.5 bg-[#E6F4EA] text-[#137333] rounded text-[10px] font-medium">Settled</span></span>
+            <div className="border border-[#E4E4E0] rounded-lg overflow-x-auto">
+              <div className="min-w-[540px]">
+                <div className="bg-[#F1F1EE] px-3 py-2 text-[10px] font-semibold text-[#646464] uppercase tracking-wider grid grid-cols-5">
+                  <span>Unit ID & Owner</span>
+                  <span>Category</span>
+                  <span>Amount</span>
+                  <span>Payment Mode</span>
+                  <span className="text-right">Ledger Status</span>
                 </div>
-                <div className="px-3 py-2 grid grid-cols-5 items-center">
-                  <span className="font-medium text-[#171717]">Tower A - 108 (K. Meenakshi)</span>
-                  <span className="text-[#646464]">Corpus & Maintenance</span>
-                  <span className="font-medium">₹5,100</span>
-                  <span className="text-[#646464]">NEFT Transfer</span>
-                  <span className="text-right"><span className="px-1.5 py-0.5 bg-[#E6F4EA] text-[#137333] rounded text-[10px] font-medium">Settled</span></span>
-                </div>
-                <div className="px-3 py-2 grid grid-cols-5 items-center">
-                  <span className="font-medium text-[#171717]">Tower C - 201 (P. Varma)</span>
-                  <span className="text-[#646464]">Clubhouse Booking</span>
-                  <span className="font-medium">₹3,000</span>
-                  <span className="text-[#646464]">Card Gateway</span>
-                  <span className="text-right"><span className="px-1.5 py-0.5 bg-[#FCE8E6] text-[#C5221F] rounded text-[10px] font-medium">Pending 2d</span></span>
+                <div className="divide-y divide-[#E4E4E0] bg-white text-[11px]">
+                  <div className="px-3 py-2 grid grid-cols-5 items-center">
+                    <span className="font-medium text-[#171717]">Tower B - 402 (R. Sundaram)</span>
+                    <span className="text-[#646464]">Regular Monthly Dues</span>
+                    <span className="font-medium">₹4,200</span>
+                    <span className="text-[#646464]">UPI Auto-reconciled</span>
+                    <span className="text-right"><span className="px-1.5 py-0.5 bg-[#E6F4EA] text-[#137333] rounded text-[10px] font-medium">Settled</span></span>
+                  </div>
+                  <div className="px-3 py-2 grid grid-cols-5 items-center">
+                    <span className="font-medium text-[#171717]">Tower A - 108 (K. Meenakshi)</span>
+                    <span className="text-[#646464]">Corpus & Maintenance</span>
+                    <span className="font-medium">₹5,100</span>
+                    <span className="text-[#646464]">NEFT Transfer</span>
+                    <span className="text-right"><span className="px-1.5 py-0.5 bg-[#E6F4EA] text-[#137333] rounded text-[10px] font-medium">Settled</span></span>
+                  </div>
+                  <div className="px-3 py-2 grid grid-cols-5 items-center">
+                    <span className="font-medium text-[#171717]">Tower C - 201 (P. Varma)</span>
+                    <span className="text-[#646464]">Clubhouse Booking</span>
+                    <span className="font-medium">₹3,000</span>
+                    <span className="text-[#646464]">Card Gateway</span>
+                    <span className="text-right"><span className="px-1.5 py-0.5 bg-[#FCE8E6] text-[#C5221F] rounded text-[10px] font-medium">Pending 2d</span></span>
+                  </div>
                 </div>
               </div>
             </div>

@@ -96,7 +96,7 @@ export const CalculatorPage = () => {
       <SEO
         title="Interactive Software Cost Estimator & Scope Calculator | OneSash"
         description="Estimate realistic costs and delivery windows for your custom software, web app, or mobile platform with OneSash's transparent scope calculator."
-        keywords="software cost calculator, web development pricing India, hire software developers Chennai cost, custom software budget"
+        keywords="software cost calculator, web development pricing India, hire software developers Chennai cost, hire software developers Bangalore cost, custom software budget"
       />
 
       <main className="bg-[#FAFAF8] pt-24 pb-16 md:pt-28 md:pb-20 border-b border-[#E4E4E0]">

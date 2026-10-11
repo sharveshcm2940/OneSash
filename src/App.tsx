@@ -11,9 +11,6 @@ const AboutPage = lazy(() => import("./pages/AboutPage").then(m => ({ default: m
 const ServicesPage = lazy(() => import("./pages/ServicesPage").then(m => ({ default: m.ServicesPage })))
 const PortfolioPage = lazy(() => import("./pages/PortfolioPage").then(m => ({ default: m.PortfolioPage })))
 const ContactPage = lazy(() => import("./pages/ContactPage").then(m => ({ default: m.ContactPage })))
-const CalculatorPage = lazy(() => import("./pages/CalculatorPage").then(m => ({ default: m.CalculatorPage })))
-const BookingPage = lazy(() => import("./pages/BookingPage").then(m => ({ default: m.BookingPage })))
-const CareersPage = lazy(() => import("./pages/CareersPage").then(m => ({ default: m.CareersPage })))
 
 // Service Detail Pages
 const CustomSoftwarePage = lazy(() => import("./pages/services/CustomSoftwarePage").then(m => ({ default: m.CustomSoftwarePage })))
@@ -56,9 +53,9 @@ function App() {
                   <Route path="/work" element={<Navigate to="/portfolio" replace />} />
                   <Route path="/contact" element={<ContactPage />} />
                   <Route path="/quote" element={<Navigate to="/contact" replace />} />
-                  <Route path="/calculator" element={<CalculatorPage />} />
-                  <Route path="/booking" element={<BookingPage />} />
-                  <Route path="/careers" element={<CareersPage />} />
+                  <Route path="/calculator" element={<Navigate to="/contact" replace />} />
+                  <Route path="/booking" element={<Navigate to="/contact" replace />} />
+                  <Route path="/careers" element={<Navigate to="/about" replace />} />
 
                   {/* Dedicated Service Discipline Pages */}
                   <Route path="/services/custom-software" element={<CustomSoftwarePage />} />

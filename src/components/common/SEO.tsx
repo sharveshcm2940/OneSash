@@ -13,12 +13,12 @@ export interface SEOProps {
   noindex?: boolean
 }
 
-const DEFAULT_SITE_NAME = "OneSash Technocrafts"
-const DEFAULT_TITLE = "OneSash Technocrafts — Custom Software Engineering & Development Company"
+const DEFAULT_SITE_NAME = "OneSash"
+const DEFAULT_TITLE = "OneSash — Custom Software Engineering & Development Studio"
 const DEFAULT_DESCRIPTION =
-  "OneSash Technocrafts is an independent software development company based in Chennai, India. We design, build, and maintain custom web applications, mobile platforms, and backend systems for businesses."
+  "OneSash is an independent software development studio based in Chennai, India and Bangalore, India. We design, build, and maintain custom web applications, mobile platforms, and backend systems for businesses."
 const DEFAULT_KEYWORDS =
-  "OneSash, OneSash Technocrafts, software development company, custom software engineering, web application development, mobile app development, backend API engineering, cloud systems, Chennai software company"
+  "OneSash, software development studio, custom software engineering, web application development, mobile app development, backend API engineering, cloud systems, Chennai India software, Bangalore India software"
 const DEFAULT_OG_IMAGE = "https://onesash.com/og-image.jpg"
 const DEFAULT_SITE_URL = "https://onesash.com"
 
@@ -35,7 +35,7 @@ export const SEO = ({
   noindex = false,
 }: SEOProps) => {
   const fullTitle = title
-    ? `${title} | OneSash Technocrafts`
+    ? `${title} | OneSash`
     : DEFAULT_TITLE
 
   const currentOrigin = typeof window !== "undefined" && window.location.origin && !window.location.origin.includes("localhost")
@@ -49,22 +49,20 @@ export const SEO = ({
   const defaultOrgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "OneSash Technocrafts",
+    "name": "OneSash",
     "url": currentOrigin,
     "description": DEFAULT_DESCRIPTION,
     "email": "onesash.contact@gmail.com",
-    "telephone": ["+918903467843", "+919980399557"],
+    "telephone": ["+919980399557", "+918903467843"],
     "address": [
       {
         "@type": "PostalAddress",
         "addressLocality": "Chennai",
-        "addressRegion": "Tamil Nadu",
         "addressCountry": "IN"
       },
       {
         "@type": "PostalAddress",
         "addressLocality": "Bangalore",
-        "addressRegion": "Karnataka",
         "addressCountry": "IN"
       }
     ]
