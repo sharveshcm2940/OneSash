@@ -92,9 +92,9 @@ export const HeroSection: React.FC = () => {
               <span>OneSash Studio · Chennai, India & Bangalore, India</span>
             </div>
 
-            {/* Exact Headline: 5 words */}
+            {/* Exact Headline: 5 words with accessible brand anchoring for search engines */}
             <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-heading font-semibold tracking-tight text-[#171717] leading-[1.1]">
-              We build software that works.
+              <span className="sr-only">OneSash — </span>We build software that works.
             </h1>
 
             {/* Reference Animation: Mechanical Rolling Counter */}

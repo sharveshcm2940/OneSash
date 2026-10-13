@@ -1,7 +1,7 @@
 import { useState, useId } from "react"
 import { useLocation } from "react-router-dom"
 import { SEO } from "../components/common/SEO"
-import { CheckCircle2, ArrowRight, Mail, MapPin, Phone, Clock, MessageCircle } from "lucide-react"
+import { CheckCircle2, Mail, MapPin, Phone, Clock, MessageCircle } from "lucide-react"
 
 export const ContactPage = () => {
   const formId = useId()
@@ -67,12 +67,34 @@ export const ContactPage = () => {
     }, 700)
   }
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "OneSash",
+      "url": "https://onesash.co.in",
+      "telephone": ["+919980399557", "+918903467843"],
+      "email": "onesash.contact@gmail.com",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+919980399557",
+          "contactType": "sales & engineering",
+          "areaServed": "Global",
+          "availableLanguage": ["English", "Tamil", "Hindi"]
+        }
+      ]
+    }
+  }
+
   return (
     <>
       <SEO
         title="Tell Us What You Want to Build — Contact OneSash"
         description="Connect with OneSash in Chennai, India and Bangalore, India. Whether you have a project brief or an early idea, we'd be happy to understand what you're working on."
         keywords="contact OneSash, software development inquiry, hire software developers Chennai, hire software developers Bangalore, start software project India"
+        schema={contactSchema}
       />
 
       <main className="bg-[#FAFAF8] pt-24 pb-16 md:pt-28 md:pb-20 border-b border-[#E4E4E0]">

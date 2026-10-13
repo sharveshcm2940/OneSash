@@ -23,12 +23,35 @@ export const AboutPage: React.FC = () => {
     }
   ]
 
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "OneSash",
+      "url": "https://onesash.co.in",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Chennai, Tamil Nadu, India"
+      },
+      "description": "OneSash is an independent software development studio based in Chennai, India and Bangalore, India.",
+      "knowsAbout": [
+        "Custom Software Engineering",
+        "Web Application Development",
+        "Mobile App Development",
+        "Business Process Automation",
+        "Cloud Systems & DevOps"
+      ]
+    }
+  }
+
   return (
     <>
       <SEO
         title="About Us — Small Team. Serious About Building Good Software | OneSash"
         description="OneSash is an independent software development studio based in Chennai, India and Bangalore, India. Discover our engineering approach and pragmatic development philosophy."
         keywords="About OneSash, software developers Chennai, software developers Bangalore, software studio India, custom software team India"
+        schema={aboutSchema}
       />
 
       <main className="bg-[#FAFAF8]">
@@ -43,7 +66,7 @@ export const AboutPage: React.FC = () => {
               </h1>
 
               <p className="text-base sm:text-lg text-[#646464] leading-relaxed pt-1">
-                OneSash is an independent software development team based in Chennai, India and Bangalore, India. We work with businesses and founders to turn ideas, operational challenges, and product requirements into useful software.
+                OneSash (One Sash) is an independent software development team based in Chennai, India and Bangalore, India. We work with businesses and founders to turn ideas, operational challenges, and product requirements into useful software.
               </p>
 
               <div className="pt-3 flex flex-wrap items-center gap-4 text-xs text-[#646464]">

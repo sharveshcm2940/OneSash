@@ -14,7 +14,7 @@ export const Footer = () => {
               <SashLogo className="w-9 h-9" showWordmark={true} />
             </Link>
             <p className="text-xs text-[#646464] font-normal pt-1">
-              Independent software development studio based in Chennai, India and Bangalore, India.
+              OneSash (One Sash) · Independent software development studio based in Chennai, India and Bangalore, India.
             </p>
           </div>
 
