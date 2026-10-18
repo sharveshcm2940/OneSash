@@ -159,28 +159,28 @@ export const CalculatorPage = () => {
                           onClick={() => toggle(group.key, opt.id, group.multi)}
                           className={`w-full text-left p-4 rounded-xl border transition-all flex items-start justify-between gap-4 cursor-pointer ${
                             isSelected
-                              ? "bg-[#EEF3FD] border-[#1459D9] text-[#171717]"
-                              : "bg-[#FAFAF8] border-[#E4E4E0] hover:border-[#D5D5CF] text-[#646464]"
+                              ? "bg-[#171717] border-[#171717] text-white shadow-xs"
+                              : "bg-[#FAFAF8] border-[#E4E4E0] hover:border-[#171717] text-[#646464]"
                           }`}
                         >
                           <div className="space-y-1">
                             <div className="flex items-center gap-2">
                               <div className={`w-4 h-4 rounded flex items-center justify-center shrink-0 border ${
-                                isSelected ? "bg-[#1459D9] border-[#1459D9] text-white" : "border-[#E4E4E0] bg-white"
+                                isSelected ? "bg-white border-white text-black" : "border-[#E4E4E0] bg-white"
                               }`}>
                                 {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
                               </div>
-                              <span className={`text-xs sm:text-sm font-semibold ${isSelected ? "text-[#171717]" : "text-[#171717]"}`}>
+                              <span className={`text-xs sm:text-sm font-semibold ${isSelected ? "text-white" : "text-[#171717]"}`}>
                                 {opt.label}
                               </span>
                             </div>
-                            <p className="text-[11px] text-[#646464] pl-6 leading-relaxed">
+                            <p className={`text-[11px] pl-6 leading-relaxed ${isSelected ? "text-white/80" : "text-[#646464]"}`}>
                               {opt.desc}
                             </p>
                           </div>
 
                           <div className="text-right shrink-0">
-                            <span className={`font-mono text-xs font-semibold ${isSelected ? "text-[#1459D9]" : "text-[#646464]"}`}>
+                            <span className={`font-mono text-xs font-semibold ${isSelected ? "text-white" : "text-[#646464]"}`}>
                               {opt.priceINR === 0 ? "Included" : `+${price}`}
                             </span>
                           </div>
@@ -245,7 +245,7 @@ export const CalculatorPage = () => {
 
                 {/* Honest Limitation Notice */}
                 <div className="p-3 bg-[#F1F1EE] rounded-xl border border-[#E4E4E0] text-[11px] text-[#646464] flex items-start gap-2">
-                  <Info className="w-3.5 h-3.5 text-[#1459D9] shrink-0 mt-0.5" />
+                  <Info className="w-3.5 h-3.5 text-[#171717] shrink-0 mt-0.5" />
                   <span>
                     *This estimate provides an honest starting benchmark. Final fixed-budget proposals are locked after a 30-minute discovery call with our engineers.
                   </span>

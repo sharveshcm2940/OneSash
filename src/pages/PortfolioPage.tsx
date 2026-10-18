@@ -72,8 +72,8 @@ export const PortfolioPage = () => {
                     <div className="flex items-center gap-2">
                       <span className={`px-2 py-0.5 rounded text-[10px] font-medium ${
                         project.status === "Active Deployment" 
-                          ? "bg-[#E6F4EA] text-[#137333]" 
-                          : "bg-[#FEF7E0] text-[#B06000]"
+                          ? "bg-[#171717] text-white" 
+                          : "bg-[#F1F1EE] text-[#171717] border border-[#E4E4E0]"
                       }`}>
                         {project.status}
                       </span>
@@ -133,7 +133,7 @@ export const PortfolioPage = () => {
                       <ul className="space-y-1.5 text-xs text-[#646464]">
                         {project.keyFeatures.map((feat, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <span className="text-[#1459D9] font-bold">·</span>
+                            <span className="text-[#171717] font-bold">·</span>
                             <span className="leading-snug">{feat}</span>
                           </li>
                         ))}

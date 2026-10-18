@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { 
   Search, 
   PenTool, 
@@ -10,9 +10,7 @@ import {
   ArrowRight, 
   ShieldCheck, 
   Clock, 
-  Sparkles,
-  Layers,
-  GitBranch
+  Sparkles
 } from "lucide-react"
 
 interface ProcessMilestone {
@@ -37,7 +35,7 @@ const MILESTONES: ProcessMilestone[] = [
     summary: "System blueprint, data schemas, API contracts, and fixed-milestone budget.",
     deliverable: "Architecture Spec & Budget",
     icon: Search,
-    accentColor: "#1459D9"
+    accentColor: "#000000"
   },
   {
     id: "design",
@@ -48,7 +46,7 @@ const MILESTONES: ProcessMilestone[] = [
     summary: "High-fidelity Figma screen states, responsive layouts, and clickable prototypes.",
     deliverable: "Clickable Figma Prototype",
     icon: PenTool,
-    accentColor: "#7C3AED"
+    accentColor: "#000000"
   },
   {
     id: "build",
@@ -59,7 +57,7 @@ const MILESTONES: ProcessMilestone[] = [
     summary: "Agile 2-week sprints with strict TypeScript gates and weekly staging demos.",
     deliverable: "Verified Staging Codebase",
     icon: Code2,
-    accentColor: "#0284C7"
+    accentColor: "#000000"
   },
   {
     id: "launch",
@@ -70,7 +68,7 @@ const MILESTONES: ProcessMilestone[] = [
     summary: "Hardened cloud infrastructure, automated CI/CD, and 100% IP code handover.",
     deliverable: "100% IP & Repository Handover",
     icon: Rocket,
-    accentColor: "#0D7A5F"
+    accentColor: "#000000"
   }
 ]
 
@@ -95,7 +93,7 @@ export const ProcessSection: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-12 pb-6 border-b border-[#E4E4E0]">
           <div className="space-y-1.5">
             <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-white rounded-full border border-[#E4E4E0] shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1459D9] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#171717] animate-pulse" />
               <span className="text-[10px] font-mono font-semibold tracking-wider text-[#646464] uppercase">
                 Development Lifecycle
               </span>
@@ -112,7 +110,7 @@ export const ProcessSection: React.FC = () => {
 
           <Link
             to="/contact"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1459D9] hover:text-[#0C3E9C] transition-colors shrink-0 group self-start sm:self-end"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#171717] hover:opacity-70 transition-opacity shrink-0 group self-start sm:self-end"
           >
             <span>Start your project</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -128,7 +126,7 @@ export const ProcessSection: React.FC = () => {
             
             {/* Animated Active Progress Line */}
             <motion.div 
-              className="absolute top-6 left-12 h-[2px] bg-gradient-to-r from-[#1459D9] via-[#7C3AED] to-[#0D7A5F] z-0"
+              className="absolute top-6 left-12 h-[2px] bg-[#171717] z-0"
               initial={false}
               animate={{ 
                 width: `${(activeStep / (MILESTONES.length - 1)) * (100 - (24 / 6))}%` 
@@ -156,9 +154,9 @@ export const ProcessSection: React.FC = () => {
                       <motion.div
                         className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 border-2 ${
                           isActive
-                            ? "bg-[#171717] text-white border-[#171717] shadow-md ring-4 ring-[#1459D9]/15 scale-110"
+                            ? "bg-[#171717] text-white border-[#171717] shadow-md ring-4 ring-black/10 scale-110"
                             : isPassed
-                            ? "bg-[#1459D9] text-white border-[#1459D9]"
+                            ? "bg-[#171717] text-white border-[#171717]"
                             : "bg-white text-[#646464] border-[#E4E4E0] group-hover:border-[#171717] group-hover:text-[#171717]"
                         }`}
                         whileHover={{ scale: 1.08 }}
@@ -169,14 +167,14 @@ export const ProcessSection: React.FC = () => {
 
                       {/* Active Status Pulse Dot */}
                       {isActive && (
-                        <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#10B981] border-2 border-white animate-pulse" />
+                        <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#171717] border-2 border-white animate-pulse" />
                       )}
                     </div>
 
                     {/* Step Number & Phase Name */}
                     <div className="space-y-0.5">
                       <span className={`text-[10px] font-mono font-bold tracking-wider uppercase block transition-colors ${
-                        isActive ? "text-[#1459D9]" : "text-[#888888]"
+                        isActive ? "text-[#171717]" : "text-[#888888]"
                       }`}>
                         Step {step.number} • {step.timeframe}
                       </span>
@@ -214,7 +212,7 @@ export const ProcessSection: React.FC = () => {
                         {step.number}
                       </span>
                       <span className={`text-[10px] font-semibold px-2 py-0.5 rounded ${
-                        isActive ? "bg-[#EEF3FD] text-[#1459D9]" : "text-[#646464] bg-[#F1F1EE]"
+                        isActive ? "bg-[#171717] text-white" : "text-[#646464] bg-[#F1F1EE]"
                       }`}>
                         {step.timeframe}
                       </span>
@@ -231,7 +229,7 @@ export const ProcessSection: React.FC = () => {
 
                   <div className="pt-3 mt-3 border-t border-[#E4E4E0]">
                     <div className="flex items-center gap-1.5 text-[11px] font-medium text-[#171717]">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0D7A5F] shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#171717] shrink-0" />
                       <span className="truncate">{step.deliverable}</span>
                     </div>
                   </div>
@@ -270,7 +268,7 @@ export const ProcessSection: React.FC = () => {
                       : "bg-white/80 border-[#E4E4E0]"
                   }`}>
                     <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-[10px] font-mono font-bold text-[#1459D9] uppercase">
+                      <span className="text-[10px] font-mono font-bold text-[#171717] uppercase">
                         Step {step.number} • {step.phase}
                       </span>
                       <span className="text-[10px] font-medium text-[#646464] bg-[#F1F1EE] px-2 py-0.5 rounded">
@@ -287,7 +285,7 @@ export const ProcessSection: React.FC = () => {
                     </p>
 
                     <div className="pt-2.5 mt-2.5 border-t border-[#E4E4E0] flex items-center gap-1.5 text-[11px] font-medium text-[#171717]">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#0D7A5F] shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#171717] shrink-0" />
                       <span>{step.deliverable}</span>
                     </div>
                   </div>
@@ -301,24 +299,24 @@ export const ProcessSection: React.FC = () => {
         <div className="mt-8 sm:mt-10 pt-6 border-t border-[#E4E4E0] flex flex-wrap items-center justify-between gap-4 text-xs text-[#646464]">
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="flex items-center gap-1.5 font-medium text-[#171717]">
-              <Sparkles className="w-3.5 h-3.5 text-[#1459D9]" />
+              <Sparkles className="w-3.5 h-3.5 text-[#171717]" />
               Weekly Staging Demos
             </span>
             <span className="text-[#D4D4D0] hidden sm:inline">•</span>
             <span className="flex items-center gap-1.5 font-medium text-[#171717]">
-              <Clock className="w-3.5 h-3.5 text-[#1459D9]" />
+              <Clock className="w-3.5 h-3.5 text-[#171717]" />
               Direct WhatsApp / Call Access
             </span>
             <span className="text-[#D4D4D0] hidden sm:inline">•</span>
             <span className="flex items-center gap-1.5 font-medium text-[#171717]">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#0D7A5F]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[#171717]" />
               100% IP Code Handover
             </span>
           </div>
 
           <Link
             to="/contact"
-            className="inline-flex items-center gap-1 text-xs font-semibold text-[#1459D9] hover:underline"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-[#171717] hover:underline"
           >
             <span>Have a project to discuss? Contact us</span>
             <ArrowRight className="w-3 h-3" />

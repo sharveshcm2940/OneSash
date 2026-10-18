@@ -107,8 +107,8 @@ export const ServicesPage = () => {
                       <div className="font-semibold text-[#171717] text-sm">{service.projectExample.name}</div>
                       <p className="text-[#646464] leading-relaxed">{service.projectExample.description}</p>
                       <div className="pt-1">
-                        <Link to="/portfolio" className="text-[#1459D9] font-medium hover:underline">
-                          Inspect project breakdown in portfolio
+                        <Link to="/portfolio" className="text-[#171717] font-semibold hover:underline">
+                          Inspect project breakdown in portfolio →
                         </Link>
                       </div>
                     </div>
@@ -122,7 +122,7 @@ export const ServicesPage = () => {
                     <ul className="space-y-2 text-xs text-[#171717]">
                       {service.deliverables.map((item, dIdx) => (
                         <li key={dIdx} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#1459D9] shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#171717] shrink-0 mt-0.5" />
                           <span className="leading-snug text-[#171717]">{item}</span>
                         </li>
                       ))}

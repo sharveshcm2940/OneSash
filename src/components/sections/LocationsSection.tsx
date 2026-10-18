@@ -1,4 +1,4 @@
-import { MapPin, Mail, Clock, Phone, MessageCircle } from "lucide-react"
+import { MapPin, Mail, Phone, MessageCircle } from "lucide-react"
 
 export const LocationsSection = () => {
   return (
@@ -8,7 +8,7 @@ export const LocationsSection = () => {
         {/* Section Header */}
         <div className="max-w-3xl mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F1F1EE] rounded-sm border border-[#E4E4E0]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#1459D9]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#171717]" />
             <span className="text-[11px] font-semibold tracking-wider text-[#646464] uppercase">
               Studios & Locations
             </span>
@@ -29,7 +29,7 @@ export const LocationsSection = () => {
           {/* Chennai Studio */}
           <div className="p-8 sm:p-10 bg-[#FAFAF8] rounded-2xl border border-[#E4E4E0] space-y-6 shadow-studio-card">
             <div className="space-y-1">
-              <span className="text-[10px] font-semibold tracking-wider text-[#1459D9] uppercase block font-mono">
+              <span className="text-[10px] font-semibold tracking-wider text-[#171717] uppercase block font-mono">
                 ENGINEERING STUDIO • CHENNAI, INDIA
               </span>
               <h3 className="text-2xl sm:text-3xl font-heading font-semibold text-[#171717]">
@@ -46,32 +46,32 @@ export const LocationsSection = () => {
 
             <div className="space-y-2.5 pt-2 text-xs text-[#171717]">
               <div className="flex items-center gap-2.5 text-[#646464]">
-                <MapPin className="w-4 h-4 text-[#1459D9] shrink-0" />
+                <MapPin className="w-4 h-4 text-[#171717] shrink-0" />
                 <span>Chennai, India</span>
               </div>
               
               <div className="flex items-center gap-2.5 text-[#646464]">
-                <Phone className="w-4 h-4 text-[#1459D9] shrink-0" />
-                <a href="tel:+919980399557" className="font-semibold text-[#171717] hover:text-[#1459D9]">
+                <Phone className="w-4 h-4 text-[#171717] shrink-0" />
+                <a href="tel:+919980399557" className="font-semibold text-[#171717] hover:underline">
                   Call: +91 99803 99557
                 </a>
               </div>
 
               <div className="flex items-center gap-2.5 text-[#646464]">
-                <MessageCircle className="w-4 h-4 text-[#10B981] shrink-0" />
+                <MessageCircle className="w-4 h-4 text-[#171717] shrink-0" />
                 <a
                   href="https://wa.me/918903467843"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-[#10B981] hover:underline"
+                  className="font-semibold text-[#171717] hover:underline"
                 >
                   WhatsApp: +91 89034 67843
                 </a>
               </div>
 
               <div className="flex items-center gap-2.5 text-[#646464]">
-                <Mail className="w-4 h-4 text-[#1459D9] shrink-0" />
-                <a href="mailto:onesash.contact@gmail.com" className="font-semibold text-[#171717] hover:text-[#1459D9]">
+                <Mail className="w-4 h-4 text-[#171717] shrink-0" />
+                <a href="mailto:onesash.contact@gmail.com" className="font-semibold text-[#171717] hover:underline">
                   onesash.contact@gmail.com
                 </a>
               </div>
@@ -79,14 +79,14 @@ export const LocationsSection = () => {
 
             <div className="pt-4 border-t border-[#E4E4E0] flex items-center justify-between text-xs text-[#646464]">
               <span>Cloud & Engineering Hub · Chennai, India</span>
-              <span className="text-[#1459D9] font-medium">Direct Developer Access</span>
+              <span className="text-[#171717] font-semibold">Direct Developer Access</span>
             </div>
           </div>
 
           {/* Bangalore Studio */}
           <div className="p-8 sm:p-10 bg-[#FAFAF8] rounded-2xl border border-[#E4E4E0] space-y-6 shadow-studio-card">
             <div className="space-y-1">
-              <span className="text-[10px] font-semibold tracking-wider text-[#1459D9] uppercase block font-mono">
+              <span className="text-[10px] font-semibold tracking-wider text-[#171717] uppercase block font-mono">
                 PRODUCT STUDIO • BANGALORE, INDIA
               </span>
               <h3 className="text-2xl sm:text-3xl font-heading font-semibold text-[#171717]">
@@ -103,32 +103,32 @@ export const LocationsSection = () => {
 
             <div className="space-y-2.5 pt-2 text-xs text-[#171717]">
               <div className="flex items-center gap-2.5 text-[#646464]">
-                <MapPin className="w-4 h-4 text-[#1459D9] shrink-0" />
+                <MapPin className="w-4 h-4 text-[#171717] shrink-0" />
                 <span>Bangalore, India</span>
               </div>
               
               <div className="flex items-center gap-2.5 text-[#646464]">
-                <Phone className="w-4 h-4 text-[#1459D9] shrink-0" />
-                <a href="tel:+919980399557" className="font-semibold text-[#171717] hover:text-[#1459D9]">
+                <Phone className="w-4 h-4 text-[#171717] shrink-0" />
+                <a href="tel:+919980399557" className="font-semibold text-[#171717] hover:underline">
                   Call: +91 99803 99557
                 </a>
               </div>
 
               <div className="flex items-center gap-2.5 text-[#646464]">
-                <MessageCircle className="w-4 h-4 text-[#10B981] shrink-0" />
+                <MessageCircle className="w-4 h-4 text-[#171717] shrink-0" />
                 <a
                   href="https://wa.me/918903467843"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-[#10B981] hover:underline"
+                  className="font-semibold text-[#171717] hover:underline"
                 >
                   WhatsApp: +91 89034 67843
                 </a>
               </div>
 
               <div className="flex items-center gap-2.5 text-[#646464]">
-                <Mail className="w-4 h-4 text-[#1459D9] shrink-0" />
-                <a href="mailto:onesash.contact@gmail.com" className="font-semibold text-[#171717] hover:text-[#1459D9]">
+                <Mail className="w-4 h-4 text-[#171717] shrink-0" />
+                <a href="mailto:onesash.contact@gmail.com" className="font-semibold text-[#171717] hover:underline">
                   onesash.contact@gmail.com
                 </a>
               </div>
@@ -136,7 +136,7 @@ export const LocationsSection = () => {
 
             <div className="pt-4 border-t border-[#E4E4E0] flex items-center justify-between text-xs text-[#646464]">
               <span>Product Studio · Bangalore, India</span>
-              <span className="text-[#1459D9] font-medium">Direct Developer Access</span>
+              <span className="text-[#171717] font-semibold">Direct Developer Access</span>
             </div>
           </div>
 

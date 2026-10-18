@@ -49,17 +49,17 @@ export const MobileAppPage = () => {
                 <div className="w-[300px] bg-white rounded-xl p-4 shadow-studio-card border border-[#E4E4E0] text-xs space-y-3">
                   <div className="flex justify-between items-center text-[10px] text-[#646464] pb-2 border-b border-[#E4E4E0]">
                     <span className="font-semibold text-[#171717]">Security Gate Console</span>
-                    <span className="text-[#137333] font-medium">Online Sync</span>
+                    <span className="text-[#171717] font-semibold">Online Sync</span>
                   </div>
 
                   <div className="space-y-1">
-                    <span className="text-[10px] text-[#1459D9] font-medium">Apar Crown Gateway</span>
+                    <span className="text-[10px] text-[#646464] font-medium">Apar Crown Gateway</span>
                     <h4 className="font-semibold text-sm text-[#171717]">Visitor Entry Log</h4>
                   </div>
 
                   {/* Quick Action Card */}
-                  <div className="p-3 bg-[#EEF3FD] rounded-lg border border-[#C5D8FB] space-y-1">
-                    <span className="text-[10px] text-[#1459D9] font-bold block">INCOMING VISITOR</span>
+                  <div className="p-3 bg-[#F1F1EE] rounded-lg border border-[#E4E4E0] space-y-1">
+                    <span className="text-[10px] text-[#171717] font-bold block">INCOMING VISITOR</span>
                     <div className="font-semibold text-[#171717] text-xs">TN-09-CB-4819 (Amazon Delivery)</div>
                     <span className="text-[10px] text-[#646464] block">Destination: Tower B - 402</span>
                   </div>
@@ -67,7 +67,7 @@ export const MobileAppPage = () => {
                   <div className="p-3 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0] space-y-1">
                     <div className="flex justify-between items-center">
                       <span className="font-semibold text-[#171717] text-[11px]">Resident Authorization</span>
-                      <span className="px-1.5 py-0.5 bg-[#E6F4EA] text-[#137333] rounded text-[9px] font-bold">Approved</span>
+                      <span className="px-1.5 py-0.5 bg-[#171717] text-white rounded text-[9px] font-bold">Approved</span>
                     </div>
                     <p className="text-[10px] text-[#646464]">R. Sundaram verified via resident app notification at 09:39 AM.</p>
                   </div>
@@ -113,21 +113,21 @@ export const MobileAppPage = () => {
                 </h2>
                 <div className="space-y-3 text-xs sm:text-sm text-[#171717]">
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <WifiOff className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <WifiOff className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>Offline-First SQLite Architecture: </strong>
                       Local SQLite caching ensures field operations run smoothly offline, synchronizing automatically once signal is restored.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <Bell className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <Bell className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>Native Push Pipelines (APNs & FCM): </strong>
                       Sub-second transactional notifications for urgent approvals, order updates, and security alerts.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <ShieldCheck className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <ShieldCheck className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>Biometric Hardware Integration: </strong>
                       Face ID, Touch ID, and fingerprint authentication with secure keychain storage for sensitive client credentials.

@@ -90,21 +90,21 @@ export const CustomSoftwarePage = () => {
                 </h2>
                 <div className="space-y-3 text-xs sm:text-sm text-[#171717]">
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>Internal Operations Portals: </strong>
                       Centralized web dashboards for tracking service orders, billing ledgers, staff assignments, and inventory.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>Role-Based Access Control (RBAC): </strong>
                       Strict multi-level user permissions (Admin, Manager, Field Staff, Client) ensuring everyone sees only what their role permits.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>ACID-Compliant Relational Schemas: </strong>
                       Strict PostgreSQL database architectures designed with verified foreign key constraints to prevent corrupt or orphan data.
@@ -161,25 +161,25 @@ export const CustomSoftwarePage = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
               <div className="p-6 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] space-y-2">
-                <span className="font-semibold text-xs text-[#1459D9]">Step 1</span>
+                <span className="font-semibold text-xs text-[#171717]">Step 1</span>
                 <h3 className="text-sm font-semibold text-[#171717]">Discovery & Schema Blueprint</h3>
                 <p className="text-[#646464]">We sit down with your department leads to map data flows, edge cases, and user permissions before writing code.</p>
               </div>
 
               <div className="p-6 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] space-y-2">
-                <span className="font-semibold text-xs text-[#1459D9]">Step 2</span>
+                <span className="font-semibold text-xs text-[#171717]">Step 2</span>
                 <h3 className="text-sm font-semibold text-[#171717]">Interface Prototyping</h3>
                 <p className="text-[#646464]">Every screen and button is reviewed in clickable Figma prototypes so your team signs off on the exact experience.</p>
               </div>
 
               <div className="p-6 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] space-y-2">
-                <span className="font-semibold text-xs text-[#1459D9]">Step 3</span>
+                <span className="font-semibold text-xs text-[#171717]">Step 3</span>
                 <h3 className="text-sm font-semibold text-[#171717]">Sprint Engineering</h3>
                 <p className="text-[#646464]">You test working features every 10 business days on an isolated cloud staging server with live sample data.</p>
               </div>
 
               <div className="p-6 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] space-y-2">
-                <span className="font-semibold text-xs text-[#1459D9]">Step 4</span>
+                <span className="font-semibold text-xs text-[#171717]">Step 4</span>
                 <h3 className="text-sm font-semibold text-[#171717]">Launch & Handover</h3>
                 <p className="text-[#646464]">We manage domain routing, TLS hardening, database backups, and transfer all credentials and repositories to you.</p>
               </div>
@@ -196,7 +196,7 @@ export const CustomSoftwarePage = () => {
                   Verified Custom Systems in Active Production
                 </h2>
               </div>
-              <Link to="/portfolio" className="text-xs font-semibold text-[#1459D9] hover:underline">
+              <Link to="/portfolio" className="text-xs font-semibold text-[#171717] hover:underline">
                 See all project case studies
               </Link>
             </div>

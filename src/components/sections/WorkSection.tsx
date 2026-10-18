@@ -171,7 +171,7 @@ export const WorkSection: React.FC = () => {
         <div className="pt-8 text-center">
           <Link
             to="/portfolio"
-            className="text-xs font-semibold text-[#1459D9] hover:underline"
+            className="text-xs font-semibold text-[#171717] hover:underline"
           >
             Explore technical architecture for all deployed products →
           </Link>

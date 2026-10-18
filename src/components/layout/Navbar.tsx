@@ -10,10 +10,6 @@ export const Navbar = () => {
   const location = useLocation()
 
   useEffect(() => {
-    setIsMobileMenuOpen(false)
-  }, [location.pathname])
-
-  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
     }
@@ -34,20 +30,20 @@ export const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-colors duration-150 border-b",
         isScrolled
-          ? "bg-[#FAFAF8]/95 backdrop-blur-sm border-[#E4E4E0] py-4"
-          : "bg-[#FAFAF8] border-transparent py-5"
+          ? "bg-white/95 backdrop-blur-sm border-neutral-200 py-4"
+          : "bg-white border-transparent py-5"
       )}
     >
       <div className="container mx-auto px-4 md:px-8 max-w-6xl">
         <div className="flex items-center justify-between">
           
-          {/* Rich Handcrafted Studio Brand Mark */}
+          {/* Studio Brand Mark */}
           <Link
             to="/"
             className="flex items-center focus-visible:outline-none group"
             aria-label="OneSash — Home"
           >
-            <SashLogo className="w-9 h-9 transition-transform group-hover:scale-105" showWordmark={true} />
+            <SashLogo className="w-8 h-8 transition-transform group-hover:scale-105" showWordmark={true} />
           </Link>
 
           {/* Desktop Navigation */}
@@ -62,8 +58,8 @@ export const Navbar = () => {
                   className={cn(
                     "text-xs font-medium transition-colors py-1 focus-visible:outline-none",
                     isActive
-                      ? "text-[#171717] font-semibold"
-                      : "text-[#646464] hover:text-[#171717]"
+                      ? "text-black font-semibold"
+                      : "text-neutral-500 hover:text-black"
                   )}
                 >
                   {link.name}
@@ -72,11 +68,11 @@ export const Navbar = () => {
             })}
           </nav>
 
-          {/* Clean Standard Action Button */}
+          {/* Action Button */}
           <div className="hidden md:flex items-center gap-4">
             <Link
               to="/contact"
-              className="px-4 py-2 text-xs font-semibold text-white bg-[#171717] hover:bg-[#333333] rounded-md transition-colors"
+              className="px-4 py-2 text-xs font-semibold text-white bg-black hover:bg-neutral-800 rounded-md transition-colors"
             >
               Start a Project
             </Link>
@@ -86,7 +82,7 @@ export const Navbar = () => {
           <div className="flex items-center md:hidden">
             <button
               type="button"
-              className="p-1.5 text-[#171717] rounded hover:bg-[#F1F1EE] transition-colors"
+              className="p-1.5 text-black rounded hover:bg-neutral-100 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-expanded={isMobileMenuOpen}
               aria-label="Toggle navigation menu"
@@ -100,15 +96,16 @@ export const Navbar = () => {
 
       {/* Mobile Menu Drawer */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-b border-[#E4E4E0] bg-[#FAFAF8] px-6 py-6 shadow-sm">
+        <div className="md:hidden border-b border-neutral-200 bg-white px-6 py-6 shadow-sm">
           <nav className="flex flex-col gap-3 text-sm">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
+                onClick={() => setIsMobileMenuOpen(false)}
                 className={cn(
                   "py-2 transition-colors",
-                  location.pathname === link.path ? "text-[#171717] font-semibold" : "text-[#646464] hover:text-[#171717]"
+                  location.pathname === link.path ? "text-black font-semibold" : "text-neutral-500 hover:text-black"
                 )}
               >
                 {link.name}
@@ -116,10 +113,11 @@ export const Navbar = () => {
             ))}
           </nav>
 
-          <div className="pt-4 mt-2 border-t border-[#E4E4E0]">
+          <div className="pt-4 mt-2 border-t border-neutral-200">
             <Link
               to="/contact"
-              className="block w-full py-2.5 text-center text-xs font-semibold text-white bg-[#171717] rounded-md"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block w-full py-2.5 text-center text-xs font-semibold text-white bg-black hover:bg-neutral-800 rounded-md"
             >
               Start a Project
             </Link>

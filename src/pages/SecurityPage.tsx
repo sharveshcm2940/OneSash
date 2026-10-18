@@ -39,7 +39,7 @@ export const SecurityPage = () => {
             
             {/* 1. IP & Code Ownership */}
             <div className="p-8 sm:p-10 bg-white rounded-3xl border border-[#E5E5EA] shadow-apple-subtle space-y-4">
-              <div className="flex items-center gap-3 text-[#0071E3]">
+              <div className="flex items-center gap-3 text-[#1D1D1F]">
                 <FileCode className="w-5 h-5" />
                 <h2 className="text-xl font-heading font-semibold text-[#1D1D1F]">
                   1. Complete Source Code & IP Ownership
@@ -50,20 +50,20 @@ export const SecurityPage = () => {
               </p>
               <div className="pt-2 flex flex-wrap gap-4 text-xs font-medium text-[#1D1D1F]">
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#34C759]" /> Full Git Repository Handover
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#1D1D1F]" /> Full Git Repository Handover
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#34C759]" /> Clean Docker Build Scripts Included
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#1D1D1F]" /> Clean Docker Build Scripts Included
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#34C759]" /> Zero Proprietary Lock-In
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#1D1D1F]" /> Zero Proprietary Lock-In
                 </span>
               </div>
             </div>
 
             {/* 2. Confidentiality & Non-Disclosure */}
             <div className="p-8 sm:p-10 bg-white rounded-3xl border border-[#E5E5EA] shadow-apple-subtle space-y-4">
-              <div className="flex items-center gap-3 text-[#0071E3]">
+              <div className="flex items-center gap-3 text-[#1D1D1F]">
                 <Lock className="w-5 h-5" />
                 <h2 className="text-xl font-heading font-semibold text-[#1D1D1F]">
                   2. Confidentiality & Bilateral Non-Disclosure (NDA)
@@ -76,7 +76,7 @@ export const SecurityPage = () => {
 
             {/* 3. Secrets Management */}
             <div className="p-8 sm:p-10 bg-white rounded-3xl border border-[#E5E5EA] shadow-apple-subtle space-y-4">
-              <div className="flex items-center gap-3 text-[#0071E3]">
+              <div className="flex items-center gap-3 text-[#1D1D1F]">
                 <Key className="w-5 h-5" />
                 <h2 className="text-xl font-heading font-semibold text-[#1D1D1F]">
                   3. Credential & Secrets Hygiene
@@ -94,7 +94,7 @@ export const SecurityPage = () => {
 
             {/* 4. Database Security */}
             <div className="p-8 sm:p-10 bg-white rounded-3xl border border-[#E5E5EA] shadow-apple-subtle space-y-4">
-              <div className="flex items-center gap-3 text-[#0071E3]">
+              <div className="flex items-center gap-3 text-[#1D1D1F]">
                 <Server className="w-5 h-5" />
                 <h2 className="text-xl font-heading font-semibold text-[#1D1D1F]">
                   4. Relational Database & Transport Security
@@ -107,7 +107,7 @@ export const SecurityPage = () => {
 
             {/* 5. Continuous Scanning */}
             <div className="p-8 sm:p-10 bg-white rounded-3xl border border-[#E5E5EA] shadow-apple-subtle space-y-4">
-              <div className="flex items-center gap-3 text-[#0071E3]">
+              <div className="flex items-center gap-3 text-[#1D1D1F]">
                 <RefreshCw className="w-5 h-5" />
                 <h2 className="text-xl font-heading font-semibold text-[#1D1D1F]">
                   5. Automated Vulnerability Scanning & CI/CD
@@ -123,7 +123,7 @@ export const SecurityPage = () => {
               <span className="font-medium text-[#1D1D1F]">Have specific security requirements or compliance audit questions?</span>
               <a
                 href="mailto:onesash.contact@gmail.com?subject=Security Inquiry"
-                className="text-[#0071E3] hover:underline font-semibold"
+                className="text-[#1D1D1F] hover:underline font-semibold"
               >
                 Contact Security Team →
               </a>

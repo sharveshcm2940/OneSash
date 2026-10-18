@@ -46,7 +46,7 @@ export const BookingPage = () => {
 
           {isBooked ? (
             <div className="bg-white p-10 sm:p-14 rounded-2xl border border-[#E4E4E0] shadow-studio-card text-center space-y-5 max-w-2xl mx-auto">
-              <div className="w-14 h-14 rounded-full bg-[#E6F4EA] text-[#137333] mx-auto flex items-center justify-center">
+              <div className="w-14 h-14 rounded-full bg-[#171717] text-white mx-auto flex items-center justify-center">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
               <h2 className="text-2xl font-heading font-semibold text-[#171717]">
@@ -57,13 +57,13 @@ export const BookingPage = () => {
               </p>
               <div className="p-4 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] max-w-sm mx-auto text-xs text-[#171717] flex justify-between">
                 <span>Google Meet Video Link</span>
-                <span className="font-mono text-[#1459D9]">meet.google.com/onesash-sync</span>
+                <span className="font-mono text-[#171717] font-semibold">meet.google.com/onesash-sync</span>
               </div>
               <div className="pt-4">
                 <button
                   type="button"
                   onClick={() => setIsBooked(false)}
-                  className="text-xs font-semibold text-[#1459D9] hover:underline"
+                  className="text-xs font-semibold text-[#171717] hover:underline"
                 >
                   Schedule another slot
                 </button>
@@ -75,7 +75,7 @@ export const BookingPage = () => {
               {/* Calendar & Times (7 cols) */}
               <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-[#E4E4E0] shadow-studio-card space-y-6">
                 <div className="flex items-center gap-3 pb-4 border-b border-[#E4E4E0]">
-                  <div className="w-10 h-10 rounded-xl bg-[#EEF3FD] text-[#1459D9] flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-[#F1F1EE] text-[#171717] border border-[#E4E4E0] flex items-center justify-center">
                     <Video className="w-5 h-5" />
                   </div>
                   <div>
@@ -87,7 +87,7 @@ export const BookingPage = () => {
                 {/* Date Selection */}
                 <div className="space-y-3">
                   <span className="text-xs font-semibold text-[#171717] flex items-center gap-2">
-                    <CalendarIcon className="w-4 h-4 text-[#1459D9]" />
+                    <CalendarIcon className="w-4 h-4 text-[#171717]" />
                     Select a Date (Current Month)
                   </span>
                   <div className="grid grid-cols-4 sm:grid-cols-6 gap-2">
@@ -98,8 +98,8 @@ export const BookingPage = () => {
                         onClick={() => setSelectedDate(d)}
                         className={`p-3 rounded-xl text-center text-xs font-semibold transition-all cursor-pointer ${
                           selectedDate === d
-                            ? "bg-[#1459D9] text-white shadow-studio-subtle"
-                            : "bg-[#FAFAF8] border border-[#E4E4E0] text-[#171717] hover:border-[#1459D9]"
+                            ? "bg-[#171717] text-white shadow-studio-subtle"
+                            : "bg-[#FAFAF8] border border-[#E4E4E0] text-[#171717] hover:border-[#171717]"
                         }`}
                       >
                         {d}th
@@ -112,7 +112,7 @@ export const BookingPage = () => {
                 {selectedDate && (
                   <div className="space-y-3 pt-4 border-t border-[#E4E4E0]">
                     <span className="text-xs font-semibold text-[#171717] flex items-center gap-2">
-                      <Clock className="w-4 h-4 text-[#1459D9]" />
+                      <Clock className="w-4 h-4 text-[#171717]" />
                       Select a Time Slot
                     </span>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -123,8 +123,8 @@ export const BookingPage = () => {
                           onClick={() => setSelectedTime(t)}
                           className={`p-2.5 rounded-lg text-xs font-semibold transition-all border cursor-pointer ${
                             selectedTime === t
-                              ? "bg-[#1459D9] text-white border-[#1459D9]"
-                              : "bg-[#FAFAF8] border-[#E4E4E0] text-[#171717] hover:border-[#1459D9]"
+                              ? "bg-[#171717] text-white border-[#171717]"
+                              : "bg-[#FAFAF8] border-[#E4E4E0] text-[#171717] hover:border-[#171717]"
                           }`}
                         >
                           {t}
@@ -141,7 +141,7 @@ export const BookingPage = () => {
                 
                 {selectedDate && selectedTime ? (
                   <form onSubmit={handleBooking} className="space-y-4">
-                    <div className="p-3 bg-[#EEF3FD] rounded-lg border border-[#C5D8FB] text-xs text-[#171717]">
+                    <div className="p-3 bg-[#F1F1EE] rounded-lg border border-[#E4E4E0] text-xs text-[#171717]">
                       Scheduled for: <strong>{selectedDate}th at {selectedTime}</strong>
                     </div>
 
@@ -153,7 +153,7 @@ export const BookingPage = () => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="e.g. Ananya Sundaram"
-                        className="w-full px-3.5 py-2 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none"
+                        className="w-full px-3.5 py-2 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs text-[#171717] focus:bg-white focus:border-[#171717] outline-none"
                       />
                     </div>
 
@@ -165,7 +165,7 @@ export const BookingPage = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="you@company.com"
-                        className="w-full px-3.5 py-2 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none"
+                        className="w-full px-3.5 py-2 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs text-[#171717] focus:bg-white focus:border-[#171717] outline-none"
                       />
                     </div>
 
@@ -176,7 +176,7 @@ export const BookingPage = () => {
                         value={notes}
                         onChange={(e) => setNotes(e.target.value)}
                         placeholder="Brief summary of what you'd like to discuss..."
-                        className="w-full px-3.5 py-2 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none resize-none"
+                        className="w-full px-3.5 py-2 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs text-[#171717] focus:bg-white focus:border-[#171717] outline-none resize-none"
                       />
                     </div>
 

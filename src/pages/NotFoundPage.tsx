@@ -1,6 +1,6 @@
 import { SEO } from "../components/common/SEO"
 import { Link } from "react-router-dom"
-import { Home, Mail, ArrowRight } from "lucide-react"
+import { Home, Mail } from "lucide-react"
 
 export const NotFoundPage = () => {
   return (
@@ -29,7 +29,7 @@ export const NotFoundPage = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <Link
               to="/"
-              className="w-full sm:w-auto px-6 py-2.5 bg-[#1459D9] hover:bg-[#1048B3] text-white text-xs font-semibold rounded-full shadow-studio-subtle transition-all inline-flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-6 py-2.5 bg-[#171717] hover:bg-[#2c2c2c] text-white text-xs font-semibold rounded-full shadow-studio-subtle transition-all inline-flex items-center justify-center gap-2"
             >
               <Home className="w-3.5 h-3.5" />
               <span>Return to Home</span>

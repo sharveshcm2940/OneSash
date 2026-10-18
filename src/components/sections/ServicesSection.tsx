@@ -167,7 +167,7 @@ export const ServicesSection: React.FC = () => {
 
           <Link
             to="/contact"
-            className="text-xs font-semibold text-[#1459D9] hover:underline"
+            className="text-xs font-semibold text-[#171717] hover:underline"
           >
             Discuss your requirements with an engineer →
           </Link>
@@ -198,7 +198,7 @@ export const ServicesSection: React.FC = () => {
                           0{idx + 1}
                         </span>
                         <h3 className={`text-xl sm:text-2xl font-heading font-semibold transition-colors ${
-                          isSelected ? "text-[#1459D9]" : "text-[#171717] group-hover:text-[#171717]"
+                          isSelected ? "text-[#171717]" : "text-[#171717] group-hover:text-[#171717]"
                         }`}>
                           {service.title}
                         </h3>
@@ -228,7 +228,7 @@ export const ServicesSection: React.FC = () => {
                   <div className="pl-7 pt-2">
                     <Link
                       to={service.slug}
-                      className="text-[11px] font-semibold text-[#1459D9] hover:underline"
+                      className="text-[11px] font-semibold text-[#171717] hover:underline"
                     >
                       Explore {service.title} capabilities →
                     </Link>
@@ -245,7 +245,7 @@ export const ServicesSection: React.FC = () => {
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-[#646464]">
                   Capability Preview
                 </span>
-                <span className="px-2.5 py-0.5 rounded text-[11px] font-medium bg-[#EEF3FD] text-[#1459D9]">
+                <span className="px-2.5 py-0.5 rounded text-[11px] font-medium bg-[#F1F1EE] text-[#171717] border border-[#E4E4E0]">
                   {activeService.previewBadge}
                 </span>
               </div>
@@ -275,7 +275,7 @@ export const ServicesSection: React.FC = () => {
                     <ul className="space-y-2 text-xs text-[#646464]">
                       {activeService.previewDetails.map((item, i) => (
                         <li key={i} className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#1459D9]" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#171717]" />
                           <span>{item}</span>
                         </li>
                       ))}

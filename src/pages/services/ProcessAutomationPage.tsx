@@ -90,21 +90,21 @@ export const ProcessAutomationPage = () => {
                 </h2>
                 <div className="space-y-3 text-xs sm:text-sm text-[#171717]">
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>Automated Dues & Payment Links: </strong>
                       Scheduled monthly crons calculate dues, generate secure UPI payment links, and dispatch personalized WhatsApp alerts.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>Dynamic PDF Contract & Receipt Engine: </strong>
                       Serverless PDF engines compile customized agreements and tax receipts with digital signatures in milliseconds.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>Bi-directional Webhook Reconciliation: </strong>
                       Payment webhooks instantly reconcile ledger rows, send receipt notifications, and update accounting records.

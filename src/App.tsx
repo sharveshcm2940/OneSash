@@ -27,9 +27,9 @@ const SecurityPage = lazy(() => import("./pages/SecurityPage").then(m => ({ defa
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })))
 
 const PageLoader = () => (
-  <div className="min-h-[60vh] flex items-center justify-center bg-[#FAFAF8]">
-    <div className="text-xs font-semibold text-[#646464] uppercase tracking-widest flex items-center gap-2">
-      <span className="w-2 h-2 rounded-full bg-[#1459D9] animate-ping" />
+  <div className="min-h-[60vh] flex items-center justify-center bg-white">
+    <div className="text-xs font-semibold text-neutral-500 uppercase tracking-widest flex items-center gap-2">
+      <span className="w-2 h-2 rounded-full bg-black animate-ping" />
       Loading OneSash...
     </div>
   </div>
@@ -41,7 +41,7 @@ function App() {
       <ThemeProvider>
         <BrowserRouter>
           <ScrollToTop />
-          <div className="min-h-screen bg-[#FAFAF8] text-[#171717] antialiased selection:bg-[#1459D9] selection:text-white">
+          <div className="min-h-screen bg-white text-black antialiased selection:bg-black selection:text-white">
             <Suspense fallback={<PageLoader />}>
               <Routes>
                 <Route element={<MainLayout />}>

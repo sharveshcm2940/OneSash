@@ -20,7 +20,7 @@ export const CTABannerSection: React.FC = () => {
         
         {/* Studio Status Badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-medium text-white/90">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
           <span>Currently Accepting New Projects for Q4</span>
         </div>
 
@@ -52,7 +52,7 @@ export const CTABannerSection: React.FC = () => {
             rel="noopener noreferrer"
             className="px-8 py-3.5 rounded-md bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-semibold transition-all inline-flex items-center gap-2"
           >
-            <MessageCircle className="w-4 h-4 text-[#10B981]" />
+            <MessageCircle className="w-4 h-4 text-white" />
             <span>Chat on WhatsApp</span>
           </a>
         </div>
@@ -61,9 +61,9 @@ export const CTABannerSection: React.FC = () => {
         <div className="pt-8 border-t border-white/15 flex flex-wrap items-center justify-center gap-6 text-xs text-[#A0A0A0]">
           <a
             href="mailto:onesash.contact@gmail.com"
-            className="inline-flex items-center gap-2 text-white hover:text-[#81A1C1] transition-colors"
+            className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors"
           >
-            <Mail className="w-4 h-4 text-[#81A1C1]" />
+            <Mail className="w-4 h-4 text-white" />
             <span className="font-medium">onesash.contact@gmail.com</span>
           </a>
 
@@ -71,7 +71,7 @@ export const CTABannerSection: React.FC = () => {
 
           <a
             href="tel:+919980399557"
-            className="inline-flex items-center gap-2 text-white hover:text-[#81A1C1] transition-colors"
+            className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors"
           >
             <span className="font-medium">Call: +91 99803 99557</span>
           </a>
@@ -82,9 +82,9 @@ export const CTABannerSection: React.FC = () => {
             href="https://wa.me/918903467843"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-white hover:text-[#10B981] transition-colors"
+            className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors"
           >
-            <MessageCircle className="w-4 h-4 text-[#10B981]" />
+            <MessageCircle className="w-4 h-4 text-white" />
             <span className="font-medium">WhatsApp: +91 89034 67843</span>
           </a>
         </div>

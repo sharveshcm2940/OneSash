@@ -71,7 +71,7 @@ export const AboutPage: React.FC = () => {
 
               <div className="pt-3 flex flex-wrap items-center gap-4 text-xs text-[#646464]">
                 <span className="flex items-center gap-1.5 font-medium text-[#171717]">
-                  <MapPin className="w-3.5 h-3.5 text-[#1459D9]" />
+                  <MapPin className="w-3.5 h-3.5 text-[#171717]" />
                   Chennai, India & Bangalore, India
                 </span>
                 <span>•</span>
@@ -155,7 +155,7 @@ export const AboutPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
               <div className="p-6 sm:p-8 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] space-y-3">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-[#1459D9] block font-mono">
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-[#171717] block font-mono">
                   ENGINEERING STUDIO • CHENNAI, INDIA
                 </span>
                 <h3 className="text-lg font-heading font-semibold text-[#171717]">Chennai, India</h3>
@@ -163,14 +163,14 @@ export const AboutPage: React.FC = () => {
                   Database architecture, backend services, high-throughput systems, and client discovery.
                 </p>
                 <div className="pt-1 flex flex-wrap gap-3 text-xs">
-                  <a href="tel:+919980399557" className="font-medium text-[#171717] hover:text-[#1459D9]">Call: +91 99803 99557</a>
+                  <a href="tel:+919980399557" className="font-medium text-[#171717] hover:underline">Call: +91 99803 99557</a>
                   <span>•</span>
-                  <a href="https://wa.me/918903467843" target="_blank" rel="noopener noreferrer" className="font-medium text-[#10B981] hover:underline">WhatsApp: +91 89034 67843</a>
+                  <a href="https://wa.me/918903467843" target="_blank" rel="noopener noreferrer" className="font-medium text-[#171717] hover:underline">WhatsApp: +91 89034 67843</a>
                 </div>
               </div>
 
               <div className="p-6 sm:p-8 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] space-y-3">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-[#1459D9] block font-mono">
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-[#171717] block font-mono">
                   PRODUCT STUDIO • BANGALORE, INDIA
                 </span>
                 <h3 className="text-lg font-heading font-semibold text-[#171717]">Bangalore, India</h3>
@@ -178,9 +178,9 @@ export const AboutPage: React.FC = () => {
                   Digital platforms, business process automation, real-time web applications, and technical partnerships.
                 </p>
                 <div className="pt-1 flex flex-wrap gap-3 text-xs">
-                  <a href="tel:+919980399557" className="font-medium text-[#171717] hover:text-[#1459D9]">Call: +91 99803 99557</a>
+                  <a href="tel:+919980399557" className="font-medium text-[#171717] hover:underline">Call: +91 99803 99557</a>
                   <span>•</span>
-                  <a href="https://wa.me/918903467843" target="_blank" rel="noopener noreferrer" className="font-medium text-[#10B981] hover:underline">WhatsApp: +91 89034 67843</a>
+                  <a href="https://wa.me/918903467843" target="_blank" rel="noopener noreferrer" className="font-medium text-[#171717] hover:underline">WhatsApp: +91 89034 67843</a>
                 </div>
               </div>
 

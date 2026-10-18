@@ -51,7 +51,7 @@ export const CloudPage = () => {
                     <span className="text-[11px] font-semibold uppercase text-[#171717]">
                       Production Cloud Topology
                     </span>
-                    <span className="px-2 py-0.5 bg-[#E6F4EA] text-[#137333] rounded text-[10px] font-medium">
+                    <span className="px-2 py-0.5 bg-[#171717] text-white rounded text-[10px] font-medium">
                       Hardened Linux
                     </span>
                   </div>
@@ -59,13 +59,13 @@ export const CloudPage = () => {
                   {/* Level 1: Edge & CDN */}
                   <div className="p-3 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0] flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
-                      <ShieldCheck className="w-4 h-4 text-[#1459D9]" />
+                      <ShieldCheck className="w-4 h-4 text-[#171717]" />
                       <div>
                         <strong className="text-[#171717] block">Cloudflare Edge & Reverse Proxy</strong>
                         <span className="text-[10px] text-[#646464]">TLS 1.3, DDoS Shield & Automated WAF</span>
                       </div>
                     </div>
-                    <span className="text-[10px] text-[#0D7A5F] font-medium">Sub-10ms</span>
+                    <span className="text-[10px] text-[#171717] font-semibold">Sub-10ms</span>
                   </div>
 
                   <div className="flex justify-center py-0.5">
@@ -75,13 +75,13 @@ export const CloudPage = () => {
                   {/* Level 2: App Containers */}
                   <div className="p-3 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0] flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
-                      <Server className="w-4 h-4 text-[#1459D9]" />
+                      <Server className="w-4 h-4 text-[#171717]" />
                       <div>
                         <strong className="text-[#171717] block">Dockerized Application Cluster</strong>
                         <span className="text-[10px] text-[#646464]">Node.js & Python Services with Nginx Gateway</span>
                       </div>
                     </div>
-                    <span className="text-[10px] text-[#1459D9] font-medium">Auto-Restart</span>
+                    <span className="text-[10px] text-[#171717] font-semibold">Auto-Restart</span>
                   </div>
 
                   <div className="flex justify-center py-0.5">
@@ -91,13 +91,13 @@ export const CloudPage = () => {
                   {/* Level 3: Database & Backup */}
                   <div className="p-3 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0] flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
-                      <Database className="w-4 h-4 text-[#1459D9]" />
+                      <Database className="w-4 h-4 text-[#171717]" />
                       <div>
                         <strong className="text-[#171717] block">PostgreSQL (ACID) & Encrypted S3</strong>
                         <span className="text-[10px] text-[#646464]">Automated 6-Hour Encrypted WAL Backups</span>
                       </div>
                     </div>
-                    <span className="text-[10px] text-[#1459D9] font-medium">Point-in-Time</span>
+                    <span className="text-[10px] text-[#171717] font-semibold">Point-in-Time</span>
                   </div>
                 </div>
               </div>
@@ -137,21 +137,21 @@ export const CloudPage = () => {
                 </h2>
                 <div className="space-y-3 text-xs sm:text-sm text-[#171717]">
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>Automated Daily Encrypted Backups: </strong>
                       Daily full snapshots and continuous write-ahead logs (WAL) stored in encrypted, air-gapped object storage for point-in-time recovery.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>Zero-Downtime CI/CD: </strong>
                       Pull requests trigger automated tests, build immutable Docker containers, and deploy to live servers without dropping active user connections.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>24/7 Telemetry & Health Monitoring: </strong>
                       Real-time alerts sent to our on-call engineering channel if CPU load, memory exhaustion, or HTTP 5xx errors spike.

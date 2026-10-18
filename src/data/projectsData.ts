@@ -40,7 +40,7 @@ export const realProducts: ProductProject[] = [
     deliverables: ["Admin Management Web Portal", "Resident Self-Service Mobile Web", "Automated Billing Engine", "PDF Receipt Generator"],
     interfaceType: "apartment-management",
     demoAvailable: true,
-    accentColor: "#1459D9"
+    accentColor: "#000000"
   },
   {
     id: "law-throne",
@@ -64,7 +64,7 @@ export const realProducts: ProductProject[] = [
     deliverables: ["Chamber Admin Web Dashboard", "Advocate Hearing Diary", "Client Document Safe", "Billing & Retainer Module"],
     interfaceType: "legal-crm",
     demoAvailable: true,
-    accentColor: "#2A3B5C"
+    accentColor: "#000000"
   },
   {
     id: "qr-food-processing",
@@ -88,7 +88,7 @@ export const realProducts: ProductProject[] = [
     deliverables: ["Customer PWA Ordering App", "Kitchen Display Unit Screen", "Manager Inventory Console", "UPI Payment Hook"],
     interfaceType: "qr-food",
     demoAvailable: true,
-    accentColor: "#D9531E"
+    accentColor: "#000000"
   },
   {
     id: "pg-management",
@@ -112,6 +112,6 @@ export const realProducts: ProductProject[] = [
     deliverables: ["Branch Manager Dashboard", "Owner Multi-Property Overview", "Tenant Verification Portal"],
     interfaceType: "pg-management",
     demoAvailable: true,
-    accentColor: "#0D7A5F"
+    accentColor: "#000000"
   }
 ]

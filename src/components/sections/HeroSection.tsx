@@ -65,12 +65,12 @@ export const HeroSection: React.FC = () => {
   const activeProduct = PRODUCTS[activeIdx]
 
   return (
-    <section className="relative bg-[#FAFAF8] pt-24 pb-16 md:pt-32 md:pb-24 border-b border-[#E4E4E0] overflow-hidden">
-      {/* Subtle Studio Grid Background Pattern */}
+    <section className="relative bg-white pt-24 pb-16 md:pt-32 md:pb-24 border-b border-neutral-200 overflow-hidden">
+      {/* Subtle Monochrome Grid Background Pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.35] pointer-events-none"
+        className="absolute inset-0 opacity-[0.25] pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(#C8C8C4 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(#000000 1px, transparent 1px)",
           backgroundSize: "32px 32px"
         }}
         aria-hidden="true"
@@ -87,13 +87,13 @@ export const HeroSection: React.FC = () => {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Studio Badge */}
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#F1F1EE] border border-[#E4E4E0] text-[11px] font-medium text-[#171717]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1459D9]" />
-              <span>OneSash Studio · Chennai, India & Bangalore, India</span>
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-neutral-100 border border-neutral-200 text-[11px] font-medium text-black">
+              <span className="w-1.5 h-1.5 rounded-full bg-black" />
+              <span>OneSash Studio · Chennai &amp; Bangalore, India</span>
             </div>
 
-            {/* Exact Headline: 5 words with accessible brand anchoring for search engines */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-heading font-semibold tracking-tight text-[#171717] leading-[1.1]">
+            {/* Exact Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-heading font-semibold tracking-tight text-black leading-[1.1]">
               <span className="sr-only">OneSash — </span>We build software that works.
             </h1>
 
@@ -102,8 +102,8 @@ export const HeroSection: React.FC = () => {
               <MechanicalRollingCounter align="left" className="!my-1" />
             </div>
 
-            {/* Exact Supporting Text: 11 words */}
-            <p className="text-base sm:text-lg font-normal text-[#646464] leading-relaxed max-w-lg">
+            {/* Exact Supporting Text */}
+            <p className="text-base sm:text-lg font-normal text-neutral-600 leading-relaxed max-w-lg">
               Custom applications, digital products and business tools — built around your needs.
             </p>
 
@@ -111,7 +111,7 @@ export const HeroSection: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
               <a
                 href="#work"
-                className="px-6 py-3 text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] rounded-md transition-all text-center shadow-xs hover:shadow flex items-center justify-center gap-2 group"
+                className="px-6 py-3 text-xs font-semibold text-white bg-black hover:bg-neutral-800 rounded-md transition-all text-center shadow-xs hover:shadow flex items-center justify-center gap-2 group"
               >
                 <span>See Our Work</span>
                 <ArrowDown className="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5" />
@@ -119,16 +119,16 @@ export const HeroSection: React.FC = () => {
 
               <Link
                 to="/contact"
-                className="px-6 py-3 text-xs font-semibold text-[#171717] bg-white hover:bg-[#F1F1EE] rounded-md transition-all border border-[#E4E4E0] text-center"
+                className="px-6 py-3 text-xs font-semibold text-black bg-white hover:bg-neutral-100 rounded-md transition-all border border-neutral-200 text-center"
               >
                 Start a Project
               </Link>
             </div>
 
             {/* Trust Footnote */}
-            <div className="pt-2 flex items-center gap-4 text-xs text-[#646464]">
+            <div className="pt-2 flex items-center gap-4 text-xs text-neutral-500">
               <span>Direct access to engineers</span>
-              <span className="w-1 h-1 rounded-full bg-[#C8C8C4]" />
+              <span className="w-1 h-1 rounded-full bg-neutral-300" />
               <span>100% code ownership</span>
             </div>
           </motion.div>
@@ -143,7 +143,7 @@ export const HeroSection: React.FC = () => {
             onMouseLeave={() => setIsPaused(false)}
           >
             {/* Interactive Product Selector Tabs */}
-            <div className="flex flex-wrap items-center justify-between gap-2 bg-[#F1F1EE] p-1.5 rounded-lg border border-[#E4E4E0]">
+            <div className="flex flex-wrap items-center justify-between gap-2 bg-neutral-100 p-1.5 rounded-lg border border-neutral-200">
               <div className="flex flex-wrap items-center gap-1">
                 {PRODUCTS.map((prod, idx) => {
                   const isActive = activeIdx === idx
@@ -154,8 +154,8 @@ export const HeroSection: React.FC = () => {
                       onClick={() => setActiveIdx(idx)}
                       className={`relative px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
                         isActive
-                          ? "bg-white text-[#171717] font-semibold shadow-xs"
-                          : "text-[#646464] hover:text-[#171717]"
+                          ? "bg-white text-black font-semibold shadow-xs"
+                          : "text-neutral-500 hover:text-black"
                       }`}
                       aria-label={`View ${prod.name}`}
                     >
@@ -163,7 +163,7 @@ export const HeroSection: React.FC = () => {
                       {isActive && (
                         <motion.span
                           layoutId="activeTabBadge"
-                          className="absolute -bottom-1 left-2 right-2 h-0.5 bg-[#1459D9] rounded-full"
+                          className="absolute -bottom-1 left-2 right-2 h-0.5 bg-black rounded-full"
                           transition={{ type: "spring", stiffness: 380, damping: 30 }}
                         />
                       )}
@@ -172,13 +172,13 @@ export const HeroSection: React.FC = () => {
                 })}
               </div>
 
-              <span className="text-[11px] text-[#646464] px-2 hidden sm:inline">
+              <span className="text-[11px] text-neutral-500 px-2 hidden sm:inline">
                 Live Interactive UI
               </span>
             </div>
 
             {/* Polished Mockup Container with AnimatePresence */}
-            <div className="border border-[#E4E4E0] rounded-xl overflow-hidden bg-white shadow-studio-card transition-shadow hover:shadow-lg">
+            <div className="border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-studio-card transition-shadow hover:shadow-lg">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeProduct.id}
@@ -197,15 +197,15 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Current Product Meta Strip */}
-            <div className="flex items-center justify-between text-xs text-[#646464] px-1 pt-1">
+            <div className="flex items-center justify-between text-xs text-neutral-500 px-1 pt-1">
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-[#171717]">{activeProduct.name}</span>
+                <span className="font-semibold text-black">{activeProduct.name}</span>
                 <span>—</span>
                 <span>{activeProduct.summary}</span>
               </div>
               <Link
                 to={activeProduct.link}
-                className="inline-flex items-center gap-1 text-[#1459D9] hover:underline font-semibold whitespace-nowrap"
+                className="inline-flex items-center gap-1 text-black hover:underline font-semibold whitespace-nowrap"
               >
                 <span>View Project</span>
                 <ExternalLink className="w-3 h-3" />

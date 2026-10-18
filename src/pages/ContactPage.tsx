@@ -116,7 +116,7 @@ export const ContactPage = () => {
             <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-2xl border border-[#E4E4E0] shadow-studio-card">
               {isSubmitted ? (
                 <div className="py-12 text-center space-y-5 animate-in fade-in duration-300">
-                  <div className="w-14 h-14 rounded-full bg-[#E6F4EA] text-[#137333] mx-auto flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-full bg-[#171717] text-white mx-auto flex items-center justify-center">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h2 className="text-2xl font-heading font-semibold text-[#171717]">
@@ -143,7 +143,7 @@ export const ContactPage = () => {
                           budget: ""
                         })
                       }}
-                      className="text-xs font-semibold text-[#1459D9] hover:underline"
+                      className="text-xs font-semibold text-[#171717] hover:underline"
                     >
                       Send another message
                     </button>
@@ -163,16 +163,16 @@ export const ContactPage = () => {
                       placeholder="e.g. Ramesh Kumar"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none transition-colors"
+                      className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#171717] outline-none transition-colors"
                     />
-                    {errors.name && <p className="text-[11px] text-[#B3261E]">{errors.name}</p>}
+                    {errors.name && <p className="text-[11px] text-[#171717] font-semibold">{errors.name}</p>}
                   </div>
 
                   {/* Email & Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <label htmlFor={`${formId}-email`} className="text-xs font-semibold text-[#171717] block">
-                        Email Address <span className="text-[#B3261E]">*</span>
+                        Email Address <span className="text-[#171717]">*</span>
                       </label>
                       <input
                         id={`${formId}-email`}
@@ -180,9 +180,9 @@ export const ContactPage = () => {
                         placeholder="you@company.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none transition-colors"
+                        className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#171717] outline-none transition-colors"
                       />
-                      {errors.email && <p className="text-[11px] text-[#B3261E]">{errors.email}</p>}
+                      {errors.email && <p className="text-[11px] text-[#171717] font-semibold">{errors.email}</p>}
                     </div>
 
                     <div className="space-y-1.5">
@@ -195,7 +195,7 @@ export const ContactPage = () => {
                         placeholder="+91 98765 43210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none transition-colors"
+                        className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#171717] outline-none transition-colors"
                       />
                     </div>
                   </div>
@@ -209,7 +209,7 @@ export const ContactPage = () => {
                       id={`${formId}-projectType`}
                       value={formData.projectType}
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none transition-colors cursor-pointer"
+                      className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#171717] outline-none transition-colors cursor-pointer"
                     >
                       {projectTypes.map((pt) => (
                         <option key={pt} value={pt}>{pt}</option>
@@ -220,7 +220,7 @@ export const ContactPage = () => {
                   {/* Project Description */}
                   <div className="space-y-1.5">
                     <label htmlFor={`${formId}-description`} className="text-xs font-semibold text-[#171717] block">
-                      Project Description <span className="text-[#B3261E]">*</span>
+                      Project Description <span className="text-[#171717]">*</span>
                     </label>
                     <textarea
                       id={`${formId}-description`}
@@ -228,9 +228,9 @@ export const ContactPage = () => {
                       placeholder="Tell us what problem your business is facing, what kind of software you need, or what workflows you want to automate..."
                       value={formData.projectDescription}
                       onChange={(e) => setFormData({ ...formData, projectDescription: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none transition-colors resize-y"
+                      className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#171717] outline-none transition-colors resize-y"
                     />
-                    {errors.projectDescription && <p className="text-[11px] text-[#B3261E]">{errors.projectDescription}</p>}
+                    {errors.projectDescription && <p className="text-[11px] text-[#171717] font-semibold">{errors.projectDescription}</p>}
                   </div>
 
                   {/* Budget (Optional) */}
@@ -242,7 +242,7 @@ export const ContactPage = () => {
                       id={`${formId}-budget`}
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#1459D9] outline-none transition-colors cursor-pointer"
+                      className="w-full px-4 py-2.5 rounded-lg border border-[#E4E4E0] bg-[#FAFAF8] text-xs sm:text-sm text-[#171717] focus:bg-white focus:border-[#171717] outline-none transition-colors cursor-pointer"
                     >
                       <option value="">Select a ballpark range...</option>
                       {budgetRanges.map((br) => (
@@ -274,17 +274,17 @@ export const ContactPage = () => {
               
               {/* Direct Communication Details */}
               <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E4E4E0] shadow-studio-card space-y-5">
-                <span className="text-[11px] font-semibold tracking-wider text-[#1459D9] uppercase block font-mono">
+                <span className="text-[11px] font-semibold tracking-wider text-[#171717] uppercase block font-mono">
                   DIRECT CONTACT
                 </span>
                 
                 <div className="space-y-4 text-xs sm:text-sm">
                   {/* Phone Call */}
                   <div className="flex items-start gap-3">
-                    <Phone className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <Phone className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <span className="text-[10px] uppercase font-semibold text-[#646464] block">Call Us Directly</span>
-                      <a href="tel:+919980399557" className="font-semibold text-[#171717] hover:text-[#1459D9]">
+                      <a href="tel:+919980399557" className="font-semibold text-[#171717] hover:underline">
                         +91 99803 99557
                       </a>
                     </div>
@@ -292,14 +292,14 @@ export const ContactPage = () => {
 
                   {/* WhatsApp */}
                   <div className="flex items-start gap-3">
-                    <MessageCircle className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                    <MessageCircle className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <span className="text-[10px] uppercase font-semibold text-[#646464] block">WhatsApp Message</span>
                       <a
                         href="https://wa.me/918903467843"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-semibold text-[#171717] hover:text-[#10B981]"
+                        className="font-semibold text-[#171717] hover:underline"
                       >
                         +91 89034 67843
                       </a>
@@ -308,10 +308,10 @@ export const ContactPage = () => {
 
                   {/* Email */}
                   <div className="flex items-start gap-3">
-                    <Mail className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <Mail className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <span className="text-[10px] uppercase font-semibold text-[#646464] block">Email Us Directly</span>
-                      <a href="mailto:onesash.contact@gmail.com" className="font-semibold text-[#171717] hover:text-[#1459D9]">
+                      <a href="mailto:onesash.contact@gmail.com" className="font-semibold text-[#171717] hover:underline">
                         onesash.contact@gmail.com
                       </a>
                     </div>
@@ -319,7 +319,7 @@ export const ContactPage = () => {
 
                   {/* Response Turnaround */}
                   <div className="flex items-start gap-3">
-                    <Clock className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <Clock className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <span className="text-[10px] uppercase font-semibold text-[#646464] block">Response Turnaround</span>
                       <span className="text-[#171717] font-medium">Within 24 business hours</span>
@@ -337,7 +337,7 @@ export const ContactPage = () => {
                 <div className="space-y-4 text-xs">
                   <div className="pb-3 border-b border-[#E4E4E0]">
                     <div className="flex items-center gap-1.5 font-semibold text-[#171717]">
-                      <MapPin className="w-3.5 h-3.5 text-[#1459D9]" />
+                      <MapPin className="w-3.5 h-3.5 text-[#171717]" />
                       <span>Chennai, India</span>
                     </div>
                     <p className="text-[#646464] mt-0.5 leading-relaxed">
@@ -347,7 +347,7 @@ export const ContactPage = () => {
 
                   <div>
                     <div className="flex items-center gap-1.5 font-semibold text-[#171717]">
-                      <MapPin className="w-3.5 h-3.5 text-[#1459D9]" />
+                      <MapPin className="w-3.5 h-3.5 text-[#171717]" />
                       <span>Bangalore, India</span>
                     </div>
                     <p className="text-[#646464] mt-0.5 leading-relaxed">

@@ -44,7 +44,7 @@ export const WhyOneSashSection = () => {
         {/* Section Header */}
         <div className="max-w-3xl mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F1F1EE] rounded-sm border border-[#E4E4E0]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#1459D9]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#171717]" />
             <span className="text-[11px] font-semibold tracking-wider text-[#646464] uppercase">
               Our Operating Principles
             </span>
@@ -70,7 +70,7 @@ export const WhyOneSashSection = () => {
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-[#F1F1EE] border border-[#E4E4E0] flex items-center justify-center text-[#1459D9]">
+                    <div className="w-10 h-10 rounded-xl bg-[#F1F1EE] border border-[#E4E4E0] flex items-center justify-center text-[#171717]">
                       <Icon className="w-5 h-5" />
                     </div>
                     <span className="text-[11px] font-medium text-[#646464] bg-[#FAFAF8] px-2.5 py-1 rounded border border-[#E4E4E0]">
@@ -105,7 +105,7 @@ export const WhyOneSashSection = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs text-[#171717]">
             {qualityStandards.map((std) => (
               <div key={std} className="flex items-start gap-2.5 p-3.5 bg-white rounded-xl border border-[#E4E4E0]">
-                <CheckCircle2 className="w-4 h-4 text-[#137333] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                 <span className="leading-relaxed font-medium text-[#171717]">{std}</span>
               </div>
             ))}

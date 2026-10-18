@@ -75,7 +75,7 @@ export const CareersPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
               
               <div className="lg:col-span-5 space-y-3">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#1459D9] font-mono block">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#171717] font-mono block">
                   CULTURE & STANDARDS
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-heading font-semibold text-[#171717]">
@@ -89,7 +89,7 @@ export const CareersPage = () => {
               <div className="lg:col-span-7 space-y-3">
                 {criteria.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3 p-4 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] text-xs sm:text-sm text-[#171717]">
-                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <span className="leading-relaxed">{item}</span>
                   </div>
                 ))}
@@ -120,7 +120,7 @@ export const CareersPage = () => {
                 >
                   <div className="space-y-2 max-w-2xl">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono font-semibold text-[#1459D9]">{role.domain}</span>
+                      <span className="text-xs font-mono font-semibold text-[#171717]">{role.domain}</span>
                       <span className="text-[#646464] text-xs">•</span>
                       <span className="text-xs text-[#646464]">{role.location}</span>
                     </div>
@@ -140,7 +140,7 @@ export const CareersPage = () => {
 
                   <a
                     href={`mailto:onesash.contact@gmail.com?subject=${encodeURIComponent(role.subject)}`}
-                    className="px-6 py-2.5 text-xs font-semibold text-white bg-[#1459D9] hover:bg-[#1048B3] rounded-full transition-all shadow-studio-subtle whitespace-nowrap inline-flex items-center gap-1.5 self-start md:self-center"
+                    className="px-6 py-2.5 text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] rounded-full transition-all shadow-studio-subtle whitespace-nowrap inline-flex items-center gap-1.5 self-start md:self-center"
                   >
                     <span>Apply via Email</span>
                     <ArrowRight className="w-3.5 h-3.5" />

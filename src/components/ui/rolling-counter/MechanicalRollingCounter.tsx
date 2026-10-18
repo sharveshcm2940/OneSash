@@ -225,8 +225,8 @@ export const MechanicalRollingCounter: React.FC<{
               <div className="h-16 sm:h-20 md:h-[84px] w-14 sm:w-18 md:w-22 bg-gradient-to-br from-[#1C1C1E] to-[#111113] border-l border-black/40 p-2 sm:p-2.5 flex flex-col justify-between shrink-0 relative overflow-hidden select-none">
                 {/* Header row: Gold chip + Mini OneSash Icon */}
                 <div className="flex items-center justify-between w-full">
-                  <div className="w-5 h-3.5 sm:w-6 sm:h-4.5 rounded-xs sm:rounded bg-gradient-to-br from-amber-300 via-amber-400 to-amber-500 border border-amber-200/80 shadow-xs flex items-center justify-center">
-                    <div className="w-full h-[0.5px] bg-amber-700/60" />
+                  <div className="w-5 h-3.5 sm:w-6 sm:h-4.5 rounded-xs sm:rounded bg-gradient-to-br from-neutral-200 via-neutral-300 to-neutral-400 border border-neutral-100/80 shadow-xs flex items-center justify-center">
+                    <div className="w-full h-[0.5px] bg-neutral-600/60" />
                   </div>
                   <SashLogo className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-80" />
                 </div>

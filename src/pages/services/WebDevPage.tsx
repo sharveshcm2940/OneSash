@@ -90,21 +90,21 @@ export const WebDevPage = () => {
                 </h2>
                 <div className="space-y-3 text-xs sm:text-sm text-[#171717]">
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>Sub-Second First Contentful Paint: </strong>
                       Optimized asset bundles, code-splitting with Vite, and server-side edge caching ensure instant load speeds.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>Strict TypeScript Typing: </strong>
                       End-to-end type safety between backend API responses and frontend components prevents runtime crashes.
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5 p-3.5 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0]">
-                    <CheckCircle2 className="w-4 h-4 text-[#1459D9] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <strong>Real-Time Data Feeds: </strong>
                       WebSocket channels and server-sent events for sub-second live order queues, chat, and status updates.
@@ -161,25 +161,25 @@ export const WebDevPage = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
               <div className="p-6 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] space-y-2">
-                <span className="font-semibold text-xs text-[#1459D9]">Step 1</span>
+                <span className="font-semibold text-xs text-[#171717]">Step 1</span>
                 <h3 className="text-sm font-semibold text-[#171717]">UX Architecture & Wireframes</h3>
                 <p className="text-[#646464]">Mapping user personas, primary navigation hierarchies, and responsive wireframes in Figma.</p>
               </div>
 
               <div className="p-6 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] space-y-2">
-                <span className="font-semibold text-xs text-[#1459D9]">Step 2</span>
+                <span className="font-semibold text-xs text-[#171717]">Step 2</span>
                 <h3 className="text-sm font-semibold text-[#171717]">API Contracts & Database Modeling</h3>
                 <p className="text-[#646464]">Defining OpenAPI specifications and normalized database tables before connecting frontend components.</p>
               </div>
 
               <div className="p-6 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] space-y-2">
-                <span className="font-semibold text-xs text-[#1459D9]">Step 3</span>
+                <span className="font-semibold text-xs text-[#171717]">Step 3</span>
                 <h3 className="text-sm font-semibold text-[#171717]">Sprint Slices & Staging Demos</h3>
                 <p className="text-[#646464]">Full-stack implementation in 2-week sprints with working cloud staging demos for stakeholder sign-off.</p>
               </div>
 
               <div className="p-6 bg-[#FAFAF8] rounded-xl border border-[#E4E4E0] space-y-2">
-                <span className="font-semibold text-xs text-[#1459D9]">Step 4</span>
+                <span className="font-semibold text-xs text-[#171717]">Step 4</span>
                 <h3 className="text-sm font-semibold text-[#171717]">QA, Security Hardening & Launch</h3>
                 <p className="text-[#646464]">Cross-browser testing, penetration audit, production DNS switch, and 100% repository handover.</p>
               </div>
