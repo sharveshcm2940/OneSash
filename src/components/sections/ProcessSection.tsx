@@ -31,7 +31,7 @@ const MILESTONES: ProcessMilestone[] = [
     number: "01",
     phase: "Discover",
     title: "Architecture & Spec",
-    timeframe: "Weeks 1–2",
+    timeframe: "Example: Weeks 1–2",
     summary: "System blueprint, data schemas, API contracts, and fixed-milestone budget.",
     deliverable: "Architecture Spec & Budget",
     icon: Search,
@@ -54,7 +54,7 @@ const MILESTONES: ProcessMilestone[] = [
     phase: "Build",
     title: "Sprint Engineering",
     timeframe: "Weeks 5–9",
-    summary: "Agile 2-week sprints with strict TypeScript gates and weekly staging demos.",
+    summary: "Agile 2-week sprints with strict TypeScript gates and staging demos every 10 business days.",
     deliverable: "Verified Staging Codebase",
     icon: Code2,
     accentColor: "#000000"
@@ -95,16 +95,16 @@ export const ProcessSection: React.FC = () => {
             <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-white rounded-full border border-[#E4E4E0] shadow-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-[#171717] animate-pulse" />
               <span className="text-[10px] font-mono font-semibold tracking-wider text-[#646464] uppercase">
-                Development Lifecycle
+                Example project timeline — agreed after discovery
               </span>
             </div>
             
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-semibold tracking-tight text-[#171717]">
-              From concept to live deployment.
+              From your first conversation to launch.
             </h2>
             
             <p className="text-xs sm:text-sm text-[#646464] max-w-xl">
-              A predictable, sprint-by-sprint engineering timeline with verified weekly staging demos.
+              A predictable, sprint-by-sprint engineering timeline with verified staging demos every 10 business days.
             </p>
           </div>
 
@@ -300,7 +300,7 @@ export const ProcessSection: React.FC = () => {
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="flex items-center gap-1.5 font-medium text-[#171717]">
               <Sparkles className="w-3.5 h-3.5 text-[#171717]" />
-              Weekly Staging Demos
+              Demos Every 10 Business Days
             </span>
             <span className="text-[#D4D4D0] hidden sm:inline">•</span>
             <span className="flex items-center gap-1.5 font-medium text-[#171717]">

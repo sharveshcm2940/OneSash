@@ -1,4 +1,6 @@
+import site from "../../data/site.json"
 import { Helmet } from "react-helmet-async"
+import { useLocation } from "react-router-dom"
 
 export interface SEOProps {
   title?: string
@@ -13,14 +15,12 @@ export interface SEOProps {
   noindex?: boolean
 }
 
-const DEFAULT_SITE_NAME = "OneSash"
-const DEFAULT_TITLE = "OneSash — Custom Software, Web Apps & Business Automation | Chennai & Bangalore"
-const DEFAULT_DESCRIPTION =
-  "OneSash is an independent software development studio based in Chennai, India and Bangalore, India. We engineer custom web applications, mobile platforms, and business automation systems."
-const DEFAULT_KEYWORDS =
-  "OneSash, onesash, One Sash, custom software development Chennai, web application engineering Bangalore, mobile apps, business automation, software development studio India, React TypeScript developers, Apar Crown, Law Throne"
-const DEFAULT_OG_IMAGE = "https://onesash.co.in/onesash-logo.jpg"
-const DEFAULT_SITE_URL = "https://onesash.co.in"
+const DEFAULT_SITE_NAME = site.name
+const DEFAULT_TITLE = site.title
+const DEFAULT_DESCRIPTION = site.description
+const DEFAULT_KEYWORDS = "OneSash, custom software, web applications, mobile apps, business automation"
+const DEFAULT_OG_IMAGE = `${site.origin}${site.image}`
+const DEFAULT_SITE_URL = site.origin
 
 export const SEO = ({
   title,
@@ -39,82 +39,14 @@ export const SEO = ({
     ? (title.includes("OneSash") ? title : `${title} | OneSash`)
     : DEFAULT_TITLE
 
-  const currentOrigin = typeof window !== "undefined" && window.location.origin && !window.location.origin.includes("localhost")
-    ? window.location.origin
-    : DEFAULT_SITE_URL
+  const currentOrigin = DEFAULT_SITE_URL
 
-  const path = typeof window !== "undefined" ? window.location.pathname : ""
-  const canonical = canonicalUrl || `${currentOrigin}${path}`
+  const { pathname: path } = useLocation()
+  const canonical = canonicalUrl || `${currentOrigin}${path === "/" ? "/" : path.replace(/\/+$/, "")}`
   const fullOgImage = ogImage.startsWith("http") ? ogImage : `${currentOrigin}${ogImage}`
 
   // 1. Organization & ProfessionalService JSON-LD Schema
-  const defaultOrgSchema = {
-    "@context": "https://schema.org",
-    "@type": ["Organization", "ProfessionalService"],
-    "@id": `${currentOrigin}/#organization`,
-    "name": "OneSash",
-    "legalName": "OneSash",
-    "alternateName": [
-      "One Sash",
-      "onesash",
-      "one sash",
-      "OneSash Studio",
-      "One Sash Studio",
-      "OneSash India",
-      "OneSash Chennai",
-      "OneSash Bangalore"
-    ],
-    "disambiguatingDescription": "OneSash (officially spelled OneSash, also written as One Sash) is an independent software development studio based in Chennai and Bangalore, India, specializing in custom software engineering, web application development, and business automation.",
-    "url": currentOrigin,
-    "logo": {
-      "@type": "ImageObject",
-      "url": `${currentOrigin}/onesash-logo.jpg`,
-      "caption": "OneSash Logo"
-    },
-    "image": `${currentOrigin}/onesash-logo.jpg`,
-    "description": DEFAULT_DESCRIPTION,
-    "email": "onesash.contact@gmail.com",
-    "telephone": ["+919980399557", "+918903467843"],
-    "priceRange": "$$",
-    "address": [
-      {
-        "@type": "PostalAddress",
-        "addressLocality": "Chennai",
-        "addressRegion": "Tamil Nadu",
-        "addressCountry": "IN"
-      },
-      {
-        "@type": "PostalAddress",
-        "addressLocality": "Bangalore",
-        "addressRegion": "Karnataka",
-        "addressCountry": "IN"
-      }
-    ],
-    "areaServed": [
-      {
-        "@type": "Country",
-        "name": "India"
-      },
-      {
-        "@type": "AdministrativeArea",
-        "name": "Global"
-      }
-    ],
-    "knowsAbout": [
-      "Custom Software Engineering",
-      "Web Application Development",
-      "Mobile Application Development",
-      "Business Process Automation",
-      "Cloud Infrastructure & DevOps",
-      "Full-Stack TypeScript",
-      "React",
-      "Node.js",
-      "PostgreSQL"
-    ],
-    "sameAs": [
-      "https://github.com/onesash"
-    ]
-  }
+  const defaultOrgSchema = site.organization
 
   // 2. WebSite Schema (Crucial for Google to recognize official Site Name "OneSash")
   const websiteSchema = {
@@ -126,11 +58,6 @@ export const SEO = ({
     "alternateName": ["onesash", "One Sash", "OneSash Studio"],
     "publisher": {
       "@id": `${currentOrigin}/#organization`
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": `${currentOrigin}/services?q={search_term_string}`,
-      "query-input": "required name=search_term_string"
     }
   }
 
@@ -188,8 +115,8 @@ export const SEO = ({
       ) : (
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       )}
-      <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-      <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="googlebot" content={noindex ? "noindex, nofollow" : "index, follow"} />
+      <meta name="bingbot" content={noindex ? "noindex, nofollow" : "index, follow"} />
 
       {/* Canonical Link */}
       <link rel="canonical" href={canonical} />

@@ -24,6 +24,7 @@ export const ProductInterfaceMockup: React.FC<ProductInterfaceMockupProps> = ({
   if (type === "apartment-management") {
     return (
       <div className={`bg-white rounded-xl border border-[#E4E4E0] shadow-studio-card overflow-hidden text-xs text-[#171717] ${className}`}>
+        <p className="px-4 py-2 text-[11px] bg-neutral-100 text-neutral-600">Illustrative preview · sample data</p>
         {/* Clean Application Header Bar */}
         <div className="bg-[#F1F1EE] border-b border-[#E4E4E0] px-4 py-2.5 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -164,6 +165,7 @@ export const ProductInterfaceMockup: React.FC<ProductInterfaceMockupProps> = ({
   if (type === "legal-crm") {
     return (
       <div className={`bg-white rounded-xl border border-[#E4E4E0] shadow-studio-card overflow-hidden text-xs text-[#171717] ${className}`}>
+        <p className="px-4 py-2 text-[11px] bg-neutral-100 text-neutral-600">Illustrative preview · sample data</p>
         {/* Clean Application Header Bar */}
         <div className="bg-[#171717] text-white px-4 py-2.5 flex items-center justify-between border-b border-[#262626]">
           <div className="flex items-center gap-2">
@@ -245,6 +247,7 @@ export const ProductInterfaceMockup: React.FC<ProductInterfaceMockupProps> = ({
   if (type === "qr-food") {
     return (
       <div className={`bg-white rounded-xl border border-[#E4E4E0] shadow-studio-card overflow-hidden text-xs text-[#171717] ${className}`}>
+        <p className="px-4 py-2 text-[11px] bg-neutral-100 text-neutral-600">Illustrative preview · sample data</p>
         {/* Clean Application Header Bar */}
         <div className="bg-[#171717] text-white px-4 py-2.5 flex items-center justify-between border-b border-[#262626]">
           <div className="flex items-center gap-2">
@@ -349,6 +352,7 @@ export const ProductInterfaceMockup: React.FC<ProductInterfaceMockupProps> = ({
   // PG Management System
   return (
     <div className={`bg-white rounded-xl border border-[#E4E4E0] shadow-studio-card overflow-hidden text-xs text-[#171717] ${className}`}>
+      <p className="px-4 py-2 text-[11px] bg-neutral-100 text-neutral-600">Illustrative preview · sample data</p>
       {/* Clean Application Header Bar */}
       <div className="bg-[#F1F1EE] border-b border-[#E4E4E0] px-4 py-2.5 flex items-center justify-between">
         <div className="flex items-center gap-2">

@@ -23,7 +23,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: "custom-software",
     title: "Custom Software",
-    oneLiner: "Tailored operations platforms and internal tools designed around your proprietary business logic.",
+    oneLiner: "Replace scattered spreadsheets with one tool for your team, customers and records.",
     slug: "/services/custom-software",
     problemSolved: "Off-the-shelf software rarely fits proprietary business operations, forcing teams into fragile spreadsheet workarounds and disconnected SaaS subscriptions.",
     explanation: "We design and build bespoke business applications tailored strictly to your operational rules, employee hierarchies, and core data structures. You own the code completely.",
@@ -43,7 +43,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: "web-applications",
     title: "Web Applications",
-    oneLiner: "Accessible, sub-second web platforms engineered with React, TypeScript, and modern backend APIs.",
+    oneLiner: "Give customers a simple way to book, order, pay or manage their account online.",
     slug: "/services/web-development",
     problemSolved: "Slow page loads, poor mobile responsiveness, and fragile client-side state cause customer drop-offs and operational friction.",
     explanation: "We engineer fast, accessible web applications using modern TypeScript, React, and modular backend APIs designed for sub-second interactions and predictable state.",
@@ -63,7 +63,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: "mobile-applications",
     title: "Mobile Applications",
-    oneLiner: "Reliable iOS and Android applications with offline-first local synchronization and native speed.",
+    oneLiner: "Help customers and staff get things done on their phones, including away from the office.",
     slug: "/services/mobile-apps",
     problemSolved: "Maintaining separate native codebases is expensive, while low-quality cross-platform wrappers suffer from sluggish scrolling and poor offline reliability.",
     explanation: "We build reliable iOS and Android applications with native-like 60fps animations, background synchronization, and robust offline-first caching for field and customer use.",
@@ -83,10 +83,10 @@ export const servicesData: ServiceItem[] = [
   {
     id: "ai-automation",
     title: "AI & Automation",
-    oneLiner: "Practical intelligence pipelines for document extraction, smart routing, and deterministic processing.",
+    oneLiner: "Reduce repetitive document entry and route information to the right person for review.",
     slug: "/services/ai-integration",
     problemSolved: "Manual data extraction from physical paper, legal dockets, and invoices consumes hundreds of employee hours and generates transcription errors.",
-    explanation: "We integrate practical, deterministic artificial intelligence and machine learning pipelines into your existing databases—extracting structured information without hallucinations.",
+    explanation: "We integrate practical, deterministic artificial intelligence and machine learning pipelines into your existing databases—extracting structured information with validation and human review for uncertain results.",
     deliverables: [
       "Document ingestion & OCR extraction pipelines",
       "Deterministic LLM data parsers with JSON validation",
@@ -103,7 +103,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: "cloud-solutions",
     title: "Cloud Solutions",
-    oneLiner: "Containerized deployments and automated CI/CD pipelines configured on AWS and DigitalOcean.",
+    oneLiner: "Keep your application hosted, backed up and maintained as your business grows.",
     slug: "/services/cloud-solutions",
     problemSolved: "Unmonitored servers crash under traffic bursts, lack verified disaster recovery backups, and leave data exposed to security vulnerabilities.",
     explanation: "We containerize applications using Docker, establish automated CI/CD deployment pipelines, configure managed cloud databases, and enforce continuous security updates.",
@@ -123,7 +123,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: "business-systems",
     title: "Business Management Systems",
-    oneLiner: "Integrated operational suites coordinating multi-property inventory, tenant billing, and reporting.",
+    oneLiner: "Track rent, invoices, payments and reminders without chasing every task manually.",
     slug: "/services/process-automation",
     problemSolved: "Manual billing reminders, paper lease agreements, and repetitive clerical handoffs lead to delayed collections and lost records.",
     explanation: "We build automated system workflows that synchronize your billing, messaging, payments, and document generation so daily operations execute without manual chasing.",
@@ -230,7 +230,7 @@ export const ServicesSection: React.FC = () => {
                       to={service.slug}
                       className="text-[11px] font-semibold text-[#171717] hover:underline"
                     >
-                      Explore {service.title} capabilities →
+                      Explore {service.title} details →
                     </Link>
                   </div>
                 </div>
@@ -283,7 +283,7 @@ export const ServicesSection: React.FC = () => {
                   </div>
 
                   <div className="text-xs text-[#646464] pt-1">
-                    <span className="font-semibold text-[#171717]">Real Deployment: </span>
+                    <span className="font-semibold text-[#171717]">Related Product: </span>
                     <span>{activeService.projectExample.name}</span>
                   </div>
 
@@ -291,7 +291,7 @@ export const ServicesSection: React.FC = () => {
                     to={activeService.slug}
                     className="w-full py-2.5 px-4 rounded-md bg-[#171717] hover:bg-[#2c2c2c] text-white text-xs font-semibold text-center block transition-colors shadow-xs"
                   >
-                    View Complete Technical Scope
+                    See What You Receive
                   </Link>
                 </motion.div>
               </AnimatePresence>

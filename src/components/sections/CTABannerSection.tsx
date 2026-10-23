@@ -21,7 +21,7 @@ export const CTABannerSection: React.FC = () => {
         {/* Studio Status Badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-medium text-white/90">
           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-          <span>Currently Accepting New Projects for Q4</span>
+          <span>Have an idea or a business problem?</span>
         </div>
 
         {/* Exact Heading: 4 words */}
@@ -34,14 +34,14 @@ export const CTABannerSection: React.FC = () => {
           Tell us what you're planning. We'll help you figure out the next step.
         </p>
 
-        {/* Primary CTA: "Start a Project" & WhatsApp */}
+        {/* Primary CTA: "Talk About Your Idea" & WhatsApp */}
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Link
               to="/contact"
               className="px-8 py-3.5 rounded-md bg-white hover:bg-[#F1F1EE] text-[#171717] text-sm font-semibold transition-all inline-flex items-center gap-2 shadow-lg"
             >
-              <span>Start a Project</span>
+              <span>Talk About Your Idea</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </motion.div>
@@ -90,7 +90,7 @@ export const CTABannerSection: React.FC = () => {
         </div>
 
         <p className="text-[11px] text-white/40 pt-2">
-          Chennai, India & Bangalore, India · Response guaranteed within 24 business hours
+          Chennai, India & Bangalore, India · We aim to reply within one business day
         </p>
 
       </div>

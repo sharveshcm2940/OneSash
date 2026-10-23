@@ -1,0 +1,60 @@
+const puppeteer = require('puppeteer-core')
+const assert = require('node:assert/strict')
+const { spawn } = require('node:child_process')
+
+// Uses the production build; intercepts submission so no test lead reaches a real receiver.
+const server = spawn(process.execPath, ['node_modules/vite/bin/vite.js', 'preview', '--host', '127.0.0.1', '--port', '4179', '--strictPort'])
+let browser
+;(async () => {
+  await new Promise((resolve, reject) => { server.stdout.once('data', resolve); server.once('exit', code => reject(new Error(`Preview exited: ${code}`))) })
+  browser = await puppeteer.launch({ executablePath: process.env.BROWSER_EXECUTABLE, headless: true, args: ['--no-sandbox', '--disable-dev-shm-usage'] })
+  const page = await browser.newPage()
+  const errors = []
+  page.on('pageerror', error => errors.push(error.message))
+  await page.setViewport({ width: 1440, height: 1000 })
+  await page.goto('http://127.0.0.1:4179/')
+  await page.waitForSelector('h1')
+  assert.equal(await page.$$eval('link[rel="canonical"]', nodes => nodes.length), 1)
+  await page.click('button[aria-label="View QR Food Processing"]')
+  await page.click('section:first-of-type a[href="/portfolio#qr-food-processing"]')
+  await page.waitForSelector('#qr-food-processing')
+  await page.waitForFunction(() => Math.abs(document.getElementById('qr-food-processing').getBoundingClientRect().top - 96) < 25)
+  await page.click('#qr-food-processing a[href^="/contact"]')
+  await page.waitForSelector('textarea')
+  assert.match(await page.$eval('textarea', node => node.value), /QR Food/)
+  await page.goto('http://127.0.0.1:4179/contact?service=web-development')
+  await page.waitForSelector('textarea')
+  assert.equal(await page.$eval('select', node => node.value), 'Web Application Development')
+  await page.type('input[type="text"]', 'Test Visitor')
+  await page.type('input[type="email"]', 'test@example.com')
+  await page.type('textarea', 'We need a customer booking tool.')
+  let accept = false
+  const requests = []
+  await page.setRequestInterception(true)
+  page.on('request', request => {
+    if (!request.url().endsWith('/api/enquiry')) return request.continue()
+    requests.push(JSON.parse(request.postData()))
+    return request.respond({ status: accept ? 200 : 502, contentType: 'application/json', body: accept ? '{"accepted":true,"id":"test-record-123"}' : '{"error":"Unavailable"}' })
+  })
+  await page.click('button[type="submit"]')
+  await page.waitForSelector('[role="alert"]')
+  assert.equal(await page.$eval('input[type="text"]', node => node.value), 'Test Visitor')
+  assert.equal(await page.$$eval('h2', nodes => nodes.some(node => node.textContent.includes('Enquiry received'))), false)
+  accept = true
+  await page.click('button[type="submit"]')
+  await page.waitForFunction(() => document.body.innerText.includes('test-record-123'))
+  assert.equal(requests.length, 2)
+  assert.equal(requests[0].requestId, requests[1].requestId)
+  assert.equal(requests[1].service, 'web-development')
+  await page.setViewport({ width: 390, height: 844 })
+  for (const path of ['/', '/contact?service=mobile-apps']) {
+    await page.goto(`http://127.0.0.1:4179${path}`)
+    await page.waitForSelector('h1')
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `Overflow: ${path}`)
+  }
+  await page.goto('http://127.0.0.1:4179/missing-page')
+  await page.waitForFunction(() => document.querySelector('meta[name="googlebot"]')?.content === 'noindex, nofollow')
+  assert.equal(await page.$$eval('link[rel="canonical"]', nodes => nodes.length), 1)
+  assert.deepEqual(errors, [])
+  console.log('PASS: project/hash navigation, service and project context, delivery failure/success, retry deduplication, mobile overflow, canonical and noindex metadata')
+})().catch(error => { console.error(error); process.exitCode = 1 }).finally(async () => { if (browser) await browser.close(); server.kill() })

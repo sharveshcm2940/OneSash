@@ -2,8 +2,45 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/work",
+      "destination": "/portfolio",
+      "permanent": true
+    },
+    {
+      "source": "/quote",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/calculator",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/booking",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies",
+      "destination": "/portfolio",
+      "permanent": true
+    },
+    {
+      "source": "/technologies",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/ai-glossary",
+      "destination": "/services/ai-integration",
+      "permanent": true
     }
   ]
 }

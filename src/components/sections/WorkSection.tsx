@@ -1,3 +1,4 @@
+import { realProducts } from "../../data/projectsData"
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
@@ -32,7 +33,7 @@ const PROJECTS: ProjectItem[] = [
     name: "QR Food Processing System",
     tagline: "Contactless table ordering engine with sub-second kitchen display ticket routing.",
     mockupType: "qr-food",
-    link: "/portfolio#qr-food"
+    link: "/portfolio#qr-food-processing"
   },
   {
     id: "pg-management",
@@ -47,6 +48,7 @@ export const WorkSection: React.FC = () => {
   const [selectedIdx, setSelectedIdx] = useState<number>(0)
 
   const activeProject = PROJECTS[selectedIdx]
+  const status = realProducts.find(p => p.interfaceType === activeProject.mockupType)?.status
 
   const nextProject = () => {
     setSelectedIdx((prev) => (prev + 1) % PROJECTS.length)
@@ -70,7 +72,7 @@ export const WorkSection: React.FC = () => {
               Things we've built.
             </h2>
             <p className="text-base text-[#646464] max-w-xl">
-              Software platforms engineered and deployed for actual business operations.
+              Explore the business problems behind our products. Deployment status is shown in each project.
             </p>
           </div>
 
@@ -141,6 +143,7 @@ export const WorkSection: React.FC = () => {
                   <h3 className="text-2xl sm:text-3xl font-heading font-semibold text-[#171717]">
                     {activeProject.name}
                   </h3>
+                  <p className="text-xs text-neutral-500">{status}</p>
                   <p className="text-sm sm:text-base text-[#646464] leading-relaxed">
                     {activeProject.tagline}
                   </p>
@@ -173,7 +176,7 @@ export const WorkSection: React.FC = () => {
             to="/portfolio"
             className="text-xs font-semibold text-[#171717] hover:underline"
           >
-            Explore technical architecture for all deployed products →
+            See project details and development status →
           </Link>
         </div>
 

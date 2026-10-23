@@ -1,0 +1,40 @@
+{
+  "origin": "https://onesash.co.in",
+  "name": "OneSash",
+  "title": "OneSash \u2014 Custom Software, Web Apps & Business Automation | Chennai & Bangalore",
+  "description": "OneSash builds web applications, mobile tools and business automation for business owners, growing teams and founders in Chennai, Bangalore and beyond.",
+  "image": "/onesash-logo.jpg",
+  "organization": {
+    "@context": "https://schema.org",
+    "@type": [
+      "Organization",
+      "ProfessionalService"
+    ],
+    "@id": "https://onesash.co.in/#organization",
+    "name": "OneSash",
+    "url": "https://onesash.co.in/",
+    "logo": "https://onesash.co.in/onesash-logo.jpg",
+    "email": "onesash.contact@gmail.com",
+    "telephone": [
+      "+919980399557",
+      "+918903467843"
+    ],
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "Chennai",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      },
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      }
+    ],
+    "sameAs": [
+      "https://github.com/sharveshcm2940/OneSash"
+    ]
+  }
+}

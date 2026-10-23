@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 3000",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/build-route-metadata.mjs",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node --test tests/*.test.js",
+    "test:browser": "node scripts/check-conversion.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",

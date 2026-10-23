@@ -74,7 +74,7 @@ export const Navbar = () => {
               to="/contact"
               className="px-4 py-2 text-xs font-semibold text-white bg-black hover:bg-neutral-800 rounded-md transition-colors"
             >
-              Start a Project
+              Talk About Your Idea
             </Link>
           </div>
 
@@ -119,7 +119,7 @@ export const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full py-2.5 text-center text-xs font-semibold text-white bg-black hover:bg-neutral-800 rounded-md"
             >
-              Start a Project
+              Talk About Your Idea
             </Link>
           </div>
         </div>
