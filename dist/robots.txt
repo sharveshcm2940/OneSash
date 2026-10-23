@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://onesash-independent-studio.jocund-skunk-4913.chatgpt.site/sitemap.xml
