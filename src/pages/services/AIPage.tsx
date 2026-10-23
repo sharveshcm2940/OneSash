@@ -30,7 +30,7 @@ export const AIPage = () => {
 
                 <div className="flex flex-wrap gap-3 pt-2">
                   <Link
-                    to="/contact?service=ai-integration"
+                    to="/contact"
                     className="px-5 py-2.5 text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] rounded-md transition-colors"
                   >
                     Discuss Your Automation Pipeline

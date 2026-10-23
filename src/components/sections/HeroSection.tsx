@@ -1,10 +1,9 @@
-import { realProducts } from "../../data/projectsData"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowDown, ExternalLink } from "lucide-react"
 import { ProductInterfaceMockup } from "../ui/ProductInterfaceMockup"
-
+import { MechanicalRollingCounter } from "../ui/rolling-counter/MechanicalRollingCounter"
 
 interface ProductItem {
   id: "apar-crown" | "law-throne" | "qr-food" | "pg-management"
@@ -38,7 +37,7 @@ const PRODUCTS: ProductItem[] = [
     category: "Kitchen Display Engine",
     mockupType: "qr-food",
     summary: "Real-time contactless ordering & KDS routing.",
-    link: "/portfolio#qr-food-processing"
+    link: "/portfolio#qr-food"
   },
   {
     id: "pg-management",
@@ -52,8 +51,18 @@ const PRODUCTS: ProductItem[] = [
 
 export const HeroSection: React.FC = () => {
   const [activeIdx, setActiveIdx] = useState<number>(0)
+  const [isPaused, setIsPaused] = useState<boolean>(false)
+
+  // Gentle auto-rotation that pauses when user hovers or interacts
+  useEffect(() => {
+    if (isPaused) return
+    const timer = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % PRODUCTS.length)
+    }, 6000)
+    return () => clearInterval(timer)
+  }, [isPaused])
+
   const activeProduct = PRODUCTS[activeIdx]
-  const status = realProducts.find(p => p.interfaceType === activeProduct.mockupType)?.status
 
   return (
     <section className="relative bg-white pt-24 pb-16 md:pt-32 md:pb-24 border-b border-neutral-200 overflow-hidden">
@@ -85,36 +94,35 @@ export const HeroSection: React.FC = () => {
 
             {/* Exact Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-heading font-semibold tracking-tight text-black leading-[1.1]">
-              <span className="sr-only">OneSash — </span>Software that makes running your business easier.
+              <span className="sr-only">OneSash — </span>We build software that works.
             </h1>
 
             {/* Reference Animation: Mechanical Rolling Counter */}
             <div className="pt-1 pb-1">
-              <p className="text-sm font-medium">For business owners, growing teams and founders.</p>
+              <MechanicalRollingCounter align="left" className="!my-1" />
             </div>
 
             {/* Exact Supporting Text */}
             <p className="text-base sm:text-lg font-normal text-neutral-600 leading-relaxed max-w-lg">
-              Manage bookings, billing, orders and everyday tasks in one place. We build web apps, mobile tools and automation around the way your business works.
+              Custom applications, digital products and business tools — built around your needs.
             </p>
 
             {/* Buttons: Short, Clear Labels */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
-              <Link
-                to="/contact"
-                className="px-6 py-3 text-sm font-semibold text-white bg-black hover:bg-neutral-800 rounded-md transition-all border border-black text-center"
-              >
-                Talk About Your Idea
-              </Link>
-
               <a
                 href="#work"
-                className="px-6 py-3 text-sm font-semibold text-black bg-white hover:bg-neutral-100 border border-neutral-200 rounded-md transition-all text-center shadow-xs hover:shadow flex items-center justify-center gap-2 group"
+                className="px-6 py-3 text-xs font-semibold text-white bg-black hover:bg-neutral-800 rounded-md transition-all text-center shadow-xs hover:shadow flex items-center justify-center gap-2 group"
               >
                 <span>See Our Work</span>
                 <ArrowDown className="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5" />
               </a>
 
+              <Link
+                to="/contact"
+                className="px-6 py-3 text-xs font-semibold text-black bg-white hover:bg-neutral-100 rounded-md transition-all border border-neutral-200 text-center"
+              >
+                Start a Project
+              </Link>
             </div>
 
             {/* Trust Footnote */}
@@ -131,6 +139,8 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
           >
             {/* Interactive Product Selector Tabs */}
             <div className="flex flex-wrap items-center justify-between gap-2 bg-neutral-100 p-1.5 rounded-lg border border-neutral-200">
@@ -163,7 +173,7 @@ export const HeroSection: React.FC = () => {
               </div>
 
               <span className="text-[11px] text-neutral-500 px-2 hidden sm:inline">
-                Interactive preview · sample data
+                Live Interactive UI
               </span>
             </div>
 
@@ -187,9 +197,9 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Current Product Meta Strip */}
-            <div className="flex flex-col sm:flex-row items-start gap-3 justify-between text-xs text-neutral-500 px-1 pt-1">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="font-semibold text-black">{activeProduct.name} · {status}</span>
+            <div className="flex items-center justify-between text-xs text-neutral-500 px-1 pt-1">
+              <div className="flex items-center gap-2">
+                <span className="font-semibold text-black">{activeProduct.name}</span>
                 <span>—</span>
                 <span>{activeProduct.summary}</span>
               </div>

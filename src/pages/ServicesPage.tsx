@@ -65,13 +65,13 @@ export const ServicesPage = () => {
                       to={service.slug}
                       className="px-4 py-2 text-xs font-semibold text-[#171717] bg-[#F1F1EE] hover:bg-[#EAEAE5] rounded-md border border-[#E4E4E0] transition-colors"
                     >
-                      What You Receive
+                      Discipline Details
                     </Link>
                     <Link
-                      to={`/contact?service=${service.slug.split("/").pop()}`}
+                      to="/contact"
                       className="px-4 py-2 text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] rounded-md transition-colors"
                     >
-                      Discuss Your Needs
+                      Discuss Scope
                     </Link>
                   </div>
                 </div>
@@ -102,13 +102,13 @@ export const ServicesPage = () => {
                     {/* Verified Project Example */}
                     <div className="p-4 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0] text-xs space-y-1">
                       <span className="text-[10px] uppercase font-semibold text-[#171717] block">
-                        Related Product
+                        Verified Project Reference
                       </span>
                       <div className="font-semibold text-[#171717] text-sm">{service.projectExample.name}</div>
                       <p className="text-[#646464] leading-relaxed">{service.projectExample.description}</p>
                       <div className="pt-1">
                         <Link to="/portfolio" className="text-[#171717] font-semibold hover:underline">
-                          See the project and its status →
+                          Inspect project breakdown in portfolio →
                         </Link>
                       </div>
                     </div>

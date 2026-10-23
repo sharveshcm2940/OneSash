@@ -18,7 +18,7 @@ export const PortfolioPage = () => {
     <>
       <SEO
         title="Our Work & Delivered Software Systems | OneSash"
-        description="Explore software systems, web platforms, and operational tools engineered by OneSash for real businesses."
+        description="Explore verified software systems, web platforms, and operational tools engineered by OneSash for real businesses."
         keywords="OneSash portfolio, custom software projects, Apar Crown apartment management, Law Throne legal CRM, QR Food Processing, Chennai software studio work, Bangalore software studio work"
       />
 
@@ -30,10 +30,10 @@ export const PortfolioPage = () => {
             <div className="max-w-3xl space-y-3">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-semibold tracking-tight text-[#171717] leading-[1.1]">
                 Software we've engineered.<br />
-                Built around everyday business problems.
+                Tested in real operations.
               </h1>
               <p className="text-base sm:text-lg text-[#646464] leading-relaxed pt-1">
-                See each product’s business problem, approach and current development status. Interface previews use sample data.
+                We believe in transparency. Below is an honest look at our delivered projects, their business problems, technical architecture, and real operational status.
               </p>
             </div>
 
@@ -91,7 +91,7 @@ export const PortfolioPage = () => {
 
                   <div className="flex items-center gap-3">
                     <Link
-                      to={`/contact?project=${project.id}`}
+                      to="/contact"
                       className="px-4 py-2 text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] rounded-md transition-colors"
                     >
                       Request Similar Build
@@ -176,7 +176,7 @@ export const PortfolioPage = () => {
                       <ProductInterfaceMockup type={project.interfaceType} className="w-full" />
                     </div>
                     <div className="flex items-center justify-between text-[11px] text-[#646464] px-1">
-                      <span>Illustrative interface with sample data for {project.name}</span>
+                      <span>Delivered system preview for {project.name}</span>
                       <span>Built: {project.year}</span>
                     </div>
                   </div>

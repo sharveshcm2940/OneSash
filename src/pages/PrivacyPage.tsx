@@ -46,7 +46,7 @@ export const PrivacyPage = () => {
               </p>
               <ul className="list-disc pl-5 space-y-1 text-[#6E6E73]">
                 <li>Your name and business email address.</li>
-                <li>Your phone number, if you choose to provide it.</li>
+                <li>Your company or organization name.</li>
                 <li>Project requirements, specifications, and scope descriptions.</li>
                 <li>Contact preferences and communication records.</li>
               </ul>
@@ -55,7 +55,7 @@ export const PrivacyPage = () => {
             <section className="space-y-3">
               <h2 className="text-lg font-heading font-semibold text-[#1D1D1F]">3. How We Use Information</h2>
               <p>
-                Your enquiry is passed securely to our configured lead-management service so we can store and respond to it. Contact us to request an update or deletion. The information you provide is used strictly for technical discovery, preparing proposals, communicating about ongoing engagements, and maintaining business relationships. We do not sell, rent, or lease your contact information or project data to third parties.
+                The information you provide is used strictly for technical discovery, preparing proposals, communicating about ongoing engagements, and maintaining business relationships. We do not sell, rent, or lease your contact information or project data to third parties.
               </p>
             </section>
 

@@ -1,36 +1,19 @@
-import { useState, useId, useRef } from "react"
+import { useState, useId } from "react"
 import { useLocation } from "react-router-dom"
-import { Link } from "react-router-dom"
-import { realProducts } from "../data/projectsData"
-import { track } from "../utils/analytics"
 import { SEO } from "../components/common/SEO"
 import { CheckCircle2, Mail, MapPin, Phone, Clock, MessageCircle } from "lucide-react"
 
 export const ContactPage = () => {
   const formId = useId()
   const location = useLocation()
-  const params = new URLSearchParams(location.search)
-  const serviceParam = params.get("service") || ""
-  const project = realProducts.find(p => p.id === params.get("project"))
-  const serviceNames: Record<string, string> = {
-    "custom-software": "Custom Software Development", "web-development": "Web Application Development",
-    "mobile-apps": "Mobile Application Development", "ai-integration": "AI Integration & Automation",
-    "process-automation": "Business Process Automation", "cloud-solutions": "Cloud Deployment & Maintenance"
-  }
-  const service = Object.hasOwn(serviceNames, serviceParam) ? serviceParam : ""
-  const requestId = useRef(crypto.randomUUID())
-  const submittedPayload = useRef("")
-  const started = useRef(false)
-  const [submitError, setSubmitError] = useState("")
-  const [website, setWebsite] = useState("")
   const prefill = (location.state as any)?.estimatedScope
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    projectType: serviceNames[service] || (prefill ? prefill.projectType : "Not sure — help me choose"),
-    projectDescription: project ? `I would like to discuss something similar to ${project.name}.` : prefill ? `Estimated Scope: ${prefill.complexity} complexity, ${prefill.timeline} timeline.` : "",
+    projectType: prefill ? prefill.projectType : "Custom Software Development",
+    projectDescription: prefill ? `Estimated Scope: ${prefill.complexity} complexity, ${prefill.timeline} timeline.` : "",
     budget: "",
   })
 
@@ -40,7 +23,6 @@ export const ContactPage = () => {
   const [referenceId, setReferenceId] = useState("")
 
   const projectTypes = [
-    "Not sure — help me choose",
     "Custom Software Development",
     "Web Application Development",
     "Mobile Application Development",
@@ -73,33 +55,16 @@ export const ContactPage = () => {
     return Object.keys(errs).length === 0
   }
 
-  const whatsappUrl = `https://wa.me/918903467843?text=${encodeURIComponent(`Hi OneSash, I'd like to discuss ${formData.projectType}.\n${formData.projectDescription}`)}`
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (isSubmitting || !validate()) return
-    const fingerprint = JSON.stringify(formData)
-    if (submittedPayload.current && submittedPayload.current !== fingerprint) requestId.current = crypto.randomUUID()
-    submittedPayload.current = fingerprint
-    setSubmitError("")
+    if (!validate()) return
+
     setIsSubmitting(true)
-    track("enquiry_attempt", { service, project: project?.id || "" })
-    try {
-      const response = await fetch("/api/enquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, website, requestId: requestId.current, service, project: project?.id || "", source: location.pathname }),
-        signal: AbortSignal.timeout(18000),
-      })
-      const result = await response.json()
-      if (!response.ok || result.accepted !== true || typeof result.id !== "string" || !result.id) throw new Error("Submission not confirmed")
-      setReferenceId(result.id)
+    setTimeout(() => {
+      setIsSubmitting(false)
       setIsSubmitted(true)
-      track("enquiry_accepted", { service, project: project?.id || "" })
-    } catch {
-      setSubmitError("We could not confirm receipt. Your message is still here. Please retry, or send it through WhatsApp below.")
-      track("enquiry_failure", { service })
-    } finally { setIsSubmitting(false) }
+      setReferenceId(`ONESASH-${Math.floor(100000 + Math.random() * 900000)}`)
+    }, 700)
   }
 
   const contactSchema = {
@@ -138,10 +103,10 @@ export const ContactPage = () => {
           {/* Header */}
           <div className="max-w-3xl mb-12 space-y-3">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-semibold tracking-tight text-[#171717] leading-[1.1]">
-              Tell us what would make work easier.
+              Tell us what you want to build.
             </h1>
             <p className="text-base sm:text-lg text-[#646464] leading-relaxed pt-1">
-              An early idea is enough. Tell us about your business and the task you want to improve. We review your message, ask any initial questions, then arrange a conversation if we can help.
+              Whether you have a complete project brief or an early-stage idea, we'd be happy to understand what you're working on.
             </p>
           </div>
 
@@ -155,10 +120,10 @@ export const ContactPage = () => {
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h2 className="text-2xl font-heading font-semibold text-[#171717]">
-                    Enquiry received.
+                    Project brief received.
                   </h2>
                   <p className="text-xs sm:text-sm text-[#646464] max-w-md mx-auto leading-relaxed">
-                    Thank you, {formData.name}. We will review your message and aim to reply within one business day.
+                    Thank you, {formData.name}. Our lead engineers will review your requirements and respond within 24 business hours.
                   </p>
                   <div className="p-3 bg-[#FAFAF8] rounded-lg border border-[#E4E4E0] max-w-xs mx-auto text-xs text-[#646464]">
                     <span>Inquiry Reference: </span>
@@ -169,13 +134,11 @@ export const ContactPage = () => {
                       type="button"
                       onClick={() => {
                         setIsSubmitted(false)
-                        requestId.current = crypto.randomUUID()
-                        started.current = false
                         setFormData({
                           name: "",
                           email: "",
                           phone: "",
-                          projectType: "Not sure — help me choose",
+                          projectType: "Custom Software Development",
                           projectDescription: "",
                           budget: ""
                         })
@@ -187,10 +150,7 @@ export const ContactPage = () => {
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} onFocus={() => { if (!started.current) { started.current = true; track("enquiry_start", { service, project: project?.id || "" }) } }} className="space-y-6">
-                  <div className="hidden" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" value={website} onChange={e => setWebsite(e.target.value)} /></label></div>
-                  {project && <p className="text-sm text-neutral-600">Discussing a build similar to <strong>{project.name}</strong>.</p>}
-                  {submitError && <p role="alert" className="p-4 border border-black rounded-lg text-sm">{submitError} <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="underline font-semibold">Send your message on WhatsApp</a></p>}
+                <form onSubmit={handleSubmit} className="space-y-6">
                   
                   {/* Name */}
                   <div className="space-y-1.5">
@@ -198,7 +158,7 @@ export const ContactPage = () => {
                       Your Name <span className="text-[#B3261E]">*</span>
                     </label>
                     <input
-                      id={`${formId}-name`} maxLength={120} required
+                      id={`${formId}-name`}
                       type="text"
                       placeholder="e.g. Ramesh Kumar"
                       value={formData.name}
@@ -215,7 +175,7 @@ export const ContactPage = () => {
                         Email Address <span className="text-[#171717]">*</span>
                       </label>
                       <input
-                        id={`${formId}-email`} maxLength={254} required
+                        id={`${formId}-email`}
                         type="email"
                         placeholder="you@company.com"
                         value={formData.email}
@@ -230,7 +190,7 @@ export const ContactPage = () => {
                         Phone Number <span className="text-[#646464] font-normal">(Optional)</span>
                       </label>
                       <input
-                        id={`${formId}-phone`} maxLength={40}
+                        id={`${formId}-phone`}
                         type="tel"
                         placeholder="+91 98765 43210"
                         value={formData.phone}
@@ -260,10 +220,10 @@ export const ContactPage = () => {
                   {/* Project Description */}
                   <div className="space-y-1.5">
                     <label htmlFor={`${formId}-description`} className="text-xs font-semibold text-[#171717] block">
-                      What would you like help with? <span className="text-[#171717]">*</span>
+                      Project Description <span className="text-[#171717]">*</span>
                     </label>
                     <textarea
-                      id={`${formId}-description`} maxLength={5000} required
+                      id={`${formId}-description`}
                       rows={4}
                       placeholder="Tell us what problem your business is facing, what kind of software you need, or what workflows you want to automate..."
                       value={formData.projectDescription}
@@ -298,10 +258,10 @@ export const ContactPage = () => {
                       disabled={isSubmitting}
                       className="w-full py-2.5 px-6 rounded-md text-xs font-semibold text-white bg-[#171717] hover:bg-[#2c2c2c] transition-colors disabled:opacity-50 cursor-pointer"
                     >
-                      {isSubmitting ? "Sending..." : "Send Your Enquiry"}
+                      {isSubmitting ? "Submitting Brief..." : "Submit Project Brief"}
                     </button>
                     <p className="text-[11px] text-[#646464] text-center mt-2.5">
-                      We use your details to respond to this enquiry. <Link to="/privacy" className="underline">Privacy policy</Link>
+                      Direct engineering review. No automated marketing spam.
                     </p>
                   </div>
 
@@ -336,7 +296,7 @@ export const ContactPage = () => {
                     <div>
                       <span className="text-[10px] uppercase font-semibold text-[#646464] block">WhatsApp Message</span>
                       <a
-                        href={whatsappUrl}
+                        href="https://wa.me/918903467843"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-semibold text-[#171717] hover:underline"
@@ -362,7 +322,7 @@ export const ContactPage = () => {
                     <Clock className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
                     <div>
                       <span className="text-[10px] uppercase font-semibold text-[#646464] block">Response Turnaround</span>
-                      <span className="text-[#171717] font-medium">We aim to reply within one business day</span>
+                      <span className="text-[#171717] font-medium">Within 24 business hours</span>
                     </div>
                   </div>
                 </div>
