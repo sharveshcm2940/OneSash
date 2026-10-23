@@ -1,6 +1,6 @@
 # OneSash — current website
 
-The production entry is `dist/index.html`. Earlier React/Vite files remain for reference and are not the active application.
+The production entry is `dist/index.html`. This branch contains only the current website and its supporting configuration, scripts, assets, and tests.
 
 ```sh
 npm ci
