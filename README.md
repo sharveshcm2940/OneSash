@@ -77,3 +77,9 @@ A direct submission backend remains unconfigured. The site now provides the veri
 - Removed full-container masks from Expertise entrances. Interrupting a demo now kills its tweens and restores visible opacity, clipping, and transform defaults, preventing the empty preview shown in the supplied screenshot.
 - Why OneSash has four distinct entry/replay timelines with explicit replay buttons, visible content throughout, offscreen pausing, cleanup, and reduced-motion alternatives.
 - Checked desktop and 375px-content mobile layouts, contact link destinations, interrupted preview visibility, replay execution, and site console logs. JavaScript checks and the static production validator pass.
+
+
+## Interactive selected-project previews
+The six selected projects each include a domain-specific browser-local workspace, a summary, and an expanded dialog. These interfaces are representative previews with sample records, not verified captures of client production applications. No preview submits client data, processes payments, or calls an AI service. Jyothi's budget review explicitly uses a fixed threshold. Changes last only for the current page session and each workspace can be reset.
+
+QA covers matter search/creation, opportunity advancement, menu/cart/order completion, procurement approval, rent payment, request creation/resolution, and dialog state preservation.
