@@ -3,7 +3,50 @@ window.ONESASH_CONFIG = {
   "contactEndpoint": "",
   "email": "onesash.contact@gmail.com",
   "socialLinks": [],
-  "projects": [],
+  "projects": [
+  {
+    "title": "Lawthrone-NRJM",
+    "category": "Law Firm CRM",
+    "overview": "Lawthrone-NRJM \u2014 Law Firm CRM.",
+    "services": [],
+    "technologies": []
+  },
+  {
+    "title": "ALS-INFONET",
+    "category": "CRM",
+    "overview": "ALS-INFONET \u2014 CRM.",
+    "services": [],
+    "technologies": []
+  },
+  {
+    "title": "MayoBistro",
+    "category": "QR Food Ordering System",
+    "overview": "MayoBistro \u2014 QR Food Ordering System.",
+    "services": [],
+    "technologies": []
+  },
+  {
+    "title": "Jyothi Builders",
+    "category": "AI Based ERP System",
+    "overview": "Jyothi Builders \u2014 AI Based ERP System.",
+    "services": [],
+    "technologies": []
+  },
+  {
+    "title": "Venkateswara",
+    "category": "PG Management System",
+    "overview": "Venkateswara \u2014 PG Management System.",
+    "services": [],
+    "technologies": []
+  },
+  {
+    "title": "Krishna Apartments",
+    "category": "Apartment Management System",
+    "overview": "Krishna Apartments \u2014 Apartment Management System.",
+    "services": [],
+    "technologies": []
+  }
+],
   "technologies": [],
   "services": [
     {
